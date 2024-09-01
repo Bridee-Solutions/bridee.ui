@@ -1,15 +1,17 @@
 import './App.css'
 import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
-import PaginaInicial from './pages/PaginaInicial/PaginaInicial';
+import LandingPage from './pages/LandingPage/LandingPage';
 import Login from './pages/Login/Login';
+import TelaInicial from './pages/TelaInicial/TelaInicial';
 
 function App() {
 
   return (
    <Router>
     <Routes>
-      <Route path='/' element={<PaginaInicial/>}/>
+      <Route path='/' element={<LandingPage/>}/>
       <Route path='/login' element={<Login/>}/>
+      <Route path='/tela-inicial' element={<TelaInicial/>}></Route>
     </Routes>
    </Router>
   )
