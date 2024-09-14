@@ -103,7 +103,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    height: 70%;
+    height: 75%;
     width: 50%;
 }
 
@@ -118,6 +118,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    width: 100%;
 }
 
 .login_content_button a{
@@ -129,11 +130,11 @@
     background-color: #c6524e;
     color: white;
     border: none;
-    padding: 10% 80%;
+    padding: 3% 30%;
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
-    margin: 10% 0;
+    margin: 2% 0;
 }
 
 .login_content_footer{
@@ -152,4 +153,7 @@
     text-decoration: none;
 }
 
-.google_button{}
+.google_button{
+    margin-top: 2%;
+    width: 72%;
+}

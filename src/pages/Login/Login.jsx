@@ -2,6 +2,7 @@ import styles from "./Login.module.css"
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CiMail, CiLock } from "react-icons/ci";
+import { GoogleLogin } from "@react-oauth/google";
 
 const Login = () =>{
 
@@ -40,7 +41,9 @@ const Login = () =>{
                             <Link to={`/recuperar-senha`}>Esqueceu a senha?</Link>
                             <button>Entrar</button>
                             <span>ou</span>
-                            <div className={styles.google_button}>Entre com o google</div>
+                            <div className={styles.google_button}>
+                                <GoogleLogin />
+                            </div>
                         </div>
                     </div>
                     <div className={styles.login_content_footer}>
