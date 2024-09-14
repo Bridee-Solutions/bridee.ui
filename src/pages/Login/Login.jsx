@@ -35,12 +35,18 @@ const Login = () =>{
                                 <CiLock className={styles.login_inputs_icon}/>
                                 <input type="password" />
                             </div>
-                                
+                        </div>
+                        <div className={styles.login_content_button}>
+                            <Link to={`/recuperar-senha`}>Esqueceu a senha?</Link>
+                            <button>Entrar</button>
+                            <span>ou</span>
+                            <div className={styles.google_button}>Entre com o google</div>
                         </div>
                     </div>
-                </div>
-                <div>
-
+                    <div className={styles.login_content_footer}>
+                        <p>Você é um assessor?</p> 
+                        <Link to={"/cadastrar-assessor"}>Clique aqui.</Link>    
+                    </div>
                 </div>
             </div>
         </div>
