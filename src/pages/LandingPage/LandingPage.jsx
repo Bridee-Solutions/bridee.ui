@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './LandingPage.module.css'
 import Header from '../../componentes/Header';
-// import SearchBar from './SearchBar';
-// import Features from './Features';
-// import VendorCategories from './VendorCategories';
+import SearchBar from '../../componentes/SearchBar';
+import Features from '../../componentes/Features';
+import Categories from '../../componentes/Categories';
 // import WeddingLocations from './WeddingLocations';
 // import WeddingDresses from './WeddingDresses';
 // import UserReviews from './UserReviews';
@@ -16,18 +16,18 @@ function LandingPage() {
   return (
     <div className={styles.landing_page}>
       <Header />
-      {/* <main>
-        <SearchBar />
-        <Features />
-        <VendorCategories />
-        <WeddingLocations />
-        <WeddingDresses />
-        <UserReviews />
-        <WeddingPlannerCTA />
-        <FAQ />
-        <Newsletter />
-      </main> */}
-      {/* <Footer /> */}
+      { <main>
+        <SearchBar /> 
+         <Features />
+        <Categories />
+        {/* <WeddingLocations />
+         <WeddingDresses />
+         <UserReviews />
+         <WeddingPlannerCTA />
+         <FAQ />
+         <Newsletter /> */}
+      </main> }
+      {/* <Footer />  */}
     
     </div>
   );
