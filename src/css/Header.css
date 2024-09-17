@@ -1,0 +1,16 @@
+.header {
+    width: 100%;
+  }
+  .header-image {
+    aspect-ratio: 2.1;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    border-radius: 0 0 0 0;
+    max-width: 1922px;
+  }
+  @media (max-width: 991px) {
+    .header-image {
+      max-width: 100%;
+    }
+  }

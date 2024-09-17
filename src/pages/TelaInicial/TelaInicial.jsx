@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { pexelsRequest } from "../../../config/axios/pexels";
+import { pexelsRequest } from "../../config/axios/pexels";
 
 
 const TelaInicial = () => {
