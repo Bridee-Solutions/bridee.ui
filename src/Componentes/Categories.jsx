@@ -14,17 +14,17 @@ const categories = [
 function Categories() {
   return (
     <section className={styles.categories}>
-      <h2 className="section-title">Descubra fornecedores de casamento por categoria</h2>
-      <div className="category-grid">
+      <h2 className={styles.section_title}>Descubra fornecedores de casamento por categoria</h2>
+      <div className="category_grid">
         {categories.map((category, index) => (
           <Link to={category.link}>
-            <div key={index} className="category-item">
-                <img src={category.imageSrc} alt={category.name} className="category-icon" />
-                <p className="category-name">{category.name}</p>
+            <div key={index} className="category_item">
+                <img src={category.imageSrc} alt={category.name} className="category_icon" />
+                <p className="category_name">{category.name}</p>
             </div>
           </Link>
         ))}
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1dbacf3-0da3-4e38-9867-785164740e25?placeholderIfAbsent=true&apiKey=ba428365f10b481897249f94cd5b5af7" alt="" className="decorative-image" />
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1dbacf3-0da3-4e38-9867-785164740e25?placeholderIfAbsent=true&apiKey=ba428365f10b481897249f94cd5b5af7" alt="" className="decorative_image" />
       </div>
      
     </section>
