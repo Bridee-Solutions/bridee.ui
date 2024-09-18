@@ -1,0 +1,92 @@
+.wedding_dresses {
+    background-color: #fbf9f7;
+    z-index: 10;
+    display: flex;
+    margin-top: 57px;
+    width: 100%;
+    max-width: 1924px;
+    padding: 39px 0 39px 80px;
+  }
+  .content_wrapper {
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+  }
+  .text_content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: Playfair Display, sans-serif;
+    font-weight: 600;
+    margin: auto 0;
+  }
+  .section_title {
+    color: #393939;
+    font-size: 48px;
+  }
+  .section_description {
+    color: #000;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0.54px;
+    margin-top: 56px;
+  }
+  .search_button {
+    border-radius: 10px;
+    background-color: #fbf9f7;
+    display: flex;
+    margin-top: 84px;
+    gap: 20px;
+    color: #5c5656;
+    padding: 17px 30px;
+    font: 23px Montserrat, sans-serif;
+    border: 1px solid #9b9b9b;
+    cursor: pointer;
+  }
+  .arrow_icon {
+    width: 34px;
+    height: auto;
+  }
+  .image_gallery {
+    display: flex;
+    gap: 20px;
+  }
+  .main_image {
+    aspect-ratio: 0.72;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 22px;
+  }
+  .side_images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .side_image {
+    aspect-ratio: 0.68;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 22px;
+  }
+  @media (max-width: 991px) {
+    .wedding_dresses {
+      padding: 39px 20px;
+      margin-top: 40px;
+    }
+    .content_wrapper {
+      gap: 40px;
+    }
+    .text_content {
+      width: 100%;
+    }
+    .section_title {
+      font-size: 40px;
+    }
+    .search_button {
+      margin-top: 40px;
+    }
+    .image_gallery {
+      width: 100%;
+    }
+  }
