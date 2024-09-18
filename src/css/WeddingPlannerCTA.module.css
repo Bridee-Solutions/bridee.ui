@@ -1,0 +1,59 @@
+.wedding_planner_cta {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 802px;
+    width: 100%;
+    align-items: start;
+    color: #fbf9f7;
+    justify-content: center;
+    padding: 100px 80px;
+    background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/5e6c8b2ff05c54ebadf907b6baf43f41b3c96ca1eb70fea0489a324b476a82cd?placeholderIfAbsent=true&apiKey=ba428365f10b481897249f94cd5b5af7');
+    background-size: cover;
+    background-position: center;
+  }
+  .content_wrapper {
+    max-width: 877px;
+  }
+  .section_title {
+    font: 700 68px Product Sans, sans-serif;
+    margin-bottom: 35px;
+  }
+  .section_description {
+    font: 500 26px Montserrat, sans-serif;
+    line-height: 33px;
+    letter-spacing: 1.3px;
+    margin-bottom: 35px;
+  }
+  .cta_button {
+    border-radius: 7px;
+    background-color: #dd7b78;
+    color: #fbf9f7;
+    font: 500 24px Montserrat, sans-serif;
+    padding: 17px 37px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 35px;
+  }
+  .login_prompt {
+    font: 500 24px Montserrat, sans-serif;
+  }
+  .login_link {
+    color: #fbf9f7;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  @media (max-width: 991px) {
+    .wedding_planner_cta {
+      padding: 60px 20px;
+    }
+    .section_title {
+      font-size: 40px;
+    }
+    .section_description {
+      font-size: 20px;
+    }
+    .cta_button {
+      padding: 15px 30px;
+    }
+  }

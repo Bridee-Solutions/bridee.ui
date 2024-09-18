@@ -4,9 +4,9 @@ import Header from '../../componentes/Header';
 import SearchBar from '../../componentes/SearchBar';
 import Features from '../../componentes/Features';
 import Categories from '../../componentes/Categories';
-// import WeddingLocations from './WeddingLocations';
-// import WeddingDresses from './WeddingDresses';
-// import UserReviews from './UserReviews';
+import WeddingLocations from '../../componentes/WeddingLocations';
+import WeddingDresses from '../../Componentes/WeddingDresses';
+import UserReviews from '../../Componentes/UserReviews';
 // import WeddingPlannerCTA from './WeddingPlannerCTA';
 // import FAQ from './FAQ';
 // import Newsletter from './Newsletter';
@@ -20,12 +20,12 @@ function LandingPage() {
         <SearchBar /> 
          <Features />
         <Categories />
-        {/* <WeddingLocations />
+        <WeddingLocations />
          <WeddingDresses />
          <UserReviews />
-         <WeddingPlannerCTA />
-         <FAQ />
-         <Newsletter /> */}
+        {/* //  <WeddingPlannerCTA />
+        //  <FAQ />
+        //  <Newsletter /> */} 
       </main> }
       {/* <Footer />  */}
     
