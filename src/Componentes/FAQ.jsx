@@ -1,30 +1,56 @@
-import React from 'react';
-import styles from '../css/FAQ.module.css'
+import PropTypes from "prop-types";
+import styles from "../css/FAQ.module.css";
 
-const faqItems = [
-  "O que é o bridee?",
-  "Quem pode se cadastrar?",
-  "Que vantagens o bridee me oferece?",
-  "Como posso me cadastrar como assessor na plataforma?"
-];
-
-function FAQ() {
+const FAQ = ({ className = "" }) => {
   return (
-    <section className={styles.faq}>
-      <div className={styles.faq_content}>
-        <h2 className={styles.section_title}>Perguntas frequentes</h2>
-        <ul className={styles.faq_list}>
-          {faqItems.map((item, index) => (
-            <li key={index} className={styles.faq_item}>
-              {item}
-              <img src={`http://b.io/ext_${37 + index}-`} alt="" className={styles.faq_icon} />
-            </li>
-          ))}
-        </ul>
+    <section className={`${styles.faq} ${className}`}>
+      <div className={styles.tituloFaq}>
+        <h1 className={styles.perguntasFrequentes}>Perguntas Frequentes</h1>
       </div>
-      
+      <div className={styles.containerPerguntas}>
+        <div className={styles.pergunta}>
+          <div className={styles.conteudoPergunta}>
+            <div className={styles.textoPergunta}>O que é o Bridee?</div>
+            <div className={styles.iconePergunta}>
+              <img className={styles.iconeSeta} alt="" src="/seta@2x.png" />
+            </div>
+          </div>
+        </div>
+        <div className={styles.pergunta}>
+          <div className={styles.conteudoPergunta}>
+            <div className={styles.textoPergunta}>Quem pode se cadastrar?</div>
+            <div className={styles.iconePergunta}>
+              <img className={styles.iconeSeta} alt="" src="/seta@2x.png" />
+            </div>
+          </div>
+        </div>
+        <div className={styles.pergunta}>
+          <div className={styles.conteudoPergunta}>
+            <div className={styles.textoPergunta}>
+              Que vantagens o Bridee oferece?
+            </div>
+            <div className={styles.iconePergunta}>
+              <img className={styles.iconeSeta} alt="" src="/seta@2x.png" />
+            </div>
+          </div>
+        </div>
+        <div className={styles.pergunta}>
+          <div className={styles.conteudoPergunta}>
+            <div className={styles.textoPergunta}>
+              Como posso me cadastrar como assessor?
+            </div>
+            <div className={styles.iconePergunta}>
+              <img className={styles.iconeSeta} alt="" src="/seta@2x.png" />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
-}
+};
+
+FAQ.propTypes = {
+  className: PropTypes.string,
+};
 
 export default FAQ;

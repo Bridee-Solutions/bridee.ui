@@ -1,15 +1,155 @@
+.span {
+  color: var(--color-lightcoral-100);
+}
+.bridee {
+  margin: 0;
+  height: 73.8px;
+  width: 278.5px;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.bridee-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-38xl);
+}
+.o-match-perfeito {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  font-family: var(--font-montserrat);
+  color: var(--color-darkslategray-900);
+}
+.brand-logo {
+  width: 418.4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-10xs-7);
+  max-width: 100%;
+}
+.login {
+  text-decoration: none;
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+}
+.login-button {
+  width: 89.1px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-4xl-4) 0 0;
+  box-sizing: border-box;
+}
+.cadastre-child {
+  height: 71.4px;
+  width: 285.3px;
+  position: relative;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-lightcoral-100);
+  display: none;
+}
+.cadastre-se-agora {
+  position: relative;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  font-family: var(--font-montserrat);
+  color: var(--color-snow-100);
+  text-align: left;
+  z-index: 1;
+}
+.auth-buttons,
+.cadastre {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.cadastre {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-4xl-1) var(--padding-3xl) var(--padding-5xl-1)
+    var(--padding-15xl);
+  background-color: var(--color-lightcoral-100);
+  border-radius: var(--br-10xs);
+}
+.cadastre:hover {
+  background-color: var(--color-indianred-200);
+}
+.auth-buttons {
+  gap: var(--gap-4xs);
+}
+.header,
+.header-left,
+.header-right {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.header-right {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-base-5) 0 0;
+  box-sizing: border-box;
+  font-size: var(--font-size-xl);
+  color: var(--color-dimgray-100);
+  font-family: var(--font-montserrat);
+}
+.header,
+.header-left {
+  flex-direction: row;
+}
+.header-left {
+  width: 1074.9px;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-66xl);
+  color: var(--color-darkslategray-300);
+  font-family: var(--font-qlassy);
+}
 .header {
-    width: 100%;
+  align-self: stretch;
+  justify-content: flex-end;
+  padding: 0 var(--padding-44xl) var(--padding-7xl);
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1350px) {
+  .header {
+    padding-left: var(--padding-12xl);
+    padding-right: var(--padding-12xl);
+    box-sizing: border-box;
   }
-  .header_image {
-    object-fit: contain;
-    object-position: center;
-    width: 100%;
-    border-radius: 0 0 0 0;
-    max-width: 100px;
+}
+@media screen and (max-width: 900px) {
+  .o-match-perfeito {
+    display: none;
   }
-  @media (max-width: 100px) {
-    .header-image {
-      max-width: 100%;
-    }
+  .brand-logo {
+    width: -1px;
   }
+}
+@media screen and (max-width: 450px) {
+  .bridee-wrapper {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .auth-buttons {
+    display: none;
+  }
+}

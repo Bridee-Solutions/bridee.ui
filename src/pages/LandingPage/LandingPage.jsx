@@ -1,15 +1,13 @@
 import React from 'react';
 import styles from './LandingPage.module.css'
 import Header from '../../componentes/Header';
-import SearchBar from '../../componentes/SearchBar';
+import SearchBarContainer from '../../Componentes/SearchBarContainer';
 import Features from '../../componentes/Features';
-import Categories from '../../componentes/Categories';
-import WeddingLocations from '../../componentes/WeddingLocations';
-import WeddingDresses from '../../Componentes/WeddingDresses';
-import UserReviews from '../../Componentes/UserReviews';
-import WeddingPlannerCTA from '../../Componentes/WeddingPlannerCTA';
+import ContainerVestido from '../../Componentes/ContainerVestido';
+import Venue from '../../Componentes/Venue';
+import NossosClientes from '../../Componentes/NossosClientes';
+import UltimaSessao from '../../Componentes/UltimaSessao';
 import FAQ from '../../Componentes/FAQ';
-import Newsletter from '../../Componentes/NewsLetter';
 // import Footer from './Footer';
 
 function LandingPage() {
@@ -17,13 +15,13 @@ function LandingPage() {
     <div className={styles.landing_page}>
       <Header />
       { <main>
-        <SearchBar /> 
+        <SearchBarContainer /> 
          <Features />
-        <Categories />
-        <WeddingLocations />
-         <WeddingDresses />
+        <ContainerVestido />
+        <Venue />
+         <UltimaSessao />
          <UserReviews />
-        <WeddingPlannerCTA />
+        <NossosClientes/>
          <FAQ />
         <Newsletter /> 
       </main> }

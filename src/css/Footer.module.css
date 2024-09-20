@@ -1,0 +1,14 @@
+.footer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs) var(--padding-10xl) 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-38xl);
+  color: var(--color-gray-400);
+  font-family: var(--font-qlassy);
+}

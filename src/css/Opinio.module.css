@@ -1,0 +1,152 @@
+.opinio-3-child {
+  width: 481.2px;
+  height: 583px;
+  position: relative;
+  border-radius: var(--br-31xl) var(--br-81xl) var(--br-31xl) var(--br-81xl);
+  background-color: var(--color-lightpink-100);
+  display: none;
+  max-width: 100%;
+  z-index: 0;
+}
+.lorem-ipsum-dolor {
+  width: 358px;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+}
+.bxsquote-left-icon {
+  width: 85px;
+  height: 87px;
+  position: absolute;
+  margin: 0 !important;
+  top: 54px;
+  left: 39px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.bxsquote-left-icon1 {
+  width: 85.1px;
+  height: 87.1px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+  z-index: 1;
+}
+.image-icon4 {
+  height: 104px;
+  width: 104px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.isabela-cambui,
+.noiva1 {
+  align-self: stretch;
+  position: relative;
+  z-index: 1;
+}
+.isabela-cambui {
+  font-weight: 600;
+}
+.noiva1 {
+  font-size: var(--font-size-base);
+}
+.client-name-containers,
+.client-name-inner-containers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.client-name-inner-containers {
+  align-self: stretch;
+}
+.client-name-containers {
+  flex: 1;
+  padding: var(--padding-sm) 0 0;
+}
+.client-info-containers,
+.client-info-inner-containers {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.client-info-inner-containers {
+  width: 313px;
+  gap: var(--gap-mid);
+  flex-shrink: 0;
+}
+.client-info-containers {
+  align-self: stretch;
+}
+.quote-icon-containers,
+.quote-icon-inner-containers {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.quote-icon-inner-containers {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--gap-11xs-9);
+}
+.quote-icon-containers {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 0 0 var(--padding-mid);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-xl);
+  color: var(--color-darkslategray-600);
+  font-family: var(--font-inter);
+}
+.opinio-3-item {
+  width: 126px;
+  height: 24px;
+  position: absolute;
+  margin: 0 !important;
+  right: 154.2px;
+  bottom: 72px;
+  z-index: 2;
+}
+.opinio-3 {
+  width: 481.2px;
+  border-radius: var(--br-31xl) var(--br-81xl) var(--br-31xl) var(--br-81xl);
+  background-color: var(--color-lightpink-100);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-122xl) var(--padding-11xl) var(--padding-35xl)
+    var(--padding-45xl);
+  box-sizing: border-box;
+  position: relative;
+  gap: var(--gap-smi);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-6xl);
+  color: var(--color-darkslategray-300);
+  font-family: var(--font-questrial);
+}
+@media screen and (max-width: 900px) {
+  .opinio-3 {
+    padding-left: var(--padding-13xl);
+    padding-top: var(--padding-73xl);
+    padding-bottom: var(--padding-16xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .lorem-ipsum-dolor {
+    font-size: var(--font-size-xl);
+  }
+  .isabela-cambui {
+    font-size: var(--font-size-base);
+  }
+}

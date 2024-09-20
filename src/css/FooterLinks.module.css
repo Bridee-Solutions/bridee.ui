@@ -1,0 +1,360 @@
+.footer1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-snow-200);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.assessores,
+.explorar {
+  position: relative;
+  z-index: 1;
+}
+.explorar {
+  align-self: stretch;
+  font-size: var(--font-size-13xl);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+}
+.assessores {
+  flex: 1;
+}
+.assessors-link {
+  width: 181.6px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-12xs) 0 var(--padding-11xs);
+  box-sizing: border-box;
+}
+.ferramentas-de-planejamento {
+  height: 47px;
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.explore-links,
+.tools-link {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.tools-link {
+  width: 306px;
+  flex-direction: row;
+  padding: 0 var(--padding-12xs) 0 var(--padding-11xs);
+  box-sizing: border-box;
+}
+.explore-links {
+  flex-direction: column;
+  gap: var(--gap-3xl);
+  min-width: 320px;
+}
+.sobre {
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+}
+.about-link,
+.contact-link,
+.team-link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.about-link {
+  align-self: stretch;
+  padding: 0 var(--padding-3xl) 0 var(--padding-12xs);
+  max-width: 100%;
+  font-size: var(--font-size-13xl);
+  font-family: var(--font-poppins);
+}
+.contact-link,
+.team-link {
+  width: 179.6px;
+  padding: 0 var(--padding-12xs) var(--padding-9xs-4);
+}
+.contact-link {
+  width: 197.6px;
+  padding: 0 var(--padding-xl) var(--padding-9xs-7) 0;
+}
+.perguntas-frequentes2 {
+  align-self: stretch;
+  height: 46px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.about-column,
+.explore-column {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.about-column {
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 344px;
+}
+.explore-column {
+  position: absolute;
+  top: 58px;
+  left: 97px;
+  width: 757px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.span1 {
+  color: var(--color-rosybrown);
+}
+.bridee1 {
+  margin: 0;
+  height: 130px;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.bridee-info {
+  width: 325px;
+  height: 92px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.o-match-perfeito1 {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  font-family: var(--font-montserrat);
+  color: var(--color-darkslategray-700);
+  flex-shrink: 0;
+  z-index: 2;
+}
+.copyright,
+.footer-links-child {
+  position: absolute;
+  box-sizing: border-box;
+}
+.copyright {
+  top: 27px;
+  left: 1366px;
+  width: 455px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-3xs);
+  max-width: 100%;
+  font-size: var(--font-size-61xl);
+  color: var(--color-darkslategray-400);
+  font-family: var(--font-qlassy);
+}
+.footer-links-child {
+  top: 40px;
+  left: 1320px;
+  border-right: 1px solid var(--color-indianred-300);
+  width: 1px;
+  height: 262px;
+  z-index: 1;
+}
+.fluentcall-24-filled-icon {
+  position: absolute;
+  top: 172.4px;
+  left: 842px;
+  width: 30px;
+  height: 28.7px;
+  overflow: hidden;
+  object-fit: contain;
+  z-index: 1;
+}
+.contact-title {
+  width: 330px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-9xs) 0 var(--padding-8xs);
+  box-sizing: border-box;
+  max-width: 100%;
+  font-size: var(--font-size-13xl);
+  font-family: var(--font-poppins);
+}
+.icon-park-solidlocal-two {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: cover;
+  z-index: 1;
+}
+.location-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-12xs) 0 0;
+}
+.rua-haddock-lobo {
+  margin: 0;
+}
+.rua-haddock-lobo-container {
+  align-self: stretch;
+  position: relative;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.address,
+.address-email,
+.rua-haddock-lobo-595-so-pa-parent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.rua-haddock-lobo-595-so-pa-parent {
+  flex: 1;
+  flex-direction: column;
+  gap: var(--gap-3xl-1);
+  min-width: 285px;
+}
+.address,
+.address-email {
+  flex-direction: row;
+}
+.address {
+  flex: 1;
+  gap: var(--gap-smi-1);
+}
+.address-email {
+  align-self: stretch;
+  padding: 0 0 0 var(--padding-8xs);
+  box-sizing: border-box;
+}
+.material-symbols-lightstacked-icon {
+  width: 26px;
+  height: 27px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.e-mail-contatobrideecom {
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  min-width: 196px;
+  max-width: 100%;
+  z-index: 1;
+}
+.contact-info,
+.email {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.email {
+  align-self: stretch;
+  flex-direction: row;
+  gap: var(--gap-sm-1);
+}
+.contact-info {
+  position: absolute;
+  top: 56px;
+  left: 841px;
+  width: 478.6px;
+  flex-direction: column;
+  gap: var(--gap-lg-6);
+  font-size: var(--font-size-xl);
+}
+.footer-links {
+  margin-left: -1px;
+  align-self: stretch;
+  height: 358px;
+  position: relative;
+  background-color: var(--color-snow-200);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-3xl);
+  color: var(--color-dimgray-300);
+  font-family: var(--font-product-sans);
+}
+@media screen and (max-width: 900px) {
+  .explorar {
+    font-size: var(--font-size-7xl);
+  }
+  .explore-links {
+    flex: 1;
+  }
+  .sobre {
+    font-size: var(--font-size-7xl);
+  }
+  .about-column {
+    flex: 1;
+  }
+  .explore-column {
+    flex-wrap: wrap;
+  }
+  .bridee1 {
+    font-size: var(--font-size-21xl);
+  }
+  .footer-links {
+    height: auto;
+    min-height: 358;
+  }
+}
+@media screen and (max-width: 450px) {
+  .explorar {
+    font-size: var(--font-size-lgi);
+  }
+  .assessores,
+  .ferramentas-de-planejamento {
+    font-size: var(--font-size-lg);
+  }
+  .sobre {
+    font-size: var(--font-size-lgi);
+  }
+  .perguntas-frequentes2 {
+    font-size: var(--font-size-lg);
+  }
+  .about-column {
+    min-width: 100%;
+  }
+  .bridee1 {
+    font-size: var(--font-size-5xl);
+  }
+  .rua-haddock-lobo-container {
+    font-size: var(--font-size-base);
+  }
+  .address {
+    flex-wrap: wrap;
+  }
+  .e-mail-contatobrideecom {
+    font-size: var(--font-size-base);
+  }
+  .email {
+    flex-wrap: wrap;
+  }
+}

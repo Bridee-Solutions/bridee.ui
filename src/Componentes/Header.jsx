@@ -1,14 +1,38 @@
-import React from 'react';
-import styles from '../css/Header.module.css'
+import { useCallback } from "react";
+import PropTypes from "prop-types";
+import styles from "../css/Header.module.css";
 
+const Header = ({ className = "" }) => {
+  const onLoginClick = useCallback(() => {
+    //  login
+  }, []);
 
-function Header() {
+  const onCadastroClick = useCallback(() => {
+    //  cadastro
+  }, []);
+
   return (
-    <header className = {styles.Header}>
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9600642490050d671517648081bc097cfb811321c5077f7d767705bc28cd6a8e?placeholderIfAbsent=true&apiKey=ba428365f10b481897249f94cd5b5af7" alt="Bridee header image" className={"styles.header-image"} />
-      
+    <header className={`${styles.header} ${className}`}>
+      <div className={styles.logo}>
+        <h1 className={styles.bridee}>
+          bridee<span className={styles.ponto}>.</span>
+        </h1>
+        <p className={styles.slogan}>O match perfeito para o dia dos seus sonhos</p>
+      </div>
+      <div className={styles.autenticacao}>
+        <button className={styles.login} onClick={onLoginClick}>
+          Login
+        </button>
+        <button className={styles.cadastro} onClick={onCadastroClick}>
+          Cadastre-se
+        </button>
+      </div>
     </header>
   );
-}
+};
+
+Header.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Header;

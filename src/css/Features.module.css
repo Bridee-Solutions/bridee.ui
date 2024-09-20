@@ -1,69 +1,236 @@
+.frame-item {
+  width: 467.2px;
+  height: 290px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: var(--br-xl);
+  background-color: var(--color-lightcoral-100);
+  border: 1px solid var(--color-darkgray-100);
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.comece-agora,
+.planeje-seu-casamento {
+  width: 394.1px;
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+}
+.comece-agora {
+  width: 321.1px;
+  flex-shrink: 0;
+  max-width: 185%;
+  cursor: pointer;
+}
+.comece-agora-wrapper {
+  width: 173.7px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-9xs-1) 0 0;
+  box-sizing: border-box;
+}
+.weuiarrow-filled-icon {
+  height: 35px;
+  width: 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.frame-parent,
+.planning-button,
+.planning-feature,
+.rectangle-group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frame-parent {
+  flex: 1;
+  flex-direction: row;
+}
+.planning-button,
+.planning-feature,
+.rectangle-group {
+  box-sizing: border-box;
+}
+.planning-button {
+  width: 328.5px;
+  flex-direction: row;
+  padding: 0 var(--padding-9xs);
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-montserrat);
+}
+.planning-feature,
+.rectangle-group {
+  flex-direction: column;
+}
+.rectangle-group {
+  align-self: stretch;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: var(--br-xl);
+  background-color: var(--color-lightcoral-100);
+  border: 1px solid var(--color-darkgray-100);
+  padding: var(--padding-16xl) var(--padding-xl) var(--padding-9xl)
+    var(--padding-19xl);
+  gap: var(--gap-57xl);
+}
+.planning-feature {
+  flex: 1;
+  padding: 0 var(--padding-7xs) 0 0;
+  min-width: 308px;
+  text-align: left;
+  font-size: var(--font-size-9xl);
+  color: var(--color-white);
+  font-family: var(--font-playfair-display);
+}
+.frame-inner {
+  width: 265.3px;
+  height: 290px;
+  position: relative;
+  border-radius: var(--br-xl);
+  background-color: var(--color-snow-100);
+  border: 1px solid var(--color-darkgray-100);
+  box-sizing: border-box;
+  display: none;
+}
+.loupe-1-1 {
+  height: 74.1px;
+  width: 75px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.calculator-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-49xl) 0 var(--padding-43xl);
+}
+.os-custos-do {
+  font-weight: 500;
+}
+.calcule-os-custos-container {
+  height: 106px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.cost-calculator,
+.rectangle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangle-container {
+  align-self: stretch;
+  border-radius: var(--br-xl);
+  background-color: var(--color-snow-100);
+  border: 1px solid var(--color-darkgray-100);
+  padding: var(--padding-43xl) var(--padding-7xl) var(--padding-9xs)
+    var(--padding-13xl);
+  gap: var(--gap-21xl-1);
+}
+.cost-calculator {
+  width: 272px;
+  padding: 0 var(--padding-7xs) 0 0;
+  box-sizing: border-box;
+}
+.lista-de-tarefas-1-icon {
+  height: 84.5px;
+  width: 86.5px;
+  position: relative;
+  object-fit: cover;
+  z-index: 1;
+}
+.lista-de-tarefas-1-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-41xl);
+}
+.gerencie-e {
+  font-weight: 600;
+}
+.gerencie-e-confirme-container {
+  height: 94px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.frame-div {
+  width: 265.3px;
+  border-radius: var(--br-xl);
+  background-color: var(--color-snow-100);
+  border: 1px solid var(--color-darkgray-100);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--padding-43xl) var(--padding-4xl) var(--padding-12xs);
+  gap: var(--gap-25xl-5);
+}
+.feature-list,
 .features {
-    display: flex;
-    margin-top: 156px;
-    width: 100%;
-    max-width: 1666px;
-    gap: 20px;
-    color: #404040;
-    font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 100%;
+}
+.feature-list {
+  width: 1666px;
+  gap: var(--gap-11xl-8);
+}
+.features {
+  align-self: stretch;
+  padding: 0 var(--padding-xl) var(--padding-108xl) var(--padding-4xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--font-size-lgi);
+  color: var(--color-darkslategray-300);
+  font-family: var(--font-montserrat);
+}
+@media screen and (max-width: 1725px) {
+  .feature-list {
     flex-wrap: wrap;
-    justify-content: space-between;
   }
-  .main_feature {
-    border-radius: 20px;
-    background-color: #dd7b78;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    font-weight: 600;
-    padding: 34px 39px;
-    border: 1px solid #aaa;
+}
+@media screen and (max-width: 900px) {
+  .feature-list {
+    gap: var(--gap-mini);
   }
-  .main_feature_title {
-    font: 28px Playfair Display, sans-serif;
-    margin-bottom: 92px;
+}
+@media screen and (max-width: 450px) {
+  .planeje-seu-casamento {
+    font-size: var(--font-size-3xl);
   }
-  .start_button {
-    align-self: flex-start;
-    display: flex;
-    gap: 13px;
-    font: 22px Montserrat, sans-serif;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+  .comece-agora {
+    font-size: var(--font-size-lg);
   }
-  .arrow_icon {
-    width: 20px;
-    height: auto;
+  .rectangle-group {
+    gap: var(--gap-19xl);
   }
-  .feature_card {
-    border-radius: 20px;
-    background-color: #fbf9f7;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 64px 37px 29px;
-    font: 19px Montserrat, sans-serif;
-    border: 1px solid #aaa;
+  .rectangle-container {
+    gap: var(--gap-xl);
   }
-  .feature_icon {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    width: 75px;
-    align-self: center;
+  .frame-div {
+    gap: var(--gap-3xl);
   }
-  .feature_description {
-    margin-top: 40px;
+  .features {
+    padding-bottom: var(--padding-64xl);
+    box-sizing: border-box;
   }
-  @media (max-width: 991px) {
-    .features {
-      max-width: 100%;
-      margin-top: 40px;
-    }
-    .main_feature, .feature_card {
-      padding: 20px;
-    }
-  }
+}

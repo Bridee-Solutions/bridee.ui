@@ -1,0 +1,294 @@
+.fundoo {
+  width: 1919px;
+  height: 447px;
+  position: relative;
+  background-color: var(--color-lightcoral-200);
+  display: none;
+  max-width: 100%;
+}
+.descubra-fornecedores-de {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+  z-index: 1;
+}
+.category-title {
+  width: 1411.6px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.fotos-vdeo {
+  position: relative;
+  font-weight: 600;
+  z-index: 1;
+}
+.camera-1-1 {
+  height: 140px;
+  width: 140px;
+  position: absolute;
+  margin: 0 !important;
+  top: -133.5px;
+  left: 19.6px;
+  object-fit: cover;
+  z-index: 2;
+}
+.photography,
+.photography-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.photography-content {
+  flex-direction: row;
+  position: relative;
+}
+.photography {
+  flex-direction: column;
+  padding: var(--padding-100xl-5) var(--padding-sm) 0 0;
+}
+.local,
+.local-1-icon {
+  position: relative;
+  flex-shrink: 0;
+}
+.local-1-icon {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  z-index: 2;
+}
+.local {
+  flex: 1;
+  font-weight: 600;
+  z-index: 1;
+}
+.category-icons,
+.category-names,
+.category-pairs {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.category-names {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 0 0 var(--padding-3xs);
+}
+.category-icons,
+.category-pairs {
+  flex-direction: column;
+}
+.category-icons {
+  align-self: stretch;
+  gap: var(--gap-sm-4);
+}
+.category-pairs {
+  width: 151.3px;
+  padding: var(--padding-4xs) var(--padding-12xl) 0 0;
+  box-sizing: border-box;
+}
+.msica,
+.muscav2-1-icon {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.muscav2-1-icon {
+  width: 115px;
+  height: 114px;
+  object-fit: cover;
+}
+.msica {
+  font-weight: 600;
+}
+.music,
+.music-content,
+.music-name {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.music-name {
+  flex-direction: row;
+  padding: 0 var(--padding-xs) 0 var(--padding-5xs);
+  margin-top: -1.5px;
+}
+.music,
+.music-content {
+  flex-direction: column;
+}
+.music {
+  width: 186.3px;
+  padding: var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+}
+.bolo-de-casamento-1-icon {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  z-index: 2;
+}
+.cake,
+.cake-content,
+.cake-name {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.cake-name {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-2xs) 0 var(--padding-3xl);
+  margin-top: -0.5px;
+}
+.cake,
+.cake-content {
+  flex-direction: column;
+}
+.cake-content {
+  width: 104px;
+  flex: 1;
+}
+.cake {
+  width: 159.9px;
+  padding: var(--padding-9xs) 0 0;
+  box-sizing: border-box;
+}
+.vestido-de-casamento-1-1 {
+  width: 109px;
+  height: 110px;
+  position: relative;
+  object-fit: cover;
+  z-index: 2;
+}
+.noiva {
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+  z-index: 1;
+}
+.noiva-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding-xl);
+}
+.category-pairs1,
+.vestido-de-casamento-1-1-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.vestido-de-casamento-1-1-parent {
+  align-self: stretch;
+  gap: var(--gap-12xs-5);
+}
+.category-pairs1 {
+  width: 128.3px;
+  padding: var(--padding-3xs) 0 0;
+  box-sizing: border-box;
+}
+.noivo {
+  width: 109.3px;
+  position: absolute;
+  margin: 0 !important;
+  right: -6.3px;
+  bottom: -17px;
+  font-weight: 600;
+  display: inline-block;
+  z-index: 1;
+}
+.camisa-1-icon {
+  height: 134px;
+  width: 129px;
+  position: relative;
+  object-fit: cover;
+  z-index: 2;
+}
+.category-grid,
+.fornecedores-por-categoria {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.category-grid {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--gap-23xl-7);
+  font-size: var(--font-size-7xl);
+  color: var(--color-darkslategray-200);
+  font-family: var(--font-montserrat);
+}
+.fornecedores-por-categoria {
+  margin-left: -1px;
+  margin-bottom: 68px;
+  align-self: stretch;
+  background-color: var(--color-lightcoral-200);
+  flex-direction: column;
+  padding: var(--padding-73xl) var(--padding-111xl) var(--padding-79xl-5);
+  box-sizing: border-box;
+  gap: var(--gap-25xl);
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-darkslategray-800);
+  font-family: var(--font-product-sans);
+}
+@media screen and (max-width: 1350px) {
+  .fornecedores-por-categoria {
+    padding-left: var(--padding-46xl);
+    padding-right: var(--padding-46xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 900px) {
+  .descubra-fornecedores-de {
+    font-size: var(--font-size-19xl);
+  }
+  .category-grid {
+    gap: var(--gap-2xl);
+  }
+  .fornecedores-por-categoria {
+    gap: var(--gap-3xl);
+    padding-left: var(--padding-13xl);
+    padding-right: var(--padding-13xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .descubra-fornecedores-de {
+    font-size: var(--font-size-10xl);
+  }
+  .fotos-vdeo,
+  .local,
+  .msica,
+  .noiva,
+  .noivo {
+    font-size: var(--font-size-2xl);
+  }
+  .fornecedores-por-categoria {
+    padding-top: var(--padding-41xl);
+    padding-bottom: var(--padding-45xl);
+    box-sizing: border-box;
+  }
+}

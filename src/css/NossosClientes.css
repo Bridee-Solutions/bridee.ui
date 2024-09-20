@@ -1,0 +1,99 @@
+.avaliaes-dos-nossos,
+.fundo {
+  position: relative;
+  max-width: 100%;
+}
+.fundo {
+  width: 1930px;
+  height: 966px;
+  background-color: var(--color-beige);
+  display: none;
+}
+.avaliaes-dos-nossos {
+  margin: 0;
+  flex: 1;
+  font-size: inherit;
+  font-weight: 500;
+  font-family: inherit;
+  display: inline-block;
+  z-index: 1;
+}
+.client-reviews-title,
+.depoimentos,
+.nossos-clientes {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.client-reviews-title {
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 var(--padding-125xl);
+  box-sizing: border-box;
+}
+.depoimentos,
+.nossos-clientes {
+  z-index: 1;
+}
+.depoimentos {
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--gap-xl);
+  font-size: var(--font-size-6xl);
+  color: var(--color-darkslategray-300);
+  font-family: var(--font-questrial);
+}
+.nossos-clientes {
+  margin-left: -6px;
+  margin-bottom: 120px;
+  background-color: var(--color-beige);
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-29xl) var(--padding-118xl) var(--padding-150xl);
+  box-sizing: border-box;
+  gap: var(--gap-73xl);
+  text-align: center;
+  font-size: var(--font-size-36xl);
+  color: var(--color-darkslategray-800);
+  font-family: var(--font-playfair-display);
+}
+@media screen and (max-width: 1725px) {
+  .depoimentos {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 1350px) {
+  .client-reviews-title {
+    padding-left: var(--padding-53xl);
+    padding-right: var(--padding-53xl);
+    box-sizing: border-box;
+  }
+  .nossos-clientes {
+    gap: var(--gap-27xl);
+    padding: var(--padding-12xl) var(--padding-49xl) var(--padding-91xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 900px) {
+  .avaliaes-dos-nossos {
+    font-size: var(--font-size-25xl);
+  }
+  .client-reviews-title {
+    padding-left: var(--padding-17xl);
+    padding-right: var(--padding-17xl);
+    box-sizing: border-box;
+  }
+  .nossos-clientes {
+    gap: var(--gap-4xl);
+    padding: var(--padding-xl) var(--padding-15xl) var(--padding-52xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .avaliaes-dos-nossos {
+    font-size: var(--font-size-14xl);
+  }
+}
