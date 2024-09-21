@@ -1,29 +1,29 @@
-.dress-shape-child,
-.dress-shape-item {
+.dressShapeChild,
+.dressShapeItem {
   position: absolute;
   height: 100%;
   top: 0;
   bottom: 0;
 }
-.dress-shape-child {
+.dressShapeChild {
   left: 285px;
   border-radius: var(--br-11xl) 0 0 0;
   background-color: var(--color-lightpink-200);
   width: 730.6px;
 }
-.dress-shape-item {
+.dressShapeItem {
   left: 0;
   max-height: 100%;
   width: 384.4px;
   z-index: 1;
 }
-.dress-shape {
+.dressShape {
   height: 578px;
   flex: 1;
   position: relative;
   max-width: 100%;
 }
-.detalhe-atrs {
+.detalheAtrs {
   width: 1015.6px;
   margin: 0 !important;
   position: absolute;
@@ -35,14 +35,14 @@
   justify-content: flex-start;
   max-width: 100%;
 }
-.explore-nossa-seleo {
+.exploreNossaSeleo {
   margin: 0;
   position: relative;
   font-size: inherit;
   font-weight: 600;
   font-family: inherit;
 }
-.desde-o-clssico {
+.desdeOClssico {
   width: 559px;
   position: relative;
   font-size: var(--font-size-8xl);
@@ -52,7 +52,7 @@
   display: inline-block;
   max-width: 100%;
 }
-.explore-nossa-seleo-de-vesti-parent {
+.exploreNossaSeleoDeVestiParent {
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -62,7 +62,7 @@
   flex-shrink: 0;
   max-width: 100%;
 }
-.boto-child {
+.botoChild {
   height: 68.1px;
   width: 298px;
   position: relative;
@@ -72,14 +72,14 @@
   box-sizing: border-box;
   display: none;
 }
-.buscar-vestidos {
+.buscarVestidos {
   width: 232.6px;
   position: relative;
   font-weight: 600;
   display: inline-block;
   z-index: 1;
 }
-.buscar-vestidos-wrapper {
+.buscarVestidosWrapper {
   width: 204.6px;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@
   padding: var(--padding-11xs) 0 0;
   box-sizing: border-box;
 }
-.ionarrow-up-icon1 {
+.ionarrowUpIcon1 {
   height: 34px;
   width: 33.5px;
   position: relative;
@@ -98,8 +98,8 @@
   z-index: 1;
 }
 .boto,
-.dress-description,
-.dress-slogan {
+.dressDescription,
+.dressSlogan {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -117,21 +117,21 @@
   color: var(--color-dimgray-200);
   font-family: var(--font-montserrat);
 }
-.dress-description,
-.dress-slogan {
+.dressDescription,
+.dressSlogan {
   flex-direction: column;
   max-width: 100%;
 }
-.dress-slogan {
+.dressSlogan {
   align-self: stretch;
   gap: var(--gap-53xl);
 }
-.dress-description {
+.dressDescription {
   width: 595px;
   padding: 0 0 var(--padding-97xl);
   box-sizing: border-box;
 }
-.card-1-icon {
+.card1Icon {
   height: 615px;
   width: 443px;
   position: relative;
@@ -139,11 +139,11 @@
   flex-shrink: 0;
   object-fit: cover;
 }
-.card-2-icon {
+.card2Icon {
   cursor: pointer;
 }
-.card-2-icon,
-.card-3-icon {
+.card2Icon,
+.card3Icon {
   height: 455px;
   width: 308px;
   position: relative;
@@ -152,14 +152,14 @@
   object-fit: cover;
 }
 .container,
-.container-vestido,
-.dress-cards {
+.containerVestido,
+.dressCards {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
   max-width: 100%;
 }
-.dress-cards {
+.dressCards {
   height: 591px;
   width: 914px;
   overflow-x: auto;
@@ -170,7 +170,7 @@
   gap: var(--gap-20xl);
 }
 .container,
-.container-vestido {
+.containerVestido {
   opacity: 0.99;
   z-index: 2;
 }
@@ -180,7 +180,7 @@
   justify-content: flex-start;
   padding: var(--padding-10xl) 0 0 var(--padding-11xs);
 }
-.container-vestido {
+.containerVestido {
   margin-left: -6px;
   align-self: stretch;
   background-color: var(--color-snow-100);
@@ -196,10 +196,10 @@
 }
 @media screen and (max-width: 1725px) {
   .container,
-  .dress-description {
+  .dressDescription {
     flex: 1;
   }
-  .container-vestido {
+  .containerVestido {
     flex-wrap: wrap;
     justify-content: center;
     padding-left: var(--padding-xl);
@@ -213,45 +213,45 @@
   }
 }
 @media screen and (max-width: 900px) {
-  .explore-nossa-seleo {
+  .exploreNossaSeleo {
     font-size: var(--font-size-19xl);
   }
-  .dress-slogan {
+  .dressSlogan {
     gap: var(--gap-17xl);
   }
-  .dress-description {
+  .dressDescription {
     padding-bottom: var(--padding-56xl);
     box-sizing: border-box;
     min-width: 100%;
   }
-  .container-vestido,
-  .dress-cards {
+  .containerVestido,
+  .dressCards {
     padding-top: var(--padding-69xl);
     box-sizing: border-box;
   }
-  .container-vestido {
+  .containerVestido {
     padding-top: var(--padding-71xl);
     padding-bottom: var(--padding-10xl);
   }
 }
 @media screen and (max-width: 450px) {
-  .explore-nossa-seleo {
+  .exploreNossaSeleo {
     font-size: var(--font-size-10xl);
   }
-  .desde-o-clssico {
+  .desdeOClssico {
     font-size: var(--font-size-3xl);
     line-height: 31px;
   }
-  .buscar-vestidos {
+  .buscarVestidos {
     font-size: var(--font-size-lg);
   }
-  .dress-slogan {
+  .dressSlogan {
     gap: var(--gap-lg);
   }
-  .dress-cards {
+  .dressCards {
     gap: var(--gap-lgi);
   }
-  .container-vestido {
+  .containerVestido {
     padding-top: var(--padding-39xl);
     padding-bottom: var(--padding-xl);
     box-sizing: border-box;

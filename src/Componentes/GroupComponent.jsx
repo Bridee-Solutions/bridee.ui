@@ -1,19 +1,36 @@
 import PropTypes from "prop-types";
-import styles from "../css/GroupComponente.module.css";
+import "../css/GroupComponent.module.css";
 
-const GroupComponente = ({ className = "", imagemGrupo, textoGrupo }) => {
+const GroupComponent = ({ className = "" }) => {
   return (
-    <div className={`${styles.groupComponente} ${className}`}>
-      <img className={styles.imagemGrupo} alt="Imagem do Grupo" src={imagemGrupo} />
-      <div className={styles.textoGrupo}>{textoGrupo}</div>
-    </div>
+    <section className={`imagem-parent ${className}`}>
+      <img className="imagem-icon1" alt="" src="/imagem@2x.png" />
+      <div className="hero-content">
+        <img
+          className="pngwingcom-1-1"
+          loading="lazy"
+          alt=""
+          src="/pngwingcom-1-1@2x.png"
+        />
+        <div className="hero-description">
+          <img className="pngwingcom-1-2" alt="" src="/pngwingcom-1-1@2x.png" />
+          <b className="simples-organizado-sem-container">
+            <p className="simples-organizado-sem">
+              Simples. Organizado. Sem estresse.
+            </p>
+          </b>
+        </div>
+        <h1 className="titulo-da-header">
+          Facilitamos o encontro entre noivas e assessores para casamentos
+          perfeitos
+        </h1>
+      </div>
+    </section>
   );
 };
 
-GroupComponente.propTypes = {
+GroupComponent.propTypes = {
   className: PropTypes.string,
-  imagemGrupo: PropTypes.string.isRequired,
-  textoGrupo: PropTypes.string.isRequired,
 };
 
-export default GroupComponente;
+export default GroupComponent;

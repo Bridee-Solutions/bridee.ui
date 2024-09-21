@@ -21,7 +21,7 @@
 .assessores {
   flex: 1;
 }
-.assessors-link {
+.assessorsLink {
   width: 181.6px;
   display: flex;
   flex-direction: row;
@@ -30,26 +30,26 @@
   padding: 0 var(--padding-12xs) 0 var(--padding-11xs);
   box-sizing: border-box;
 }
-.ferramentas-de-planejamento {
+.ferramentasDePlanejamento {
   height: 47px;
   flex: 1;
   position: relative;
   display: inline-block;
   z-index: 1;
 }
-.explore-links,
-.tools-link {
+.exploreLinks,
+.toolsLink {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.tools-link {
+.toolsLink {
   width: 306px;
   flex-direction: row;
   padding: 0 var(--padding-12xs) 0 var(--padding-11xs);
   box-sizing: border-box;
 }
-.explore-links {
+.exploreLinks {
   flex-direction: column;
   gap: var(--gap-3xl);
   min-width: 320px;
@@ -62,32 +62,32 @@
   max-width: 100%;
   z-index: 1;
 }
-.about-link,
-.contact-link,
-.team-link {
+.aboutLink,
+.contactLink,
+.teamLink {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   box-sizing: border-box;
 }
-.about-link {
+.aboutLink {
   align-self: stretch;
   padding: 0 var(--padding-3xl) 0 var(--padding-12xs);
   max-width: 100%;
   font-size: var(--font-size-13xl);
   font-family: var(--font-poppins);
 }
-.contact-link,
-.team-link {
+.contactLink,
+.teamLink {
   width: 179.6px;
   padding: 0 var(--padding-12xs) var(--padding-9xs-4);
 }
-.contact-link {
+.contactLink {
   width: 197.6px;
   padding: 0 var(--padding-xl) var(--padding-9xs-7) 0;
 }
-.perguntas-frequentes2 {
+.perguntasFrequentes2 {
   align-self: stretch;
   height: 46px;
   position: relative;
@@ -95,19 +95,19 @@
   flex-shrink: 0;
   z-index: 1;
 }
-.about-column,
-.explore-column {
+.aboutColumn,
+.exploreColumn {
   display: flex;
   align-items: flex-start;
   max-width: 100%;
   gap: var(--gap-xl);
 }
-.about-column {
+.aboutColumn {
   flex-direction: column;
   justify-content: flex-start;
   min-width: 344px;
 }
-.explore-column {
+.exploreColumn {
   position: absolute;
   top: 58px;
   left: 97px;
@@ -130,7 +130,7 @@
   flex-shrink: 0;
   z-index: 1;
 }
-.bridee-info {
+.brideeInfo {
   width: 325px;
   height: 92px;
   display: flex;
@@ -141,7 +141,7 @@
   box-sizing: border-box;
   max-width: 100%;
 }
-.o-match-perfeito1 {
+.oMatchPerfeito1 {
   align-self: stretch;
   position: relative;
   font-size: var(--font-size-lg);
@@ -152,7 +152,7 @@
   z-index: 2;
 }
 .copyright,
-.footer-links-child {
+.footerLinksChild {
   position: absolute;
   box-sizing: border-box;
 }
@@ -170,7 +170,7 @@
   color: var(--color-darkslategray-400);
   font-family: var(--font-qlassy);
 }
-.footer-links-child {
+.footerLinksChild {
   top: 40px;
   left: 1320px;
   border-right: 1px solid var(--color-indianred-300);
@@ -178,7 +178,7 @@
   height: 262px;
   z-index: 1;
 }
-.fluentcall-24-filled-icon {
+.fluentcall24FilledIcon {
   position: absolute;
   top: 172.4px;
   left: 842px;
@@ -188,7 +188,7 @@
   object-fit: contain;
   z-index: 1;
 }
-.contact-title {
+.contactTitle {
   width: 330px;
   display: flex;
   flex-direction: row;
@@ -200,7 +200,7 @@
   font-size: var(--font-size-13xl);
   font-family: var(--font-poppins);
 }
-.icon-park-solidlocal-two {
+.iconParkSolidlocalTwo {
   width: 22px;
   height: 22px;
   position: relative;
@@ -209,50 +209,50 @@
   object-fit: cover;
   z-index: 1;
 }
-.location-icon {
+.locationIcon {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-12xs) 0 0;
 }
-.rua-haddock-lobo {
+.ruaHaddockLobo {
   margin: 0;
 }
-.rua-haddock-lobo-container {
+.ruaHaddockLoboContainer {
   align-self: stretch;
   position: relative;
   flex-shrink: 0;
   z-index: 1;
 }
 .address,
-.address-email,
-.rua-haddock-lobo-595-so-pa-parent {
+.addressEmail,
+.ruaHaddockLobo595SoPaParent {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
 }
-.rua-haddock-lobo-595-so-pa-parent {
+.ruaHaddockLobo595SoPaParent {
   flex: 1;
   flex-direction: column;
   gap: var(--gap-3xl-1);
   min-width: 285px;
 }
 .address,
-.address-email {
+E {
   flex-direction: row;
 }
 .address {
   flex: 1;
   gap: var(--gap-smi-1);
 }
-.address-email {
+E {
   align-self: stretch;
   padding: 0 0 0 var(--padding-8xs);
   box-sizing: border-box;
 }
-.material-symbols-lightstacked-icon {
+.materialSymbolsLightstackedIcon {
   width: 26px;
   height: 27px;
   position: relative;
@@ -260,7 +260,7 @@
   flex-shrink: 0;
   z-index: 2;
 }
-.e-mail-contatobrideecom {
+.emailContatobrideecom {
   flex: 1;
   position: relative;
   display: inline-block;
@@ -268,7 +268,7 @@
   max-width: 100%;
   z-index: 1;
 }
-.contact-info,
+.contactInfo,
 .email {
   display: flex;
   align-items: flex-start;
@@ -280,7 +280,7 @@
   flex-direction: row;
   gap: var(--gap-sm-1);
 }
-.contact-info {
+.contactInfo {
   position: absolute;
   top: 56px;
   left: 841px;
@@ -289,7 +289,7 @@
   gap: var(--gap-lg-6);
   font-size: var(--font-size-xl);
 }
-.footer-links {
+.footerLinks {
   margin-left: -1px;
   align-self: stretch;
   height: 358px;
@@ -305,22 +305,22 @@
   .explorar {
     font-size: var(--font-size-7xl);
   }
-  .explore-links {
+  .exploreLinks {
     flex: 1;
   }
   .sobre {
     font-size: var(--font-size-7xl);
   }
-  .about-column {
+  .aboutColumn {
     flex: 1;
   }
-  .explore-column {
+  .exploreColumn {
     flex-wrap: wrap;
   }
   .bridee1 {
     font-size: var(--font-size-21xl);
   }
-  .footer-links {
+  .footerLinks {
     height: auto;
     min-height: 358;
   }
@@ -330,28 +330,28 @@
     font-size: var(--font-size-lgi);
   }
   .assessores,
-  .ferramentas-de-planejamento {
+  .ferramentasDePlanejamento {
     font-size: var(--font-size-lg);
   }
   .sobre {
     font-size: var(--font-size-lgi);
   }
-  .perguntas-frequentes2 {
+  .perguntasFrequentes2 {
     font-size: var(--font-size-lg);
   }
-  .about-column {
+  .aboutColumn {
     min-width: 100%;
   }
   .bridee1 {
     font-size: var(--font-size-5xl);
   }
-  .rua-haddock-lobo-container {
+  .ruaHaddockLoboContainer {
     font-size: var(--font-size-base);
   }
   .address {
     flex-wrap: wrap;
   }
-  .e-mail-contatobrideecom {
+  .emailContatobrideecom {
     font-size: var(--font-size-base);
   }
   .email {

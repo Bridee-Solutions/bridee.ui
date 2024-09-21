@@ -1,53 +1,94 @@
 import { useCallback } from "react";
+import FrameComponent from "./FrameComponent";
 import PropTypes from "prop-types";
-import styles from '../css/Features.module.css';
+import "../css/Features.module.css";
 
 const Features = ({ className = "" }) => {
-  const onComeceAgoraClick = useCallback(() => {
-    // Planeje seu casamento
+  const onComeceAgoraTextClick = useCallback(() => {
+    // Please sync "Página de cadastro" to the project
   }, []);
 
   return (
-    <section className={`${styles.features} ${className}`}>
-      <div className={styles.listaFeatures}>
-        <div className={styles.featurePlanejamento}>
-          <div className={styles.containerPlanejamento}>
-            <div className={styles.itemPlanejamento}></div>
-            <div className={styles.textoPlanejamento}>
-              Planeje seu casamento de forma simples e prática com o Bridee.
+    <section className={`features ${className}`}>
+      <div className="feature-list">
+        <div className="planning-feature">
+          <div className="rectangle-group">
+            <div className="frame-item" />
+            <div className="planeje-seu-casamento">
+              Planeje seu casamento de forma simples e prática com a bridee.
             </div>
-            <div className={styles.botaoPlanejamento}>
-              <div className={styles.textoBotao} onClick={onComeceAgoraClick}>
-                Comece agora
+            <div className="planning-button">
+              <div className="frame-parent">
+                <div className="comece-agora-wrapper">
+                  <div
+                    className="comece-agora"
+                    onClick={onComeceAgoraTextClick}
+                  >
+                    Comece agora
+                  </div>
+                </div>
+                <img
+                  className="weuiarrow-filled-icon"
+                  loading="lazy"
+                  alt=""
+                  src="/weuiarrowfilled.svg"
+                />
               </div>
-              <img className={styles.iconeSeta} alt="" src="/icone-seta.svg" />
             </div>
           </div>
         </div>
-        <div className={styles.calculadoraCustos}>
-          <div className={styles.containerCalculadora}>
-            <div className={styles.iconeCalculadora}>
+        <div className="cost-calculator">
+          <div className="rectangle-container">
+            <div className="frame-inner" />
+            <div className="calculator-icon">
               <img
-                className={styles.imagemCalculadora}
+                className="loupe-1-1"
+                loading="lazy"
                 alt=""
-                src="/icone-lupa@2x.png"
+                src="/loupe-1-1@2x.png"
               />
             </div>
-            <div className={styles.textoCalculadora}>
-              <b>Calcule</b> os custos do seu casamento conforme suas escolhas.
+            <div className="calcule-os-custos-container">
+              <b>Calcule</b>
+              <span className="os-custos-do">
+                {" "}
+                os custos do seu casamento conforme suas escolhas.
+              </span>
             </div>
           </div>
         </div>
-        <div className={styles.listaTarefas}>
-          <img
-            className={styles.iconeListaTarefas}
-            alt=""
-            src="/lista-tarefas@2x.png"
-          />
-          <div className={styles.textoListaTarefas}>
-            Gerencie e <b>confirme</b> presenças facilmente.
+        <FrameComponent
+          networking1="/networking-1@2x.png"
+          encontreOsMelhores="Encontre os melhores  "
+          assessores="assessores"
+          paraOSeuGrandeDia=" para o seu grande dia."
+        />
+        <div className="frame-div">
+          <div className="frame-inner" />
+          <div className="lista-de-tarefas-1-wrapper">
+            <img
+              className="lista-de-tarefas-1-icon"
+              loading="lazy"
+              alt=""
+              src="/listadetarefas-1@2x.png"
+            />
+          </div>
+          <div className="gerencie-e-confirme-container">
+            <span className="gerencie-e">{`Gerencie e `}</span>
+            <b>confirme</b>
+            <span className="gerencie-e"> presenças facilmente.</span>
           </div>
         </div>
+        <FrameComponent
+          propWidth="unset"
+          propAlignSelf="unset"
+          networking1="/pinterest-1@2x.png"
+          propHeight="unset"
+          propWidth1="204.8px"
+          encontreOsMelhores="Importe inspirações do "
+          assessores="Pinterest"
+          paraOSeuGrandeDia=" para o seu planejamento."
+        />
       </div>
     </section>
   );

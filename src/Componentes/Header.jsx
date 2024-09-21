@@ -1,33 +1,45 @@
 import { useCallback } from "react";
 import PropTypes from "prop-types";
-import styles from "../css/Header.module.css";
+import "./Header.css";
 
 const Header = ({ className = "" }) => {
-  const onLoginClick = useCallback(() => {
-    //  login
+  const onLOGINTextClick = useCallback(() => {
+    // Please sync "Pagina de Login" to the project
   }, []);
 
-  const onCadastroClick = useCallback(() => {
-    //  cadastro
+  const onCadastreClick = useCallback(() => {
+    // Please sync "Página de cadastro" to the project
   }, []);
 
   return (
-    <header className={`${styles.header} ${className}`}>
-      <div className={styles.logo}>
-        <h1 className={styles.bridee}>
-          bridee<span className={styles.ponto}>.</span>
-        </h1>
-        <p className={styles.slogan}>O match perfeito para o dia dos seus sonhos</p>
-      </div>
-      <div className={styles.autenticacao}>
-        <button className={styles.login} onClick={onLoginClick}>
-          Login
-        </button>
-        <button className={styles.cadastro} onClick={onCadastroClick}>
-          Cadastre-se
-        </button>
-      </div>
-    </header>
+    <div className={`header ${className}`}>
+      <header className="header-left">
+        <div className="brand-logo">
+          <div className="bridee-wrapper">
+            <h1 className="bridee">
+              <span>bridee</span>
+              <span className="span">.</span>
+            </h1>
+          </div>
+          <div className="o-match-perfeito">
+            O match perfeito para o dia dos seus sonhos
+          </div>
+        </div>
+        <div className="header-right">
+          <div className="auth-buttons">
+            <div className="login-button">
+              <a className="login" onClick={onLOGINTextClick}>
+                LOGIN
+              </a>
+            </div>
+            <button className="cadastre" onClick={onCadastreClick}>
+              <div className="cadastre-child" />
+              <div className="cadastre-se-agora">CADASTRE-SE AGORA</div>
+            </button>
+          </div>
+        </div>
+      </header>
+    </div>
   );
 };
 

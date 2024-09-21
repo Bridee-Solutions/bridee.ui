@@ -1,40 +1,72 @@
+import { useMemo } from "react";
 import PropTypes from "prop-types";
-import styles from "../css/FrameComponente.module.css";
+import "../css/FrameComponent.module.css";
 
-const FrameComponente = ({
+const FrameComponent = ({
   className = "",
+  propWidth,
+  propAlignSelf,
   networking1,
+  propHeight,
+  propWidth1,
   encontreOsMelhores,
   assessores,
   paraOSeuGrandeDia,
-  propWidth = "auto",
-  propHeight = "auto",
 }) => {
+  const frameDivStyle = useMemo(() => {
+    return {
+      width: propWidth,
+    };
+  }, [propWidth]);
+
+  const featuresIconsStyle = useMemo(() => {
+    return {
+      alignSelf: propAlignSelf,
+    };
+  }, [propAlignSelf]);
+
+  const encontreOsMelhoresContainerStyle = useMemo(() => {
+    return {
+      height: propHeight,
+      width: propWidth1,
+    };
+  }, [propHeight, propWidth1]);
+
   return (
-    <div
-      className={`${styles.frameComponente} ${className}`}
-      style={{ width: propWidth, height: propHeight }}
-    >
-      <img className={styles.iconeNetworking} alt="" src={networking1} />
-      <div className={styles.textoComponente}>
-        <span className={styles.encontreTexto}>
-          {encontreOsMelhores}
-          <b>{assessores}</b>
-        </span>
-        <span className={styles.paraTexto}>{paraOSeuGrandeDia}</span>
+    <div className={`rectangle-parent ${className}`} style={frameDivStyle}>
+      <div className="frame-child" />
+      <div className="features-icons" style={featuresIconsStyle}>
+        <img
+          className="networking-1-icon"
+          loading="lazy"
+          alt=""
+          src={networking1}
+        />
+      </div>
+      <div
+        className="encontre-os-melhores-container"
+        style={encontreOsMelhoresContainerStyle}
+      >
+        <span className="encontre-os-melhores">{encontreOsMelhores}</span>
+        <b>{assessores}</b>
+        <span className="para-o-seu">{paraOSeuGrandeDia}</span>
       </div>
     </div>
   );
 };
 
-FrameComponente.propTypes = {
+FrameComponent.propTypes = {
   className: PropTypes.string,
-  networking1: PropTypes.string.isRequired,
-  encontreOsMelhores: PropTypes.string.isRequired,
-  assessores: PropTypes.string.isRequired,
-  paraOSeuGrandeDia: PropTypes.string.isRequired,
-  propWidth: PropTypes.string,
-  propHeight: PropTypes.string,
+  networking1: PropTypes.string,
+  encontreOsMelhores: PropTypes.string,
+  assessores: PropTypes.string,
+  paraOSeuGrandeDia: PropTypes.string,
+
+  /** Style props */
+  propWidth: PropTypes.any,
+  propAlignSelf: PropTypes.any,
+  propHeight: PropTypes.any,
+  propWidth1: PropTypes.any,
 };
 
-export default FrameComponente;
+export default FrameComponent;

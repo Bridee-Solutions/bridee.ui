@@ -1,49 +1,69 @@
 import { useCallback } from "react";
 import PropTypes from "prop-types";
-import styles from "../css/UltimaSessao.module.css";
+import "../css/UltimaSessao.module.css";
 
-const UltimaSessao = ({ className = "" }) => {
-  const onBotaoClick = useCallback(() => {
-    // "Comece a planejar"
+const LTIMASESSO = ({ className = "" }) => {
+  const onBOTOContainerClick = useCallback(() => {
+    // Please sync "Página de cadastro" to the project
   }, []);
 
-  const onJaTemContaClick = useCallback(() => {
-    // "Já tem uma conta? Entrar"
+  const onJTemUmaClick = useCallback(() => {
+    // Please sync "Pagina de Login" to the project
   }, []);
 
-  const onCadastroAssessorClick = useCallback(() => {
-    // "Você é um assessor? Crie uma conta aqui"
+  const onVocUmClick = useCallback(() => {
+    // Please sync "Pagina de Assessores - Cadastro" to the project
   }, []);
 
   return (
-    <section className={`${styles.ultimaSessao} ${className}`}>
-      <img className={styles.imagemSessao} alt="" src="/imagem-sessao@2x.png" />
-      <div className={styles.containerSlogan}>
-        <h1 className={styles.slogan}>A maneira fácil de planejar</h1>
-        <div className={styles.containerFormulario}>
-          <div className={styles.inputEmail}>
-            <img className={styles.iconeEmail} alt="" src="/icone-email.svg" />
-            <input type="email" placeholder="Seu endereço de email" />
+    <div className={`ltima-sesso ${className}`}>
+      <img className="opcao-2-icon" alt="" src="/opcao-2@2x.png" />
+      <img className="opcao-1-icon" alt="" />
+      <div className="footer-slogan-container">
+        <h1 className="a-maneira-fcil">A maneira fácil de planejar</h1>
+        <div className="footer-form">
+          <div className="caixa">
+            <div className="caixa-child" />
+            <div className="input-wrapper">
+              <div className="input-inner-wrapper">
+                <div className="input-icon-container">
+                  <img
+                    className="icon-email"
+                    loading="lazy"
+                    alt=""
+                    src="/icon-email.svg"
+                  />
+                </div>
+                <div className="seu-endereo-de">Seu endereço de email</div>
+              </div>
+            </div>
+            <div className="boto2" onClick={onBOTOContainerClick}>
+              <div className="boto-inner" />
+              <div className="comece-a-planejar">COMECE A PLANEJAR</div>
+            </div>
           </div>
-          <button className={styles.botaoPlanejar} onClick={onBotaoClick}>
-            Comece a planejar
-          </button>
         </div>
       </div>
-      <div className={styles.opcoesConta}>
-        <div className={styles.jaTemConta} onClick={onJaTemContaClick}>
-          Já tem uma conta? <b>Entrar</b>
-        </div>
-        <div className={styles.cadastroAssessor} onClick={onCadastroAssessorClick}>
-          Você é um assessor? <b>Crie uma conta aqui</b>
+      <div className="account-options">
+        <div className="login-link-parent">
+          <div className="login-link">
+            <div className="j-tem-uma-container" onClick={onJTemUmaClick}>
+              <span className="j-tem-uma">{`Já tem uma conta? `}</span>
+              <b>Entrar</b>
+            </div>
+          </div>
+          <div className="voc-um-container" onClick={onVocUmClick}>
+            <span className="j-tem-uma">{`Você é um assessor? `}</span>
+            <b>Crie uma conta aqui</b>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-UltimaSessao.propTypes = {
+LTIMASESSO.propTypes = {
   className: PropTypes.string,
 };
 
-export default UltimaSessao;
+export default LTIMASESSO;

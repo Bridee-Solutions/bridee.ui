@@ -1,11 +1,11 @@
-.decoracao-1-icon {
+.decoracao1Icon {
   height: 106px;
   width: 106px;
   position: relative;
   object-fit: cover;
   z-index: 2;
 }
-.decoration-icon {
+.decorationIcon {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -18,13 +18,13 @@
   z-index: 1;
 }
 .decoration,
-.decoration-content {
+.decorationContent {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.decoration-content {
+.decorationContent {
   gap: var(--gap-10xs-5);
 }
 .decoration {

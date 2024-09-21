@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from '../css/Decoration.module.css';
+import styles from "../css/Decoration.module.css";
 
 const Decoration = ({ className = "", decoracao1, decorao }) => {
   return (

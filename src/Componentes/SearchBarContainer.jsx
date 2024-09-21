@@ -1,25 +1,37 @@
 import PropTypes from "prop-types";
-import styles from "../css/SearchBarContainer.module.css";
+import "../css/SearchBarContainer.module.css";
 
-const SearchBarContainer = ({ placeholder = "Buscar...", onSearch }) => {
+const SearchBarContainer = ({ className = "" }) => {
   return (
-    <div className={styles.searchBarContainer}>
-      <input
-        className={styles.inputBusca}
-        type="text"
-        placeholder={placeholder}
-        onChange={onSearch}
-      />
-      <button className={styles.botaoBusca}>
-        <img src="/icone-busca.svg" alt="Buscar" />
-      </button>
-    </div>
+    <section className={`search-bar-container ${className}`}>
+      <div className="barra-de-pesquisa">
+        <div className="barra-de-pesquisa-child" />
+        <div className="search-input">
+          <div className="search-placeholder">
+            <div className="pesquisar-por-nome-ou-categori-wrapper">
+              <div className="pesquisar-por-nome">
+                Pesquisar por nome ou categoria de serviço
+              </div>
+            </div>
+            <div className="search-location">
+              <div className="location-divider" />
+              <div className="location-input">
+                <div className="pesquisar-por-nome">Estado</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button className="search-button">
+          <div className="search-button-child" />
+          <div className="pesquisar">Pesquisar</div>
+        </button>
+      </div>
+    </section>
   );
 };
 
 SearchBarContainer.propTypes = {
-  placeholder: PropTypes.string,
-  onSearch: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default SearchBarContainer;
