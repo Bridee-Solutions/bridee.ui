@@ -2,9 +2,9 @@ import { useCallback } from "react";
 import PropTypes from "prop-types";
 import styles from "../css/ContainerVestido.module.css";
 
-const CONTAINERVESTIDO = ({ className = "" }) => {
+const ContainerVestido = ({ className = "" }) => {
   const onCard2ImageClick = useCallback(() => {
-    // Please sync "CONTAINER VESTIDO 2" to the project
+    // CONTAINER VESTIDO 2" 
   }, []);
 
   return (
@@ -77,8 +77,8 @@ const CONTAINERVESTIDO = ({ className = "" }) => {
   );
 };
 
-CONTAINERVESTIDO.propTypes = {
+ContainerVestido.propTypes = {
   className: PropTypes.string,
 };
 
-export default CONTAINERVESTIDO;
+export default ContainerVestido;

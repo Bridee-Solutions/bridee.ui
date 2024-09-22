@@ -13,7 +13,7 @@
   flex-shrink: 0;
   z-index: 1;
 }
-.bridee-wrapper {
+.brideeWrapper {
   align-self: stretch;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@
   justify-content: flex-end;
   padding: 0 var(--padding-38xl);
 }
-.o-match-perfeito {
+.oMatchPerfeito {
   align-self: stretch;
   position: relative;
   font-size: var(--font-size-lg);
@@ -29,7 +29,7 @@
   font-family: var(--font-montserrat);
   color: var(--color-darkslategray-900);
 }
-.brand-logo {
+.brandLogo {
   width: 418.4px;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@
   color: inherit;
   cursor: pointer;
 }
-.login-button {
+.loginButton {
   width: 89.1px;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@
   padding: var(--padding-4xl-4) 0 0;
   box-sizing: border-box;
 }
-.cadastre-child {
+.cadastreChild {
   height: 71.4px;
   width: 285.3px;
   position: relative;
@@ -63,7 +63,7 @@
   background-color: var(--color-lightcoral-100);
   display: none;
 }
-.cadastre-se-agora {
+.cadastreSeAgora {
   position: relative;
   font-size: var(--font-size-xl);
   font-weight: 600;
@@ -72,7 +72,7 @@
   text-align: left;
   z-index: 1;
 }
-.auth-buttons,
+.authButtons,
 .cadastre {
   display: flex;
   flex-direction: row;
@@ -90,17 +90,17 @@
 .cadastre:hover {
   background-color: var(--color-indianred-200);
 }
-.auth-buttons {
+.authButtons {
   gap: var(--gap-4xs);
 }
 .header,
-.header-left,
-.header-right {
+.headerLeft,
+.headerRight {
   display: flex;
   align-items: flex-start;
   max-width: 100%;
 }
-.header-right {
+.headerRight {
   flex-direction: column;
   justify-content: flex-start;
   padding: var(--padding-base-5) 0 0;
@@ -110,10 +110,10 @@
   font-family: var(--font-montserrat);
 }
 .header,
-.header-left {
+.headerLeft {
   flex-direction: row;
 }
-.header-left {
+.headerLeft {
   width: 1074.9px;
   justify-content: space-between;
   gap: var(--gap-xl);
@@ -136,20 +136,20 @@
   }
 }
 @media screen and (max-width: 900px) {
-  .o-match-perfeito {
+  .oMatchPerfeito {
     display: none;
   }
-  .brand-logo {
+  .brandLogo {
     width: -1px;
   }
 }
 @media screen and (max-width: 450px) {
-  .bridee-wrapper {
+  .brideeWrapper {
     padding-left: var(--padding-xl);
     padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
-  .auth-buttons {
+  .authButtons {
     display: none;
   }
 }

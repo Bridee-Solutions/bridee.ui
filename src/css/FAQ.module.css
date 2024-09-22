@@ -1,7 +1,7 @@
-.perguntas-frequentes1 {
+.perguntasFrequentes1 {
   margin: 0;
 }
-.perguntas-frequentes {
+.perguntasFrequentes {
   margin: 0;
   height: 304.8px;
   position: relative;
@@ -12,13 +12,13 @@
   min-width: 816px;
   max-width: 100%;
 }
-.o-que {
+.oQue {
   position: relative;
   font-weight: 500;
   flex-shrink: 0;
   z-index: 1;
 }
-.weuiarrow-outlined-icon3 {
+.weuiarrowOutlinedIcon3 {
   width: 45.1px;
   height: 23.1px;
   position: relative;
@@ -26,43 +26,43 @@
   flex-shrink: 0;
   object-fit: contain;
 }
-.question-one-icon {
+.questionOneIcon {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-mini) 0 0;
 }
-.question-content,
-.question-wrapper {
+.questionContent,
+.questionWrapper {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
-.question-content {
+.questionContent {
   flex: 1;
   justify-content: space-between;
   max-width: 100%;
   gap: var(--gap-xl);
 }
-.question-wrapper {
+.questionWrapper {
   justify-content: flex-start;
   padding: 0 var(--padding-12xs);
 }
-.line-div,
-.question-two-container-inner,
-.question-wrapper {
+.lineDiv,
+.questionTwoContainerInner,
+.questionWrapper {
   align-self: stretch;
   box-sizing: border-box;
   max-width: 100%;
 }
-.line-div {
+.lineDiv {
   flex: 1;
   position: relative;
   border-top: 2px solid var(--color-black);
   z-index: 1;
 }
-.question-two-container-inner {
+.questionTwoContainerInner {
   height: 2px;
   display: flex;
   flex-direction: row;
@@ -70,14 +70,14 @@
   justify-content: flex-start;
   padding: 0 0 0 var(--padding-12xs);
 }
-.quem-pode-se {
+.quemPodeSe {
   position: relative;
   font-weight: 500;
   display: inline-block;
   max-width: 100%;
   z-index: 1;
 }
-.weuiarrow-outlined {
+.weuiarrowOutlined {
   position: absolute;
   top: 0;
   left: 45.02px;
@@ -87,7 +87,7 @@
   transform: rotate(89.8deg);
   transform-origin: 0 0;
 }
-.vector-icon {
+.vectorIcon {
   position: absolute;
   top: 15.1px;
   left: 17.4px;
@@ -96,19 +96,19 @@
   object-fit: contain;
   z-index: 1;
 }
-.icon-two-wrapper {
+.iconTwoWrapper {
   width: 45.1px;
   height: 28.8px;
   position: relative;
 }
-.question-two-icon {
+.questionTwoIcon {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-4xs) 0 0;
 }
-.question-two-content {
+.questionTwoContent {
   align-self: stretch;
   display: flex;
   flex-direction: row;
@@ -118,7 +118,7 @@
   gap: var(--gap-xl);
   max-width: 100%;
 }
-.question-two-wrapper-child {
+.questionTwoWrapperChild {
   align-self: stretch;
   height: 2px;
   position: relative;
@@ -126,8 +126,8 @@
   box-sizing: border-box;
   z-index: 1;
 }
-.question-two-container,
-.question-two-wrapper {
+.questionTwoContainer,
+.questionTwoWrapper {
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -135,18 +135,18 @@
   box-sizing: border-box;
   max-width: 100%;
 }
-.question-two-wrapper {
+.questionTwoWrapper {
   height: 61px;
   align-items: flex-end;
   padding: 0 0 var(--padding-11xs);
   gap: var(--gap-2xl-2);
 }
-.question-two-container {
+.questionTwoContainer {
   align-items: flex-start;
   padding: 0 0 var(--padding-xs-1);
   gap: var(--gap-3xl);
 }
-.que-vantagens-o {
+.queVantagensO {
   position: relative;
   font-weight: 500;
   display: inline-block;
@@ -154,7 +154,7 @@
   max-width: 100%;
   z-index: 1;
 }
-.vector-icon1 {
+.vectorIcon1 {
   position: absolute;
   top: 6.9px;
   left: 9.4px;
@@ -164,7 +164,7 @@
   transform: rotate(-89.81deg);
   z-index: 1;
 }
-.weuiarrow-outlined1 {
+.weuiarrowOutlined1 {
   width: 23px;
   height: 45px;
   position: relative;
@@ -172,7 +172,7 @@
   flex-shrink: 0;
   transform: rotate(89.8deg);
 }
-.question-three-icon {
+.questionthreIcon {
   height: 30.1px;
   display: flex;
   flex-direction: column;
@@ -181,7 +181,7 @@
   padding: var(--padding-6xs) var(--padding-4xl) 0 0;
   box-sizing: border-box;
 }
-.question-three-content {
+.questionthreContent {
   flex: 1;
   display: flex;
   flex-direction: row;
@@ -190,34 +190,34 @@
   max-width: 100%;
   gap: var(--gap-xl);
 }
-.inner-question-three {
+.innerQuestionthre {
   align-self: stretch;
   flex-direction: row;
   padding: 0 0 0 var(--padding-12xs);
   flex-shrink: 0;
 }
-.inner-question-three,
-.question-three-container,
-.question-three-wrapper {
+.innerQuestionthre,
+.questionthreContainer,
+.questionthreWrapper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   box-sizing: border-box;
   max-width: 100%;
 }
-.question-three-wrapper {
+.questionthreWrapper {
   height: 58px;
   flex: 1;
   flex-direction: column;
   padding: 0 0 var(--padding-11xs);
   gap: var(--gap-lgi);
 }
-.question-three-container {
+.questionthreContainer {
   align-self: stretch;
   flex-direction: row;
   padding: 0 0 var(--padding-2xs-1) var(--padding-12xs);
 }
-.como-posso-me {
+.comoPossoMe {
   position: relative;
   font-weight: 500;
   display: inline-block;
@@ -225,7 +225,7 @@
   max-width: 100%;
   z-index: 1;
 }
-.vector-icon2 {
+.vectorIcon2 {
   position: absolute;
   top: 3.6px;
   left: 10.4px;
@@ -235,38 +235,38 @@
   transform: rotate(-89.81deg);
   z-index: 1;
 }
-.inner-question-four,
-.question-four-icon {
+.innerQuestionfou,
+.questionfouIcon {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.question-four-icon {
+.questionfouIcon {
   height: 27.1px;
   flex-direction: column;
   padding: var(--padding-9xs) var(--padding-4xl) 0 0;
   box-sizing: border-box;
 }
-.inner-question-four {
+.innerQuestionfou {
   flex: 1;
   flex-direction: row;
   gap: var(--gap-42xl);
   max-width: 100%;
 }
-.question-four-container-child {
+.questionfouContainerChild {
   align-self: stretch;
   height: 2px;
   position: relative;
   border-top: 2px solid var(--color-black);
   box-sizing: border-box;
 }
-.question-four-container,
-.question-inner-containers {
+.questionfouContainer,
+.questioninnrContainers {
   align-self: stretch;
   flex-direction: column;
   justify-content: flex-start;
 }
-.question-four-container {
+.questionfouContainer {
   height: 59px;
   display: flex;
   align-items: flex-start;
@@ -276,18 +276,18 @@
   max-width: 100%;
   font-size: var(--font-size-9xl);
 }
-.question-inner-containers {
+.questioninnrContainers {
   gap: var(--gap-5xl-9);
 }
-.f-a-q,
-.f-a-q-title,
-.question-containers,
-.question-inner-containers {
+.fAQ,
+.fAQTitle,
+.questionconainers,
+.questioninnrContainers {
   display: flex;
   align-items: flex-start;
   max-width: 100%;
 }
-.question-containers {
+.questionconainers {
   flex: 1;
   flex-direction: column;
   justify-content: flex-start;
@@ -299,15 +299,15 @@
   color: var(--color-black);
   font-family: var(--font-montserrat);
 }
-.f-a-q,
-.f-a-q-title {
+.fAQ,
+.fAQTitle {
   flex-direction: row;
   justify-content: center;
 }
-.f-a-q-title {
+.fAQTitle {
   row-gap: 20px;
 }
-.f-a-q {
+.fAQ {
   align-self: stretch;
   padding: 0 var(--padding-xl) var(--padding-185xl) var(--padding-9xl);
   box-sizing: border-box;
@@ -317,75 +317,75 @@
   font-family: var(--font-product-sans);
 }
 @media screen and (max-width: 1725px) {
-  .perguntas-frequentes {
+  .perguntasFrequentes {
     flex: 1;
   }
-  .f-a-q-title {
+  .fAQTitle {
     flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 1350px) {
-  .inner-question-four {
+  .innerQuestionfou {
     gap: var(--gap-11xl);
     flex-wrap: wrap;
   }
-  .question-four-container {
+  .questionfouContainer {
     height: auto;
   }
-  .question-containers {
+  .questionconainers {
     margin-left: 0;
   }
 }
 @media screen and (max-width: 900px) {
-  .perguntas-frequentes {
+  .perguntasFrequentes {
     font-size: var(--font-size-32xl);
     min-width: 100%;
   }
-  .o-que,
-  .quem-pode-se {
+  .oQue,
+  .quemPodeSe {
     font-size: var(--font-size-5xl);
   }
-  .question-two-content {
+  .questiontwocontent {
     flex-wrap: wrap;
   }
-  .question-two-wrapper {
+  .questiontwowrapper {
     height: auto;
   }
-  .que-vantagens-o {
+  .queVantagensO {
     font-size: var(--font-size-5xl);
   }
-  .question-three-content {
+  .questionthreContent {
     flex-wrap: wrap;
   }
-  .question-three-wrapper {
+  .questionthreWrapper {
     height: auto;
   }
-  .question-containers {
+  .questionconainers {
     min-width: 100%;
   }
-  .f-a-q {
+  .fAQ {
     padding-bottom: var(--padding-114xl);
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 450px) {
-  .perguntas-frequentes {
+  .perguntasFrequentes {
     font-size: var(--font-size-19xl);
   }
-  .o-que {
+  .oQue {
     font-size: var(--font-size-lg);
   }
-  .question-content {
+  .questionContent {
     flex-wrap: wrap;
   }
-  .que-vantagens-o,
-  .quem-pode-se {
+  .queVantagensO,
+  .quemPodeSe {
     font-size: var(--font-size-lg);
   }
-  .como-posso-me {
+  .comoPossoMe {
     font-size: var(--font-size-3xl);
   }
-  .inner-question-four {
+  .innerQuestionfou {
     gap: var(--gap-mini);
   }
 }

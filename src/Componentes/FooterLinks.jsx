@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import "../css/FooterLinks.module.css";
+import styles from "../css/FooterLinks.module.css";
 
 const FooterLinks = ({ className = "" }) => {
   return (
     <section className={`${styles.footerLinks} ${className}`}>
-      <div className={Styles.footer1} />
+      <div className={styles.footer1} />
       <div className={styles.exploreColumn}>
         <div className={styles.exploreLinks}>
           <div className={styles.explorar}>Explorar</div>

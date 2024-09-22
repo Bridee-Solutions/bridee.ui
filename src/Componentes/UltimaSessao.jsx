@@ -1,59 +1,59 @@
 import { useCallback } from "react";
 import PropTypes from "prop-types";
-import "../css/UltimaSessao.module.css";
+import styles from "../css/UltimaSessao.module.css"
 
-const LTIMASESSO = ({ className = "" }) => {
+const UltimaSessao = ({ className = "" }) => {
   const onBOTOContainerClick = useCallback(() => {
-    // Please sync "Página de cadastro" to the project
+    //Página de cadastro
   }, []);
 
   const onJTemUmaClick = useCallback(() => {
-    // Please sync "Pagina de Login" to the project
+    // Pagina de Login
   }, []);
 
   const onVocUmClick = useCallback(() => {
-    // Please sync "Pagina de Assessores - Cadastro" to the project
+    // Pagina de Assessores - Cadastro
   }, []);
 
   return (
-    <div className={`ltima-sesso ${className}`}>
-      <img className="opcao-2-icon" alt="" src="/opcao-2@2x.png" />
-      <img className="opcao-1-icon" alt="" />
-      <div className="footer-slogan-container">
-        <h1 className="a-maneira-fcil">A maneira fácil de planejar</h1>
-        <div className="footer-form">
-          <div className="caixa">
-            <div className="caixa-child" />
-            <div className="input-wrapper">
-              <div className="input-inner-wrapper">
-                <div className="input-icon-container">
+    <div className={`${styles.ultimaSessao} ${className}`}>
+      <img className={styles.opcao2Icon} alt="" src="/opcao-2@2x.png" />
+      <img className={styles.opcao1Icon} alt="" />
+      <div className={styles.footerSloganContainer}>
+        <h1 className={styles.aManeiraFcil}>A maneira fácil de planejar</h1>
+        <div className={styles.footerForm}>
+          <div className={styles.caixa}>
+            <div className={styles.caixaChild} />
+            <div className={styles.inputWrapper}>
+              <div className={styles.inputInnerWrapper}>
+                <div className={styles.inputIconContainer}>
                   <img
-                    className="icon-email"
+                    className={styles.iconEmail}
                     loading="lazy"
                     alt=""
                     src="/icon-email.svg"
                   />
                 </div>
-                <div className="seu-endereo-de">Seu endereço de email</div>
+                <div className={styles.seuEndereoDe}>Seu endereço de email</div>
               </div>
             </div>
-            <div className="boto2" onClick={onBOTOContainerClick}>
-              <div className="boto-inner" />
-              <div className="comece-a-planejar">COMECE A PLANEJAR</div>
+            <div className={styles.boto2} onClick={onBOTOContainerClick}>
+              <div className={styles.botoInner} />
+              <div className={styles.comeceAPlanejar}>COMECE A PLANEJAR</div>
             </div>
           </div>
         </div>
       </div>
-      <div className="account-options">
-        <div className="login-link-parent">
-          <div className="login-link">
-            <div className="j-tem-uma-container" onClick={onJTemUmaClick}>
-              <span className="j-tem-uma">{`Já tem uma conta? `}</span>
+      <div className={styles.accountOptions}>
+        <div className={styles.loginLinkParent}>
+          <div className={styles.loginLink}>
+            <div className={styles.jTemUmaContainer} onClick={onJTemUmaClick}>
+              <span className={styles.jTemUma}>{`Já tem uma conta? `}</span>
               <b>Entrar</b>
             </div>
           </div>
-          <div className="voc-um-container" onClick={onVocUmClick}>
-            <span className="j-tem-uma">{`Você é um assessor? `}</span>
+          <div className={styles.vocUmContainer} onClick={onVocUmClick}>
+            <span className={styles.jTemUma}>{`Você é um assessor? `}</span>
             <b>Crie uma conta aqui</b>
           </div>
         </div>
@@ -62,8 +62,8 @@ const LTIMASESSO = ({ className = "" }) => {
   );
 };
 
-LTIMASESSO.propTypes = {
+UltimaSessao.propTypes = {
   className: PropTypes.string,
 };
 
-export default LTIMASESSO;
+export default UltimaSessao;

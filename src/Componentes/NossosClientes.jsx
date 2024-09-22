@@ -1,15 +1,15 @@
 import Opinio from "./Opinio";
 import PropTypes from "prop-types";
-import "../css/NossosClientes.module.css";
+import styles from "../css/NossosClientes.module.css";
 
 const NOSSOSCLIENTES = ({ className = "" }) => {
   return (
-    <section className={`nossos-clientes ${className}`}>
-      <div className="fundo" />
-      <div className="client-reviews-title">
-        <h1 className="avaliaes-dos-nossos">Avaliações dos nossos usuários</h1>
+    <section className={`${styles.nossosClientes} ${className}`}>
+      <div className={styles.fundo} />
+      <div className={styles.clientReviewsTitle}>
+        <h1 className={styles.avaliaesDosNossos}>Avaliações dos nossos usuários</h1>
       </div>
-      <div className="depoimentos">
+      <div className={styles.depoimentos}>
         <Opinio
           bxsquoteLeft="/bxsquoteleft.svg"
           bxsquoteLeft1="/bxsquoteleft-1@2x.png"

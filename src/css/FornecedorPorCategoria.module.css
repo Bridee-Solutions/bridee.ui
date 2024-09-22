@@ -6,7 +6,7 @@
   display: none;
   max-width: 100%;
 }
-.descubra-fornecedores-de {
+.descubraFornecedoresDe {
   margin: 0;
   flex: 1;
   position: relative;
@@ -18,7 +18,7 @@
   max-width: 100%;
   z-index: 1;
 }
-.category-title {
+.categoryTitle {
   width: 1411.6px;
   display: flex;
   flex-direction: row;
@@ -28,12 +28,12 @@
   box-sizing: border-box;
   max-width: 100%;
 }
-.fotos-vdeo {
+.fotosVdeo {
   position: relative;
   font-weight: 600;
   z-index: 1;
 }
-.camera-1-1 {
+.camera11 {
   height: 140px;
   width: 140px;
   position: absolute;
@@ -44,12 +44,12 @@
   z-index: 2;
 }
 .photography,
-.photography-content {
+.photographyContent {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.photography-content {
+.photographyContent {
   flex-direction: row;
   position: relative;
 }
@@ -58,11 +58,11 @@
   padding: var(--padding-100xl-5) var(--padding-sm) 0 0;
 }
 .local,
-.local-1-icon {
+.local1Icon {
   position: relative;
   flex-shrink: 0;
 }
-.local-1-icon {
+.local1Icon {
   width: 96px;
   height: 96px;
   object-fit: cover;
@@ -73,38 +73,38 @@
   font-weight: 600;
   z-index: 1;
 }
-.category-icons,
-.category-names,
-.category-pairs {
+.categoryIcons,
+.categoryNames,
+.categoryPairs {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.category-names {
+.categoryNames {
   align-self: stretch;
   flex-direction: row;
   padding: 0 0 0 var(--padding-3xs);
 }
-.category-icons,
-.category-pairs {
+.categoryIcons,
+.categoryPairs {
   flex-direction: column;
 }
-.category-icons {
+.categoryIcons {
   align-self: stretch;
   gap: var(--gap-sm-4);
 }
-.category-pairs {
+.categoryPairs {
   width: 151.3px;
   padding: var(--padding-4xs) var(--padding-12xl) 0 0;
   box-sizing: border-box;
 }
 .msica,
-.muscav2-1-icon {
+.muscav21Icon {
   position: relative;
   flex-shrink: 0;
   z-index: 1;
 }
-.muscav2-1-icon {
+.muscav21Icon {
   width: 115px;
   height: 114px;
   object-fit: cover;
@@ -113,19 +113,19 @@
   font-weight: 600;
 }
 .music,
-.music-content,
-.music-name {
+.musicContent,
+.musicName {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.music-name {
+.musicName {
   flex-direction: row;
   padding: 0 var(--padding-xs) 0 var(--padding-5xs);
   margin-top: -1.5px;
 }
 .music,
-.music-content {
+.musicContent {
   flex-direction: column;
 }
 .music {
@@ -133,7 +133,7 @@
   padding: var(--padding-9xs) 0 0;
   box-sizing: border-box;
 }
-.bolo-de-casamento-1-icon {
+.boloDeCasamento1Icon {
   align-self: stretch;
   flex: 1;
   position: relative;
@@ -145,23 +145,23 @@
   z-index: 2;
 }
 .cake,
-.cake-content,
-.cake-name {
+.cakeContent,
+.cakeName {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.cake-name {
+.cakeName {
   align-self: stretch;
   flex-direction: row;
   padding: 0 var(--padding-2xs) 0 var(--padding-3xl);
   margin-top: -0.5px;
 }
 .cake,
-.cake-content {
+.cakeContent {
   flex-direction: column;
 }
-.cake-content {
+.cakeContent {
   width: 104px;
   flex: 1;
 }
@@ -170,7 +170,7 @@
   padding: var(--padding-9xs) 0 0;
   box-sizing: border-box;
 }
-.vestido-de-casamento-1-1 {
+.vestidoDeCasamento11 {
   width: 109px;
   height: 110px;
   position: relative;
@@ -183,7 +183,7 @@
   font-weight: 600;
   z-index: 1;
 }
-.noiva-wrapper {
+.noivaWrapper {
   align-self: stretch;
   display: flex;
   flex-direction: row;
@@ -191,18 +191,18 @@
   justify-content: flex-start;
   padding: 0 0 0 var(--padding-xl);
 }
-.category-pairs1,
-.vestido-de-casamento-1-1-parent {
+.categoryPairs1,
+.vestidoDeCasamento11Parent {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.vestido-de-casamento-1-1-parent {
+.vestidoDeCasamento11Parent {
   align-self: stretch;
   gap: var(--gap-12xs-5);
 }
-.category-pairs1 {
+.categoryPairs1 {
   width: 128.3px;
   padding: var(--padding-3xs) 0 0;
   box-sizing: border-box;
@@ -217,21 +217,21 @@
   display: inline-block;
   z-index: 1;
 }
-.camisa-1-icon {
+.camisa1Icon {
   height: 134px;
   width: 129px;
   position: relative;
   object-fit: cover;
   z-index: 2;
 }
-.category-grid,
-.fornecedores-por-categoria {
+.categoryGrid,
+.fornecedoresPorCategoria {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
 }
-.category-grid {
+.categoryGrid {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -240,7 +240,7 @@
   color: var(--color-darkslategray-200);
   font-family: var(--font-montserrat);
 }
-.fornecedores-por-categoria {
+.fornecedoresPorCategoria {
   margin-left: -1px;
   margin-bottom: 68px;
   align-self: stretch;
@@ -255,20 +255,20 @@
   font-family: var(--font-product-sans);
 }
 @media screen and (max-width: 1350px) {
-  .fornecedores-por-categoria {
+  .fornecedoresPorCategoria {
     padding-left: var(--padding-46xl);
     padding-right: var(--padding-46xl);
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 900px) {
-  .descubra-fornecedores-de {
+  .descubraFornecedoresDe {
     font-size: var(--font-size-19xl);
   }
-  .category-grid {
+  .categoryGrid {
     gap: var(--gap-2xl);
   }
-  .fornecedores-por-categoria {
+  .fornecedoresPorCategoria {
     gap: var(--gap-3xl);
     padding-left: var(--padding-13xl);
     padding-right: var(--padding-13xl);
@@ -276,17 +276,17 @@
   }
 }
 @media screen and (max-width: 450px) {
-  .descubra-fornecedores-de {
+  .descubraFornecedoresDe {
     font-size: var(--font-size-10xl);
   }
-  .fotos-vdeo,
+  .fotosVdeo,
   .local,
   .msica,
   .noiva,
   .noivo {
     font-size: var(--font-size-2xl);
   }
-  .fornecedores-por-categoria {
+  .fornecedoresPorCategoria {
     padding-top: var(--padding-41xl);
     padding-bottom: var(--padding-45xl);
     box-sizing: border-box;

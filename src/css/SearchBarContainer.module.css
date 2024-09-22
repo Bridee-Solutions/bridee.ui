@@ -1,4 +1,4 @@
-.barra-de-pesquisa-child {
+.barraDePesquisaChild {
   align-self: stretch;
   width: 1288px;
   position: relative;
@@ -9,12 +9,12 @@
   display: none;
   max-width: 100%;
 }
-.pesquisar-por-nome {
+.pesquisarPorNome {
   align-self: stretch;
   position: relative;
   z-index: 1;
 }
-.pesquisar-por-nome-ou-categori-wrapper {
+.pesquisarPorNomeOuCategoriWrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
   min-width: 397px;
   max-width: 100%;
 }
-.location-divider {
+.locationDivider {
   align-self: stretch;
   width: 1px;
   position: relative;
@@ -33,45 +33,45 @@
   box-sizing: border-box;
   z-index: 1;
 }
-.location-input,
-.search-location {
+.locationInput,
+.searchLocation {
   display: flex;
   align-items: flex-start;
 }
-.location-input {
+.locationInput {
   width: 225px;
   flex-direction: column;
   justify-content: flex-start;
   padding: var(--padding-lgi) 0 0;
   box-sizing: border-box;
 }
-.search-location {
+.searchLocation {
   height: 62.1px;
   width: 270.5px;
   flex-direction: row;
   justify-content: space-between;
   gap: var(--gap-xl);
 }
-.search-input,
-.search-placeholder {
+.searchInput,
+.searchPlaceholder {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
 }
-.search-placeholder {
+.searchPlaceholder {
   align-self: stretch;
   flex-direction: row;
   gap: var(--gap-30xl-5);
 }
-.search-input {
+.searchInput {
   flex: 1;
   flex-direction: column;
   padding: var(--padding-mid) 0 0;
   box-sizing: border-box;
   min-width: 605px;
 }
-.search-button-child {
+.searchButtonChild {
   height: 98px;
   width: 231px;
   position: relative;
@@ -93,15 +93,15 @@
   flex-shrink: 0;
   z-index: 2;
 }
-.barra-de-pesquisa,
-.search-bar-container,
-.search-button {
+.barraDePesquisa,
+.searchBarContainer,
+.searchButton {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   box-sizing: border-box;
 }
-.search-button {
+.searchButton {
   cursor: pointer;
   border: 1px solid var(--color-darkgray-100);
   padding: var(--padding-12xl) var(--padding-19xl);
@@ -112,17 +112,17 @@
   justify-content: flex-end;
   z-index: 1;
 }
-.search-button:hover {
+.searchButton:hover {
   background-color: var(--color-indianred-200);
   border: 1px solid var(--color-gray-200);
   box-sizing: border-box;
 }
-.barra-de-pesquisa,
-.search-bar-container {
+.barraDePesquisa,
+.searchBarContainer {
   justify-content: flex-start;
   max-width: 100%;
 }
-.barra-de-pesquisa {
+.barraDePesquisa {
   flex: 1;
   border-radius: var(--br-41xl);
   background-color: var(--color-whitesmoke);
@@ -130,7 +130,7 @@
   padding: 0 0 0 var(--padding-33xl);
   gap: var(--gap-53xl);
 }
-.search-bar-container {
+.searchBarContainer {
   align-self: stretch;
   padding: 0 var(--padding-282xl) var(--padding-137xl) var(--padding-313xl);
   text-align: left;
@@ -139,7 +139,7 @@
   font-family: var(--font-montserrat);
 }
 @media screen and (max-width: 1725px) {
-  .barra-de-pesquisa {
+  .barraDePesquisa {
     flex-wrap: wrap;
     padding-left: var(--padding-xl);
     padding-right: var(--padding-xl);
@@ -148,29 +148,29 @@
   }
 }
 @media screen and (max-width: 1350px) {
-  .pesquisar-por-nome-ou-categori-wrapper {
+  .pesquisarPorNomeOuCategoriWrapper {
     min-width: 100%;
   }
-  .search-placeholder {
+  .searchPlaceholder {
     flex-wrap: wrap;
   }
-  .search-input {
+  .searchInput {
     min-width: 100%;
   }
-  .search-bar-container {
+  .searchBarContainer {
     padding-left: var(--padding-147xl);
     padding-right: var(--padding-131xl);
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 900px) {
-  .search-placeholder {
+  .searchPlaceholder {
     gap: var(--gap-6xl);
   }
-  .barra-de-pesquisa {
+  .barraDePesquisa {
     gap: var(--gap-17xl);
   }
-  .search-bar-container {
+  .searchBarContainer {
     padding-left: var(--padding-64xl);
     padding-right: var(--padding-56xl);
     box-sizing: border-box;
@@ -178,10 +178,10 @@
 }
 @media screen and (max-width: 450px) {
   .pesquisar,
-  .pesquisar-por-nome {
+  .pesquisarPorNome {
     font-size: var(--font-size-2xl);
   }
-  .barra-de-pesquisa {
+  .barraDePesquisa {
     gap: var(--gap-lg);
   }
 }

@@ -1,9 +1,9 @@
-.opcao-1-icon,
-.opcao-2-icon {
+.opcao1Icon,
+.opcao2Icon {
   object-fit: cover;
   max-width: 100%;
 }
-.opcao-2-icon {
+.opcao2Icon {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -15,14 +15,14 @@
   overflow: hidden;
   max-height: 100%;
 }
-.opcao-1-icon {
+.opcao1Icon {
   width: 1919px;
   height: 754px;
   position: relative;
   display: none;
   z-index: 1;
 }
-.a-maneira-fcil {
+.aManeiraFcil {
   margin: 0;
   align-self: stretch;
   height: 96.3px;
@@ -34,7 +34,7 @@
   flex-shrink: 0;
   z-index: 1;
 }
-.caixa-child {
+.caixaChild {
   height: 89px;
   width: 792px;
   position: relative;
@@ -44,7 +44,7 @@
   display: none;
   max-width: 100%;
 }
-.icon-email {
+.iconEmail {
   width: 28px;
   height: 27px;
   position: relative;
@@ -52,14 +52,14 @@
   flex-shrink: 0;
   z-index: 1;
 }
-.input-icon-container {
+.inptIconContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-12xs) 0 0;
 }
-.seu-endereo-de {
+.seuEndereoDe {
   flex: 1;
   position: relative;
   font-weight: 500;
@@ -68,27 +68,27 @@
   max-width: 100%;
   z-index: 1;
 }
-.input-inner-wrapper,
-.input-wrapper {
+.inputInnerWrapper,
+.inputWrapper {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
 }
-.input-inner-wrapper {
+.inputInnerWrapper {
   align-self: stretch;
   flex-direction: row;
   gap: var(--gap-sm);
   flex-shrink: 0;
 }
-.input-wrapper {
+.inputWrapper {
   flex: 1;
   flex-direction: column;
   padding: var(--padding-xl-9) 0 0;
   box-sizing: border-box;
   min-width: 252px;
 }
-.boto-inner {
+.botoInner {
   height: 70.5px;
   width: 328.1px;
   position: relative;
@@ -97,7 +97,7 @@
   display: none;
   max-width: 100%;
 }
-.comece-a-planejar {
+.comeceAPlanejar {
   flex: 1;
   position: relative;
   font-weight: 600;
@@ -119,8 +119,8 @@
 }
 .boto2,
 .caixa,
-.footer-form,
-.footer-slogan-container {
+.footerForm,
+.footerSloganContainer {
   display: flex;
   align-items: flex-start;
   max-width: 100%;
@@ -138,11 +138,11 @@
   gap: var(--gap-23xl-8);
   z-index: 1;
 }
-.footer-form,
-.footer-slogan-container {
+.footerForm,
+.footerSloganContainer {
   justify-content: flex-start;
 }
-.footer-form {
+.footerForm {
   width: 948px;
   flex-direction: row;
   padding: 0 var(--padding-59xl);
@@ -153,14 +153,14 @@
   color: var(--color-darkslategray-100);
   font-family: var(--font-montserrat);
 }
-.footer-slogan-container {
+.footerSloganContainer {
   width: 974px;
   flex-direction: column;
 }
-.j-tem-uma {
+.jTemUma {
   font-weight: 500;
 }
-.j-tem-uma-container {
+.jTemUmaContainer {
   flex: 1;
   position: relative;
   display: inline-block;
@@ -168,7 +168,7 @@
   cursor: pointer;
   z-index: 1;
 }
-.login-link {
+.loginLink {
   width: 511px;
   display: flex;
   flex-direction: row;
@@ -178,7 +178,7 @@
   box-sizing: border-box;
   max-width: 100%;
 }
-.voc-um-container {
+.vocUmContainer {
   align-self: stretch;
   height: 50px;
   position: relative;
@@ -187,19 +187,19 @@
   cursor: pointer;
   z-index: 1;
 }
-.account-options,
-.login-link-parent {
+.accountOptions,
+.loginLinkParent {
   display: flex;
   align-items: flex-start;
   max-width: 100%;
 }
-.login-link-parent {
+.loginLinkParent {
   width: 547px;
   flex-direction: column;
   justify-content: flex-start;
   gap: var(--gap-9xs);
 }
-.account-options {
+.accountOptions {
   width: 945px;
   flex-direction: row;
   justify-content: center;
@@ -208,7 +208,7 @@
   color: var(--color-gray-300);
   font-family: var(--font-montserrat);
 }
-.ltima-sesso {
+.ultimaSessao {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -228,57 +228,57 @@
   .caixa {
     flex-wrap: wrap;
   }
-  .footer-form,
-  .ltima-sesso {
+  .footerForm,
+  .ultimaSessao {
     padding-left: var(--padding-20xl);
     padding-right: var(--padding-20xl);
     box-sizing: border-box;
   }
-  .ltima-sesso {
+  .ultimaSessao {
     padding-left: var(--padding-204xl);
     padding-right: var(--padding-204xl);
   }
 }
 @media screen and (max-width: 900px) {
-  .a-maneira-fcil {
+  .aManeiraFcil {
     font-size: var(--font-size-27xl);
   }
-  .input-inner-wrapper {
+  .inputInnerWrapper {
     flex-wrap: wrap;
   }
-  .login-link {
+  .loginLink {
     padding-left: var(--padding-23xl);
     padding-right: var(--padding-23xl);
     box-sizing: border-box;
   }
-  .ltima-sesso {
+  .ultimaSessao {
     gap: var(--gap-base);
     padding: var(--padding-83xl) var(--padding-92xl) var(--padding-179xl);
     box-sizing: border-box;
   }
 }
 @media screen and (max-width: 450px) {
-  .a-maneira-fcil {
+  .aManeiraFcil {
     font-size: var(--font-size-15xl);
   }
-  .seu-endereo-de {
+  .seuEndereoDe {
     font-size: var(--font-size-mid);
   }
   .caixa {
     gap: var(--gap-2xl);
   }
-  .j-tem-uma-container {
+  .jTemUmaContainer {
     font-size: var(--font-size-lgi);
   }
-  .login-link {
+  .loginLink {
     padding-left: var(--padding-xl);
     padding-right: var(--padding-xl);
     box-sizing: border-box;
   }
-  .voc-um-container {
+  .vocUmContainer {
     font-size: var(--font-size-lgi);
   }
-  .ltima-sesso {
+  .ultimaSessao {
     padding-left: var(--padding-xl);
     padding-right: var(--padding-xl);
     box-sizing: border-box;

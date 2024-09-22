@@ -1,40 +1,40 @@
 import { useCallback } from "react";
 import PropTypes from "prop-types";
-import "./Header.css";
+import styles from  "../css/Header.module.css";
 
 const Header = ({ className = "" }) => {
   const onLOGINTextClick = useCallback(() => {
-    // Please sync "Pagina de Login" to the project
+    // Pagina de Login
   }, []);
 
   const onCadastreClick = useCallback(() => {
-    // Please sync "Página de cadastro" to the project
+    // Página de cadastro
   }, []);
 
   return (
-    <div className={`header ${className}`}>
-      <header className="header-left">
-        <div className="brand-logo">
-          <div className="bridee-wrapper">
-            <h1 className="bridee">
+    <div className={`${styles.header} ${className}`}>
+      <header className={styles.headerLeft}>
+        <div className={styles.brandLogo}>
+          <div className={styles.brideeWrapper}>
+            <h1 className={styles.bridee}>
               <span>bridee</span>
-              <span className="span">.</span>
+              <span className={styles.span}>.</span>
             </h1>
           </div>
-          <div className="o-match-perfeito">
+          <div className={styles.oMatchPerfeito}>
             O match perfeito para o dia dos seus sonhos
           </div>
         </div>
-        <div className="header-right">
-          <div className="auth-buttons">
-            <div className="login-button">
-              <a className="login" onClick={onLOGINTextClick}>
+        <div className={styles.headerRight}>
+          <div className={styles.authButtons}>
+            <div className={styles.loginButton}>
+              <a className={styles.login} onClick={onLOGINTextClick}>
                 LOGIN
               </a>
             </div>
-            <button className="cadastre" onClick={onCadastreClick}>
-              <div className="cadastre-child" />
-              <div className="cadastre-se-agora">CADASTRE-SE AGORA</div>
+            <button className={styles.cadastre} onClick={onCadastreClick}>
+              <div className={styles.cadastreChild} />
+              <div className={styles.cadastreSeAgora}>CADASTRE-SE AGORA</div>
             </button>
           </div>
         </div>

@@ -1,16 +1,18 @@
-import Header from "../../Componentes/Header";
+import Header from "../../componentes/Header"; 
 import GroupComponent from "../../Componentes/GroupComponent";
 import SearchBarContainer from "../../Componentes/SearchBarContainer";
-import Features from "../../Componentes/Features";
-import FORNECEDORESPORCATEGORIA from "../../Componentes/FornecedorPorCategoria";
+import Features from "../../componentes/Features"; 
+import FornecedorPorCategoria from "../../Componentes/FornecedorPorCategoria";
 import Venue from "../../Componentes/Venue";
-import CONTAINERVESTIDO from "../../Componentes/ContainerVestido";
-import NOSSOSCLIENTES from "../../Componentes/NossosClientes";
+import ContainerVestido from "../../Componentes/ContainerVestido";
+import NossosClientes from "../../Componentes/NOSSOSCLIENTES"; 
 import PlannerDescription from "../../Componentes/PlannerDescription";
 import FAQ from "../../Componentes/FAQ";
 import Footer from "../../componentes/Footer";
+import UltimaSessao from "../../componentes/UltimaSessao";
 import FooterLinks from "../../Componentes/FooterLinks";
 import "./LandingPage.module.css";
+
 
 const LandingPage = () => {
   return (
@@ -22,10 +24,10 @@ const LandingPage = () => {
       <img className="imagem-icon" alt="" />
       <SearchBarContainer />
       <Features />
-      <FORNECEDORESPORCATEGORIA />
+      <FornecedorPorCategoria />
       <Venue />
-      <CONTAINERVESTIDO />
-      <NOSSOSCLIENTES />
+      <ContainerVestido />
+      <NossosClientes />
       <div className="planner-description-wrapper">
         <PlannerDescription />
       </div>
@@ -44,6 +46,7 @@ const LandingPage = () => {
         </div>
       </div>
       <FAQ />
+      <UltimaSessao/>
       <Footer />
       <img className="bolinhas-icon" alt="" />
       <img className="vestidos-icon" alt="" />

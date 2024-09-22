@@ -1,4 +1,4 @@
-.frame-item {
+.frameItem {
   width: 467.2px;
   height: 290px;
   position: relative;
@@ -10,8 +10,8 @@
   display: none;
   max-width: 100%;
 }
-.comece-agora,
-.planeje-seu-casamento {
+.comeceAgora,
+.planejeSeuCasamento {
   width: 394.1px;
   position: relative;
   font-weight: 600;
@@ -19,13 +19,13 @@
   max-width: 100%;
   z-index: 1;
 }
-.comece-agora {
+.comeceAgora {
   width: 321.1px;
   flex-shrink: 0;
   max-width: 185%;
   cursor: pointer;
 }
-.comece-agora-wrapper {
+.comeceAgoraWrapper {
   width: 173.7px;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@
   padding: var(--padding-9xs-1) 0 0;
   box-sizing: border-box;
 }
-.weuiarrow-filled-icon {
+.weuiarrowFilledIcon {
   height: 35px;
   width: 20px;
   position: relative;
@@ -42,36 +42,36 @@
   flex-shrink: 0;
   z-index: 2;
 }
-.frame-parent,
-.planning-button,
-.planning-feature,
-.rectangle-group {
+.frameParent,
+.planningButton,
+.planningFeature,
+.rectangleGroup {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 100%;
 }
-.frame-parent {
+.frameParent {
   flex: 1;
   flex-direction: row;
 }
-.planning-button,
-.planning-feature,
-.rectangle-group {
+.planningButton,
+.planningFeature,
+.rectangleGroup {
   box-sizing: border-box;
 }
-.planning-button {
+.planningButton {
   width: 328.5px;
   flex-direction: row;
   padding: 0 var(--padding-9xs);
   font-size: var(--font-size-3xl);
   font-family: var(--font-montserrat);
 }
-.planning-feature,
-.rectangle-group {
+.planningFeature,
+.rectangleGroup {
   flex-direction: column;
 }
-.rectangle-group {
+.rectangleGroup {
   align-self: stretch;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   border-radius: var(--br-xl);
@@ -81,7 +81,7 @@
     var(--padding-19xl);
   gap: var(--gap-57xl);
 }
-.planning-feature {
+.planningFeature {
   flex: 1;
   padding: 0 var(--padding-7xs) 0 0;
   min-width: 308px;
@@ -90,7 +90,7 @@
   color: var(--color-white);
   font-family: var(--font-playfair-display);
 }
-.frame-inner {
+.frameInner {
   width: 265.3px;
   height: 290px;
   position: relative;
@@ -100,38 +100,38 @@
   box-sizing: border-box;
   display: none;
 }
-.loupe-1-1 {
+.loupe11 {
   height: 74.1px;
   width: 75px;
   position: relative;
   object-fit: cover;
   z-index: 1;
 }
-.calculator-icon {
+.calculatorIcon {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0 var(--padding-49xl) 0 var(--padding-43xl);
 }
-.os-custos-do {
+.osCustosDo {
   font-weight: 500;
 }
-.calcule-os-custos-container {
+.calculeOsCustosContainer {
   height: 106px;
   position: relative;
   display: inline-block;
   flex-shrink: 0;
   z-index: 1;
 }
-.cost-calculator,
-.rectangle-container {
+.costCalculator,
+.rectangleContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.rectangle-container {
+.rectangleContainer {
   align-self: stretch;
   border-radius: var(--br-xl);
   background-color: var(--color-snow-100);
@@ -140,36 +140,36 @@
     var(--padding-13xl);
   gap: var(--gap-21xl-1);
 }
-.cost-calculator {
+.costCalculator {
   width: 272px;
   padding: 0 var(--padding-7xs) 0 0;
   box-sizing: border-box;
 }
-.lista-de-tarefas-1-icon {
+.listaDeTarefas1Icon {
   height: 84.5px;
   width: 86.5px;
   position: relative;
   object-fit: cover;
   z-index: 1;
 }
-.lista-de-tarefas-1-wrapper {
+.listaDeTarefas1Wrapper {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-end;
   padding: 0 var(--padding-41xl);
 }
-.gerencie-e {
+.gerencieE {
   font-weight: 600;
 }
-.gerencie-e-confirme-container {
+.gerencieEConfirmeContainer {
   height: 94px;
   position: relative;
   display: inline-block;
   flex-shrink: 0;
   z-index: 1;
 }
-.frame-div {
+.frameDiv {
   width: 265.3px;
   border-radius: var(--br-xl);
   background-color: var(--color-snow-100);
@@ -182,7 +182,7 @@
   padding: var(--padding-43xl) var(--padding-4xl) var(--padding-12xs);
   gap: var(--gap-25xl-5);
 }
-.feature-list,
+.featureList,
 .features {
   display: flex;
   flex-direction: row;
@@ -190,7 +190,7 @@
   justify-content: center;
   max-width: 100%;
 }
-.feature-list {
+.featureList {
   width: 1666px;
   gap: var(--gap-11xl-8);
 }
@@ -204,29 +204,29 @@
   font-family: var(--font-montserrat);
 }
 @media screen and (max-width: 1725px) {
-  .feature-list {
+  .featureList {
     flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 900px) {
-  .feature-list {
+  .featureList {
     gap: var(--gap-mini);
   }
 }
 @media screen and (max-width: 450px) {
-  .planeje-seu-casamento {
+  .planejeSeuCasamento {
     font-size: var(--font-size-3xl);
   }
-  .comece-agora {
+  .comeceAgora {
     font-size: var(--font-size-lg);
   }
-  .rectangle-group {
+  .rectangleGroup {
     gap: var(--gap-19xl);
   }
-  .rectangle-container {
+  .rectangleContainer {
     gap: var(--gap-xl);
   }
-  .frame-div {
+  .frameDiv {
     gap: var(--gap-3xl);
   }
   .features {

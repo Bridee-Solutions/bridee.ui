@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
-import "../css/FrameComponent.module.css";
+import styles from "../css/FrameComponent.module.css";
 
 const FrameComponent = ({
   className = "",
@@ -33,23 +33,23 @@ const FrameComponent = ({
   }, [propHeight, propWidth1]);
 
   return (
-    <div className={`rectangle-parent ${className}`} style={frameDivStyle}>
-      <div className="frame-child" />
-      <div className="features-icons" style={featuresIconsStyle}>
+    <div className={`${styles.rectangleParent} ${className}`} style={frameDivStyle}> {/* Alterado para styles.rectangleParent */}
+      <div className={styles.frameChild} />
+      <div className={styles.featuresIcons} style={featuresIconsStyle}>
         <img
-          className="networking-1-icon"
+          className={styles.networking1Icon}
           loading="lazy"
           alt=""
           src={networking1}
         />
       </div>
       <div
-        className="encontre-os-melhores-container"
+        className={styles.encontreOsMelhoresContainer}
         style={encontreOsMelhoresContainerStyle}
       >
-        <span className="encontre-os-melhores">{encontreOsMelhores}</span>
+        <span className={styles.encontreOsMelhores}>{encontreOsMelhores}</span>
         <b>{assessores}</b>
-        <span className="para-o-seu">{paraOSeuGrandeDia}</span>
+        <span className={styles.paraOSeu}>{paraOSeuGrandeDia}</span>
       </div>
     </div>
   );
@@ -62,7 +62,7 @@ FrameComponent.propTypes = {
   assessores: PropTypes.string,
   paraOSeuGrandeDia: PropTypes.string,
 
-  /** Style props */
+  /** estilo props */
   propWidth: PropTypes.any,
   propAlignSelf: PropTypes.any,
   propHeight: PropTypes.any,

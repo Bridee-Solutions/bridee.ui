@@ -1,4 +1,4 @@
-.voc-um {
+.vocUm {
   margin: 0;
   position: relative;
   font-size: inherit;
@@ -6,7 +6,7 @@
   font-family: var(--font-product-sans);
   z-index: 1;
 }
-.imagem3-icon {
+.imagem3Icon {
   height: 802px;
   width: 1949px;
   position: absolute;
@@ -15,14 +15,14 @@
   right: -937px;
   object-fit: cover;
 }
-.gerencie-sua-agenda {
+.gerencieSuaAgenda {
   margin-block-start: 0;
   margin-block-end: 17px;
 }
-.facilite-seu-trabalho {
+.faciliteSeuTrabalho {
   margin: 0;
 }
-.gerencie-sua-agenda-container {
+.gerencieSuaAgendaContainer {
   height: 235px;
   flex: 1;
   position: relative;
@@ -34,7 +34,7 @@
   max-width: 100%;
   z-index: 1;
 }
-.imagem3-parent {
+.imagem3Parent {
   align-self: stretch;
   display: flex;
   flex-direction: row;
@@ -44,7 +44,7 @@
   max-width: 100%;
   font-size: var(--font-size-7xl);
 }
-.boto-item {
+.botoItem {
   height: 62.7px;
   width: 286px;
   position: relative;
@@ -52,7 +52,7 @@
   background-color: var(--color-lightcoral-100);
   display: none;
 }
-.comece-agora1 {
+.comeceAgora1 {
   flex: 1;
   position: relative;
   font-size: var(--font-size-5xl);
@@ -81,20 +81,20 @@
 .boto1:hover {
   background-color: var(--color-indianred-200);
 }
-.voc-j-tem {
+.vocJTem {
   font-weight: 500;
 }
-.faa-login-agora {
+.faaLoginAgora {
   text-decoration: underline;
   font-weight: 600;
 }
-.voc-j-tem-container {
+.vocJTemContainer {
   align-self: stretch;
   position: relative;
   font-size: var(--font-size-5xl);
   z-index: 1;
 }
-.planner-description {
+.plannerDescription {
   width: 877px;
   display: flex;
   flex-direction: column;
@@ -108,22 +108,22 @@
   font-family: var(--font-montserrat);
 }
 @media screen and (max-width: 900px) {
-  .voc-um {
+  .vocUm {
     font-size: var(--font-size-35xl);
   }
 }
 @media screen and (max-width: 450px) {
-  .voc-um {
+  .vocUm {
     font-size: var(--font-size-22xl);
   }
-  .gerencie-sua-agenda-container {
+  .gerencieSuaAgendaContainer {
     font-size: var(--font-size-2xl);
     line-height: 26px;
   }
-  .voc-j-tem-container {
+  .vocJTemContainer {
     font-size: var(--font-size-lgi);
   }
-  .planner-description {
+  .plannerDescription {
     gap: var(--gap-mid);
   }
 }

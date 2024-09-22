@@ -1,37 +1,37 @@
 import PropTypes from "prop-types";
-import "../css/SearchBarContainer.module.css";
+import styles from "../css/searchBarContainer.module.css";
 
-const SearchBarContainer = ({ className = "" }) => {
+const searchBarContainer = ({ className = "" }) => {
   return (
-    <section className={`search-bar-container ${className}`}>
-      <div className="barra-de-pesquisa">
-        <div className="barra-de-pesquisa-child" />
-        <div className="search-input">
-          <div className="search-placeholder">
-            <div className="pesquisar-por-nome-ou-categori-wrapper">
-              <div className="pesquisar-por-nome">
+    <section className={`${styles.searchBarContainer} ${className}`}>
+      <div className={styles.barraDePesquisa}>
+        <div className={styles.barraDePesquisaChild}/>
+        <div className={styles.searchInput}>
+          <div className={styles.searchPlaceholder}>
+            <div className={styles.pesquisarPorNomeOuCategoriWrapper}>
+              <div className={styles.pesquisarPorNome}>
                 Pesquisar por nome ou categoria de serviço
               </div>
             </div>
-            <div className="search-location">
-              <div className="location-divider" />
-              <div className="location-input">
-                <div className="pesquisar-por-nome">Estado</div>
+            <div className={styles.searchLocation}>
+              <div className={styles.locationDivider} />
+              <div className={styles.locationInput}>
+                <div className={styles.pesquisarPorNome}>Estado</div>
               </div>
             </div>
           </div>
         </div>
-        <button className="search-button">
-          <div className="search-button-child" />
-          <div className="pesquisar">Pesquisar</div>
+        <button className={styles.searchButton}>
+          <div className={styles.searchButtonChild} />
+          <div className={styles.pesquisar}>Pesquisar</div>
         </button>
       </div>
     </section>
   );
 };
 
-SearchBarContainer.propTypes = {
-  className: PropTypes.string,
+searchBarContainer.propTypes = {
+  className:PropTypes.string,
 };
 
-export default SearchBarContainer;
+export default searchBarContainer;

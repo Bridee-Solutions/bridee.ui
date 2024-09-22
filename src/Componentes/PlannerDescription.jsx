@@ -1,37 +1,37 @@
 import PropTypes from "prop-types";
-import "../css/PlannerDescription.module.css";
+import styles from "../css/PlannerDescription.module.css";
 
 const PlannerDescription = ({ className = "" }) => {
   return (
-    <div className={`planner-description ${className}`}>
-      <h1 className="voc-um">Você é um assessor de casamento?</h1>
-      <div className="imagem3-parent">
+    <div className={`${styles.plannerDescription} ${className}`}>
+      <h1 className={styles.vocUm}>Você é um assessor de casamento?</h1>
+      <div className={styles.imagem3Parent}>
         <img
-          className="imagem3-icon"
+          className={styles.imagem3Icon}
           loading="lazy"
           alt=""
           src="/imagem3@2x.png"
         />
-        <div className="gerencie-sua-agenda-container">
+        <div className={styles.gerencieSuaAgendaContainer}>
           <span>
-            <p className="gerencie-sua-agenda">{`Gerencie sua agenda e encontre noivas de forma fácil e rápida. `}</p>
-            <p className="gerencie-sua-agenda">
+            <p className={styles.gerencieSuaAgenda}>{`Gerencie sua agenda e encontre noivas de forma fácil e rápida. `}</p>
+            <p className={styles.gerencieSuaAgenda}>
               Nossa plataforma conecta você a casais e oferece ferramentas para
               organizar todos os detalhes do casamento.
             </p>
-            <p className="facilite-seu-trabalho">
+            <p className={styles.faciliteSeuTrabalho}>
               Facilite seu trabalho e crie momentos inesquecíveis.
             </p>
           </span>
         </div>
       </div>
-      <button className="boto1">
-        <div className="boto-item" />
-        <div className="comece-agora1">COMECE AGORA!</div>
+      <button className={styles.boto1}>
+        <div className={styles.botoItem} />
+        <div className={styles.comeceAgora1}>COMECE AGORA!</div>
       </button>
-      <div className="voc-j-tem-container">
-        <span className="voc-j-tem">{`Você já tem um perfil de assessor? `}</span>
-        <span className="faa-login-agora">Faça login agora</span>
+      <div className={styles.vocJTemContainer}>
+        <span className={styles.vocJTem}>{`Você já tem um perfil de assessor? `}</span>
+        <span className={styles.faaLoginAgora}>Faça login agora</span>
       </div>
     </div>
   );

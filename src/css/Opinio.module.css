@@ -1,4 +1,4 @@
-.opinio-3-child {
+.opinio3Child {
   width: 481.2px;
   height: 583px;
   position: relative;
@@ -8,14 +8,14 @@
   max-width: 100%;
   z-index: 0;
 }
-.lorem-ipsum-dolor {
+.loremIpsumDolor {
   width: 358px;
   position: relative;
   display: inline-block;
   max-width: 100%;
   z-index: 1;
 }
-.bxsquote-left-icon {
+.bxsquoteLeftIcon {
   width: 85px;
   height: 87px;
   position: absolute;
@@ -26,7 +26,7 @@
   flex-shrink: 0;
   z-index: 1;
 }
-.bxsquote-left-icon1 {
+.bxsquoteLeftIcon1 {
   width: 85.1px;
   height: 87.1px;
   position: relative;
@@ -35,67 +35,67 @@
   object-fit: contain;
   z-index: 1;
 }
-.image-icon4 {
+.imageIcon4 {
   height: 104px;
   width: 104px;
   position: relative;
   object-fit: cover;
   z-index: 1;
 }
-.isabela-cambui,
+.isabelaCambui,
 .noiva1 {
   align-self: stretch;
   position: relative;
   z-index: 1;
 }
-.isabela-cambui {
+.isabelaCambui {
   font-weight: 600;
 }
 .noiva1 {
   font-size: var(--font-size-base);
 }
-.client-name-containers,
-.client-name-inner-containers {
+.clientNameContainers,
+.clientNameInnerContainers {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.client-name-inner-containers {
+.clientNameInnerContainers {
   align-self: stretch;
 }
-.client-name-containers {
+.clientNameContainers {
   flex: 1;
   padding: var(--padding-sm) 0 0;
 }
-.client-info-containers,
-.client-info-inner-containers {
+.clientInfoContainers,
+.clientInfoInnerContainers {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.client-info-inner-containers {
+.clientInfoInnerContainers {
   width: 313px;
   gap: var(--gap-mid);
   flex-shrink: 0;
 }
-.client-info-containers {
+.clientInfoContainers {
   align-self: stretch;
 }
-.quote-icon-containers,
-.quote-icon-inner-containers {
+.quoteIconContainers,
+.quoteIconInnerContainers {
   display: flex;
   justify-content: flex-start;
   max-width: 100%;
 }
-.quote-icon-inner-containers {
+.quoteIconInnerContainers {
   flex: 1;
   flex-direction: column;
   align-items: flex-end;
   gap: var(--gap-11xs-9);
 }
-.quote-icon-containers {
+.quoteIconContainers {
   align-self: stretch;
   flex-direction: row;
   align-items: flex-start;
@@ -106,7 +106,7 @@
   color: var(--color-darkslategray-600);
   font-family: var(--font-inter);
 }
-.opinio-3-item {
+.opinio3Item {
   width: 126px;
   height: 24px;
   position: absolute;
@@ -115,7 +115,7 @@
   bottom: 72px;
   z-index: 2;
 }
-.opinio-3 {
+.opinio3 {
   width: 481.2px;
   border-radius: var(--br-31xl) var(--br-81xl) var(--br-31xl) var(--br-81xl);
   background-color: var(--color-lightpink-100);
@@ -135,7 +135,7 @@
   font-family: var(--font-questrial);
 }
 @media screen and (max-width: 900px) {
-  .opinio-3 {
+  .opinio3 {
     padding-left: var(--padding-13xl);
     padding-top: var(--padding-73xl);
     padding-bottom: var(--padding-16xl);
@@ -143,10 +143,10 @@
   }
 }
 @media screen and (max-width: 450px) {
-  .lorem-ipsum-dolor {
+  .loremIpsumDolor {
     font-size: var(--font-size-xl);
   }
-  .isabela-cambui {
+  .isabelaCambui {
     font-size: var(--font-size-base);
   }
 }

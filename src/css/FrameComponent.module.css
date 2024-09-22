@@ -1,4 +1,4 @@
-.frame-child {
+.frameChild {
   width: 265.3px;
   height: 290px;
   position: relative;
@@ -8,14 +8,14 @@
   box-sizing: border-box;
   display: none;
 }
-.networking-1-icon {
+.networking1Icon {
   height: 85.6px;
   width: 86.5px;
   position: relative;
   object-fit: cover;
   z-index: 1;
 }
-.features-icons {
+.featuresIcons {
   align-self: stretch;
   display: flex;
   flex-direction: row;
@@ -23,21 +23,21 @@
   justify-content: flex-end;
   padding: 0 var(--padding-45xl);
 }
-.encontre-os-melhores {
+.encontreOsMelhores {
   font-weight: 500;
   white-space: pre-wrap;
 }
-.para-o-seu {
+.paraOSeu {
   font-weight: 500;
 }
-.encontre-os-melhores-container {
+.encontreOsMelhoresContainer {
   height: 95px;
   position: relative;
   display: inline-block;
   flex-shrink: 0;
   z-index: 1;
 }
-.rectangle-parent {
+.rectangleParent {
   width: 265.3px;
   border-radius: var(--br-xl);
   background-color: var(--color-snow-100);
@@ -55,7 +55,7 @@
   font-family: var(--font-montserrat);
 }
 @media screen and (max-width: 450px) {
-  .rectangle-parent {
+  .rectangleParent {
     gap: var(--gap-xl);
   }
 }

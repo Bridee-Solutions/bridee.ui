@@ -1,34 +1,34 @@
 import { useCallback } from "react";
 import FrameComponent from "./FrameComponent";
 import PropTypes from "prop-types";
-import "../css/Features.module.css";
+import styles from "../css/Features.module.css";
 
 const Features = ({ className = "" }) => {
   const onComeceAgoraTextClick = useCallback(() => {
-    // Please sync "Página de cadastro" to the project
+    // Página de cadastro
   }, []);
 
   return (
-    <section className={`features ${className}`}>
-      <div className="feature-list">
-        <div className="planning-feature">
-          <div className="rectangle-group">
-            <div className="frame-item" />
-            <div className="planeje-seu-casamento">
+    <section className={`${styles.features} ${className}`}>
+      <div className={styles.featureList}>
+        <div className={styles.planningFeature}>
+          <div className={styles.rectangleGroup}>
+            <div className={styles.frameItem} />
+            <div className={styles.planejeSeuCasamento}>
               Planeje seu casamento de forma simples e prática com a bridee.
             </div>
-            <div className="planning-button">
-              <div className="frame-parent">
-                <div className="comece-agora-wrapper">
+            <div className={styles.planningButton}>
+              <div className={styles.frameParent}>
+                <div className={styles.comeceAgoraWrapper}>
                   <div
-                    className="comece-agora"
+                    className={styles.comeceAgora}
                     onClick={onComeceAgoraTextClick}
                   >
                     Comece agora
                   </div>
                 </div>
                 <img
-                  className="weuiarrow-filled-icon"
+                  className={styles.weuiarrowFilledIcon}
                   loading="lazy"
                   alt=""
                   src="/weuiarrowfilled.svg"
@@ -37,20 +37,20 @@ const Features = ({ className = "" }) => {
             </div>
           </div>
         </div>
-        <div className="cost-calculator">
-          <div className="rectangle-container">
-            <div className="frame-inner" />
-            <div className="calculator-icon">
+        <div className={styles.costCalculator}>
+          <div className={styles.rectangleContainer}>
+            <div className={styles.frameInner} />
+            <div className={styles.calculatorIcon}>
               <img
-                className="loupe-1-1"
+                className={styles.loupe11}
                 loading="lazy"
                 alt=""
                 src="/loupe-1-1@2x.png"
               />
             </div>
-            <div className="calcule-os-custos-container">
+            <div className={styles.calculeOsCustosContainer}>
               <b>Calcule</b>
-              <span className="os-custos-do">
+              <span className={styles.osCustosDo}>
                 {" "}
                 os custos do seu casamento conforme suas escolhas.
               </span>
@@ -63,20 +63,20 @@ const Features = ({ className = "" }) => {
           assessores="assessores"
           paraOSeuGrandeDia=" para o seu grande dia."
         />
-        <div className="frame-div">
-          <div className="frame-inner" />
-          <div className="lista-de-tarefas-1-wrapper">
+        <div className={styles.frameDiv}>
+          <div className={styles.frameInner} />
+          <div className={styles.listaDeTarefas1Wrapper}>
             <img
-              className="lista-de-tarefas-1-icon"
+              className={styles.listaDeTarefas1Icon}
               loading="lazy"
               alt=""
               src="/listadetarefas-1@2x.png"
             />
           </div>
-          <div className="gerencie-e-confirme-container">
-            <span className="gerencie-e">{`Gerencie e `}</span>
+          <div className={styles.gerencieEConfirmeContainer}>
+            <span className={styles.gerencieE}>{`Gerencie e `}</span>
             <b>confirme</b>
-            <span className="gerencie-e"> presenças facilmente.</span>
+            <span className={styles.gerencieE}> presenças facilmente.</span>
           </div>
         </div>
         <FrameComponent

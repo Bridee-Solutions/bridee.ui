@@ -1,26 +1,26 @@
 import PropTypes from "prop-types";
-import "../css/GroupComponent.module.css";
+import styles from "../css/GroupComponent.module.css";
 
 const GroupComponent = ({ className = "" }) => {
   return (
-    <section className={`imagem-parent ${className}`}>
-      <img className="imagem-icon1" alt="" src="/imagem@2x.png" />
-      <div className="hero-content">
+    <section className={`${styles.imagemParent} ${className}`}>
+      <img className={styles.imagemIcon1} alt="" src="/imagem@2x.png" />
+      <div className={styles.heroContent}>
         <img
-          className="pngwingcom-1-1"
+          className={styles.pngwingcom11}
           loading="lazy"
           alt=""
           src="/pngwingcom-1-1@2x.png"
         />
-        <div className="hero-description">
-          <img className="pngwingcom-1-2" alt="" src="/pngwingcom-1-1@2x.png" />
-          <b className="simples-organizado-sem-container">
-            <p className="simples-organizado-sem">
+        <div className={styles.heroDescription}>
+          <img className={styles.pngwingcom12} alt="" src="/pngwingcom-1-1@2x.png" />
+          <b className={styles.simplesOrganizadoSemContainer}>
+            <p className={styles.simplesOrganizadoSem}>
               Simples. Organizado. Sem estresse.
             </p>
           </b>
         </div>
-        <h1 className="titulo-da-header">
+        <h1 className={styles.tituloDaHeader}>
           Facilitamos o encontro entre noivas e assessores para casamentos
           perfeitos
         </h1>

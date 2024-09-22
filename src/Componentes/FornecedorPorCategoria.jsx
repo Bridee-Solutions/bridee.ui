@@ -1,53 +1,53 @@
 import Decoration from "./Decoration";
 import PropTypes from "prop-types";
-import "../css/FornecedorPorCategoria.module.css";
+import styles from "../css/FornecedorPorCategoria.module.css";
 
 const FORNECEDORESPORCATEGORIA = ({ className = "" }) => {
   return (
-    <section className={`fornecedores-por-categoria ${className}`}>
-      <div className="fundoo" />
-      <div className="category-title">
-        <h2 className="descubra-fornecedores-de">
+    <section className={`${styles.fornecedoresPorCategoria} ${className}`}>
+      <div className={styles.fundoo} />
+      <div className={styles.categoryTitle}>
+        <h2 className={styles.descubraFornecedoresDe}>
           Descubra fornecedores de casamento por categoria
         </h2>
       </div>
-      <div className="category-grid">
-        <div className="photography">
-          <div className="photography">
-            <div className="photographyfotos-vdeo">{`Fotos & Vídeo`}</div>
+      <div className={styles.categoryGrid}>
+        <div className={styles.photography}>
+          <div className={styles.photography}>
+            <div className={styles.photographyfotosVdeo}>{`Fotos & Vídeo`}</div>
             <img
-              className="camera-1-1"
+              className={styles.camera11}
               loading="lazy"
               alt=""
               src="/camera-1-1@2x.png"
             />
           </div>
         </div>
-        <div className="category-pairs">
-          <div className="category-icons">
-            <img className="local-1-icon" alt="" src="/local-1@2x.png" />
-            <div className="category-names">
-              <div className="local">Local</div>
+        <div className={styles.categoryPairs}>
+          <div className={styles.categoryIcons}>
+            <img className={styles.local1Icon} alt="" src="/local-1@2x.png" />
+            <div className={styles.categoryNames}>
+              <div className={styles.local}>Local</div>
             </div>
           </div>
         </div>
-        <div className="music">
-          <div className="music-content">
-            <img className="muscav2-1-icon" alt="" src="/muscav2-1@2x.png" />
-            <div className="music-name">
-              <div className="msica">Música</div>
+        <div className={styles.music}>
+          <div className={styles.musicContent}>
+            <img className={styles.muscav21Icon} alt="" src="/muscav2-1@2x.png" />
+            <div className={styles.musicName}>
+              <div className={styles.msica}>Música</div>
             </div>
           </div>
         </div>
-        <div className="cake">
-          <div className="cake-content">
+        <div className={styles.cake}>
+          <div className={styles.cakeContent}>
             <img
-              className="bolo-de-casamento-1-icon"
+              className={styles.boloDeCasamento1Icon}
               alt=""
               src="/bolodecasamento-1@2x.png"
             />
-            <div className="cake-name">
-              <div className="local">Bolo</div>
+            <div className={styles.cakeName}>
+              <div className={styles.local}>Bolo</div>
             </div>
           </div>
         </div>
@@ -56,21 +56,21 @@ const FORNECEDORESPORCATEGORIA = ({ className = "" }) => {
           decoracao1="/restaurante1-1@2x.png"
           decorao="Gastronomia "
         />
-        <div className="category-pairs1">
-          <div className="vestido-de-casamento-1-1-parent">
+        <div className={styles.categoryPairs1}>
+          <div className={styles.vestidoDeCasamento11Parent}>
             <img
-              className="vestido-de-casamento-1-1"
+              className={styles.vestidoDeCasamento11}
               alt=""
               src="/vestidodecasamento-1-1@2x.png"
             />
-            <div className="noiva-wrapper">
-              <div className="noiva">Noiva</div>
+            <div className={styles.noivaWrapper}>
+              <div className={styles.noiva}>Noiva</div>
             </div>
           </div>
         </div>
-        <div className="photography-content">
-          <div className="noivo">Noivo</div>
-          <img className="camisa-1-icon" alt="" src="/camisa-1@2x.png" />
+        <div className={styles.photographyContent}>
+          <div className={styles.noivo}>Noivo</div>
+          <img className={styles.camisa1Icon} alt="" src="/camisa-1@2x.png" />
         </div>
       </div>
     </section>
