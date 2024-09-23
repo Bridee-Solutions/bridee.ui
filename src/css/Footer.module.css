@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Qlassy';
+  src: url('../assets/fonts/Qlassy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ProductSans';
+  src: url('../assets/fonts/ProductSans-Regular.ttf');
+}
+
+.Footer {
+  width: 100%;
+  height: 30vh;
+  background-color: #FFF6F6;
+}
+
+.footer_sections {
+  padding: 50px;
+  height: 20vh;
+  width: 94%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer_explore,
+.footer_about,
+.footer_contact {
+  /* background-color: red; */
+  height: 100%;
+  width: 24%;
+}
+
+.footer_explore,
+.footer_about,
+.footer_contact h2 {
+  font-family: 'ProductSans';
+  color: #514343;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.footer_explore,
+.footer_about,
+.footer_contact p {
+  font-family: 'ProductSans';
+  width: fit-content;
+  color: #514343;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.footer_contact p {
+  display: flex;
+  gap: 5px;
+}
+
+.footer_logo {
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100%;
+  width: 24%;
+}
+
+.footer_logo .footer_title {
+  font-family: 'Qlassy';
+  color: #3C3C3C;
+  font-size: 80px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.footer_div {
+  height: 80%;
+  width: 1px;
+  background-color: #DD7B78;
+}
+
+.footer_logo .footer_title b {
+  color: #DD7B78;
+  font-size: 80px;
+  font-weight: 400;
+}
+
+
+.footer_logo .footer_subtitle {
+  font-family: 'Montserrat';
+  color: #383737;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.bridee_rights {
+  height: 4vh;
+  width: 100%;
+  background-color: #DD7B78;
+  color: #FFF6F6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'ProductSans';
+  font-size: 20px;
+  font-weight: 400;
+}

@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../assets/fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'ProductSans';
+  src: url('../../assets/fonts/ProductSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'PlayFair';
+  src: url('../../assets/fonts/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+.error_base {
+  background-color: #F3EED9;
+  display: flex;
+  width: 100vw;
+  height: 110vh;
+  flex-direction: column;
+}
+
+.error_message {
+  position: relative;
+  top: 44vh;
+  right: 18vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error_image {
+  background: url('../../assets/penguimError.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error_message h1 {
+  font-family: 'Playfair';
+  margin: 0;
+  font-size: 48px;
+  font-weight: 800;
+  color: #545454;
+}
+
+.error_message p {
+  font-family: 'Montserrat';
+  color: #7E7E7E;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.error_message button {
+  width: 320px;
+  height: 62px;
+  background-color: #DD7B78;
+  color: #FFFFFF;
+  border-radius: 30px;
+  border: 0px;
+  font-family: 'Montserrat';
+  font-size: 19px;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.error_message button:hover {
+  width: 350px;
+  height: 65px;
+  background-color: #b96764;
+  cursor: pointer;
+
+}
