@@ -3,15 +3,21 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CiMail, CiLock } from "react-icons/ci";
 import { GoogleLogin } from "@react-oauth/google";
+import LateralImage from "../../component/LoginLateralImage";
 
 const Login = () =>{
 
+    const responseMessage = (response) => {
+        console.log(response);
+    };
+    const errorMessage = (error) => {
+        console.log(error);
+    };
+
     return(
         <div className={styles.login_body}>
-            <div className={styles.login_img}>
-                <img src="/src/assets/foto.svg" alt="" />
-            </div>
-            <div className={styles.login_container}>
+           <LateralImage/>            
+           <div className={styles.login_container}>
                 <div className={styles.login_header}>
                     <div className={styles.login_header_icon}>
                         <FaLongArrowAltLeft />
@@ -42,7 +48,7 @@ const Login = () =>{
                             <button>Entrar</button>
                             <span>ou</span>
                             <div className={styles.google_button}>
-                                <GoogleLogin />
+                                <GoogleLogin onSuccess={responseMessage} onError={errorMessage}/>
                             </div>
                         </div>
                     </div>
