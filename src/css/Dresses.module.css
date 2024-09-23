@@ -1,0 +1,58 @@
+.dresses-section {
+  background-color: #fdf2f2;
+  border-radius: 20px;
+  padding: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.text-left {
+  max-width: 40%;
+}
+
+.text-left h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.text-left p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  gap: 15px;
+  max-width: 50%;
+}
+
+.dress-item {
+  width: 150px;
+  height: 225px;
+  transition: transform 0.3s ease;
+}
+
+.dress-item img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.dress-item:hover {
+  transform: scale(1.05);
+}
+
+.btn-outline-danger {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #ff707b;
+  color: #ff707b;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: #ff707b;
+  color: white;
+}

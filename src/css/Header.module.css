@@ -1,155 +1,29 @@
-.span {
-  color: var(--color-lightcoral-100);
-}
-.bridee {
-  margin: 0;
-  height: 73.8px;
-  width: 278.5px;
-  position: relative;
-  font-size: inherit;
-  font-weight: 400;
-  font-family: inherit;
-  display: inline-block;
-  flex-shrink: 0;
-  z-index: 1;
-}
-.brideeWrapper {
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 0 var(--padding-38xl);
-}
-.oMatchPerfeito {
-  align-self: stretch;
-  position: relative;
-  font-size: var(--font-size-lg);
-  font-weight: 500;
-  font-family: var(--font-montserrat);
-  color: var(--color-darkslategray-900);
-}
-.brandLogo {
-  width: 418.4px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--gap-10xs-7);
-  max-width: 100%;
-}
-.login {
-  text-decoration: none;
-  align-self: stretch;
-  position: relative;
-  font-weight: 600;
-  color: inherit;
-  cursor: pointer;
-}
-.loginButton {
-  width: 89.1px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-4xl-4) 0 0;
-  box-sizing: border-box;
-}
-.cadastreChild {
-  height: 71.4px;
-  width: 285.3px;
-  position: relative;
-  border-radius: var(--br-10xs);
-  background-color: var(--color-lightcoral-100);
-  display: none;
-}
-.cadastreSeAgora {
-  position: relative;
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  font-family: var(--font-montserrat);
-  color: var(--color-snow-100);
-  text-align: left;
-  z-index: 1;
-}
-.authButtons,
-.cadastre {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.cadastre {
-  cursor: pointer;
-  border: 0;
-  padding: var(--padding-4xl-1) var(--padding-3xl) var(--padding-5xl-1)
-    var(--padding-15xl);
-  background-color: var(--color-lightcoral-100);
-  border-radius: var(--br-10xs);
-}
-.cadastre:hover {
-  background-color: var(--color-indianred-200);
-}
-.authButtons {
-  gap: var(--gap-4xs);
-}
-.header,
-.headerLeft,
-.headerRight {
-  display: flex;
-  align-items: flex-start;
-  max-width: 100%;
-}
-.headerRight {
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: var(--padding-base-5) 0 0;
-  box-sizing: border-box;
-  font-size: var(--font-size-xl);
-  color: var(--color-dimgray-100);
-  font-family: var(--font-montserrat);
-}
-.header,
-.headerLeft {
-  flex-direction: row;
-}
-.headerLeft {
-  width: 1074.9px;
-  justify-content: space-between;
-  gap: var(--gap-xl);
-  text-align: left;
-  font-size: var(--font-size-66xl);
-  color: var(--color-darkslategray-300);
-  font-family: var(--font-qlassy);
-}
 .header {
-  align-self: stretch;
-  justify-content: flex-end;
-  padding: 0 var(--padding-44xl) var(--padding-7xl);
-  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
 }
-@media screen and (max-width: 1350px) {
-  .header {
-    padding-left: var(--padding-12xl);
-    padding-right: var(--padding-12xl);
-    box-sizing: border-box;
-  }
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
 }
-@media screen and (max-width: 900px) {
-  .oMatchPerfeito {
-    display: none;
-  }
-  .brandLogo {
-    width: -1px;
-  }
+
+.authButtons button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
-@media screen and (max-width: 450px) {
-  .brideeWrapper {
-    padding-left: var(--padding-xl);
-    padding-right: var(--padding-xl);
-    box-sizing: border-box;
-  }
-  .authButtons {
-    display: none;
-  }
+
+.signup {
+  background-color: #ff707b;
+  color: white;
+}
+
+.login {
+  background-color: transparent;
+  border: 1px solid #ff707b;
+  color: #ff707b;
 }

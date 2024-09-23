@@ -1,0 +1,30 @@
+.callToAction {
+  background-image: url('/Assets/bannerassessor.png');
+  background-size: cover;
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+}
+
+.callToAction h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.callToAction p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.startNow {
+  background-color: #ff707b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.startNow:hover {
+  background-color: #ff5060;
+}
