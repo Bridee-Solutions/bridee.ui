@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from '../css/HeroSection.module.css';
 
-const HeroSection = () => {
+const HeaderSection = () => {
   return (
-    <section className={styles.hero}>
+    <section className={styles.headerSection}>
       <div className={styles.overlay}></div>
-      <div className={styles.textContainer}>
+      <div className={styles.textContent}>
         <h1>Facilitamos o encontro entre noivas e assessores para casamentos perfeitos</h1>
-        <p>Simples. Organizado. Sem estresse.</p>
+        <p>SIMPLES. ORGANIZADO. SEM ESTRESSE.</p>
       </div>
     </section>
   );
 };
 
-export default HeroSection;
+export default HeaderSection;

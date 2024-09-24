@@ -1,47 +1,98 @@
-.locations {
-  padding: 50px 20px;
+:root {
+  --color-lightcoral: #f2767f;
+  --color-darkslategray: #2f4f4f;
+  --color-lightgray: #f9f9f9;
+  --color-white: #fff;
+  --font-playfair: "Playfair Display", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --br-3xl: 20px;
+  --br-lg: 10px;
+}
+
+.locationsSection {
   text-align: center;
+  padding: 40px;
+  background-color: var(--color-white);
 }
 
-.locations h2 {
+.title {
+  font-family: var(--font-playfair);
   font-size: 28px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  color: var(--color-darkslategray);
 }
 
-.locationList {
+.locationsContainer {
   display: flex;
+  gap: 40px;
   justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
 }
 
-.location {
-  width: 250px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.locationCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 220px;
+  text-align: center;
 }
 
-.location img {
-  width: 100%;
-  height: 150px;
+.locationImage {
+  width: 220px;
+  height: 220px;
+  border-radius: var(--br-3xl);
   object-fit: cover;
+  margin-bottom: 15px;
 }
 
-.location p {
-  margin: 10px 0;
+.locationTitle {
+  font-family: var(--font-montserrat);
+  font-size: 16px;
+  color: var(--color-lightcoral);
+  font-weight: 600;
 }
 
-.viewAll {
-  background-color: #ff707b;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
+.viewAllButton {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-family: var(--font-montserrat);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-darkslategray);
+  background-color: var(--color-lightgray);
+  border: 1px solid var(--color-lightcoral);
+  border-radius: var(--br-lg);
   cursor: pointer;
-  margin-top: 20px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.viewAllButton img {
+  margin-left: 8px; 
+  width: 16px; 
+  height: auto;
+  transition: transform 0.3s ease; 
 }
 
-.viewAll:hover {
-  background-color: #ff5060;
+.viewAllButton:hover {
+  background-color: var(--color-lightcoral);
+  color: var(--color-white);
+}
+.viewAllButton:hover img {
+  transform: translateX(5px); 
+}
+@media screen and (max-width: 768px) {
+  .locationsContainer {
+    flex-direction: column;
+  }
+
+  .locationCard {
+    max-width: 100%;
+  }
+
+  .locationImage {
+    width: 100%;
+    height: auto;
+  }
 }

@@ -1,19 +1,136 @@
+/* Footer.module.css */
+
+/* Estilo geral do rodapé */
 .footer {
-  background-color: #333;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
+  background-color: #FFF;
+  padding: 50px 0 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
 }
 
-.footer p {
-  margin: 10px 0;
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0 20px;
 }
 
-.footer a {
-  color: white;
+.footerSection {
+  flex: 1;
+  margin: 0 20px;
+  min-width: 220px;
+}
+
+.footerHeading {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.footerList {
+  list-style: none;
+  padding: 0;
+}
+
+.footerList li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footerList li a {
+  color: #C9716E; /* Ajuste a cor para rosa claro */
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+.footerList li a:hover {
+  color: #C9716E; /* Cor de hover */
+}
+
+/* Linha vertical de separação */
+.separator {
+  width: 1px;
+  background-color: #C4C4C4;
+  margin: 0 30px;
+  height: 100px;
+  align-self: center;
+}
+
+/* Logo e descrição */
+.footerLogo {
+  flex: 1;
+  text-align: right;
+  min-width: 300px;
+}
+
+.footerBrand {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+}
+
+.dot {
+  color: #C9716E; /* Rosa para o ponto final do logo */
+}
+
+.footerDescription {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Parte inferior do footer */
+.footerBottom {
+  background-color: #C9716E;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .footerLogo {
+    text-align: left;
+    margin-top: 30px;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .footerSection {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .footerSection {
+    margin-bottom: 20px;
+  }
+
+  .footerBrand {
+    font-size: 28px;
+  }
+
+  .footerDescription {
+    font-size: 14px;
+  }
+
+  .footerList li {
+    font-size: 14px;
+  }
+
+  .footerBottom {
+    font-size: 12px;
+  }
 }

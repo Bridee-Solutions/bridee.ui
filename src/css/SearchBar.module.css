@@ -1,29 +1,76 @@
-.searchBar {
+/* Container principal do searchbar */
+.searchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 0;
+  gap: 15px;
+  padding: 20px 0;
+  margin: 20px auto;
 }
 
-.searchBar input {
-  padding: 15px;
-  margin-right: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* Estilos do campo de pesquisa principal */
+.searchInput {
+  width: 500px;
+  padding: 15px 20px;
   font-size: 16px;
-  flex: 1;
+  border: 2px solid #d8d8d8;
+  border-radius: 50px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  box-shadow: none;
+  transition: border-color 0.3s ease;
 }
 
-.searchBar button {
-  background-color: #ff707b;
+/* Estilos para o campo de estado */
+.stateInput {
+  width: 180px;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: 2px solid #d8d8d8;
+  border-radius: 50px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+/* Botão de pesquisa */
+.searchButton {
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 600;
   color: white;
-  padding: 15px 25px;
+  background-color: #C9716E;
   border: none;
-  border-radius: 8px;
+  border-radius: 50px;
   cursor: pointer;
-  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease;
 }
 
-.searchBar button:hover {
-  background-color: #ff5060;
+.searchButton:hover {
+  background-color: #a85e5b;
+}
+
+/* Estilo para foco nos campos de input */
+.searchInput:focus, .stateInput:focus {
+  border-color: #C9716E;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .searchContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .searchInput, .stateInput {
+    width: 100%;
+  }
+
+  .searchButton {
+    width: 100%;
+    text-align: center;
+  }
 }

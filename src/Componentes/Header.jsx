@@ -3,13 +3,23 @@ import styles from '../css/Header.module.css';
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>bridee.</div>
-      <div className={styles.authButtons}>
-        <button className={styles.login}>Login</button>
-        <button className={styles.signup}>Cadastre-se agora</button>
-      </div>
-    </header>
+    <>
+      <div className={styles.topBar}></div>
+      <header className={styles.header}>
+        <div className={styles.logoContainer}>
+          <div className={styles.logo}>
+            <span>bridee</span><span className={styles.dot}>.</span>
+          </div>
+          <div className={styles.tagline}>
+            O match perfeito para o dia dos seus sonhos
+          </div>
+        </div>
+        <div className={styles.authButtons}>
+          <a href="#" className={styles.login}>LOGIN</a>
+          <button className={styles.signupButton}>CADASTRE-SE AGORA</button>
+        </div>
+      </header>
+    </>
   );
 };
 

@@ -1,28 +1,65 @@
-import React from 'react';
-import styles from '../css/Locations.module.css';
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "../css/Locations.module.css";
 
-const Locations = () => {
-  const locations = [
-    { name: 'Casamento na praia', imageUrl: '/Assets/praia.png' },
-    { name: 'Casamento ao ar livre', imageUrl: '/Assets/aoarlivre.png' },
-    { name: 'Casamento na igreja', imageUrl: '/Assets/igreja.png' },
-    { name: 'Casamento em resorts', imageUrl: '/Assets/resort.png' }
-  ];
+const locations = [
+  {
+    id: 1,
+    imgSrc: "/Assets/praia.png",
+    alt: "Casamento na praia",
+    title: "Casamento na praia",
+  },
+  {
+    id: 2,
+    imgSrc: "/Assets/aoarlivre.png",
+    alt: "Casamento ao ar livre",
+    title: "Casamento ao ar livre",
+  },
+  {
+    id: 3,
+    imgSrc: "/Assets/igreja.png",
+    alt: "Casamento na igreja",
+    title: "Casamento na igreja",
+  },
+  {
+    id: 4,
+    imgSrc: "/Assets/resort.png",
+    alt: "Casamento em resorts",
+    title: "Casamento em resorts",
+  },
+];
 
+const Locations = ({ className = "" }) => {
   return (
-    <section className={styles.locations}>
-      <h2>Encontre o local perfeito para seu casamento</h2>
-      <div className={styles.locationList}>
+    <section className={`${styles.locationsSection} ${className}`}>
+      <h2 className={styles.title}>
+        Encontre o local perfeito para seu casamento
+      </h2>
+
+      <div className={styles.locationsContainer}>
         {locations.map((location) => (
-          <div className={styles.location} key={location.name}>
-            <img src={location.imageUrl} alt={location.name} />
-            <p>{location.name}</p>
+          <div key={location.id} className={styles.locationCard}>
+            <img
+              src={location.imgSrc}
+              alt={location.alt}
+              className={styles.locationImage}
+            />
+            <p className={styles.locationTitle}>{location.title}</p>
           </div>
         ))}
       </div>
-      <button className={styles.viewAll}>Ver todos os estilos</button>
+
+      <button className={styles.viewAllButton}>
+            Ver todos os estilos 
+            <img src="/Assets/seta.png" alt="Seta" />
+                </button>
+
     </section>
   );
+};
+
+Locations.propTypes = {
+  className: PropTypes.string,
 };
 
 export default Locations;

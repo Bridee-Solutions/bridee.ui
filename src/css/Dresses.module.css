@@ -1,58 +1,60 @@
-.dresses-section {
-  background-color: #fdf2f2;
-  border-radius: 20px;
+.dressesSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 50px;
-  position: relative;
-  overflow: hidden;
+  background-color: #fdf2f2;
 }
 
-.text-left {
+.textContainer {
   max-width: 40%;
 }
 
-.text-left h2 {
-  font-size: 2rem;
-  color: #333;
+.selectedImage {
+  width: 300px;
+  height: 450px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
 
-.text-left p {
-  font-size: 1.1rem;
-  color: #555;
+.descriptionText {
+  font-size: 18px;
   margin-bottom: 30px;
+  color: #555;
 }
 
-.carousel-wrapper {
-  display: flex;
-  gap: 15px;
-  max-width: 50%;
-}
-
-.dress-item {
-  width: 150px;
-  height: 225px;
-  transition: transform 0.3s ease;
-}
-
-.dress-item img {
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.dress-item:hover {
-  transform: scale(1.05);
-}
-
-.btn-outline-danger {
-  font-size: 1rem;
+.button {
+  background-color: #ff707b;
+  border: none;
+  color: white;
   padding: 10px 20px;
   border-radius: 8px;
-  border: 2px solid #ff707b;
-  color: #ff707b;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.btn-outline-danger:hover {
-  background-color: #ff707b;
-  color: white;
+.dressCarousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffd7da;
+  border-radius: 30px;
+}
+
+.dressItem {
+  width: 120px;
+  height: 180px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.dressItem:hover {
+  transform: scale(1.05);
 }

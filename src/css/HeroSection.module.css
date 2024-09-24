@@ -1,38 +1,43 @@
-.hero {
+/* HeaderSection.module.css */
+
+.headerSection {
   position: relative;
-  height: 90vh;
-  background-image: url('/Assets/banner.png'); 
+  height: 500px;
+  background-image: url('/Assets/banner.png');
   background-size: cover;
   background-position: center;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: white;
+  justify-content: center;
 }
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); 
-  z-index: 1;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Overlay escuro sobre a imagem */
 }
 
-.textContainer {
+.textContent {
   position: relative;
   z-index: 2;
   text-align: center;
+  color: #FFFFFF;
+  max-width: 700px;
+  padding: 0 20px;
 }
 
-.textContainer h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  line-height: 1.2;
+.textContent h1 {
+  font-size: 36px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
-.textContainer p {
-  font-size: 20px;
-  line-height: 1.5;
+.textContent p {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-top: 20px;
 }

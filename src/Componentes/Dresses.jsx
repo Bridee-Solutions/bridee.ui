@@ -1,34 +1,56 @@
-import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css'; // Certifique-se de que o Bootstrap está sendo importado
+import React, { useState, useCallback } from 'react';
+import styles from '../css/Dresses.module.css'; // Importa o módulo CSS
 
 const Dresses = () => {
+  // Estado para armazenar a imagem selecionada
+  const [selectedImage, setSelectedImage] = useState('/Assets/vestido1.png');
+
+  // Função para lidar com o clique nas imagens
+  const handleImageClick = useCallback((src) => {
+    setSelectedImage(src);
+  }, []);
+
+  // Lista de imagens dos vestidos
   const dresses = [
     { id: 1, src: '/Assets/vestido1.png', alt: 'Vestido 1' },
     { id: 2, src: '/Assets/vestido2.png', alt: 'Vestido 2' },
     { id: 3, src: '/Assets/vestido3.png', alt: 'Vestido 3' },
     { id: 4, src: '/Assets/vestido4.png', alt: 'Vestido 4' },
-    { id: 5, src: '/Assets/vestido5.png', alt: 'Vestido 5' }
+    { id: 5, src: '/Assets/vestido5.png', alt: 'Vestido 5' },
   ];
 
   return (
-    <section className="container d-flex flex-column flex-lg-row align-items-center justify-content-between py-5">
-      <div className="text-left mb-4 mb-lg-0">
-        <h2 className="display-6">Explore nossa seleção de vestidos de noiva</h2>
-        <p className="lead">Desde o clássico ao moderno, temos o vestido ideal para você.</p>
-        <button className="btn btn-outline-danger">Buscar vestidos <span>&#8594;</span></button>
+    <section className={styles.dressesSection}>
+      {/* Texto à esquerda */}
+      <div className={styles.textContainer}>
+        <h2>Explore nossa seleção de vestidos de noiva</h2>
+        <p className={styles.descriptionText}>
+          Desde o clássico ao moderno, temos o vestido ideal para você.
+        </p>
+        <button className={styles.button}>
+          Buscar vestidos <span>&#8594;</span>
+        </button>
+      </div>
+
+      {/* Imagem selecionada em destaque */}
+      <div>
+        <img
+          src={selectedImage}
+          alt="Imagem selecionada"
+          className={styles.selectedImage} // Aplicando classe do CSS Module
+        />
       </div>
 
       {/* Carrossel de imagens à direita */}
-      <div className="carousel-wrapper d-flex flex-nowrap overflow-auto" style={{ gap: '15px', maxWidth: '60%' }}>
+      <div className={styles.dressCarousel}>
         {dresses.map((dress) => (
-          <div className="dress-item" key={dress.id} style={{ flex: '0 0 auto', width: '150px', height: '225px' }}>
-            <img
-              src={dress.src}
-              alt={dress.alt}
-              className="img-fluid rounded shadow-sm"
-              style={{ objectFit: 'cover', height: '100%', width: '100%' }}
-            />
-          </div>
+          <img
+            key={dress.id}
+            src={dress.src}
+            alt={dress.alt}
+            className={styles.dressItem} // Aplicando classe do CSS Module
+            onClick={() => handleImageClick(dress.src)}
+          />
         ))}
       </div>
     </section>

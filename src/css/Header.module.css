@@ -1,29 +1,75 @@
+
+.topBar {
+  width: 100%;
+  height: 20px;
+  background-color: #C9716E; 
+}
+
+
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background-color: #fff;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 36px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #333;
 }
 
-.authButtons button {
-  margin-left: 10px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
+.dot {
+  color: #C9716E; }
+
+.tagline {
+  font-size: 14px;
+  color: #999;
+  margin-top: 5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.signup {
-  background-color: #ff707b;
-  color: white;
+
+.authButtons {
+  display: flex;
+  align-items: center;
 }
 
 .login {
-  background-color: transparent;
-  border: 1px solid #ff707b;
-  color: #ff707b;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin-right: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login:hover {
+  color: #C9716E;
+}
+
+.signupButton {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #C9716E;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signupButton:hover {
+  background-color: #A8585A;
 }
