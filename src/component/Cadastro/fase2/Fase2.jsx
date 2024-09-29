@@ -1,40 +1,25 @@
-
-import { componenteFase, definirProximaFase, fases } from "../../../pages/Cadastro/fases";
+import { componenteFase, definirProximaFase } from "../../../pages/Cadastro/fases";
 import styles from "./Fase2.module.css"
 
-const Fase2 = (props) =>{
+const Fase2 = (props) => {
 
     const proximaFase = () =>{
-        const firstName = document.getElementById("firstName");
-        const firstNameLover = document.getElementById("firstNameLover")
-        if((firstName == "" || firstName.length < 3) || (firstNameLover == "" || firstNameLover.length < 3)){
-            // TODO: COLOCAR Toast para alertar o usuário.
-            return;
-        }
-        props.setFase(componenteFase(definirProximaFase(), props.setFase))
+        props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
     }
 
     return(
-        <div className={styles.fase1_content}>
-            <div className={styles.fase1_content_field}>
-                <span>Qual o seu nome?</span>
-                <div className={styles.fase1_content_field_input}>
-                    <label htmlFor="firstName">Primeiro nome:</label>
-                    <input type="text" id="firstName"/>
-                </div>
+        <div className={styles.fase2}>
+            <div className={styles.fase2_image}>
+                <img src={"/src/assets/streamline_champagne-party-alcohol.svg"} alt="" />
+                <span>Vamos começar a festa...</span>
             </div>
-            <div className={styles.fase1_content_field}>
-                <span>Qual o nome do seu amor?</span>
-                <div className={styles.fase1_content_field_input}>
-                    <label htmlFor="firstName">Primeiro nome:</label>
-                    <input type="text" id="firstNameLover"/>
-                </div>
+            <div className={styles.fase2_content}>
+                <span>Responda a algumas perguntas rápidas e criaremos seu painel de planejamento personalizado para tornar o casamento dos seus sonhos uma realidade!</span>
+                <button className={styles.fase2_button} onClick={proximaFase}>Vamos</button>
             </div>
-            <button className={styles.fase1_button} onClick={() => proximaFase()}>
-                Próximo
-            </button>
         </div>
-    )
+    );
+
 }
 
 export default Fase2;

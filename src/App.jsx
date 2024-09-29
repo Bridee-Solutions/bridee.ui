@@ -4,6 +4,8 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import Login from './pages/Login/Login';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
 import Cadastro from './pages/Cadastro/Cadastro';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -15,6 +17,7 @@ function App() {
       <Route path='/tela-inicial' element={<TelaInicial/>}></Route>
       <Route path='/cadastrar' element={<Cadastro/>}></Route>
     </Routes>
+    <ToastContainer autoClose={2000}/>
    </Router>
   )
 }

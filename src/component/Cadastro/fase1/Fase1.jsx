@@ -1,22 +1,99 @@
 import styles from "../../../pages/Login/Login.module.css"
 import fase1Style from "./Fase1.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiLock, CiMail } from "react-icons/ci";
 import { GoogleLogin } from "@react-oauth/google";
+import {componenteFase, definirFluxoCadastro, definirProximaFase} from "../../../pages/Cadastro/fases";
+import { useRef } from "react";
+import { toast } from "react-toastify";
+import { jwtDecode } from "jwt-decode";
+import { request } from "../../../config/axios/axios";
 
 
-const Fase1 = () => {
-    const responseMessage = (response) => {
-        console.log(response);
+const Fase1 = (props) => {
+
+    const email = useRef()
+    const password = useRef()
+    const confirmPassword = useRef()
+    const navigate = useNavigate()
+    
+    const googleSuccessLogin = (response) => {
+        const tokenDetails = jwtDecode(response.credential)
+        const userEmail = tokenDetails.email
+        request.verifyUserEmail(userEmail).then(res => {
+            localStorage.setItem("access_token", response.credential)
+            navigate(`/dashboard`)
+        }).catch(erro => {
+            window.location.hash = `${userEmail}`;
+            definirFluxoCadastro(window, props.usuario, props.setFase)  
+        })
     };
+    
     const errorMessage = (error) => {
         console.log(error);
     };
+    
+    const proximaFase = async () => {
+        if(!isEmailValido() || !isSenhaValida()){
+            toast.error("Preencha os campos corretamente!")
+            return
+        }
+        const resposta = await request.verifyUserEmail(email.current.value)
+        if(resposta.status == 200){
+            toast.error("Email já cadastrado")
+            email.current.style.borderColor = `red`
+            return
+        }
+        props.usuario.email = email.current.value;
+        props.usuario.senha = password.current.value;
+        props.usuario.confirmarSenha = confirmPassword.current.value
+        props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
+    }
+
+    const isEmailValido = () => {
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        
+        if(!emailRegex.test(email.current.value) || email.current.value.trim() == ""){
+            email.current.style.borderColor = `red`;
+            return false
+        }
+        email.current.style.borderColor = `black`;
+        return true
+        
+    }
+
+    const isSenhaValida = () => {
+
+        const senhaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+        
+        console.log(!senhaRegex.test(password.current.value));
+        
+
+        if(!(password.current.value == confirmPassword.current.value) 
+            || !senhaRegex.test(password.current.value) || !senhaRegex.test(confirmPassword.current.value)){
+                if(!senhaRegex.test(password.current.value)){
+                    password.current.style.borderColor = `red`
+                }else{
+                    password.current.style.borderColor = `black`
+                }
+                
+                if(!(password.current.value == confirmPassword.current.value) || !senhaRegex.test(confirmPassword.current.value)){
+                        confirmPassword.current.style.borderColor = `red`
+                }else{
+                    confirmPassword.current.style.borderColor = `black`
+                }
+
+                return false
+        }
+        confirmPassword.current.style.borderColor = `black`
+        return true
+    }
 
     return(
         <div className={fase1Style.fase1_content}>
             <div className={styles.login_content_header}>
-                <h1>Bridee.</h1>
+                <h1>bridee.</h1>
                 <p>O match perfeito para o dia dos seus sonhos</p>
             </div>
             <div className={fase1Style.fase1_content_body}>
@@ -24,22 +101,22 @@ const Fase1 = () => {
                 <div className={styles.login_inputs}>
                     <div style={{position: "relative"}}>
                         <CiMail className={styles.login_inputs_icon}/>
-                        <input type="text" placeholder="Digite o e-mail"/>
+                        <input type="text" ref={email} placeholder="Digite o e-mail" defaultValue={props.usuario.email} onInput={isEmailValido}/>
                     </div>
                     <div style={{position: "relative"}}>
                         <CiLock className={styles.login_inputs_icon}/>
-                        <input type="password" placeholder="Digite a senha"/>
+                        <input type="password" ref={password} placeholder="Digite a senha" defaultValue={props.usuario.senha} onInput={isSenhaValida}/>
                     </div>
                     <div style={{position: "relative"}}>
                         <CiLock className={styles.login_inputs_icon}/>
-                        <input type="password" placeholder="Confirme a senha"/>
+                        <input type="password" ref={confirmPassword} placeholder="Confirme a senha" defaultValue={props.usuario.confirmarSenha} onInput={isSenhaValida}/>
                     </div>
                 </div>
                 <div className={fase1Style.fase1_button}>
-                    <button>Criar Conta</button>
+                    <button onClick={proximaFase}>Criar Conta</button>
                     <span>ou</span>
                     <div className={styles.google_button}>
-                        <GoogleLogin onSuccess={responseMessage} onError={errorMessage}/>
+                        <GoogleLogin onSuccess={googleSuccessLogin} onError={errorMessage}/>
                     </div>
                 </div>
                 <div className={fase1Style.fase1_footer}>
