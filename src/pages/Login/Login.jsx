@@ -21,6 +21,10 @@ const Login = () =>{
             email: email.current.value,
             senha: senha.current.value
         }
+        if(usuario.email.trim() == "" || usuario.senha.trim() == ""){
+            toast.error("Usuário ou senha inválidos")
+            return;
+        }
         request.authenticate(usuario).then(response => {
             if(response.status == 200){
                 navigate("/dashboard")
