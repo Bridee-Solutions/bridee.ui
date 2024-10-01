@@ -38,16 +38,20 @@ const Fase1 = (props) => {
             toast.error("Preencha os campos corretamente!")
             return
         }
-        const resposta = await request.verifyUserEmail(email.current.value)
-        if(resposta.status == 200){
-            toast.error("Email já cadastrado")
-            email.current.style.borderColor = `red`
-            return
-        }
-        props.usuario.email = email.current.value;
-        props.usuario.senha = password.current.value;
-        props.usuario.confirmarSenha = confirmPassword.current.value
-        props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
+        const resposta = await request.verifyUserEmail(email.current.value).then(response => {
+            if(response.status == 200){
+                toast.error("Email já cadastrado")
+                email.current.style.borderColor = `red`
+                return
+            }
+        }).catch(error => {
+            if(error.status == 404){
+                props.usuario.email = email.current.value;
+                props.usuario.senha = password.current.value;
+                props.usuario.confirmarSenha = confirmPassword.current.value
+                props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
+            }
+        })
     }
 
     const isEmailValido = () => {
