@@ -24,5 +24,8 @@ export const request = {
     },
     authenticate: async (usuario) => {
         return await Api.post(`/authentication`, usuario).then(response)
+    },
+    resendVerificationEmail: async(email) => {
+        return await Api.get(`/usuarios/resend/verification-email/${email}`).then(response)
     }
 }

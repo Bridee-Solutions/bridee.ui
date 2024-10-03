@@ -4,7 +4,6 @@ import headerStyles from "./Header.module.css"
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { componenteFase, definirFaseAnterior } from "../../../pages/Cadastro/fases";
 import { Link, useNavigate } from "react-router-dom";
-import { fases } from "../../../pages/Cadastro/Cadastro";
 import { useEffect, useRef } from "react";
 
 
@@ -14,16 +13,19 @@ const CadastroHeader = (props) => {
     const progressBar = useRef();
 
     const faseAnterior = () => {
-        if(fases.fase1){
+        if(props.fases.fase1 || props.fases.fase8){
             navigate("/login")
             return
         }
-        if(fases.fase2 && props.usuario.externo){
+        if(props.fases.fase2 && props.usuario.externo){
             definirFaseAnterior();
             navigate("/login")
             return
         }
-        props.setFase(componenteFase(definirFaseAnterior(), props.setFase, props.usuario))
+        
+        const novasFases = definirFaseAnterior(props.fases)
+        const componenteFaseAnterior = componenteFase(novasFases, props.setFase, props.usuario);
+        props.setFase(componenteFaseAnterior)
     }
 
     useEffect(() => {

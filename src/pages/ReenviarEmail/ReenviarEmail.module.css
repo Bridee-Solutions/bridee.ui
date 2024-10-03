@@ -1,0 +1,32 @@
+.email{
+    max-width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    display: flex;
+    background-color: #FBF9F7;
+}
+
+.email img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+}
+
+.email_header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 15%;
+}
+
+.email_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}

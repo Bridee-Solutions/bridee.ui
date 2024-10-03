@@ -49,7 +49,9 @@ const Fase1 = (props) => {
                 props.usuario.email = email.current.value;
                 props.usuario.senha = password.current.value;
                 props.usuario.confirmarSenha = confirmPassword.current.value
-                props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
+                const proximaFase = definirProximaFase(props.fases)
+                const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
+                props.setFase(componenteProximaFase)
             }
         })
     }

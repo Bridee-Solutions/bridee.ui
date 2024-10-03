@@ -20,8 +20,9 @@ const Fase6 = (props) => {
            toast.error("Selecione uma opção")
         }
         props.usuario.quantidadeConvidados = numeroDeConvidados(activeRadios.current)
-        props.setFase(componenteFase(definirProximaFase(), props.setFase(), props.usuario))
-        
+        const proximaFase = definirProximaFase(props.fases)
+        const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
+        props.setFase(componenteProximaFase)   
     }
 
 
@@ -74,7 +75,8 @@ const Fase6 = (props) => {
     }
 
     useEffect(() => {
-        definirRadiosAtivo(radiosFromQuantidadeConvidados(props.usuario.quantidadeConvidados))
+        const inputRadiosInicial = radiosFromQuantidadeConvidados(props.usuario.quantidadeConvidados)
+        definirRadiosAtivo(inputRadiosInicial)
     }, [])
 
     return(

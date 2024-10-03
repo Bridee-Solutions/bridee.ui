@@ -1,4 +1,3 @@
-
 import { useRef } from "react";
 import { componenteFase, definirProximaFase } from "../../../pages/Cadastro/fases";
 import styles from "./Fase3.module.css"
@@ -27,7 +26,9 @@ const Fase3 = (props) =>{
         }
         props.usuario.nome = firstName.current.value;
         props.usuario.nomeParceiro = firstNameLover.current.value;
-        props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
+        const proximaFase = definirProximaFase(props.fases)
+        const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
+        props.setFase(componenteProximaFase)
     }
 
     return(

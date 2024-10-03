@@ -1,3 +1,4 @@
+import EmailSent from "../../component/Cadastro/email/Email"
 import Fase1 from "../../component/Cadastro/fase1/Fase1"
 import Fase2 from "../../component/Cadastro/fase2/Fase2"
 import Fase3 from "../../component/Cadastro/fase3/Fase3"
@@ -5,41 +6,42 @@ import Fase4 from "../../component/Cadastro/fase4/Fase4"
 import Fase5 from "../../component/Cadastro/fase5/Fase5"
 import Fase6 from "../../component/Cadastro/fase6/Fase6"
 import Fase7 from "../../component/Cadastro/fase7/Fase7"
-import { fases } from "./Cadastro"
-
 
 export const componenteFase = (fases, setFase, usuario) => {
     if(fases.fase1){
-        return <Fase1 setFase={setFase} usuario={usuario}/>
+        return <Fase1 setFase={setFase} usuario={usuario} fases={fases}/>
     }else if(fases.fase2){
-        return <Fase2 setFase={setFase} usuario={usuario}/>
+        return <Fase2 setFase={setFase} usuario={usuario} fases={fases}/>
     }else if(fases.fase3){
-        return <Fase3 setFase={setFase} usuario={usuario}/>
+        return <Fase3 setFase={setFase} usuario={usuario} fases={fases}/>
     }else if(fases.fase4){
-        return <Fase4 setFase={setFase} usuario={usuario}/>
+        return <Fase4 setFase={setFase} usuario={usuario} fases={fases}/>
     }else if(fases.fase5){
-        return <Fase5 setFase={setFase} usuario={usuario}/>
+        return <Fase5 setFase={setFase} usuario={usuario} fases={fases}/>
     }else if(fases.fase6){
-        return <Fase6 setFase={setFase} usuario={usuario}/>
+        return <Fase6 setFase={setFase} usuario={usuario} fases={fases}/>
     }else if(fases.fase7){
-        return <Fase7 setFase={setFase} usuario={usuario}/>
+        return <Fase7 setFase={setFase} usuario={usuario} fases={fases}/>
+    }else if(fases.fase8){
+        return <EmailSent titulo={`Confirmação de e-mail`} haveButton={false} email={usuario.email} tipo={"certo"}/>
     }
 }
 
-export const definirFaseAnterior = () => {
-    var fasesEntries = Object.entries(fases);
-    for(var i = 0; i < fasesEntries.length; i++){            
+export const definirFaseAnterior = (fases) => {
+    const fasesEntries = Object.entries(fases);
+    for(let i = 0; i < fasesEntries.length; i++){            
         if(fasesEntries[i][1]){
             fases[fasesEntries[i][0]] = false
             fases[fasesEntries[i-1][0]] = true
+            break
         }
     }
     return fases;
 }
 
-export const definirProximaFase = () => {
-    var fasesEntries = Object.entries(fases);
-    for(var i = 0; i < fasesEntries.length; i++){            
+export const definirProximaFase = (fases) => {
+    const fasesEntries = Object.entries(fases);
+    for(let i = 0; i < fasesEntries.length; i++){            
         if(fasesEntries[i][1]){
             fases[fasesEntries[i][0]] = false
             fases[fasesEntries[i+1][0]] = true
@@ -48,7 +50,7 @@ export const definirProximaFase = () => {
     return fases;
 }
 
-export const definirFluxoCadastro = (window, usuario, setFase) => {
+export const definirFluxoCadastro = (window, usuario, setFase, fases) => {
     const userEmail = window.location.hash.substring(1);
     const urlWithoutHash = window.location.href.split("#")[0]
     window.history.replaceState({}, document.title, urlWithoutHash)
@@ -56,7 +58,9 @@ export const definirFluxoCadastro = (window, usuario, setFase) => {
     if(userEmail && emailRegex.test(userEmail)){
         usuario.externo = true;
         usuario.email = userEmail;
-        setFase(componenteFase(definirProximaFase(), setFase, usuario))
+        const proximaFase = definirProximaFase(fases)
+        const componenteProximaFase = componenteFase(proximaFase, setFase, usuario)
+        setFase(componenteProximaFase)
         return
     }
 }

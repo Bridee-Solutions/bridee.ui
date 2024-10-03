@@ -13,7 +13,9 @@ const Fase5 = (props) => {
         }else{
             props.usuario.dataCasamento = ""
         }
-        props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
+        const proximaFase = definirProximaFase(props.fases)
+        const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
+        props.setFase(componenteProximaFase)
     }
 
     const changeCheckBox = (isActive) => {

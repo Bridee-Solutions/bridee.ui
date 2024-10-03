@@ -4,7 +4,9 @@ import styles from "./Fase2.module.css"
 const Fase2 = (props) => {
 
     const proximaFase = () =>{
-        props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
+        const proximaFase = definirProximaFase(props.fases)
+        const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
+        props.setFase(componenteProximaFase)
     }
 
     return(

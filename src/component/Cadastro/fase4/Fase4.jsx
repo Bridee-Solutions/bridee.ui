@@ -32,7 +32,9 @@ const Fase4 = (props) => {
                 return
             }    
         }
-        props.setFase(componenteFase(definirProximaFase(), props.setFase, props.usuario))
+        const proximaFase = definirProximaFase(props.fases)
+        const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
+        props.setFase(componenteProximaFase)
     }
 
     useEffect(() => {
