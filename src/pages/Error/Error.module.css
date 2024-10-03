@@ -1,18 +1,3 @@
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../../assets/fonts/Montserrat-VariableFont_wght.ttf');
-}
-
-@font-face {
-  font-family: 'ProductSans';
-  src: url('../../assets/fonts/ProductSans-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'PlayFair';
-  src: url('../../assets/fonts/PlayfairDisplay-VariableFont_wght.ttf');
-}
-
 .error_base {
   background-color: #F3EED9;
   display: flex;
