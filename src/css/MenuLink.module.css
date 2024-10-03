@@ -1,0 +1,16 @@
+/* MenuLink.module.css */
+.link {
+    color: rgb(0, 0, 0); /* Cor padrão */
+}
+
+.linkDestacado {
+    text-decoration: underline;
+    background-color: rgb(31, 31, 31);
+    color: black; /* Cor quando destacado */
+}
+
+/* Novo estilo para o ativo */
+.linkAtivo {
+    background-color: rgb(255, 255, 255); /* Fundo preto */
+    color: rgb(32, 32, 32); /* Texto branco */
+}
