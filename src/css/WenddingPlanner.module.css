@@ -1,0 +1,85 @@
+.wendding_planner {
+    background-image: linear-gradient(rgba(48, 48, 48, 0.60), rgba(48, 48, 48, 0.60)),  url('../assets/wendding_planner.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 10vh 0px;
+    height: 86vh;
+    width: 100%;
+}
+
+.wendding_planner .container {
+    height: 100%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    padding: 15vh 6vw;
+    gap: 35px;
+}
+
+.wendding_planner .container h1{
+    color: #FBF9F7;
+    margin: 0px;
+    font-family: "ProductSansB";
+    font-size: 68px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.68px;
+}
+
+.wendding_planner .container h4{
+    color: #FBF9F7;
+    margin: 0;
+    font-family: 'Montserrat';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 1.3px;
+}
+
+.wendding_planner .container button{
+    font-family: 'Montserrat';
+    border: 0px;
+    border-radius: 3px;
+    font-weight: 600;
+    height: 6vh;
+    font-size: 20px;
+    padding: 0px 25px;
+    cursor: pointer;
+    background-color: #DD7B78;
+    color: #FFFFFF;
+    transition: 0.5s;
+}
+
+.wendding_planner .container button:hover{
+    background-color: #D26966;
+}
+
+.wendding_planner .container div{
+    width: 100%;
+}
+
+.wendding_planner .container p{
+    margin: 0;
+    color: #FBF9F7;
+    font-family: 'Montserrat';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.wendding_planner .container a{
+    color: #FBF9F7;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+

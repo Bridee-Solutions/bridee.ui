@@ -1,32 +1,13 @@
-body {
-  margin: 0;
-}
-
-@font-face {
-  font-family: 'Qlassy';
-  src: url('../assets/fonts/Qlassy.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'ProductSans';
-  src: url('../assets/fonts/ProductSans-Regular.ttf');
-}
-
 .Footer {
   width: 100%;
-  height: 30vh;
+  height: 60vh;
   background-color: #FFF6F6;
 }
 
 .footer_sections {
-  padding: 50px;
-  height: 20vh;
-  width: 94%;
+  padding: 10vh 8vw;
+  height: 30vh;
+  width: 84%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -37,7 +18,7 @@ body {
 .footer_contact {
   /* background-color: red; */
   height: 100%;
-  width: 24%;
+  width: 30%;
 }
 
 .footer_explore,
@@ -66,7 +47,6 @@ body {
 }
 
 .footer_logo {
-  /* background-color: purple; */
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -103,7 +83,7 @@ body {
 }
 
 .bridee_rights {
-  height: 4vh;
+  height: 6vh;
   width: 100%;
   background-color: #DD7B78;
   color: #FFF6F6;
