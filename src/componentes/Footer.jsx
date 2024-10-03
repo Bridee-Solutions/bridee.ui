@@ -11,7 +11,7 @@ library.add(faPhone, faEnvelope, faLocationDot)
 
 function Footer() {
     return (
-        <footer className={styles.Footer}>
+        <section className={styles.Footer}>
             <div className={styles.footer_sections}>
                 <div className={styles.footer_explore}>
                     <h2>Explorar</h2>
@@ -47,10 +47,8 @@ function Footer() {
                         </p>
                     </div>
                 </div>
-
-                <div className={styles.footer_div}>
-
-                </div>
+                
+                <div className={styles.footer_div}></div>
 
                 <div className={styles.footer_logo}>
                     <h1 className={styles.footer_title}>bridee<b>.</b></h1>
@@ -60,7 +58,7 @@ function Footer() {
             <div className={styles.bridee_rights}>
                 © 2024 bridee. Todos os direitos reservados.
             </div>
-        </footer>
+        </section>
     );
 }
 

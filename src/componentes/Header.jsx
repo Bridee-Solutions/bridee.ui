@@ -4,9 +4,21 @@ import styles from '../css/Header.module.css'
 
 function Header() {
   return (
-    <header className = {styles.Header}>
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9600642490050d671517648081bc097cfb811321c5077f7d767705bc28cd6a8e?placeholderIfAbsent=true&apiKey=ba428365f10b481897249f94cd5b5af7" alt="Bridee header image" className={"styles.header-image"} />
+    <header>
+    
+    <div className={styles.header_boarder}></div>
+    <div className={styles.header_body}>
+      <div className={styles.header_logo}>
+        <h1>bridee<b>.</b></h1>
+        <p>O match perfeito para o dia dos sonhos</p>
+      </div>
       
+      <div className={styles.header_buttons}>
+      <button className={styles.login_button}>Login</button>
+      <button className={styles.register_button}>Cadastre-se agora</button>
+      </div>
+    </div>
+    
     </header>
   );
 }
