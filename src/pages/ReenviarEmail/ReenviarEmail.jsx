@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import EmailSent from "../../component/Cadastro/email/Email";
 import LateralImage from "../../component/LoginLateralImage";
 import styles from "./ReenviarEmail.module.css";
@@ -7,19 +7,21 @@ import { useNavigate } from "react-router-dom";
 
 const ReenviarEmail = () => {
 
-    const[email, setEmail] = useState();
+    const email = useRef()
     const navigate = useNavigate();
 
     useEffect(() => {
-        const userEmail = window.location.hash.substring(1);
-        const urlWithoutHash = window.location.href.split("#")[0]
-        window.history.replaceState({}, document.title, urlWithoutHash)
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if(!userEmail || !emailRegex.test(userEmail)){
-            navigate("/login")
-            return
-        }   
-        setEmail(userEmail)
+        if(email.current == undefined){
+            email.current = window.location.hash.substring(1);
+            const urlWithoutHash = window.location.href.split("#")[0]
+            window.history.replaceState({}, document.title, urlWithoutHash)
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            console.log(email.current, emailRegex.test(email.current));
+            if(email.current.trim() == "" || !emailRegex.test(email.current)){
+                navigate("/login")
+                return
+            }
+        }
     }, [])
 
     return(
@@ -30,7 +32,7 @@ const ReenviarEmail = () => {
                     <h1>bridee.</h1>
                     <p>O match perfeito para o dia dos seus sonhos</p>
                 </div>
-                <EmailSent tipo={"errado"} titulo={"Confirmação expirada"} haveButton={true} email={email}/>
+                <EmailSent tipo={"errado"} titulo={"Confirmação expirada"} haveButton={true} email={email.current}/>
             </div>
         </div>
     );
