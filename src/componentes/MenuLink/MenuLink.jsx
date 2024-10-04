@@ -13,7 +13,7 @@ function MenuLink({ to, children }) {
         to={to}
         end
         style={({ isActive }) => ({
-          color: isActive ? 'black' : 'white',
+          color: isActive ? '#302F2F' : 'white',
           background: isActive ? 'white' : 'none',
       })}
       >

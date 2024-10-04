@@ -27,6 +27,7 @@ function NavComp() {
           <Navbar.Brand href="" className={styles.logo}>
             bridee<span>.</span>
           </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -42,7 +43,7 @@ function NavComp() {
                   </>
                 }
                 id="ferramentas-planejamento"
-                className={styles.menu_suspenso}
+                className="menu_suspenso"
               >
                 <NavDropdown.Item
                   onClick={() => handleClick("Painel")}
@@ -126,6 +127,9 @@ function NavComp() {
             
           </Navbar.Collapse>
         </Container>
+
+
+        
         {/*Navegação inferior*/}
         <Container className="inferior">
           <ul className="submenu">
