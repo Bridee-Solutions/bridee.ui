@@ -1,5 +1,5 @@
-.wendding_planner {
-    background-image: linear-gradient(rgba(48, 48, 48, 0.60), rgba(48, 48, 48, 0.60)),  url('../assets/wendding_planner.svg');
+.wedding_planner {
+    background-image: linear-gradient(rgba(48, 48, 48, 0.60), rgba(48, 48, 48, 0.60)),  url('../../../assets/wedding_planner.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-.wendding_planner .container {
+.wedding_planner .container {
     height: 100%;
     width: 45%;
     display: flex;
@@ -19,7 +19,7 @@
     gap: 35px;
 }
 
-.wendding_planner .container h1{
+.wedding_planner .container h1{
     color: #FBF9F7;
     margin: 0px;
     font-family: "ProductSansB";
@@ -30,7 +30,7 @@
     letter-spacing: 0.68px;
 }
 
-.wendding_planner .container h4{
+.wedding_planner .container h4{
     color: #FBF9F7;
     margin: 0;
     font-family: 'Montserrat';
@@ -41,7 +41,7 @@
     letter-spacing: 1.3px;
 }
 
-.wendding_planner .container button{
+.wedding_planner .container button{
     font-family: 'Montserrat';
     border: 0px;
     border-radius: 3px;
@@ -55,15 +55,15 @@
     transition: 0.5s;
 }
 
-.wendding_planner .container button:hover{
+.wedding_planner .container button:hover{
     background-color: #D26966;
 }
 
-.wendding_planner .container div{
+.wedding_planner .container div{
     width: 100%;
 }
 
-.wendding_planner .container p{
+.wedding_planner .container p{
     margin: 0;
     color: #FBF9F7;
     font-family: 'Montserrat';
@@ -73,7 +73,7 @@
     line-height: normal;
 }
 
-.wendding_planner .container a{
+.wedding_planner .container a{
     color: #FBF9F7;
     font-family: Montserrat;
     font-size: 24px;

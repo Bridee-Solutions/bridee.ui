@@ -4,14 +4,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "../css/NavComp.module.css";
-import "../componentes/NavComp.css";
+import styles from "./Navbar.module.css";
+import "./Navbar.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import MenuLink from "./MenuLink";
+import MenuLink from "../MenuLink/MenuLink";
 
 function NavComp() {
   const [selecaoAtual, setSelecaoAtual] = useState("");

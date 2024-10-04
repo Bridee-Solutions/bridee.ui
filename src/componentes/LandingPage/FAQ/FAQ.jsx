@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import styles from "../css/FAQ.module.css";
+import styles from "./FAQ.module.css";
 import Faq from "react-faq-component";
 
 const data = {

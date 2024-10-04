@@ -1,4 +1,4 @@
-import Navbar from "../../componentes/NavComp";
+import Navbar from "../../componentes/Navbar/Navbar";
 
 function ListaTarefas() { 
     return (

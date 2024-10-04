@@ -1,16 +1,16 @@
-.wendding_dresses {
+.wedding_dresses {
     height: 70vh;
     width: 100%;
     display: flex;
 }
 
-.wendding_dresses .context {
+.wedding_dresses .context {
     padding: 5vw;
     width: 35%;
     height: 100%;
 }
 
-.wendding_dresses .context h1 {
+.wedding_dresses .context h1 {
     font-family: "Playfair";
     font-size: 48px;
     font-weight: 600;
@@ -18,7 +18,7 @@
     color: #393939;
 }
 
-.wendding_dresses .context p {
+.wedding_dresses .context p {
     font-family: "Playfair";
     font-size: 27px;
     font-weight: 400;
@@ -26,7 +26,7 @@
     letter-spacing: 0.54px;
 }
 
-.wendding_dresses .context button {
+.wedding_dresses .context button {
     padding: 1.5vh 2vw;
     font-family: 'Montserrat';
     font-weight: 600;
@@ -42,17 +42,17 @@
     cursor: pointer;
 }
 
-.wendding_dresses .context button:hover {
+.wedding_dresses .context button:hover {
  background-color: #f3f3f3;
 }
 
-.wendding_dresses .container_images {
+.wedding_dresses .container_images {
     width: 65%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: end;
-    background-image: url('../assets/Wendding_dress_bg.svg');
+    background-image: url('../assets/Wedding_dress_bg.svg');
     background-position: right;
     background-repeat: no-repeat;
 }

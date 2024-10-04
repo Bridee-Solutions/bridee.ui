@@ -1,13 +1,12 @@
-import React from 'react';
-import styles from '../css/Categories.module.css';
-import Videography from '../assets/foto_video_icon.svg';
-import Local from '../assets/local_icon.svg';
-import Music from '../assets/music_icon.svg';
-import Cake from '../assets/wendding_cake_icon.svg';
-import Decoration from '../assets/decoration_icon.svg';
-import Gastronomy from '../assets/gastronomy_icon.svg';
-import Bride from '../assets/wendding_dress_icon.svg';
-import Groom from '../assets/wendding_shirt_icon.svg';
+import styles from './Categories.module.css';
+import Videography from '../../../assets/foto_video_icon.svg';
+import Local from '../../../assets/local_icon.svg';
+import Music from '../../../assets/music_icon.svg';
+import Cake from '../../../assets/wedding_cake_icon.svg';
+import Decoration from '../../../assets/decoration_icon.svg';
+import Gastronomy from '../../../assets/gastronomy_icon.svg';
+import Bride from '../../../assets/wedding_dress_icon.svg';
+import Groom from '../../../assets/wedding_shirt_icon.svg';
 
 
 function Categories() {

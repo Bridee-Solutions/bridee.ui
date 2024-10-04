@@ -1,13 +1,12 @@
-import React from 'react';
-import styles from '../css/WeddingLocations.module.css'
+import styles from './WeddingLocations.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import OutdoorLocation from '../assets/outdoor_location.svg';
-import BeachLocation from '../assets/beach_location.svg';
-import ChurchLocation from '../assets/church_location.svg';
-import ResortsLocation from '../assets/resorts_location.svg';
+import OutdoorLocation from '../../../assets/outdoor_location.svg';
+import BeachLocation from '../../../assets/beach_location.svg';
+import ChurchLocation from '../../../assets/church_location.svg';
+import ResortsLocation from '../../../assets/resorts_location.svg';
 
 library.add(faArrowRight);
 

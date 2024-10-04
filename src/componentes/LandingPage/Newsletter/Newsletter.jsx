@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "../css/Newsletter.module.css";
+import styles from "./Newsletter.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons/faEnvelope";

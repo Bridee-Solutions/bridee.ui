@@ -62,17 +62,17 @@
 }
 
 .icon_benefits_loupe {
-  background-image: url('../assets/loupe_icon.svg');
+  background-image: url('../../../assets/loupe_icon.svg');
 }
 
 .icon_benefits_networking {
-  background-image: url('../assets/networking_icon.svg');
+  background-image: url('../../../assets/networking_icon.svg');
 }
 
 .icon_benefits_tasklist {
-  background-image: url('../assets/tasklist_icon.svg');
+  background-image: url('../../../assets/tasklist_icon.svg');
 }
 
 .icon_benefits_pinterest {
-  background-image: url('../assets/pinterest_icon.svg');
+  background-image: url('../../../assets/pinterest_icon.svg');
 }

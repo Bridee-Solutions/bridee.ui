@@ -1,9 +1,8 @@
-import React from "react";
-import styles from "../css/WenddingPlanner.module.css";
+import styles from "./WeddingPlanner.module.css";
 
-function WenddingPlannerCTA() {
+function WeddingPlannerCTA() {
     return (
-      <section className={styles.wendding_planner}>
+      <section className={styles.wedding_planner}>
         <div className={styles.container}>
           <h1>Você é um assessor de casamento?</h1>
           <div>  
@@ -28,4 +27,4 @@ function WenddingPlannerCTA() {
     );
   }
   
-  export default WenddingPlannerCTA;
+  export default WeddingPlannerCTA;

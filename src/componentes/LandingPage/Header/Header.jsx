@@ -1,5 +1,4 @@
-import React from 'react';
-import styles from '../css/Header.module.css'
+import styles from './Header.module.css'
 
 
 function Header() {

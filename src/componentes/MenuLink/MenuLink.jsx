@@ -1,4 +1,4 @@
-import styles from "../css/MenuLink.module.css";	
+import styles from "./MenuLink.module.css";	
 import { NavLink } from "react-router-dom";
 
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import styles from '../css/Benefits.module.css';
+import styles from './Benefits.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';

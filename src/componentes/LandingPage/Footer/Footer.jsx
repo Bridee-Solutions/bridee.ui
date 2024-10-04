@@ -1,5 +1,4 @@
-import React from 'react';
-import styles from '../css/Footer.module.css'
+import styles from './Footer.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
