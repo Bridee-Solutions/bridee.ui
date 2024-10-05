@@ -67,33 +67,6 @@
 .dropdown-menu {
   width: 70vw;
 }
-
-.container-menu-suspenso {
-  display: flex;
-  border: 5px solid #18548b;
-}
-
-.container_two,
-.container_three {
-  /* border: 2px solid #adb630; */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-}
-
-.coluna_one,
-.coluna_two, .coluna_three, .coluna_four {
-  /* border: 2px solid #a16f6f; */
-  display: flex;
-  flex-direction: column;
-}
-
-.titulo {
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "Playfair Display";
-}
 .descricao > span { 
 font-size: 13px;
 font-family: "Montserrat";
@@ -109,17 +82,12 @@ font-family: "Montserrat";
   font-size: 15px;
 }
 
-.container_two_fornecedores,
-.container_one_fornecedores {
-  border: 2px solid #adb630;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-}
-
-
 .lista {
   display: flex;
   flex-direction: column;
+}
+
+.container-pai {
+  display: flex;
+  justify-content: space-between;
 }
