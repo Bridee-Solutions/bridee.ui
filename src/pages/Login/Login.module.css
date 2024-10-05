@@ -111,6 +111,7 @@
 .login_content_body h4{
     font-size: 18px;
     font-weight: 500;
+    text-align: center;
 }
 
 .login_content_button{
@@ -141,6 +142,14 @@
 
 .login_content_footer{
     height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.login_content_footer div{
     width: 100%;
     display: flex;
     align-items: center;

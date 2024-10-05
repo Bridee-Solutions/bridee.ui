@@ -27,5 +27,14 @@ export const request = {
     },
     resendVerificationEmail: async(email) => {
         return await Api.get(`/usuarios/resend/verification-email/${email}`).then(response)
+    },
+    saveAssessor: async(usuario) => {
+        return await Api.post(`/assessores`, usuario).then(response)
+    },
+    saveAssessorExterno: async(usuario) => {
+        return await Api.post(`/assessores/externo`, usuario).then(response)
+    },
+    verifyAssessorEmpresaEmailAndCnpj: async(assessorFields) => {
+        return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
     }
 }

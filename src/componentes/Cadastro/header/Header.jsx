@@ -13,12 +13,18 @@ const CadastroHeader = (props) => {
     const progressBar = useRef();
 
     const faseAnterior = () => {
-        if(props.fases.fase1 || props.fases.fase8){
+        if(props.fases.fase1){
             navigate("/login")
             return
         }
         if(props.fases.fase2 && props.usuario.externo){
-            definirFaseAnterior();
+            navigate("/login")
+            return
+        }
+        if(props.usuario.tipo == "assessor" && props.fases.fase5){
+            navigate("/login?tipo=assessor")
+            return
+        }else if(props.usuario.tipo == "casal" && props.fases.fase8){
             navigate("/login")
             return
         }
@@ -45,7 +51,11 @@ const CadastroHeader = (props) => {
                     {/* <span>Voltar</span> */}
                     <div className={loginStyles.login_header_text} style={{flexDirection: "column", height: "14vh"}}>
                         <h1>bridee</h1>
-                        <p style={{margin: "1% 0"}}>O match perfeito para o dia dos seus sonhos.</p>
+                        {props.usuario.tipo == "casal" ? 
+                            <p style={{margin: "1% 0"}}>O match perfeito para o dia dos seus sonhos.</p>
+                            :
+                            <p>Conecte-se com casais e construa celebrações memoráveis.</p>
+                        }
                         <div className={progressBarStyle.progress_bar_border}>
                             <div ref={progressBar} className={progressBarStyle.progress_bar}></div>
                         </div>

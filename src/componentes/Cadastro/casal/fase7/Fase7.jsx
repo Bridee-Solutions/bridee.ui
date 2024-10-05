@@ -18,21 +18,41 @@ const Fase7 = (props) => {
         }
 
         if(props.usuario.externo){
-            request.saveCasalExterno(props.usuario).then((response) => {
-                toast.success("Conta criada com sucesso")
-                navigate("/login")
-            }).catch(() => {
-                toast.error("Houve um erro ao cadastrar o usuário.")
-            })
+            if(props.usuario.tipo == "casal"){
+                request.saveCasalExterno(props.usuario).then((response) => {
+                    toast.success("Conta criada com sucesso")
+                    navigate("/login")
+                }).catch(() => {
+                    toast.error("Houve um erro ao cadastrar o usuário.")
+                })
+            }else if(props.usuario.tipo == "assessor"){
+                request.saveAssessorExterno(props.usuario).then(() => {
+                    toast.success("Conta criada com sucesso");
+                    navigate("/login")
+                }).catch(() => {
+                    toast.error("Houve um erro ao cadastrar o usuário")
+                })
+            }
         }else{
-            request.saveCasal(props.usuario).then(() => {
-                toast.success("Conta criada com sucesso")
-                const proximaFase = definirProximaFase(props.fases)
-                const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
-                props.setFase(componenteProximaFase);
-            }).catch(() => {
-                toast.error("Houve um erro ao cadastrar o usuário.")
-            })
+            if(props.usuario.tipo == "casal"){
+                request.saveCasal(props.usuario).then(() => {
+                    toast.success("Conta criada com sucesso")
+                    const proximaFase = definirProximaFase(props.fases)
+                    const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
+                    props.setFase(componenteProximaFase);
+                }).catch(() => {
+                    toast.error("Houve um erro ao cadastrar o usuário.")
+                })
+            }else if(props.usuario.tipo == "assessor"){
+                request.saveAssessor(props.usuario).then(() => {
+                    toast.success("Conta criada com sucesso")
+                    const proximaFase = definirProximaFase(props.fases)
+                    const componenteProximaFase = componenteFase(proximaFase, props.setFase, props.usuario)
+                    props.setFase(componenteProximaFase);
+                }).catch(() => {
+                    toast.error("Houve um erro ao cadastrar o usuário.")
+                })
+            }
         }
         
     }

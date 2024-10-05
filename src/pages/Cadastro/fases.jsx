@@ -6,16 +6,28 @@ import Fase4 from "../../componentes/Cadastro/casal/fase4/Fase4"
 import Fase5 from "../../componentes/Cadastro/casal/fase5/Fase5"
 import Fase6 from "../../componentes/Cadastro/casal/fase6/Fase6"
 import Fase7 from "../../componentes/Cadastro/casal/fase7/Fase7"
+import Fase2Assessor from "../../componentes/Cadastro/assessor/fase2/Fase2"
+import Fase3Assessor from "../../componentes/Cadastro/assessor/fase3/Fase3"
 
 export const componenteFase = (fases, setFase, usuario) => {
     if(usuario.tipo == "assessor"){
-        return componentesFaseAssessor()
+        return componentesFaseAssessor(fases, setFase, usuario)
     }
     return componentesFaseCasal(fases, setFase, usuario)
 }
 
 const componentesFaseAssessor = (fases, setFase, usuario) => {
-
+    if(fases.fase1){
+        return <Fase1 setFase={setFase} usuario={usuario} fases={fases}/>
+    }else if(fases.fase2){
+        return <Fase2Assessor setFase={setFase} usuario={usuario} fases={fases}/>
+    }else if(fases.fase3){
+        return <Fase3Assessor setFase={setFase} usuario={usuario} fases={fases}/>
+    }else if(fases.fase4){
+        return <Fase7 setFase={setFase} usuario={usuario} fases={fases}/>
+    }else if(fases.fase5){
+        return <EmailSent titulo={`Confirmação de e-mail`} haveButton={false} email={usuario.email} tipo={"certo"}/>
+    }
 }
 
 const componentesFaseCasal = (fases, setFase, usuario) => {
@@ -81,7 +93,7 @@ const definirFluxoCadastro = (userEmail, usuario, setFase, fases) => {
     }
 }
 
-const buildObjectFromQueryParam = (window) => {
+export const buildObjectFromQueryParam = (window) => {
     const queryParam = extractQueryParams(window)
     const queryParamObject = {}
     queryParam.forEach(param => {
@@ -123,6 +135,7 @@ const usuarioAssessor = () => {
         tipo: "assessor",
         confirmarSenha: "",
         nome: "",
+        sobrenome: "",
         cnpj: "",
         emailEmpresa: "",
         externo: false
@@ -150,7 +163,8 @@ const fasesAssessor = () => {
         fase1: true,
         fase2: false,
         fase3: false,
-        fase4: false
+        fase4: false,
+        fase5: false
     }
 }
 

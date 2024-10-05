@@ -4,6 +4,7 @@ import LateralImage from "../../componentes/LoginLateralImage";
 import styles from "./ReenviarEmail.module.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { request } from "../../config/axios/axios";
 
 const ReenviarEmail = () => {
 
@@ -18,6 +19,15 @@ const ReenviarEmail = () => {
         if(!userEmail || !emailRegex.test(userEmail)){
             navigate("/login")
         }
+        request.verifyUserEmail(email.current).then((response) => {
+            if(response.status == 200){
+                if(response.data.enabled){                    
+                    navigate("/login")
+                }
+            }
+        }).catch(() => {
+            navigate("/login")
+        })
     }, [])
 
     return(

@@ -6,8 +6,9 @@ import { GoogleLogin } from "@react-oauth/google";
 import LateralImage from "../../componentes/LoginLateralImage";
 import { jwtDecode } from "jwt-decode";
 import { request } from "../../config/axios/axios";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { buildObjectFromQueryParam } from "../Cadastro/fases";
 
 const Login = () =>{
 
@@ -15,6 +16,9 @@ const Login = () =>{
 
     const email = useRef();
     const senha = useRef();
+    const tipo = useRef()
+    const[oldTipo, setTipo] = useState()
+    const esqueceuSenhaElement = useRef()
 
     const authenticate = () => {
         const usuario = {
@@ -27,7 +31,11 @@ const Login = () =>{
         }
         request.authenticate(usuario).then(response => {
             if(response.status == 200){
-                navigate("/dashboard")
+                if(response.data.enabled){
+                    navigate("/dashboard")
+                }else{
+                    toast.error("Ative a conta antes de conseguir logar")
+                }
             }
         }).catch(error => {
             toast.error("Usuário ou senha inválidos")
@@ -42,12 +50,38 @@ const Login = () =>{
             localStorage.setItem("access_token", response.credential)
             navigate(`/dashboard`)
         }).catch(erro => {
-            navigate(`/cadastrar#${userEmail}`)
+            if(tipo.current == "assessor"){
+                navigate(`/cadastrar?email=${userEmail}&tipo=assessor`)
+                return
+            }
+            navigate(`/cadastrar?email=${userEmail}`)
         })
     };
     const errorMessage = (error) => {
         console.log(error);
     };
+
+    const alterarLogin = () => {
+        if(tipo.current == "assessor"){
+            window.location.href = `${window.location.href}?tipo=casal`
+            return
+        }
+        window.location.href = `${window.location.href}?tipo=assessor`
+    }
+
+    const marginTopAssessor = () => {
+        esqueceuSenhaElement.current.style.marginTop = tipo.current == "assessor" ? "4%" : "0%"
+    }
+
+    useEffect(() => {
+        if(tipo.current == undefined){
+            const queryParamObject = buildObjectFromQueryParam(window)
+            tipo.current = queryParamObject.tipo
+            console.log(tipo.current);
+            marginTopAssessor()
+            setTipo("")
+        }
+    }, [])
 
     return(
         <div className={styles.login_body}>
@@ -58,16 +92,28 @@ const Login = () =>{
                         <FaLongArrowAltLeft onClick={() => navigate("/")}/>
                     </div>
                     <div className={styles.login_header_text}>
-                        <p>Não tem uma conta?</p> <Link to={`/cadastrar`}>Cadastre-se</Link>
+                        <p>Não tem uma conta?</p> {tipo.current == "assessor" ? 
+                            <Link to={`/cadastrar?tipo=assessor`}>Cadastre-se</Link>
+                            : 
+                            <Link to={`/cadastrar`}>Cadastre-se</Link>
+                            }
                     </div>
                 </div>
                 <div className={styles.login_content}>
                     <div className={styles.login_content_header}>
                         <h1>bridee.</h1>
-                        <p>O match perfeito para o dia dos seus sonhos</p>
+                        {tipo.current == "assessor" ? 
+                            <p>Conecte-se com casais e construa celebrações memoráveis.</p>
+                            :
+                            <p>O match perfeito para o dia dos seus sonhos</p>
+                        }
                     </div>
                     <div className={styles.login_content_body}>
-                        <h4>Bem vindo de volta!</h4>
+                        {tipo.current == "assessor" ? 
+                            <h4>Entre para atualizar seu perfil de assessor e colaborar com clientes.</h4>
+                            :
+                            <h4>Bem vindo de volta!</h4>
+                        }
                         <div className={styles.login_inputs}>
                             <div style={{position: "relative"}}>
                                 <CiMail className={styles.login_inputs_icon}/>
@@ -79,7 +125,7 @@ const Login = () =>{
                             </div>
                         </div>
                         <div className={styles.login_content_button}>
-                            <Link to={`/recuperar-senha`}>Esqueceu a senha?</Link>
+                            <Link to={`/recuperar-senha`} ref={esqueceuSenhaElement}>Esqueceu a senha?</Link>
                             <button onClick={authenticate}>Entrar</button>
                             <span>ou</span>
                             <div className={styles.google_button}>
@@ -88,8 +134,17 @@ const Login = () =>{
                         </div>
                     </div>
                     <div className={styles.login_content_footer}>
-                        <p>Você é um assessor?</p> 
-                        <Link to={"/cadastrar-assessor"}>Clique aqui.</Link>    
+                        {tipo.current == "assessor" ? 
+                            <div>
+                                <p>Você é um casal?</p> 
+                                <Link onClick={alterarLogin}>Clique aqui.</Link>
+                            </div>
+                            :
+                            <div>
+                                <p>Você é um assessor?</p> 
+                                <Link onClick={alterarLogin}>Clique aqui.</Link>    
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

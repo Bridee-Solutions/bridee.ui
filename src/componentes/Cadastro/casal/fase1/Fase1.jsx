@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { CiLock, CiMail } from "react-icons/ci";
 import { GoogleLogin } from "@react-oauth/google";
 import {componenteFase, definirProximaFase, definirUsuarioEFases} from "../../../../pages/Cadastro/fases";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode";
 import { request } from "../../../../config/axios/axios";
@@ -24,7 +24,11 @@ const Fase1 = (props) => {
             localStorage.setItem("access_token", response.credential)
             navigate(`/dashboard`)
         }).catch(erro => {
-            window.location.href = `${window.location.href}?email=${userEmail}`
+            if(props.usuario.tipo == "assessor"){
+                window.location.href = `${window.location.href}?email=${userEmail}&tipo=assessor`
+            }else{
+                window.location.href = `${window.location.href}?email=${userEmail}`
+            }
             definirUsuarioEFases(window, props.usuario, props.fases, props.setFase)
         })
     };
@@ -96,14 +100,27 @@ const Fase1 = (props) => {
         return true
     }
 
+    const cadastrarAssessor = () =>{
+        window.location.href = `${window.location.href}?tipo=assessor`
+    }
+
     return(
         <div className={fase1Style.fase1_content}>
             <div className={styles.login_content_header}>
                 <h1>bridee.</h1>
-                <p>O match perfeito para o dia dos seus sonhos</p>
+                {props.usuario.tipo == "casal" ? 
+                    <p>O match perfeito para o dia dos seus sonhos.</p>
+                    :
+                    <p>Conecte-se com casais e construa celebrações memoráveis.</p>
+                }
             </div>
             <div className={fase1Style.fase1_content_body}>
-                <h4>Crie uma conta e comece a planejar seu casamento!</h4>
+                {
+                    props.usuario.tipo == "casal" ?
+                    <h4>Crie uma conta e comece a planejar seu casamento!</h4>
+                    :
+                    <h4>Crie uma conta gratuita para desbloquear seu painel personalizado de planejamento de eventos.</h4>
+                }
                 <div className={styles.login_inputs}>
                     <div style={{position: "relative"}}>
                         <CiMail className={styles.login_inputs_icon}/>
@@ -125,10 +142,12 @@ const Fase1 = (props) => {
                         <GoogleLogin onSuccess={googleSuccessLogin} onError={errorMessage}/>
                     </div>
                 </div>
-                <div className={fase1Style.fase1_footer}>
-                    <p>Você é um assessor?</p> 
-                    <Link to={"/cadastrar-assessor"}>Clique aqui.</Link>    
-                </div>
+                {props.usuario.tipo == "casal" && 
+                    <div className={fase1Style.fase1_footer}>
+                        <p>Você é um assessor?</p> 
+                        <Link onClick={cadastrarAssessor}>Clique aqui.</Link>    
+                    </div>
+                }
             </div>
         </div>
     );
