@@ -1,17 +1,16 @@
-import React from 'react';
 import styles from './LandingPage.module.css'
-import Header from '../../componentes/Header';
-import SearchBar from '../../componentes/SearchBar';
-import Benefits from '../../componentes/Benefits';
-import Categories from '../../componentes/Categories';
-import WeddingLocations from '../../componentes/WeddingLocations';
-import WeddingDresses from '../../componentes/WenddingDresses';
-import UserReviews from '../../componentes/UserReviews';
-import WenddingPlannerCTA from '../../componentes/WenddingPlannerCTA';
-import FAQ from '../../componentes/FAQ';
-import Newsletter from '../../componentes/Newsletter';
-import Footer from '../../componentes/Footer';
-import Banner from '../../componentes/Banner';
+import Header from '../../componentes/LandingPage/Header/Header';
+import SearchBar from '../../componentes/LandingPage/SearchBar/SearchBar';
+import Benefits from '../../componentes/LandingPage/Benefits/Benefits';
+import Categories from '../../componentes/LandingPage/Categories/Categories';
+import WeddingLocations from '../../componentes/LandingPage/WeddingLocations/WeddingLocations';
+import WeddingDresses from '../../componentes/LandingPage/WeddingDresses/WeddingDresses';
+import UserReviews from '../../componentes/LandingPage/UserReviews/UserReviews';
+import WeddingPlannerCTA from '../../componentes/LandingPage/WeddingPlannerCTA/WeddingPlannerCTA';
+import FAQ from '../../componentes/LandingPage/FAQ/FAQ';
+import Newsletter from '../../componentes/LandingPage/Newsletter/Newsletter';
+import Footer from '../../componentes/LandingPage/Footer/Footer';
+import Banner from '../../componentes/LandingPage/Banner/Banner';
 
 function LandingPage() {
   return (
@@ -25,7 +24,7 @@ function LandingPage() {
     <WeddingLocations />
     <WeddingDresses />
     <UserReviews />
-    <WenddingPlannerCTA />
+    <WeddingPlannerCTA />
     <FAQ />
     <Newsletter /> 
       </div>

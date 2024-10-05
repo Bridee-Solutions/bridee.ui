@@ -1,5 +1,5 @@
 import styles from './Error.module.css'
-import Footer from '../../componentes/Footer'
+import Footer from '../../componentes/LandingPage/Footer/Footer'
 function Error() {
 
     return (

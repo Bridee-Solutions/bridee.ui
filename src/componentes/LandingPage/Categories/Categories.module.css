@@ -1,0 +1,53 @@
+.categories {
+  background-color: rgba(221, 123, 120, 0.06);;
+  display: flex;
+  margin: 5vh 0px;
+  padding: 0vh 5vw;
+  width: 90%;
+  height: 40vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.categories h1 {
+  font-family: 'ProductSans';
+  font-size: 48px;
+  color: #312D2D;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.categories .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items:end;
+}
+
+.categories .container div {
+  display: flex;
+  height: 18vh;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.5s;
+}
+
+.categories .container div:hover {
+  transform: scale(1.10);
+}
+
+.categories .container p{
+  color: #454946;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: 'Montserrat';
+  margin: 0;
+}
+
+.categories .container img{
+  height: 11vh;
+  width: 100%;
+}

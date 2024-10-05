@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Qlassy";
+  src: url("../assets/fonts/Qlassy.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ProductSans";
+  src: url("../assets/fonts/ProductSans-Regular.ttf");
+}
+
+.logo {
+  font-size: 34px;
+  font-family: "Qlassy";
+  color: #131313;
+}
+
+.logo > span {
+  color: #d86b67;
+}
+
+.dropdown-toggle::after {
+  color: #d86b67;
+  border-top: 0.3em solid #d86b67;
+}
+

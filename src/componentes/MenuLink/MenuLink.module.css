@@ -1,0 +1,23 @@
+
+.link {
+    color: rgb(0, 0, 0); 
+}
+
+.linkDestacado {
+    text-decoration: underline;
+    background-color: rgb(31, 31, 31);
+    color: black; 
+    border-radius: 20px 20px 0 0; 
+    /* padding: 3px 15px 10px 15px; */
+  
+
+
+}
+
+
+.linkAtivo {
+    background-color: rgb(255, 255, 255); 
+    color: rgb(32, 32, 32);    
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+
+}
