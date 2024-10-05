@@ -1,4 +1,4 @@
-import { componenteFase, definirProximaFase } from "../../../pages/Cadastro/fases";
+import { componenteFase, definirProximaFase } from "../../../../pages/Cadastro/fases";
 import styles from "./Fase2.module.css"
 
 const Fase2 = (props) => {

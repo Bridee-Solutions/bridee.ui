@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { componenteFase, definirProximaFase } from "../../../pages/Cadastro/fases";
+import { componenteFase, definirProximaFase } from "../../../../pages/Cadastro/fases";
 import styles from "./Fase3.module.css"
 import { toast } from "react-toastify";
 

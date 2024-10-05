@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import styles from "./Fase6.module.css"
-import { componenteFase, definirProximaFase } from "../../../pages/Cadastro/fases";
+import { componenteFase, definirProximaFase } from "../../../../pages/Cadastro/fases";
 import { toast } from "react-toastify";
 
 const Fase6 = (props) => {

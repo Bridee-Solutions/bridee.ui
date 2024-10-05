@@ -1,9 +1,9 @@
 import { toast } from "react-toastify"
-import { request } from "../../../config/axios/axios"
+import { request } from "../../../../config/axios/axios"
 import styles from "./Fase7.module.css"
 import { useRef } from "react"
 import { useNavigate } from "react-router-dom"
-import { componenteFase, definirProximaFase } from "../../../pages/Cadastro/fases"
+import { componenteFase, definirProximaFase } from "../../../../pages/Cadastro/fases"
 
 const Fase7 = (props) => {
 

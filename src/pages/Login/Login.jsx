@@ -3,7 +3,7 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { CiMail, CiLock } from "react-icons/ci";
 import { GoogleLogin } from "@react-oauth/google";
-import LateralImage from "../../component/LoginLateralImage";
+import LateralImage from "../../componentes/LoginLateralImage";
 import { jwtDecode } from "jwt-decode";
 import { request } from "../../config/axios/axios";
 import { useRef } from "react";

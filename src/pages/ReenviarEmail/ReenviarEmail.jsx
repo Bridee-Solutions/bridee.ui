@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import EmailSent from "../../component/Cadastro/email/Email";
-import LateralImage from "../../component/LoginLateralImage";
+import EmailSent from "../../componentes/Cadastro/email/Email";
+import LateralImage from "../../componentes/LoginLateralImage";
 import styles from "./ReenviarEmail.module.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";

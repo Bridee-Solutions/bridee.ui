@@ -1,13 +1,13 @@
-import styles from "../../../pages/Login/Login.module.css"
+import styles from "../../../../pages/Login/Login.module.css"
 import fase1Style from "./Fase1.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { CiLock, CiMail } from "react-icons/ci";
 import { GoogleLogin } from "@react-oauth/google";
-import {componenteFase, definirFluxoCadastro, definirProximaFase} from "../../../pages/Cadastro/fases";
+import {componenteFase, definirProximaFase, definirUsuarioEFases} from "../../../../pages/Cadastro/fases";
 import { useRef } from "react";
 import { toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode";
-import { request } from "../../../config/axios/axios";
+import { request } from "../../../../config/axios/axios";
 
 
 const Fase1 = (props) => {
@@ -24,8 +24,8 @@ const Fase1 = (props) => {
             localStorage.setItem("access_token", response.credential)
             navigate(`/dashboard`)
         }).catch(erro => {
-            window.location.hash = `${userEmail}`;
-            definirFluxoCadastro(window, props.usuario, props.setFase)  
+            window.location.href = `${window.location.href}?email=${userEmail}`
+            definirUsuarioEFases(window, props.usuario, props.fases, props.setFase)
         })
     };
     

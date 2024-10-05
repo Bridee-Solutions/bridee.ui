@@ -1,4 +1,4 @@
-import { componenteFase, definirProximaFase } from "../../../pages/Cadastro/fases";
+import { componenteFase, definirProximaFase } from "../../../../pages/Cadastro/fases";
 import styles from "./Fase5.module.css"
 import { useEffect, useRef } from "react";
 

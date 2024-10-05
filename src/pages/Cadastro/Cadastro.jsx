@@ -1,7 +1,7 @@
-import LateralImage from "../../component/LoginLateralImage";
+import LateralImage from "../../componentes/LoginLateralImage";
 import loginStyles from "../Login/Login.module.css"
-import CadastroHeader from "../../component/Cadastro/header/Header";
-import { componenteFase, definirFluxoCadastro, definirProximaFase} from "./fases";
+import CadastroHeader from "../../componentes/Cadastro/header/Header";
+import { componenteFase, definirUsuarioEFases} from "./fases";
 import { useEffect, useState, useRef } from "react";
 
 const Cadastro = () => {
@@ -10,33 +10,17 @@ const Cadastro = () => {
     const[progressBarValue, setProgressBarValue] = useState();
 
     const fases = useRef({
-        fase1: true,
-        fase2: false,
-        fase3: false,
-        fase4: false,
-        fase5: false,
-        fase6: false,
-        fase7: false,
-        fase8: false
+        fase1: true
     })
 
-    const usuario = useRef({
-        email: "",
-        senha: "",
-        confirmarSenha: "",
-        nome: "",
-        nomeParceiro: "",
-        isLocalReservado: false,
-        local: "",
-        dataCasamento: "",
-        quantidadeConvidados: 0,
-        externo: false
-    }   )
+    const usuario = useRef()
 
     useEffect(() => {
-        definirFluxoCadastro(window, usuario.current, setFase, fases.current)
+        if(usuario.current == undefined || fases.current == undefined){
+            definirUsuarioEFases(window, usuario, fases, setFase)
+        }
         const componenteProximaFase = componenteFase(fases.current, setFase, usuario.current) 
-        setFase(componenteProximaFase)
+        setFase(componenteProximaFase)  
     }, [])
 
     useEffect(() => {

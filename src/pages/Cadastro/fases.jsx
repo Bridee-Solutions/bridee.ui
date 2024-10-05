@@ -1,13 +1,24 @@
-import EmailSent from "../../component/Cadastro/email/Email"
-import Fase1 from "../../component/Cadastro/fase1/Fase1"
-import Fase2 from "../../component/Cadastro/fase2/Fase2"
-import Fase3 from "../../component/Cadastro/fase3/Fase3"
-import Fase4 from "../../component/Cadastro/fase4/Fase4"
-import Fase5 from "../../component/Cadastro/fase5/Fase5"
-import Fase6 from "../../component/Cadastro/fase6/Fase6"
-import Fase7 from "../../component/Cadastro/fase7/Fase7"
+import EmailSent from "../../componentes/Cadastro/email/Email"
+import Fase1 from "../../componentes/Cadastro/casal/fase1/Fase1"
+import Fase2 from "../../componentes/Cadastro/casal/fase2/Fase2"
+import Fase3 from "../../componentes/Cadastro/casal/fase3/Fase3"
+import Fase4 from "../../componentes/Cadastro/casal/fase4/Fase4"
+import Fase5 from "../../componentes/Cadastro/casal/fase5/Fase5"
+import Fase6 from "../../componentes/Cadastro/casal/fase6/Fase6"
+import Fase7 from "../../componentes/Cadastro/casal/fase7/Fase7"
 
 export const componenteFase = (fases, setFase, usuario) => {
+    if(usuario.tipo == "assessor"){
+        return componentesFaseAssessor()
+    }
+    return componentesFaseCasal(fases, setFase, usuario)
+}
+
+const componentesFaseAssessor = (fases, setFase, usuario) => {
+
+}
+
+const componentesFaseCasal = (fases, setFase, usuario) => {
     if(fases.fase1){
         return <Fase1 setFase={setFase} usuario={usuario} fases={fases}/>
     }else if(fases.fase2){
@@ -50,10 +61,15 @@ export const definirProximaFase = (fases) => {
     return fases;
 }
 
-export const definirFluxoCadastro = (window, usuario, setFase, fases) => {
-    const userEmail = window.location.hash.substring(1);
-    const urlWithoutHash = window.location.href.split("#")[0]
-    window.history.replaceState({}, document.title, urlWithoutHash)
+
+export const definirUsuarioEFases = (window, usuario, fases, setFase) => {
+    const queryParamObject = buildObjectFromQueryParam(window)
+    usuario.current = definirObjetoUsuario(queryParamObject.tipo)
+    fases.current = definirObjetoFase(queryParamObject.tipo)
+    definirFluxoCadastro(queryParamObject.email, usuario.current, setFase, fases.current)
+}
+
+const definirFluxoCadastro = (userEmail, usuario, setFase, fases) => {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if(userEmail && emailRegex.test(userEmail)){
         usuario.externo = true;
@@ -65,15 +81,38 @@ export const definirFluxoCadastro = (window, usuario, setFase, fases) => {
     }
 }
 
-const definirTipoUsuario = (tipo) => {
-    
+const buildObjectFromQueryParam = (window) => {
+    const queryParam = extractQueryParams(window)
+    const queryParamObject = {}
+    queryParam.forEach(param => {
+        queryParamObject[param[0]] = param[1]
+    })
+    return queryParamObject;
 }
 
-export const definirObjetoUsuario = (tipo) => {
+const extractQueryParams = (window) => {
+    const urlArray = window.location.href.split("?");
+    const queryParams = urlArray[1]
+    redefineUrl(window, urlArray[0])
+    if(queryParams != undefined){
+        const queryParamItens = queryParams.split("&")
+        if(queryParamItens != undefined){
+            const queryParamsKeyValue = queryParamItens.map(queryParam => queryParam.split("="))
+            return queryParamsKeyValue;
+        }
+    }
+    return [];
+}
+
+const redefineUrl = (window, urlWithoutHash) => {
+    window.history.replaceState({}, document.title, urlWithoutHash)
+}
+
+const definirObjetoUsuario = (tipo) => {
     return tipo == "assessor" ? usuarioAssessor() : usuarioCasal()
 }
 
-export const definirObjetoFase = (tipo) => {
+const definirObjetoFase = (tipo) => {
     return tipo == "assessor" ? fasesAssessor() : fasesCasal()
 }
 
@@ -81,6 +120,7 @@ const usuarioAssessor = () => {
     return {
         email: "",
         senha: "",
+        tipo: "assessor",
         confirmarSenha: "",
         nome: "",
         cnpj: "",
@@ -93,6 +133,7 @@ const usuarioCasal = () => {
     return {
         email: "",
         senha: "",
+        tipo: "casal",
         confirmarSenha: "",
         nome: "",
         nomeParceiro: "",
