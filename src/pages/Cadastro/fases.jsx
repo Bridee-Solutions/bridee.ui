@@ -64,3 +64,64 @@ export const definirFluxoCadastro = (window, usuario, setFase, fases) => {
         return
     }
 }
+
+const definirTipoUsuario = (tipo) => {
+    
+}
+
+export const definirObjetoUsuario = (tipo) => {
+    return tipo == "assessor" ? usuarioAssessor() : usuarioCasal()
+}
+
+export const definirObjetoFase = (tipo) => {
+    return tipo == "assessor" ? fasesAssessor() : fasesCasal()
+}
+
+const usuarioAssessor = () => {
+    return {
+        email: "",
+        senha: "",
+        confirmarSenha: "",
+        nome: "",
+        cnpj: "",
+        emailEmpresa: "",
+        externo: false
+    }
+}
+
+const usuarioCasal = () => {
+    return {
+        email: "",
+        senha: "",
+        confirmarSenha: "",
+        nome: "",
+        nomeParceiro: "",
+        isLocalReservado: false,
+        local: "",
+        dataCasamento: "",
+        quantidadeConvidados: 0,
+        externo: false
+    }
+}
+
+const fasesAssessor = () => {
+    return {
+        fase1: true,
+        fase2: false,
+        fase3: false,
+        fase4: false
+    }
+}
+
+const fasesCasal = () => {
+    return {
+        fase1: true,
+        fase2: false,
+        fase3: false,
+        fase4: false,
+        fase5: false,
+        fase6: false,
+        fase7: false,
+        fase8: false
+    }
+}

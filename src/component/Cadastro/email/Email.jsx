@@ -1,8 +1,11 @@
 import { toast } from "react-toastify"
 import { request } from "../../../config/axios/axios"
 import styles from "./Email.module.css"
+import { useEffect, useRef } from "react"
 
 export const EmailSent = (props) => {
+
+    const mainDiv = useRef();
 
     const resendEmail = () => {        
         request.resendVerificationEmail(props.email)
@@ -11,8 +14,14 @@ export const EmailSent = (props) => {
         })
     }
 
+    useEffect(() => {
+        if(mainDiv.current != undefined){
+            mainDiv.current.style.marginTop = props.haveButton ? "0%" : "5%"
+        }
+    },[])
+
     return(
-        <div className={styles.email}>
+        <div className={styles.email} ref={mainDiv}>
             <div className={styles.email_content}>
                 <div className={styles.email_header}>
                     <h2>{props.titulo}</h2>

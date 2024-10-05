@@ -7,20 +7,16 @@ import { useNavigate } from "react-router-dom";
 
 const ReenviarEmail = () => {
 
-    const email = useRef()
+    const email = useRef(window.location.hash.substring(1))
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(email.current == undefined){
-            email.current = window.location.hash.substring(1);
-            const urlWithoutHash = window.location.href.split("#")[0]
-            window.history.replaceState({}, document.title, urlWithoutHash)
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-            console.log(email.current, emailRegex.test(email.current));
-            if(email.current.trim() == "" || !emailRegex.test(email.current)){
-                navigate("/login")
-                return
-            }
+        const userEmail = email.current
+        const urlWithoutHash = window.location.href.split("#")[0]
+        window.history.replaceState({}, document.title, urlWithoutHash)
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if(!userEmail || !emailRegex.test(userEmail)){
+            navigate("/login")
         }
     }, [])
 
