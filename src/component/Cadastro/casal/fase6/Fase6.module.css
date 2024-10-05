@@ -1,0 +1,66 @@
+.fase6{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fase6_content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+    font-size: 22px;
+}
+
+.fase6_content_input{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+}
+
+.fase6_content2{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+.fase6_content_input_radio{
+    display: flex;
+    font-size: 18px;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+    height: 35%;
+}
+
+.fase6_content_input_radio input{
+    min-width: 20%;
+    accent-color: #c6524e;
+    margin-right: 4%;
+    height: 100%;
+}
+
+.fase6_content_input_container{
+    width: 30%;
+    height: 70%;
+}
+
+.fase6_button{
+    padding: 2% 12%;
+    background-color: #c6524e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 3% 0;
+}
