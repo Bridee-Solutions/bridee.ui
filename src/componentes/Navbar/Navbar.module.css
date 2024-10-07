@@ -24,9 +24,8 @@
   color: #d86b67;
 }
 
-.dropdown-toggle::after {
-  color: #d86b67;
-  border-top: 0.3em solid #d86b67;
+.navbar .dropdown-toggle::after {
+  display: none !important;
 }
 
 
@@ -69,10 +68,6 @@
   font-family: "ProductSans";
 }
 
-.dropdown-toggle::after {
-  color: var(--cor-primaria);
-}
-
 .nav-link {
   color: #302f2f;
   font-family: "Montserrat";
@@ -82,9 +77,6 @@
   line-height: normal;
 }
 
-.dropdown-toggle::after {
-  display: none;
-}
 
 .icones_direita {
   display: flex;
@@ -108,7 +100,12 @@ font-family: "Montserrat";
 
 .icons { 
   color: var(--cor-primaria);
-  
+  font-size: 20px;  
+}
+
+.iconsR { 
+  color: var(--cor-primaria);
+  font-size: 25px;
 }
 
 .icons_arrow{
@@ -119,7 +116,8 @@ font-family: "Montserrat";
 
 .container_pai {
   display: flex;
-  height: 100%;
+  width: 70vw;
+  height: 50vh;
 }
 
 .container-item { 
@@ -140,24 +138,19 @@ font-family: "Montserrat";
 }
 
 
-
-.item-nome { 
-  padding-left: 5px;
+.item_nome {
   font-family: "Playfair Display";
-  font-size: 17px;
+  font-size: 19px;
+  padding-left: 9px;
 }
-
-.dropdown-item { 
-padding: 7px 0px;
-}
-
-.dropdown-item:active {
-  background-color: #f8f9fa;
-  color: #302f2f;
-} 
 
 .bg-body-tertiary {
   background-color: #FCFCFC;
+}
+
+.weddingRing { 
+  font-size: 20px;
+  color: var(--cor-primaria);
 }
 
 @media (max-width: 995px) {

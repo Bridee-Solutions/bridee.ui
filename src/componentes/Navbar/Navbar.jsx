@@ -8,8 +8,13 @@ import styles from "./Navbar.module.css";
 import "../../index.css";
 import globalStyles  from "../../assets/global-styles/bootstrap.min.module.css";
 
+import { GiBigDiamondRing } from "react-icons/gi";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown} from "@fortawesome/free-solid-svg-icons";
+
+import weddingRing from "../../assets/wedding.svg";
+
 import {
   faUser,
   faListCheck,
@@ -26,12 +31,14 @@ function NavComp() {
     setSelecaoAtual(selecao);
   };
 
+  
+
   const ferramentasDePlanejamento = [
     {
       nome: "Painel",
       descricao:
         "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
-      icon: faClipboardList,
+        icon: weddingRing,
     },
     {
       nome: "Lista de convidados",
@@ -93,10 +100,7 @@ function NavComp() {
                           <NavDropdown.Item
                             onClick={() => handleClick(item.nome)}
                           >
-                            <FontAwesomeIcon
-                              icon={item.icon}
-                              className={styles.icons}
-                            />
+                           <GiBigDiamondRing className={styles.iconsR} />
                             <span className={styles.item_nome}>{item.nome}</span>
                           </NavDropdown.Item>
                           <div className={styles.descricao}>
