@@ -126,6 +126,10 @@ padding: 7px 0px;
   color: #302f2f;
 } 
 
+.bg-body-tertiary {
+  background-color: #FCFCFC !important;
+}
+
 @media (max-width: 995px) {
   
 
@@ -138,8 +142,6 @@ padding: 7px 0px;
  display: none;
 
 }
-
-
 .me-auto {
   flex-direction: column;
   display: flex;

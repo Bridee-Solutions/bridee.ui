@@ -1,5 +1,89 @@
 .painelBackground {
-    background-color: #F3EED9; 
-    height: 100vh; 
-    width: 100%; 
+  background-color: #f3eed9;
+  height: 100%;
+  width: 100%;
 }
+
+.containerPai {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 35vh;
+}
+
+.containerRegulador {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerDireita {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.containerImagem {
+  border: 2px solid red;
+  width: 50%;
+}
+
+.containerInfos {
+  border: 2px solid red;
+  width: 50%;
+}
+
+.containerContagem {
+  border: 2px solid red;
+  width: 20%;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+
+.colunaEsquerda {
+  width: 60%;
+  height: 90vh;
+  border-radius: 30px;
+  background: white;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container_titulodesc {
+    display: flex;
+    align-items: center;
+    border: 2px solid red;
+    width: 90%;
+    height: 20vh;
+
+  }
+
+  .caixa {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .titulo_clnesq {
+    font-family: "Playfair Display";
+    font-size: 30px;
+  }
+
+.colunaDireita {
+  width: 30%;
+  height: 40vh;
+  background-color: white;
+  border-radius: 30px;
+}
+
+
+
+
+
