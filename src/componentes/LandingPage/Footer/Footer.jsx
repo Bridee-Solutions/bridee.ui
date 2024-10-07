@@ -1,4 +1,6 @@
 import styles from './Footer.module.css'
+import Baseboard from '../BaseBoard/Baseboard';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -54,9 +56,7 @@ function Footer() {
                     <h3 className={styles.footer_subtitle}>O match perfeito para o dia dos seus sonhos</h3>
                 </div>
             </div>
-            <div className={styles.bridee_rights}>
-                © 2024 bridee. Todos os direitos reservados.
-            </div>
+            <Baseboard/>
         </section>
     );
 }

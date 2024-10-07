@@ -1,20 +1,27 @@
 import styles from './Error.module.css'
-import Footer from '../../componentes/LandingPage/Footer/Footer'
+import Baseboard from '../../componentes/LandingPage/BaseBoard/Baseboard';
+
+import { useNavigate } from 'react-router-dom';
+
 function Error() {
 
+    const navigate = useNavigate();
+
+    function home() {
+        navigate("/");
+    }
+
     return (
-        <div className={styles.error_base}>
+        <section className={styles.error_base}>
             <div className={styles.error_image}>
                 <div className={styles.error_message}>
                     <h1>oops... página não encontrada</h1>
                     <p>Que tal voltar à página inicial enquanto <br/> ajustamos as coisas?</p>
-                    <button>Voltar para a pàgina inicial</button>
+                    <button onClick={home}>Voltar para a pàgina inicial</button>
                 </div>
             </div>
-            <div>
-                <Footer />
-            </div>
-        </div>
+            <Baseboard/>
+        </section>
     );
 
 }
