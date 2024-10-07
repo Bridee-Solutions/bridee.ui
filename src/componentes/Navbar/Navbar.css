@@ -126,3 +126,22 @@ padding: 7px 0px;
   color: #302f2f;
 } 
 
+@media (max-width: 995px) {
+  
+
+.superior {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inferior, .icones-direita {
+ display: none;
+
+}
+
+
+.me-auto {
+  flex-direction: column;
+  display: flex;
+}
+}

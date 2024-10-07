@@ -66,116 +66,132 @@ function NavComp() {
           <Navbar.Brand href="" className={styles.logo}>
             bridee<span>.</span>
           </Navbar.Brand>
-
+          <div>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              {/* Ferramentas de Planejamento */}
+          
+            <div>
+              <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto">
+                  {/* Ferramentas de Planejamento */}
 
-              <NavDropdown
-                title={
-                  <>
-                    Ferramentas de Planejamento{" "}
-                    <FontAwesomeIcon
-                      icon={faChevronDown}
-                      style={{ color: "#DD7B78" }}
-                    />
-                  </>
-                }
-                id="ferramentas-planejamento"
-                className="menu_suspenso"
-              >
-                <Container className="container-pai">
-                <div className="container_coluna">
-                  <div className="coluna">
-                    {ferramentasDePlanejamento.slice(0, 1).map((item) => (
-                      <Container key={item.nome} className="container-item">
-                        <NavDropdown.Item
-                          onClick={() => handleClick(item.nome)}
-                        >
-                          <FontAwesomeIcon icon={item.icon} className="icons" />
-                          <span className="item_nome">{item.nome}</span>
-                        </NavDropdown.Item>
-                        <div className="descricao">
-                          <span>{item.descricao}</span>
+                  <NavDropdown
+                    title={
+                      <>
+                        Ferramentas de Planejamento{" "}
+                        <FontAwesomeIcon
+                          icon={faChevronDown}
+                          style={{ color: "#DD7B78" }}
+                        />
+                      </>
+                    }
+                    id="ferramentas-planejamento"
+                    className="menu_suspenso"
+                  >
+                    <Container className="container-pai">
+                      <div className="container_coluna">
+                        <div className="coluna">
+                          {ferramentasDePlanejamento.slice(0, 1).map((item) => (
+                            <Container
+                              key={item.nome}
+                              className="container-item"
+                            >
+                              <NavDropdown.Item
+                                onClick={() => handleClick(item.nome)}
+                              >
+                                <FontAwesomeIcon
+                                  icon={item.icon}
+                                  className="icons"
+                                />
+                                <span className="item_nome">{item.nome}</span>
+                              </NavDropdown.Item>
+                              <div className="descricao">
+                                <span>{item.descricao}</span>
+                              </div>
+                            </Container>
+                          ))}
                         </div>
-                      </Container>
-                    ))}
-                  </div>
-</div>
-                  <div className="container_coluna">
-                    <div className="coluna">
-                      {ferramentasDePlanejamento.slice(1, 3).map((item) => (
-                        <Container key={item.nome} className="container-item">
-                          <NavDropdown.Item
-                            onClick={() => handleClick(item.nome)}
-                          >
-                            <div className="titulo_opcao"></div>
-                            <FontAwesomeIcon
-                              icon={item.icon}
-                              className="icons"
-                            />
-                            <span className="item_nome">{item.nome}</span>
-                          </NavDropdown.Item>
-                          <div className="descricao">
-                            <span>{item.descricao}</span>
-                          </div>
-                        </Container>
-                      ))}
-                    </div>
-                  </div>
+                      </div>
+                      <div className="container_coluna">
+                        <div className="coluna">
+                          {ferramentasDePlanejamento.slice(1, 3).map((item) => (
+                            <Container
+                              key={item.nome}
+                              className="container-item"
+                            >
+                              <NavDropdown.Item
+                                onClick={() => handleClick(item.nome)}
+                              >
+                                <div className="titulo_opcao"></div>
+                                <FontAwesomeIcon
+                                  icon={item.icon}
+                                  className="icons"
+                                />
+                                <span className="item_nome">{item.nome}</span>
+                              </NavDropdown.Item>
+                              <div className="descricao">
+                                <span>{item.descricao}</span>
+                              </div>
+                            </Container>
+                          ))}
+                        </div>
+                      </div>
 
-                  <div className="container_coluna">
-                    <div className="coluna">
-                      {ferramentasDePlanejamento.slice(3, 5).map((item) => (
-                        <Container key={item.nome} className="container-item">
-                          <NavDropdown.Item
-                            onClick={() => handleClick(item.nome)}
-                          >
-                            <div className="titulo_opcao">
-                              <FontAwesomeIcon
-                                icon={item.icon}
-                                className="icons"
-                              />
-                              <span className="item_nome">{item.nome}</span>
-                            </div>
-                          </NavDropdown.Item>
-                          <div className="descricao">
-                            <span>{item.descricao}</span>
-                          </div>
-                        </Container>
-                      ))}
-                    </div>
-                  </div>
-                </Container>
-              </NavDropdown>
+                      <div className="container_coluna">
+                        <div className="coluna">
+                          {ferramentasDePlanejamento.slice(3, 5).map((item) => (
+                            <Container
+                              key={item.nome}
+                              className="container-item"
+                            >
+                              <NavDropdown.Item
+                                onClick={() => handleClick(item.nome)}
+                              >
+                                <div className="titulo_opcao">
+                                  <FontAwesomeIcon
+                                    icon={item.icon}
+                                    className="icons"
+                                  />
+                                  <span className="item_nome">{item.nome}</span>
+                                </div>
+                              </NavDropdown.Item>
+                              <div className="descricao">
+                                <span>{item.descricao}</span>
+                              </div>
+                            </Container>
+                          ))}
+                        </div>
+                      </div>
+                    </Container>
+                  </NavDropdown>
 
-              {/* Locais e Fornecedores */}
-              <NavDropdown
-                title={
-                  <>
-                    Locais e fornecedores{" "}
+                  {/* Locais e Fornecedores */}
+                  <NavDropdown
+                    title={
+                      <>
+                        Locais e fornecedores{" "}
+                        <FontAwesomeIcon
+                          icon={faChevronDown}
+                          style={{ color: "#DD7B78" }}
+                        />
+                      </>
+                    }
+                    id="locais-fornecedores"
+                    className="menu_suspenso"
+                  ></NavDropdown>
+                </Nav>
+
+                {/* Ícones na direita */}
+                <Nav className="icones-direita">
+                  <Nav.Link href="/configuracoes" className="icone-usuario">
                     <FontAwesomeIcon
-                      icon={faChevronDown}
-                      style={{ color: "#DD7B78" }}
+                      icon={faUser}
+                      style={{ color: "#FFFFFF" }}
                     />
-                  </>
-                }
-                id="locais-fornecedores"
-                className="menu_suspenso"
-              >
-              
-              
-              </NavDropdown>
-            </Nav>
-
-            {/* Ícones na direita */}
-            <Nav className="icones-direita">
-              <Nav.Link href="/configuracoes" className="icone-usuario">
-                <FontAwesomeIcon icon={faUser} style={{ color: "#FFFFFF" }} />
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+                  </Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </div>
+          </div>
         </Container>
 
         {/*Navegação inferior*/}
