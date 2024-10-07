@@ -1,7 +1,18 @@
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
+import { React, useState } from "react";
 
 function Painel() {
+  const [imageUrl, setImageUrl] = useState(null); 
+ 
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const url = URL.createObjectURL(file); 
+      setImageUrl(url); 
+    }
+  };
+ 
   return (
     <div className={styles.painelBackground}>
       <Navbar />
@@ -9,7 +20,21 @@ function Painel() {
         <div className={styles.containerRegulador}>
           <div className={styles.containerDireita}>
             <div className={styles.containerImagem}>
-              <div className={styles.imagem}></div>
+              <div className={styles.imagem}>
+              <input
+                  type="file"
+                  accept="image/*" 
+                  onChange={handleImageChange} 
+                  className={styles.inputImagem} 
+                />
+                 {imageUrl && (
+                  <img
+                    src={imageUrl}
+                    alt="Imagem Selecionada"
+                    className={styles.imagemCirculo} 
+                  />
+                )}
+              </div>
             </div>
 
             <div className={styles.containerInfos}>
@@ -56,11 +81,7 @@ function Painel() {
           </div>
         </div>
 
-        <div className={styles.colunaDireita}>
-         
-
-
-        </div>
+        <div className={styles.colunaDireita}></div>
       </div>
     </div>
   );
