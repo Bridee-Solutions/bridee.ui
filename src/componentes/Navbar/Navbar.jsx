@@ -13,11 +13,9 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import {
   faUser,
   faListCheck,
-  faUsers,
   faClipboardList,
   faChair,
   faCalculator,
-  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import MenuLink from "../MenuLink/MenuLink";
 
@@ -166,59 +164,14 @@ function NavComp() {
                 id="locais-fornecedores"
                 className="menu_suspenso"
               >
-                <Container className="container_suspenso">
-                  <Container className="container_one_fornecedores">
-                    <div className="titulo">
-                      <div className="icon"></div>
-                      <NavDropdown.Item
-                        onClick={() => handleClick("Painel")}
-                        className={
-                          selecaoAtual === "Painel" ? "selecao-ativa" : ""
-                        }
-                      >
-                        Por categoria
-                      </NavDropdown.Item>
-                    </div>
-
-                    <div className="lista">
-                      <span>Fotógrafo</span>
-                      <span>Florista</span>
-                    </div>
-                  </Container>
-                </Container>
-
-                <NavDropdown.Divider />
-
-                <Container className="container_two_fornecedores">
-                  <div className="coluna_one">
-                    <div className="titulo">
-                      <NavDropdown.Item
-                        onClick={() => handleClick("Lista de convidados")}
-                        className={
-                          selecaoAtual === "Lista de convidados"
-                            ? "selecao-ativa"
-                            : ""
-                        }
-                      >
-                        <FontAwesomeIcon
-                          icon={faClipboardList}
-                          className="icons"
-                        />
-                        Estilo de casamento
-                        <FontAwesomeIcon
-                          icon={faChevronRight}
-                          className="icons_arrow"
-                        />
-                      </NavDropdown.Item>
-                    </div>
-                  </div>
-                </Container>
+              
+              
               </NavDropdown>
             </Nav>
 
             {/* Ícones na direita */}
             <Nav className="icones-direita">
-              <Nav.Link href="#usuario" className="icone-usuario">
+              <Nav.Link href="/configuracoes" className="icone-usuario">
                 <FontAwesomeIcon icon={faUser} style={{ color: "#FFFFFF" }} />
               </Nav.Link>
             </Nav>
