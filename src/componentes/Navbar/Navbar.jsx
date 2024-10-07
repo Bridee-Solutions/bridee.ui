@@ -88,6 +88,7 @@ function NavComp() {
                 className="menu_suspenso"
               >
                 <Container className="container-pai">
+                <div className="container_coluna">
                   <div className="coluna">
                     {ferramentasDePlanejamento.slice(0, 1).map((item) => (
                       <Container key={item.nome} className="container-item">
@@ -95,7 +96,7 @@ function NavComp() {
                           onClick={() => handleClick(item.nome)}
                         >
                           <FontAwesomeIcon icon={item.icon} className="icons" />
-                          <span>{item.nome}</span>
+                          <span className="item_nome">{item.nome}</span>
                         </NavDropdown.Item>
                         <div className="descricao">
                           <span>{item.descricao}</span>
@@ -103,37 +104,50 @@ function NavComp() {
                       </Container>
                     ))}
                   </div>
-
-                  <div className="coluna">
-                    {ferramentasDePlanejamento.slice(1, 3).map((item) => (
-                      <Container key={item.nome} className="container-item">
-                        <NavDropdown.Item
-                          onClick={() => handleClick(item.nome)}
-                        >
-                          <FontAwesomeIcon icon={item.icon} className="icons" />
-                          <span>{item.nome}</span>
-                        </NavDropdown.Item>
-                        <div className="descricao">
-                          <span>{item.descricao}</span>
-                        </div>
-                      </Container>
-                    ))}
+</div>
+                  <div className="container_coluna">
+                    <div className="coluna">
+                      {ferramentasDePlanejamento.slice(1, 3).map((item) => (
+                        <Container key={item.nome} className="container-item">
+                          <NavDropdown.Item
+                            onClick={() => handleClick(item.nome)}
+                          >
+                            <div className="titulo_opcao"></div>
+                            <FontAwesomeIcon
+                              icon={item.icon}
+                              className="icons"
+                            />
+                            <span className="item_nome">{item.nome}</span>
+                          </NavDropdown.Item>
+                          <div className="descricao">
+                            <span>{item.descricao}</span>
+                          </div>
+                        </Container>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="coluna">
-                    {ferramentasDePlanejamento.slice(3, 5).map((item) => (
-                      <Container key={item.nome} className="container-item">
-                        <NavDropdown.Item
-                          onClick={() => handleClick(item.nome)}
-                        >
-                          <FontAwesomeIcon icon={item.icon} className="icons" />
-                          <span>{item.nome}</span>
-                        </NavDropdown.Item>
-                        <div className="descricao">
-                          <span>{item.descricao}</span>
-                        </div>
-                      </Container>
-                    ))}
+                  <div className="container_coluna">
+                    <div className="coluna">
+                      {ferramentasDePlanejamento.slice(3, 5).map((item) => (
+                        <Container key={item.nome} className="container-item">
+                          <NavDropdown.Item
+                            onClick={() => handleClick(item.nome)}
+                          >
+                            <div className="titulo_opcao">
+                              <FontAwesomeIcon
+                                icon={item.icon}
+                                className="icons"
+                              />
+                              <span className="item_nome">{item.nome}</span>
+                            </div>
+                          </NavDropdown.Item>
+                          <div className="descricao">
+                            <span>{item.descricao}</span>
+                          </div>
+                        </Container>
+                      ))}
+                    </div>
                   </div>
                 </Container>
               </NavDropdown>

@@ -12,7 +12,8 @@
   background-color: var(--cor-primaria);
   width: 90%;
   border-radius: 200px;
-  height: 7vh;
+  height: 45px;
+
 }
 
 .submenu {
@@ -30,7 +31,7 @@
 .submenu a {
   text-decoration: none;
   color: white;
-  padding-bottom: 10px;
+  padding-bottom: 13px;
   padding-top: 4px;
   padding-left: 20px;
   padding-right: 20px;
@@ -65,7 +66,9 @@
 }
 
 .dropdown-menu {
-  width: 70vw;
+  width: 950px;
+  height: 350px;
+  padding: 20px;
 }
 .descricao > span { 
 font-size: 13px;
@@ -89,5 +92,29 @@ font-family: "Montserrat";
 
 .container-pai {
   display: flex;
-  justify-content: space-between;
+  height: 100%;
 }
+
+.container-item { 
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
+.container_coluna { 
+  display: flex; 
+  width: 50%;
+}
+
+
+
+.item_nome { 
+  padding-left: 5px;
+  font-family: "Playfair Display";
+  font-size: 18px;
+}
+
+.dropdown-item { 
+padding: 0;
+}
+
