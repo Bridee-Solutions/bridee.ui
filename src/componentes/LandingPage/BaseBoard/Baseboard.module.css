@@ -1,0 +1,27 @@
+.bridee_rights {
+  height: 6vh;
+  width: 100%;
+  background-color: #DD7B78;
+  color: #FFF6F6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'ProductSans';
+  font-size: 20px;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .bridee_rights {
+    height: 6vh;
+    width: 100%;
+    background-color: #DD7B78;
+    color: #FFF6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'ProductSans';
+    font-size: 2.5vw;
+    font-weight: 400;
+  } 
+}
