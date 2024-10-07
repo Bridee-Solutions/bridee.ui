@@ -68,7 +68,7 @@
 .dropdown-menu {
   width: 950px;
   height: 350px;
-  padding: 20px;
+  padding: 20px 0px;
 }
 .descricao > span { 
 font-size: 13px;
@@ -101,6 +101,12 @@ font-family: "Montserrat";
   height: 50%;
 }
 
+.container-item:hover{
+  background-color: #f8f9fa;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
 .container_coluna { 
   display: flex; 
   width: 50%;
@@ -115,6 +121,8 @@ font-family: "Montserrat";
 }
 
 .dropdown-item { 
-padding: 0;
+padding: 7px 0px;
+
 }
+
 
