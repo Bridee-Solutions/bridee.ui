@@ -5,12 +5,23 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Navbar.module.css";
-import "./Navbar.css";
+import "../../index.css";
+import globalStyles  from "../../assets/global-styles/bootstrap.min.module.css";
+
+import { GiBigDiamondRing } from "react-icons/gi";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown} from "@fortawesome/free-solid-svg-icons";
+
+import weddingRing from "../../assets/wedding.svg";
+
+import {
+  faUser,
+  faListCheck,
+  faClipboardList,
+  faChair,
+  faCalculator,
+} from "@fortawesome/free-solid-svg-icons";
 import MenuLink from "../MenuLink/MenuLink";
 
 function NavComp() {
@@ -20,18 +31,54 @@ function NavComp() {
     setSelecaoAtual(selecao);
   };
 
+  
+
+  const ferramentasDePlanejamento = [
+    {
+      nome: "Painel",
+      descricao:
+        "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
+        icon: weddingRing,
+    },
+    {
+      nome: "Lista de convidados",
+      descricao:
+        "Uma lista de convidados prática e intuitiva para ajudar você a gerenciar facilmente quem irá convidar e acompanhar as confirmações.",
+      icon: faClipboardList,
+    },
+    {
+      nome: "Lista de tarefas",
+      descricao:
+        "Nossa lista de verificação de planejamento de casamento é a maneira mais fácil de gerenciar o cronograma do planejamento do seu casamento sem estresse",
+      icon: faListCheck,
+    },
+    {
+      nome: "Planejador de assentos",
+      descricao:
+        "Um planejador de assentos intuitivo para organizar sua recepção de forma fácil e eficaz.",
+      icon: faChair,
+    },
+    {
+      nome: "Calculadora Financeira",
+      descricao:
+        "Uma calculadora financeira prática para ajudá-la a planejar o orçamento do seu grande dia.",
+      icon: faCalculator,
+    },
+  ];
+
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-      <Container className="principal">
-        <Container className="superior">
+    <Navbar collapseOnSelect expand="lg" className={globalStyles["bg-body-tertiary"]}>
+      <Container className={styles.principal}>
+        <Container className={styles.superior}>
           <Navbar.Brand href="" className={styles.logo}>
             bridee<span>.</span>
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className={globalStyles["me-auto"]}>
               {/* Ferramentas de Planejamento */}
+
               <NavDropdown
                 title={
                   <>
@@ -43,52 +90,71 @@ function NavComp() {
                   </>
                 }
                 id="ferramentas-planejamento"
-                className="menu_suspenso"
+                className={styles.menu_suspenso}
               >
-                <NavDropdown.Item
-                  onClick={() => handleClick("Painel")}
-                  className={selecaoAtual === "Painel" ? "selecao-ativa" : ""}
-                >
-                  Painel
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  onClick={() => handleClick("Lista de convidados")}
-                  className={
-                    selecaoAtual === "Lista de convidados"
-                      ? "selecao-ativa"
-                      : ""
-                  }
-                >
-                  Lista de convidados
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  onClick={() => handleClick("Lista de tarefas")}
-                  className={
-                    selecaoAtual === "Lista de tarefas" ? "selecao-ativa" : ""
-                  }
-                >
-                  Lista de tarefas
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  onClick={() => handleClick("Planejador de assentos")}
-                  className={
-                    selecaoAtual === "Planejador de assentos"
-                      ? "selecao-ativa"
-                      : ""
-                  }
-                >
-                  Planejador de assentos
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  onClick={() => handleClick("Calculadora Financeira")}
-                  className={
-                    selecaoAtual === "Calculadora Financeira"
-                      ? "selecao-ativa"
-                      : ""
-                  }
-                >
-                  Calculadora Financeira
-                </NavDropdown.Item>
+                <Container className={styles.container_pai}>
+                  <div className={styles.container_coluna}>
+                    <div className={styles.coluna}>
+                      {ferramentasDePlanejamento.slice(0, 1).map((item) => (
+                        <Container key={item.nome} className={styles["container-item"]}>
+                          <NavDropdown.Item
+                            onClick={() => handleClick(item.nome)}
+                          >
+                           <GiBigDiamondRing className={styles.iconsR} />
+                            <span className={styles.item_nome}>{item.nome}</span>
+                          </NavDropdown.Item>
+                          <div className={styles.descricao}>
+                            <span>{item.descricao}</span>
+                          </div>
+                        </Container>
+                      ))}
+                    </div>
+                  </div>
+                  <div className={styles.container_coluna}>
+                    <div className={styles.coluna}>
+                      {ferramentasDePlanejamento.slice(1, 3).map((item) => (
+                        <Container key={item.nome} className={styles["container-item"]}>
+                          <NavDropdown.Item
+                            onClick={() => handleClick(item.nome)}
+                          >
+                            <div className={styles.titulo_opcao}></div>
+                            <FontAwesomeIcon
+                              icon={item.icon}
+                              className={styles.icons}
+                            />
+                            <span className={styles.item_nome}>{item.nome}</span>
+                          </NavDropdown.Item>
+                          <div className={styles.descricao}>
+                            <span>{item.descricao}</span>
+                          </div>
+                        </Container>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className={styles.container_coluna}>
+                    <div className={styles.coluna}>
+                      {ferramentasDePlanejamento.slice(3, 5).map((item) => (
+                        <Container key={item.nome} className={styles["container-item"]}>
+                          <NavDropdown.Item
+                            onClick={() => handleClick(item.nome)}
+                          >
+                            <div className={styles.titulo_opcao}>
+                              <FontAwesomeIcon
+                                icon={item.icon}
+                                className={styles.icons}
+                              />
+                              <span className={styles.item_nome}>{item.nome}</span>
+                            </div>
+                          </NavDropdown.Item>
+                          <div className={styles.descricao}>
+                            <span>{item.descricao}</span>
+                          </div>
+                        </Container>
+                      ))}
+                    </div>
+                  </div>
+                </Container>
               </NavDropdown>
 
               {/* Locais e Fornecedores */}
@@ -103,36 +169,22 @@ function NavComp() {
                   </>
                 }
                 id="locais-fornecedores"
-                className="menu-suspenso"
-              >
-                <NavDropdown.Item href="#action/3.1">Locais</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Fornecedores
-                </NavDropdown.Item>
-              </NavDropdown>
+                className={styles.menu_suspenso}
+              ></NavDropdown>
             </Nav>
 
             {/* Ícones na direita */}
-              <Nav className="icones-direita">
-                {/* <Nav.Link href="#busca" className="icone-busca">
-                  <FontAwesomeIcon
-                    icon={faSearch}
-                    style={{ color: "#FFFFFF" }}
-                  />
-                </Nav.Link> */}
-                <Nav.Link href="#usuario" className="icone-usuario">
-                  <FontAwesomeIcon icon={faUser} style={{ color: "#FFFFFF" }} />
-                </Nav.Link>
-              </Nav>
-            
+            <Nav className={styles.icones_direita}>
+              <Nav.Link href="/configuracoes" className={styles.icone_usuario}>
+                <FontAwesomeIcon icon={faUser} style={{ color: "#FFFFFF" }} />
+              </Nav.Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
 
-
-        
-        {/*Navegação inferior*/}
-        <Container className="inferior">
-          <ul className="submenu">
+        {/* Navegação inferior */}
+        <Container className={styles.inferior}>
+          <ul className={styles.submenu}>
             <li>
               <MenuLink to="/painel">Painel</MenuLink>
             </li>
@@ -143,14 +195,10 @@ function NavComp() {
               <MenuLink to="/lista-tarefas">Lista de Tarefas</MenuLink>
             </li>
             <li>
-              <MenuLink to="/planejador-assentos">
-                Planejador de Assentos
-              </MenuLink>
+              <MenuLink to="/planejador-assentos">Planejador de Assentos</MenuLink>
             </li>
             <li>
-              <MenuLink to="/calculadora-financeira">
-                Calculadora Financeira
-              </MenuLink>
+              <MenuLink to="/calculadora-financeira">Calculadora Financeira</MenuLink>
             </li>
           </ul>
         </Container>

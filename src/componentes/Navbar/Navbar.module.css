@@ -24,8 +24,149 @@
   color: #d86b67;
 }
 
-.dropdown-toggle::after {
-  color: #d86b67;
-  border-top: 0.3em solid #d86b67;
+.navbar .dropdown-toggle::after {
+  display: none !important;
 }
 
+
+.principal {
+  display: flex;
+  flex-direction: column;
+}
+
+.superior {
+  display: flex;
+}
+
+.inferior {
+  background-color: var(--cor-primaria);
+  width: 90%;
+  border-radius: 200px;
+  height: 45px;
+
+}
+
+.submenu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.submenu li {
+  display: inline;
+  font-size: 14px;
+}
+
+.submenu a {
+  text-decoration: none;
+  color: white;
+  padding-bottom: 13px;
+  padding-top: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "ProductSans";
+}
+
+.nav-link {
+  color: #302f2f;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+.icones_direita {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icone_usuario {
+  background-color: var(--cor-secundaria);
+  border-radius: 50px;
+}
+
+.dropdown_menu {
+  width: 60vw;;
+  height: 350px;
+  padding: 20px 0px;
+}
+.descricao > span { 
+font-size: 13px;
+font-family: "Montserrat";
+}
+
+.icons { 
+  color: var(--cor-primaria);
+  font-size: 20px;  
+}
+
+.iconsR { 
+  color: var(--cor-primaria);
+  font-size: 25px;
+}
+
+.icons_arrow{
+  color: var(--cor-primaria);
+  font-size: 15px;
+}
+
+
+.container_pai {
+  display: flex;
+  width: 70vw;
+  height: 50vh;
+}
+
+.container-item { 
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
+.container-item:hover{
+  background-color: #f8f9fa;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.container_coluna { 
+  display: flex; 
+  width: 50%;
+}
+
+
+.item_nome {
+  font-family: "Playfair Display";
+  font-size: 19px;
+  padding-left: 9px;
+}
+
+.bg-body-tertiary {
+  background-color: #FCFCFC;
+}
+
+.weddingRing { 
+  font-size: 20px;
+  color: var(--cor-primaria);
+}
+
+@media (max-width: 995px) {
+  
+
+.superior {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inferior, .icones_direita {
+ display: none;
+
+}
+.me-auto {
+  flex-direction: column;
+  display: flex;
+}
+}

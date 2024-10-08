@@ -48,3 +48,22 @@ html, body {
     font-family: 'PlayFair';
     src: url('/src/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf');
 }
+
+:root {
+    --cor-primaria: #dd7b78;
+    --cor-secundaria: #ed9c9b;
+  }
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.dropdown-item { 
+    padding: 10px 0px;
+  }
+  
+.dropdown-item:active {
+    background-color: #f8f9fa;
+    color: #302f2f;
+  } 
+  
