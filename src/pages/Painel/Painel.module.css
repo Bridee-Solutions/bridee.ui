@@ -84,6 +84,17 @@
 }
 
 
+.container_welcome_user {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome {
+  font-family: 'ProductSans';
+  font-size: 1rem;
+  color: #0c0c0c;
+
+}
 
 
 

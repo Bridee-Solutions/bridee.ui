@@ -1,6 +1,8 @@
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
-import { React, useState } from "react";
+import { useState } from "react";
+import "../../index.css";
+
 
 function Painel() {
   const [imageUrl, setImageUrl] = useState(null); 
@@ -38,9 +40,9 @@ function Painel() {
             </div>
 
             <div className={styles.containerInfos}>
-              <div>
-                <span>Bem vindo de volta, </span>
-                <span className={styles.nomeUsuario}>Usuário & Parceiro</span>
+              <div className={styles.container_welcome_user}>
+                <span className={styles.welcome}>Bem vindo de volta, </span> 
+                <span className={styles.user}>Usuário & Parceiro</span>
               </div>
 
               <div>
