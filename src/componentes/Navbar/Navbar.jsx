@@ -1,16 +1,10 @@
 import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./Navbar.module.css";
 import "../../index.css";
-import globalStyles  from "../../assets/global-styles/bootstrap.min.module.css";
 
 import { GiBigDiamondRing } from "react-icons/gi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown} from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import weddingRing from "../../assets/wedding.svg";
 
@@ -24,20 +18,18 @@ import {
 import MenuLink from "../MenuLink/MenuLink";
 
 function NavComp() {
-  const [selecaoAtual, setSelecaoAtual] = useState("");
+  const [dropdownAberto, setDropdownAberto] = useState(false);
 
-  const handleClick = (selecao) => {
-    setSelecaoAtual(selecao);
+  const handleDropdownClick = () => {
+    setDropdownAberto(!dropdownAberto);
   };
-
-  
 
   const ferramentasDePlanejamento = [
     {
       nome: "Painel",
       descricao:
         "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
-        icon: weddingRing,
+      icon: weddingRing,
     },
     {
       nome: "Lista de convidados",
@@ -66,144 +58,129 @@ function NavComp() {
   ];
 
   return (
-    <Navbar collapseOnSelect expand="lg" className={globalStyles["bg-body-tertiary"]}>
-      <Container className={styles.principal}>
-        <Container className={styles.superior}>
-          <Navbar.Brand href="" className={styles.logo}>
-            bridee<span>.</span>
-          </Navbar.Brand>
+    <nav className={styles.navbar}>
+      <div className={styles.superior}>
+        <div className={styles.logo}>
+          bridee<span>.</span>
+        </div>
 
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className={globalStyles["me-auto"]}>
-              {/* Ferramentas de Planejamento */}
+        <div className={styles.menu}>
+          <div className={styles.containerMenu}>
+            <div
+              className={styles.dropdownTitle}
+              onClick={handleDropdownClick}
+              aria-expanded={dropdownAberto}
+            >
+              Ferramentas de Planejamento{" "}
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className={styles.icon_arrow}
+              />
+            </div>
 
-              <NavDropdown
-                title={
-                  <>
-                    Ferramentas de Planejamento{" "}
-                    <FontAwesomeIcon
-                      icon={faChevronDown}
-                      style={{ color: "#DD7B78" }}
-                    />
-                  </>
-                }
-                id="ferramentas-planejamento"
-                className={styles.menu_suspenso}
-              >
-                <Container className={styles.container_pai}>
-                  <div className={styles.container_coluna}>
-                    <div className={styles.coluna}>
-                      {ferramentasDePlanejamento.slice(0, 1).map((item) => (
-                        <Container key={item.nome} className={styles["container-item"]}>
-                          <NavDropdown.Item
-                            onClick={() => handleClick(item.nome)}
-                          >
-                           <GiBigDiamondRing className={styles.iconsR} />
-                            <span className={styles.item_nome}>{item.nome}</span>
-                          </NavDropdown.Item>
-                          <div className={styles.descricao}>
-                            <span>{item.descricao}</span>
-                          </div>
-                        </Container>
-                      ))}
-                    </div>
+            <div className={styles.dropdown}>
+              {dropdownAberto && (
+                <div className={styles.dropdownContainer}>
+                  <div className={styles.dropdownContent}>
+                    {ferramentasDePlanejamento.slice(0, 1).map((item) => (
+                      <div
+                        key={item.nome}
+                        className={styles.dropdownItem}
+                        onClick={() => handleClick(item.nome)}
+                      >
+                        <FontAwesomeIcon
+                          icon={item.icon}
+                          className={styles.icon}
+                        />
+                        <span className={styles.item_nome}>{item.nome}</span>
+                        <p>{item.descricao}</p>
+                      </div>
+                    ))}
                   </div>
-                  <div className={styles.container_coluna}>
-                    <div className={styles.coluna}>
-                      {ferramentasDePlanejamento.slice(1, 3).map((item) => (
-                        <Container key={item.nome} className={styles["container-item"]}>
-                          <NavDropdown.Item
-                            onClick={() => handleClick(item.nome)}
-                          >
-                            <div className={styles.titulo_opcao}></div>
-                            <FontAwesomeIcon
-                              icon={item.icon}
-                              className={styles.icons}
-                            />
-                            <span className={styles.item_nome}>{item.nome}</span>
-                          </NavDropdown.Item>
-                          <div className={styles.descricao}>
-                            <span>{item.descricao}</span>
-                          </div>
-                        </Container>
-                      ))}
-                    </div>
+                  <div className={styles.dropdownContent}>
+                    {ferramentasDePlanejamento.slice(1, 3).map((item) => (
+                      <div
+                        key={item.nome}
+                        className={styles.dropdownItem}
+                        onClick={() => handleClick(item.nome)}
+                      >
+                        <FontAwesomeIcon
+                          icon={item.icon}
+                          className={styles.icon}
+                        />
+                        <span className={styles.item_nome}>{item.nome}</span>
+                        <p>{item.descricao}</p>
+                      </div>
+                    ))}
                   </div>
-
-                  <div className={styles.container_coluna}>
-                    <div className={styles.coluna}>
-                      {ferramentasDePlanejamento.slice(3, 5).map((item) => (
-                        <Container key={item.nome} className={styles["container-item"]}>
-                          <NavDropdown.Item
-                            onClick={() => handleClick(item.nome)}
-                          >
-                            <div className={styles.titulo_opcao}>
-                              <FontAwesomeIcon
-                                icon={item.icon}
-                                className={styles.icons}
-                              />
-                              <span className={styles.item_nome}>{item.nome}</span>
-                            </div>
-                          </NavDropdown.Item>
-                          <div className={styles.descricao}>
-                            <span>{item.descricao}</span>
-                          </div>
-                        </Container>
-                      ))}
-                    </div>
+                  <div className={styles.dropdownContent}>
+                    {ferramentasDePlanejamento.slice(3, 5).map((item) => (
+                      <div
+                        key={item.nome}
+                        className={styles.dropdownItem}
+                        onClick={() => handleClick(item.nome)}
+                      >
+                        <FontAwesomeIcon
+                          icon={item.icon}
+                          className={styles.icon}
+                        />
+                        <span className={styles.item_nome}>{item.nome}</span>
+                        <p>{item.descricao}</p>
+                      </div>
+                    ))}
                   </div>
-                </Container>
-              </NavDropdown>
+                </div>
+              )}
+            </div>
+          </div>
+          <div className={styles.containerMenu}>
+            <div
+              className={styles.dropdownTitle}
+              aria-expanded={dropdownAberto}
+            >
+              Locais e Fornecedores{" "}
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className={styles.icon_arrow}
+              />
+            </div>
 
-              {/* Locais e Fornecedores */}
-              <NavDropdown
-                title={
-                  <>
-                    Locais e fornecedores{" "}
-                    <FontAwesomeIcon
-                      icon={faChevronDown}
-                      style={{ color: "#DD7B78" }}
-                    />
-                  </>
-                }
-                id="locais-fornecedores"
-                className={styles.menu_suspenso}
-              ></NavDropdown>
-            </Nav>
+            
+          </div>
 
-            {/* Ícones na direita */}
-            <Nav className={styles.icones_direita}>
-              <Nav.Link href="/configuracoes" className={styles.icone_usuario}>
-                <FontAwesomeIcon icon={faUser} style={{ color: "#FFFFFF" }} />
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-
-        {/* Navegação inferior */}
-        <Container className={styles.inferior}>
-          <ul className={styles.submenu}>
-            <li>
-              <MenuLink to="/painel">Painel</MenuLink>
-            </li>
-            <li>
-              <MenuLink to="/lista-convidados">Lista de Convidados</MenuLink>
-            </li>
-            <li>
-              <MenuLink to="/lista-tarefas">Lista de Tarefas</MenuLink>
-            </li>
-            <li>
-              <MenuLink to="/planejador-assentos">Planejador de Assentos</MenuLink>
-            </li>
-            <li>
-              <MenuLink to="/calculadora-financeira">Calculadora Financeira</MenuLink>
-            </li>
-          </ul>
-        </Container>
-      </Container>
-    </Navbar>
+          <div className={styles.userIcon}>
+            <FontAwesomeIcon icon={faUser} style={{ color: "#FFFFFF" }} />
+          </div>
+        </div>
+      </div>
+      <div className={styles.containerInferior}>
+        <div className={styles.inferior}>
+          <div className={styles.submenu}>
+            <ul>
+              <li>
+                <MenuLink to="/painel">Painel</MenuLink>
+              </li>
+              <li>
+                <MenuLink to="/lista-convidados">Lista de Convidados</MenuLink>
+              </li>
+              <li>
+                <MenuLink to="/lista-tarefas">Lista de Tarefas</MenuLink>
+              </li>
+              <li>
+                <MenuLink to="/planejador-assentos">
+                  Planejador de Assentos
+                </MenuLink>
+              </li>
+              <li>
+                <MenuLink to="/calculadora-financeira">
+                  Calculadora Financeira
+                </MenuLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
-
 export default NavComp;

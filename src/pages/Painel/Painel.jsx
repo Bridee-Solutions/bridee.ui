@@ -3,18 +3,17 @@ import styles from "./Painel.module.css";
 import { useState } from "react";
 import "../../index.css";
 
-
 function Painel() {
-  const [imageUrl, setImageUrl] = useState(null); 
- 
+  const [imageUrl, setImageUrl] = useState(null);
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const url = URL.createObjectURL(file); 
-      setImageUrl(url); 
+      const url = URL.createObjectURL(file);
+      setImageUrl(url);
     }
   };
- 
+
   return (
     <div className={styles.painelBackground}>
       <Navbar />
@@ -23,17 +22,17 @@ function Painel() {
           <div className={styles.containerDireita}>
             <div className={styles.containerImagem}>
               <div className={styles.imagem}>
-              <input
+                <input
                   type="file"
-                  accept="image/*" 
-                  onChange={handleImageChange} 
-                  className={styles.inputImagem} 
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className={styles.inputImagem}
                 />
-                 {imageUrl && (
+                {imageUrl && (
                   <img
                     src={imageUrl}
                     alt="Imagem Selecionada"
-                    className={styles.imagemCirculo} 
+                    className={styles.imagemCirculo}
                   />
                 )}
               </div>
@@ -41,7 +40,7 @@ function Painel() {
 
             <div className={styles.containerInfos}>
               <div className={styles.container_welcome_user}>
-                <span className={styles.welcome}>Bem vindo de volta, </span> 
+                <span className={styles.welcome}>Bem vindo de volta, </span>
                 <span className={styles.user}>Usuário & Parceiro</span>
               </div>
 
