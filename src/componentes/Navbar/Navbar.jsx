@@ -9,7 +9,6 @@ import "../../index.css";
 import globalStyles  from "../../assets/global-styles/bootstrap.min.module.css";
 
 import { GiBigDiamondRing } from "react-icons/gi";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
