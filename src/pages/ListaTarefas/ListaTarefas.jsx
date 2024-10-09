@@ -1,4 +1,5 @@
 import styles from './ListaTarefas.module.css';
+import "../../index.css"
 import Navbar from "../../componentes/Navbar/Navbar";
 
 function ListaTarefas() { 
@@ -10,8 +11,8 @@ function ListaTarefas() {
                     <p>Ferramentas de planejamento {'>'} <b>Lista de tarefas</b></p>
                 </div>
                 <div className={styles['card-fundo']}>
-                    <div className={styles.titulo}>
-                        <h6>Lista de Tarefas</h6>
+                    <div className={styles.tituloLista}>
+                        <p>Lista de tarefas</p>
                     </div>
                 </div>
             </div>
