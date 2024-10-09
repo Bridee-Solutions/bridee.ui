@@ -16,12 +16,17 @@ import {
   faCalculator,
 } from "@fortawesome/free-solid-svg-icons";
 import MenuLink from "../MenuLink/MenuLink";
+import DropdownItem from "../DropdownItem/DropdownItem";
 
 function NavComp() {
   const [dropdownAberto, setDropdownAberto] = useState(false);
 
   const handleDropdownClick = () => {
     setDropdownAberto(!dropdownAberto);
+  };
+
+  const handleClick = (nomeFerramenta) => {
+    console.log(`Ferramenta selecionada: ${nomeFerramenta}`);
   };
 
   const ferramentasDePlanejamento = [
@@ -82,52 +87,36 @@ function NavComp() {
               {dropdownAberto && (
                 <div className={styles.dropdownContainer}>
                   <div className={styles.dropdownContent}>
-                    {ferramentasDePlanejamento.slice(0, 1).map((item) => (
-                      <div
-                        key={item.nome}
-                        className={styles.dropdownItem}
-                        onClick={() => handleClick(item.nome)}
-                      >
-                        <FontAwesomeIcon
-                          icon={item.icon}
-                          className={styles.icon}
+                    <div className={styles.coluna}>
+                      {/* Renderizando o primeiro item */}
+                      <DropdownItem
+                        key={ferramentasDePlanejamento[0].nome}
+                        item={ferramentasDePlanejamento[0]}
+                        onClick={handleClick}
+                      />
+                    </div>
+
+                    <div className={styles.coluna}>
+                      {/* Renderizando o segundo e terceiro item */}
+                      {ferramentasDePlanejamento.slice(1, 3).map((item) => (
+                        <DropdownItem
+                          key={item.nome}
+                          item={item}
+                          onClick={handleClick}
                         />
-                        <span className={styles.item_nome}>{item.nome}</span>
-                        <p>{item.descricao}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className={styles.dropdownContent}>
-                    {ferramentasDePlanejamento.slice(1, 3).map((item) => (
-                      <div
-                        key={item.nome}
-                        className={styles.dropdownItem}
-                        onClick={() => handleClick(item.nome)}
-                      >
-                        <FontAwesomeIcon
-                          icon={item.icon}
-                          className={styles.icon}
+                      ))}
+                    </div>
+
+                    <div className={styles.coluna}>
+                      {/* Renderizando o quarto e o quinto item*/}
+                      {ferramentasDePlanejamento.slice(3, 5).map((item) => (
+                        <DropdownItem
+                          key={item.nome}
+                          item={item}
+                          onClick={handleClick}
                         />
-                        <span className={styles.item_nome}>{item.nome}</span>
-                        <p>{item.descricao}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className={styles.dropdownContent}>
-                    {ferramentasDePlanejamento.slice(3, 5).map((item) => (
-                      <div
-                        key={item.nome}
-                        className={styles.dropdownItem}
-                        onClick={() => handleClick(item.nome)}
-                      >
-                        <FontAwesomeIcon
-                          icon={item.icon}
-                          className={styles.icon}
-                        />
-                        <span className={styles.item_nome}>{item.nome}</span>
-                        <p>{item.descricao}</p>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
@@ -144,8 +133,6 @@ function NavComp() {
                 className={styles.icon_arrow}
               />
             </div>
-
-            
           </div>
 
           <div className={styles.userIcon}>

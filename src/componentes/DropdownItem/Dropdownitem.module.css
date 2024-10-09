@@ -1,0 +1,23 @@
+.dropdownItem:hover {
+    background-color: #f5f7ed;
+    border-radius: 8px;
+  }
+
+  .dropdownItem {
+    padding: 1rem;
+    cursor: pointer;
+    font-family: 'ProductSans';
+    flex: 1; 
+  }
+
+  .item_nome {
+    font-family: "Playfair Display";
+    font-size: 19px;
+    padding-left: 9px;
+  }
+
+  .dropdownItem { 
+    display: flex;
+    flex-direction: column;
+  }
+  
