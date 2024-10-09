@@ -1,10 +1,20 @@
+import { useEffect, useRef } from 'react';
 import styles from './Banner.module.css';
 
-function Banner() {
+function Banner({ titulo, subtitulo, imagem }) {
+
+  const divImage = useRef();
+  
+  useEffect(() => {
+    divImage.current.style.backgroundImage = `url(${imagem})`;
+    divImage.current.style.backgroundSize = 'cover'; 
+    divImage.current.style.backgroundPosition = 'center'; 
+  }, [imagem]);
+
   return (
-    <div className={styles.banner}>
-      <h1>Facilitamos o encontro entre noivas e <br/> assessores para casamentos perfeitos</h1>
-      <p>Simples. Organizado. Sem estresse.</p>
+    <div ref={divImage} className={styles.banner}>
+      <h1>{titulo}</h1>
+      <p>{subtitulo}</p>
     </div>
   );
 }

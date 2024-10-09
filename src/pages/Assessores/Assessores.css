@@ -1,0 +1,7 @@
+.landing_page {
+    background-color: #F3EED9;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+  }
