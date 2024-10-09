@@ -12,3 +12,17 @@
     top: 137px;
     width: 1920px;
   }
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+  }
+  
+  
+  .searchBar {
+    position: absolute;
+    bottom: 132px;
+    width: 100%;
+    z-index: 1;
+  }
