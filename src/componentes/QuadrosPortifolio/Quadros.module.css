@@ -246,3 +246,128 @@
     font-size: 14px;
   }
   
+  .quadros-container {
+    padding: 40px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .grid-quadros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 20px;
+  }
+  
+  @media (max-width: 1024px) {
+    .grid-quadros {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .grid-quadros {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  
+  .group {
+    background-color: white;
+    padding: 0px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 501px;
+    /* left: 1164px; */
+    height: 712px;
+    position: relative;
+  }
+
+  .imagem{
+    width: 100%;
+  }
+
+  .body{
+    padding: 20px;
+  }
+
+  .button{
+    width: 59%;
+    height: 58px;
+  }
+  
+  .mask-group {
+    width: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+  
+  .text-wrapper {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .p {
+    color: #555;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .div-wrapper, .div-wrapper-2, .div-2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .div {
+    background-color: #ff6b6b;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+  }
+  
+  .material-symbols {
+    width: 20px;
+    margin-top: -15px;
+    margin-right: 7px;
+  }
+  
+  .element {
+    color: #000;
+    font-size: 16px;
+  }
+  
+  .span {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .text-wrapper-4 {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .pepicons-pop-line-x {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    color: #ff6b6b;
+  }
+  
+  @media (max-width: 768px) {
+    .grid-quadros {
+      grid-template-columns: 1fr;
+    }
+  }
+  

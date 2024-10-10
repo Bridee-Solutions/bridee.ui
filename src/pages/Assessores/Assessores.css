@@ -1,7 +1,9 @@
 .landing_page {
-    background-color: #F3EED9;
+    background-color: #e8e0bd;
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 1920px;
+    height: 2617px;
+    top:285px;
+    left: 4905px;
     flex-direction: column;
   }
