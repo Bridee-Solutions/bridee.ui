@@ -15,7 +15,6 @@
   display: flex;
   justify-content: space-between;
   height: 20vw;
-
 }
 
 .containerDireita {
@@ -24,61 +23,13 @@
   width: 70%;
 }
 
-.containerInfos {
+.boxImagem {
   border: 2px solid red;
-  width: 35vw;
-}
-
-.containerContagem {
-  border: 2px solid red;
-  width: 20%;
-}
-
-.conteudo {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-
-.colunaEsquerda {
-  width: 60%;
-  border-radius: 30px;
-  background: white;
-}
-  
-  .container_titulodesc {
-    display: flex;
-    align-items: center;
-    border: 2px solid red;
-    width: 90%;
-    height: 20vh;
-
-  }
-
-  .caixa {
-    display: flex;
-    flex-direction: column;
-  }
-  
-
-  .titulo_clnesq {
-    font-family: "Playfair Display";
-    font-size: 30px;
-  }
-
-.colunaDireita {
-  width: 30%;
-  height: 40vh;
-  background-color: white;
-  border-radius: 30px;
-}
-
-
-.container_welcome_user {
+  width: 20vw;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .containerImagem {
   display: flex;
@@ -91,15 +42,6 @@
   border-radius: 50%;
   cursor: pointer;
   position: relative;
-  
-}
-
-.boxImagem{
-  border: 2px solid red;
-  width: 20vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .imagemCirculo {
@@ -108,6 +50,7 @@
   border-radius: 50%;
   object-fit: cover;
   display: block;
+  cursor: default;
 }
 
 .inputImagem {
@@ -120,7 +63,7 @@
 
 .containerTexto {
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   color: #b0b0b0;
   position: absolute;
@@ -138,11 +81,28 @@
   color: #d9d9d9;
 }
 
+.iconEdit {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--cor-primaria);
+  border: 2px solid #d9d9d9;
+  border-radius: 50%;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.edit {
+  cursor: pointer;
+  width: 23px;
+}
+
 .containerInfos {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  border: 2px solid red;
+  width: 35vw;
 }
 
 .container_welcome_user {
@@ -151,14 +111,13 @@
 }
 
 .welcome {
-  font-family: 'ProductSans';
+  font-family: "ProductSans";
   font-size: 1rem;
   color: #0c0c0c;
- 
 }
 
 .user {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 2.8rem;
   font-weight: bold;
   color: #2c2c2c;
@@ -182,7 +141,127 @@
   width: 3.3rem;
 }
 
+.containerContagem {
+  border: 2px solid red;
+  width: 20%;
+}
 
-.boxImg{
-  width: 20vw;
+.conteudo {
+  display: flex;
+  justify-content: space-around;
+}
+
+.colunaEsquerda {
+  width: 60%;
+  border-radius: 30px;
+  background: white;
+}
+
+.container_titulodesc {
+  width: 100%;
+  padding-left: 2.7rem;
+  padding-top: 2.3rem;
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo_clnesq {
+  font-family: "Playfair Display";
+  font-size: 2rem;
+}
+
+.descricao {
+  font-family: "Montserrat";
+}
+
+.containerColunaDireita {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.colunaDireita {
+  height: 50vh;
+}
+
+.conteudoColuna {
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  box-shadow: 0px 1px 7px 0px rgb(225 225 225 / 25%);
+}
+
+.containerTitulo {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerTitulo > span {
+  font-family: "Playfair Display";
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+}
+
+.divider {
+  height: 1.2px;
+  background-color: #e0e0e0;
+  flex-grow: 1;
+}
+
+.listaTarefas {
+  margin-top: 1rem;
+}
+
+.tarefa {
+  display: flex;
+  align-items: center;
+}
+
+.tarefa input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  accent-color: #4db473;
+}
+
+.tarefa label {
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  margin-left: 0.5rem;
+}
+
+.containerBotao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.botao {
+  background-color: #df7061;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #d85b4c;
+}
+
+.contador {
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: #3a3a3a;
+  margin-top: 0.5rem;
 }

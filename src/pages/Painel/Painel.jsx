@@ -1,6 +1,7 @@
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
 import { useState } from "react";
+import { useRef } from "react";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Categoria from "../../componentes/Categoria/Categoria";
@@ -10,10 +11,12 @@ import {
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
+import edit from "./assets/edit.svg";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 
 function Painel() {
   const [imageUrl, setImageUrl] = useState(null);
+  const inputRef = useRef(null);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -23,6 +26,16 @@ function Painel() {
     }
   };
 
+  const handleClickContainer = () => {
+    if (!imageUrl) {
+      inputRef.current.click();
+    }
+  };
+
+  const handleEditClick = () => {
+    inputRef.current.click();
+  };
+
   return (
     <div className={styles.painelBackground}>
       <Navbar />
@@ -30,19 +43,29 @@ function Painel() {
         <div className={styles.containerRegulador}>
           <div className={styles.containerDireita}>
             <div className={styles.boxImagem}>
-              <div className={styles.containerImagem}>
+              <div
+                className={styles.containerImagem}
+                onClick={handleClickContainer}
+              >
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handleImageChange}
                   className={styles.inputImagem}
+                  ref={inputRef}
+                  style={{ display: "none" }}
                 />
                 {imageUrl ? (
-                  <img
-                    src={imageUrl}
-                    alt="Imagem Selecionada"
-                    className={styles.imagemCirculo}
-                  />
+                  <>
+                    <img
+                      src={imageUrl}
+                      alt="Imagem Selecionada"
+                      className={styles.imagemCirculo}
+                    />
+                    <div className={styles.iconEdit} onClick={handleEditClick}>
+                      <img src={edit} alt="Editar" className={styles.edit} />
+                    </div>
+                  </>
                 ) : (
                   <div className={styles.containerTexto}>
                     <FontAwesomeIcon
@@ -97,13 +120,61 @@ function Painel() {
             </div>
 
             <div>
-            <Categoria/>
+              <Categoria />
             </div>
-            
           </div>
         </div>
 
-        <div className={styles.colunaDireita}></div>
+        <div className={styles.containerColunaDireita}>
+          <div className={styles.colunaDireita}>
+            <div className={styles.conteudoColuna}>
+              <div className={styles.containerTitulo}>
+                <span>Lista de tarefas</span>
+                <div className={styles.divider}></div>
+              </div>
+
+              <div className={styles.listaTarefas}>
+                <div className={styles.tarefa}>
+                  <input type="checkbox" id="tarefa1" checked />
+                  <label htmlFor="tarefa1">
+                    Anuncie seu noivado para familiares e amigos.
+                  </label>
+                </div>
+                <div className={styles.tarefa}>
+                  <input type="checkbox" id="tarefa2" />
+                  <label htmlFor="tarefa2">Enviar convites.</label>
+                </div>
+                <div className={styles.tarefa}>
+                  <input type="checkbox" id="tarefa3" />
+                  <label htmlFor="tarefa3">
+                    Escolha e reserve um fotógrafo.
+                  </label>
+                </div>
+              </div>
+
+              <div className={styles.containerBotao}>
+                <button className={styles.botao}>Ver todas as tarefas</button>
+                <div className={styles.contador}>1 de 50 itens completos</div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.colunaDireita}>
+            <div className={styles.conteudoColuna}>
+              <div className={styles.containerTitulo}>
+                <span>Meu orçamento</span>
+                <div className={styles.divider}></div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.colunaDireita}>
+          <div className={styles.conteudoColuna}>
+              <div className={styles.containerTitulo}>
+                <span>Planejador de assentos</span>
+                <div className={styles.divider}></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
