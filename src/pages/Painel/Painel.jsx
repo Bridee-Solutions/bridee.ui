@@ -2,6 +2,15 @@ import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
 import { useState } from "react";
 import "../../index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Categoria from "../../componentes/Categoria/Categoria";
+import {
+  faCalendarAlt,
+  faUserFriends,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 
 function Painel() {
   const [imageUrl, setImageUrl] = useState(null);
@@ -20,45 +29,52 @@ function Painel() {
       <div className={styles.containerPai}>
         <div className={styles.containerRegulador}>
           <div className={styles.containerDireita}>
-            <div className={styles.containerImagem}>
-              <div className={styles.imagem}>
+            <div className={styles.boxImagem}>
+              <div className={styles.containerImagem}>
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handleImageChange}
                   className={styles.inputImagem}
                 />
-                {imageUrl && (
+                {imageUrl ? (
                   <img
                     src={imageUrl}
                     alt="Imagem Selecionada"
                     className={styles.imagemCirculo}
                   />
+                ) : (
+                  <div className={styles.containerTexto}>
+                    <FontAwesomeIcon
+                      icon={faCloudUploadAlt}
+                      className={styles.iconeUpload}
+                    />
+                    <span>Escolher Arquivo</span>
+                  </div>
                 )}
               </div>
             </div>
 
             <div className={styles.containerInfos}>
               <div className={styles.container_welcome_user}>
-                <span className={styles.welcome}>Bem vindo de volta, </span>
-                <span className={styles.user}>Usuário & Parceiro</span>
+                <span className={styles.welcome}>Bem vindo de volta,</span>
+                <span className={styles.user}>Amanda & Enzo</span>
               </div>
 
-              <div>
+              <div className={styles.iconsContainer}>
                 <div className={styles.icon}>
-                  <span>Data</span>
+                  <FontAwesomeIcon icon={faCalendarAlt} />
+                  <span>11 de Fevereiro, 2026</span>
                 </div>
-              </div>
 
-              <div>
                 <div className={styles.icon}>
-                  <span>convidados</span>
+                  <FontAwesomeIcon icon={faUserFriends} />
+                  <span>101-150 convidados</span>
                 </div>
-              </div>
 
-              <div>
                 <div className={styles.icon}>
-                  <span>Local</span>
+                  <FontAwesomeIcon icon={faMapMarkerAlt} />
+                  <span>São Paulo</span>
                 </div>
               </div>
             </div>
@@ -79,6 +95,11 @@ function Painel() {
                 </span>
               </div>
             </div>
+
+            <div>
+            <Categoria/>
+            </div>
+            
           </div>
         </div>
 

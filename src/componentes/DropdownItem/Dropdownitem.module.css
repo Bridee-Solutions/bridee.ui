@@ -3,12 +3,6 @@
     border-radius: 8px;
   }
 
-  .dropdownItem {
-    padding: 1rem;
-    cursor: pointer;
-    font-family: 'ProductSans';
-    flex: 1; 
-  }
 
   .item_nome {
     font-family: "Playfair Display";
@@ -16,8 +10,22 @@
     padding-left: 9px;
   }
 
-  .dropdownItem { 
+.dropdownItem {
+    padding: 1rem;
+    cursor: pointer;
+    font-family: 'ProductSans';
+    flex: 1; 
     display: flex;
     flex-direction: column;
   }
+
   
+.icon { 
+    color: var(--cor-primaria);
+    font-size: 20px;  
+  }
+  
+  .icon_arrow{
+    color: var(--cor-primaria);
+    font-size: 15px;
+  }

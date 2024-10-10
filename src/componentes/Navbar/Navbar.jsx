@@ -4,7 +4,10 @@ import "../../index.css";
 
 import { GiBigDiamondRing } from "react-icons/gi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 import weddingRing from "../../assets/wedding.svg";
 
@@ -34,7 +37,7 @@ function NavComp() {
       nome: "Painel",
       descricao:
         "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
-      icon: weddingRing,
+      icon: <GiBigDiamondRing />,
     },
     {
       nome: "Lista de convidados",
