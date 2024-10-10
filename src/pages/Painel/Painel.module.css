@@ -11,7 +11,7 @@
 }
 
 .containerRegulador {
-  width: 70%;
+  width: 90vw;
   display: flex;
   justify-content: space-between;
   height: 20vw;
@@ -148,19 +148,19 @@
 
 .conteudo {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .colunaEsquerda {
-  width: 60%;
+  width: 55vw;
   border-radius: 30px;
   background: white;
 }
 
 .container_titulodesc {
   width: 100%;
-  padding-left: 2.7rem;
-  padding-top: 2.3rem;
+  padding: 2rem 2.7rem;
 }
 
 .caixa {
@@ -177,6 +177,45 @@
   font-family: "Montserrat";
 }
 
+.filtros {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.containerFiltro {
+  display: flex;
+  justify-content: space-between;
+  width: 48vw;
+}
+
+.inputPesquisa {
+  width: 30vw;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: #7f7f7f;
+}
+
+.inputFiltro { 
+  width: 15vw;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: #7f7f7f;
+}
+
+.inputPesquisa:focus,
+.inputFiltro:focus {
+  border-color: #acacac;
+  outline: none;
+}
+
+
 .containerColunaDireita {
   display: flex;
   justify-content: space-between;
@@ -185,6 +224,7 @@
 
 .colunaDireita {
   height: 50vh;
+  width: 30vw;
 }
 
 .conteudoColuna {
@@ -201,6 +241,7 @@
 .containerTitulo {
   display: flex;
   flex-direction: column;
+  
 }
 
 .containerTitulo > span {
@@ -216,12 +257,12 @@
 }
 
 .listaTarefas {
-  margin-top: 1rem;
 }
 
 .tarefa {
   display: flex;
   align-items: center;
+  font-size: 0.9rem;
 }
 
 .tarefa input[type="checkbox"] {
@@ -233,7 +274,7 @@
 
 .tarefa label {
   font-family: "Montserrat";
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #4a4a4a;
   margin-left: 0.5rem;
 }
@@ -242,7 +283,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
 }
 
 .botao {

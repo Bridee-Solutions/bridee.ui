@@ -116,12 +116,28 @@ function Painel() {
                 <span className={styles.descricao}>
                   Lorem ipsum lorem ipsum lorem ipsum
                 </span>
-              </div>
+              </div>              
             </div>
 
+            <div className={styles.filtros}>
+                <div className={styles.containerFiltro}>
+                  <input
+                    className={styles.inputPesquisa}
+                    type="text"
+                    placeholder="Pesquisar categoria de fornecedores"
+                  />
+                  <input
+                    className={styles.inputFiltro}
+                    type="text"
+                    placeholder="Filtrar por tipo"
+                  />
+                </div>
+              </div>
             <div>
               <Categoria />
             </div>
+
+            <div></div>
           </div>
         </div>
 
@@ -167,7 +183,7 @@ function Painel() {
             </div>
           </div>
           <div className={styles.colunaDireita}>
-          <div className={styles.conteudoColuna}>
+            <div className={styles.conteudoColuna}>
               <div className={styles.containerTitulo}>
                 <span>Planejador de assentos</span>
                 <div className={styles.divider}></div>

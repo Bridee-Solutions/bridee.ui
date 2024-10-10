@@ -48,20 +48,7 @@ function Categorias() {
   return (
     <div className={styles.categoriasContainer}>
       <div className={styles.boxCategoria}>
-        <div className={styles.filtros}>
-          <div className={styles.containerFiltro}>
-            <input
-              className={styles.inputPesquisa}
-              type="text"
-              placeholder="Pesquisar categoria de fornecedores"
-            />
-            <input
-              className={styles.inputFiltro}
-              type="text"
-              placeholder="Filtrar por tipo"
-            />
-          </div>
-        </div>
+       
         <div className={styles.containerGrid}>
           <div className={styles.grid}>
             {categorias.map((categoria) => (
