@@ -34,9 +34,8 @@
     text-decoration: underline;
   }
   
-  img {
+  .icone > img {
     width: 4rem;
-
   }
   
   

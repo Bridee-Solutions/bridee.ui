@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Categoria from "../../componentes/Categoria/Categoria";
+import grupo from "./assets/grupo.svg";
+import sentados from "./assets/sentados.svg";
+import mesas from "./assets/mesas.svg";
 import Contagem from "../../componentes/ContagemRegressiva/ContagemRegressiva";
 import {
   faCalendarAlt,
@@ -254,6 +257,56 @@ function Painel() {
               <div className={styles.containerTitulo}>
                 <span>Planejador de assentos</span>
                 <div className={styles.divider}></div>
+              </div>
+              <div className={styles.conteudoPlanejador}>
+                <div className={styles.colunaPlanejador}>
+                  <div className={styles.containerImgDesc}>
+                    <div className={styles.iconePlanejador}>
+                      <img src={grupo}></img>
+                    </div>
+
+                    <div className={styles.descricaoPlanejador}>
+                      <span>Total de convidados</span>
+                    </div>
+                  </div>
+                  <div>
+                    <span>10</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.conteudoPlanejador}>
+                <div className={styles.colunaPlanejador}>
+                  <div className={styles.containerImgDesc}>
+                    <div className={styles.iconePlanejador}>
+                      <img src={sentados}></img>
+                    </div>
+
+                    <div className={styles.descricaoPlanejador}>
+                      <span>Convidados sentados</span>
+                    </div>
+                  </div>
+                  <div>
+                    <span>10</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.conteudoPlanejador}>
+                <div className={styles.colunaPlanejador}>
+                  <div className={styles.containerImgDesc}>
+                    <div className={styles.iconePlanejador}>
+                      <img src={mesas}></img>
+                    </div>
+
+                    <div className={styles.descricaoPlanejador}>
+                      <span>Total de mesas</span>
+                    </div>
+                  </div>
+                  <div>
+                    <span>10</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
