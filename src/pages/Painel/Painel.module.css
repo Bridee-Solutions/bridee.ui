@@ -233,11 +233,16 @@
   outline: none;
 }
 
-.containerColunaDireita {
+.colunaDireita { 
   display: flex;
   flex-direction: column;
-  height: 90vh;
   justify-content: space-between;
+  height: 50vh;
+}
+
+.containerColunaDireita {
+ width: 30vw;
+ 
 }
 
 .conteudoColuna {
