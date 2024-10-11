@@ -1,0 +1,392 @@
+.painelBackground {
+  background-color: #f3eed9;
+  height: 100%;
+  width: 100%;
+}
+
+.containerPai {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.containerRegulador {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  height: 20vw;
+}
+
+.containerDireita {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.boxImagem {
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerImagem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.imagemCirculo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  cursor: default;
+}
+
+.inputImagem {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.containerTexto {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #b0b0b0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.containerTexto span {
+  display: block;
+}
+
+.containerTexto .iconeUpload {
+  font-size: 24px;
+  color: #d9d9d9;
+}
+
+.iconEdit {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--cor-primaria);
+  border: 2px solid #d9d9d9;
+  border-radius: 50%;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.edit {
+  cursor: pointer;
+  width: 23px;
+}
+
+.containerInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 45vw;
+}
+
+.boxInformacoes {
+  display: flex;
+  flex-direction: column;
+}
+.container_welcome_user {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome {
+  font-family: "ProductSans";
+  font-size: 1rem;
+  color: #0c0c0c;
+}
+
+.user {
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #2c2c2c;
+  margin-top: -15px;
+}
+
+.iconsContainer {
+  display: flex;
+  gap: 15px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  font-family: "Product Sans";
+  font-size: 0.9rem;
+}
+
+.icon svg {
+  font-size: 1rem;
+  color: var(--cor-primaria);
+  width: 2rem;
+}
+.caixaCountdown {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.containerContagem {
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 85%;
+}
+
+.conteudo {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.colunaEsquerda {
+  width: 55vw;
+  border-radius: 30px;
+  background: white;
+}
+
+.container_titulodesc {
+  width: 100%;
+  padding: 2rem 2.7rem;
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  height: 9vh;
+}
+
+.caixaAssessor {
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo_clnesq {
+  font-family: "Playfair Display";
+  font-size: 2rem;
+}
+
+.descricao {
+  font-family: "Montserrat";
+}
+
+.filtros {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.containerFiltro {
+  display: flex;
+  justify-content: space-between;
+  width: 48vw;
+}
+
+.inputPesquisa {
+  width: 30vw;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: #7f7f7f;
+}
+
+.inputFiltro {
+  width: 15vw;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: #7f7f7f;
+}
+
+.inputPesquisa:focus,
+.inputFiltro:focus {
+  border-color: #acacac;
+  outline: none;
+}
+
+.colunaDireita { 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50vh;
+}
+
+.containerColunaDireita {
+ width: 30vw;
+ 
+}
+
+.conteudoColuna {
+  justify-content: space-between;
+  padding: 1.9rem 2rem;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0px 1px 7px 0px rgb(225 225 225 / 25%);
+}
+
+.boxColuna {
+  height: 37vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.containerTitulo {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerTitulo > span {
+  font-family: "Playfair Display";
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  flex-grow: 1;
+}
+
+.tarefa {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.checkboxWrapper .round {
+  position: relative;
+}
+
+.checkboxWrapper .round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  display: block;
+}
+
+.checkboxWrapper .round label:after {
+  border: 2px solid #05c575;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 0.5rem;
+  opacity: 0;
+  position: absolute;
+  top: 0.5rem;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.checkboxWrapper .round input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+  opacity: 0;
+}
+
+.checkboxWrapper .round input[type="checkbox"]:checked + label {
+  background-color: #ffffff;
+  border-color: #ccc;
+}
+
+.checkboxWrapper .round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+.tarefa label {
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: #4a4a4a;
+  padding: 0.7rem;
+}
+
+.containerBotao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botao {
+  background-color: #df7061;
+  color: white;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #d85b4c;
+}
+
+.contador {
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: #3a3a3a;
+  margin-top: 0.5rem;
+}
+
+.conteudoPlanejador {
+  font-family: "Montserrat";
+  height: 9vh;
+  display: flex;
+  align-items: center;
+}
+.colunaPlanejador {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.containerImgDesc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 13vw;
+}
+
+.descricaoPlanejador {
+  width: 8vw;
+}
+
+.iconePlanejador > img {
+  width: 2.5rem;
+}
