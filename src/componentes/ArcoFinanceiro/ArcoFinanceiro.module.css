@@ -1,0 +1,33 @@
+/* GaugeComponent.css */
+
+.orcamento-gauge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fdfbf6; /* Fundo leve */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Largura do componente */
+    margin: 0 auto; /* Centraliza na página */
+  }
+  
+  .titulo {
+    font-size: 24px; /* Tamanho do título */
+    font-weight: bold; /* Negrito */
+    color: #3e3e3e; /* Cor do texto */
+    margin-bottom: 8px; /* Espaçamento abaixo do título */
+  }
+  
+  .divider {
+    width: 100%; /* Largura da linha divisória */
+    height: 1px; /* Altura da linha */
+    background-color: #ddd; /* Cor da linha */
+    margin-bottom: 20px; /* Espaçamento abaixo da linha */
+  }
+  
+  .gauge-info {
+    text-align: center; /* Centraliza o texto */
+    margin-top: 10px;
+
+  }

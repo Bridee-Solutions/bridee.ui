@@ -3,6 +3,8 @@ import styles from "./Painel.module.css";
 import { useState } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+
+import LinkButton from "../../componentes/LinkButton/LinkButton";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Categoria from "../../componentes/Categoria/Categoria";
@@ -19,6 +21,7 @@ import {
 import edit from "./assets/edit.svg";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 import Assessor from "../../componentes/Assessor/Assessor";
+import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 
 function Painel() {
   const [imageUrl, setImageUrl] = useState(null);
@@ -234,11 +237,12 @@ function Painel() {
                 </div>
 
                 <div className={styles.containerBotao}>
-                  <Link to="/lista-tarefas">
-                    <button className={styles.botao}>
-                      Ver todas as tarefas
-                    </button>
-                  </Link>
+                  <div>
+                    <LinkButton
+                      to="/lista-tarefas"
+                      label="Ver todas as tarefas"
+                    />
+                  </div>
                   <div className={styles.contador}>1 de 50 itens completos</div>
                 </div>
               </div>
@@ -249,6 +253,22 @@ function Painel() {
               <div className={styles.containerTitulo}>
                 <span>Meu orçamento</span>
                 <div className={styles.divider}></div>
+              </div>
+
+              <div>
+                <div className={styles.containerOrcamento}>
+                  <div className={styles.orcamento}>
+                    <ArcoFinanceiro/>
+                    
+                  </div>
+
+                  <div className={styles.containerBotao}>
+                      <LinkButton
+                        to="/calculadora-financeira"
+                        label="Ver calculadora financeira"
+                      />
+                    </div>
+                </div>
               </div>
             </div>
           </div>
@@ -307,6 +327,13 @@ function Painel() {
                     <span>10</span>
                   </div>
                 </div>
+              </div>
+
+              <div className={styles.containerBotao}>
+                <LinkButton
+                  to="/planejador-assentos"
+                  label="Gerenciar assentos"
+                />
               </div>
             </div>
           </div>
