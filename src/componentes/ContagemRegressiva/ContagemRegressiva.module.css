@@ -1,8 +1,8 @@
 .contentContagem {
   width: 100%;
   background-color: var(--cor-primaria);
-  border-radius: 10px;
-  font-family: "Montserrat";  
+  border-radius: 28px;
+    font-family: "Montserrat";  
 }
 
 .containerHeader { 
@@ -44,7 +44,7 @@
 
 .content {
   background-color: white;
-  border-radius: 0.6rem;
+  border-radius: 0 0 10px 10px;
   height: 27vh;
 }
   
