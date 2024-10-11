@@ -1,5 +1,5 @@
 import React from "react";
-import "./ArcoFinanceiro.module.css"; // Para estilo
+import "./ArcoFinanceiro.module.css";
 import { GaugeComponent } from "react-gauge-component";
 
 const ArcoFinanceiro = ({ gasto = 0, total = 10000 }) => {
@@ -11,7 +11,6 @@ const ArcoFinanceiro = ({ gasto = 0, total = 10000 }) => {
 
   return (
     <div className="orcamento-gauge-container">
-      <div className="divider"></div>
       <GaugeComponent
         type="semicircle"
         arc={{
@@ -26,7 +25,7 @@ const ArcoFinanceiro = ({ gasto = 0, total = 10000 }) => {
             },
             {
               limit: 100, // Cor de alerta
-              color: "#E1DCDC",  // Amarelo para alerta
+              color: "#CCC",  // Amarelo para alerta
               showTick: true,
             },
           ],
