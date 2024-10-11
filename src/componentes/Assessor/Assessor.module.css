@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  .assessorCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f8f3;
+    border-radius: 15px;
+    padding: 1.5rem 0.5rem;
+    border: #eeeeee solid 2px;
+    transition: box-shadow 0.3s ease;
+    width: 15vw;
+    height: 32vh;
+  }
+  
+  .nome {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 1rem;
+    color: #2c2c2c;
+  }
+  
+  .gerenciar {
+    font-family: "Montserrat";
+    font-size: 0.9rem;
+    color: var(--cor-primaria);
+    text-decoration: none;
+  }
+  
+  .gerenciar:hover {
+    text-decoration: underline;
+  }
+  
+  img {
+    width: 4rem;
+
+  }
+  
+  

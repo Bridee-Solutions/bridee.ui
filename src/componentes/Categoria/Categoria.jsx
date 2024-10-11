@@ -22,7 +22,7 @@ function Categoria({ icone, titulo }) {
       <div className={styles.textos}>
         <h3 className={styles.titulo}>{titulo}</h3>
         <a href="#" className={styles.gerenciar}>
-          Gerenciar
+          Adicionar
         </a>
       </div>
     </div>
@@ -42,8 +42,9 @@ function Categorias() {
     { titulo: "Moda & Beleza", icone: moda },
     { titulo: "Videógrafos", icone: videografo },
     { titulo: "Papelaria", icone: papelaria },
-    { titulo: "Entretenimento", icone: entretenimento },
+    { titulo: "Entretenimento", icone: entretenimento }
   ];
+  
 
   return (
     <div className={styles.categoriasContainer}>

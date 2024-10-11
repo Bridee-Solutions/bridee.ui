@@ -24,7 +24,6 @@
 }
 
 .boxImagem {
-  border: 2px solid red;
   width: 20vw;
   display: flex;
   justify-content: center;
@@ -63,7 +62,7 @@
 
 .containerTexto {
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   color: #b0b0b0;
   position: absolute;
@@ -101,10 +100,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid red;
-  width: 35vw;
+  width: 45vw;
 }
 
+.boxInformacoes {
+  display: flex;
+  flex-direction: column;
+}
 .container_welcome_user {
   display: flex;
   flex-direction: column;
@@ -118,9 +120,10 @@
 
 .user {
   font-family: "Playfair Display", serif;
-  font-size: 2.8rem;
+  font-size: 4rem;
   font-weight: bold;
   color: #2c2c2c;
+  margin-top: -15px;
 }
 
 .iconsContainer {
@@ -138,12 +141,17 @@
 .icon svg {
   font-size: 1rem;
   color: var(--cor-primaria);
-  width: 3.3rem;
+  width: 2rem;
+}
+.caixaCountdown { 
+  height: 100%;
 }
 
 .containerContagem {
-  border: 2px solid red;
-  width: 20%;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .conteudo {
@@ -164,6 +172,13 @@
 }
 
 .caixa {
+  display: flex;
+  flex-direction: column;
+  height: 9vh;
+}
+
+.caixaAssessor {
+  height: 15vh;
   display: flex;
   flex-direction: column;
 }
@@ -199,7 +214,7 @@
   color: #7f7f7f;
 }
 
-.inputFiltro { 
+.inputFiltro {
   width: 15vw;
   padding: 0.7rem 1rem;
   border: 1px solid #d9d9d9;
@@ -215,7 +230,6 @@
   outline: none;
 }
 
-
 .containerColunaDireita {
   display: flex;
   justify-content: space-between;
@@ -223,14 +237,14 @@
 }
 
 .colunaDireita {
-  height: 50vh;
+  height: 55vh;
   width: 30vw;
 }
 
 .conteudoColuna {
   justify-content: space-between;
-  padding: 2rem;
-  border-radius: 30px;
+  padding: 1.9rem 2rem;
+    border-radius: 30px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -238,10 +252,11 @@
   box-shadow: 0px 1px 7px 0px rgb(225 225 225 / 25%);
 }
 
+
+
 .containerTitulo {
   display: flex;
   flex-direction: column;
-  
 }
 
 .containerTitulo > span {
@@ -256,27 +271,60 @@
   flex-grow: 1;
 }
 
-.listaTarefas {
-}
-
 .tarefa {
   display: flex;
   align-items: center;
   font-size: 0.9rem;
 }
 
-.tarefa input[type="checkbox"] {
-  width: 24px;
-  height: 24px;
+.checkboxWrapper .round {
+  position: relative;
+}
+
+.checkboxWrapper .round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
   border-radius: 50%;
-  accent-color: #4db473;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  display: block;
+}
+
+.checkboxWrapper .round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 0.5rem;
+  opacity: 0;
+  position: absolute;
+  top: 0.5rem;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.checkboxWrapper .round input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+  opacity: 0;
+}
+
+.checkboxWrapper .round input[type="checkbox"]:checked + label {
+  background-color: #66bb6a;
+  border-color: #66bb6a;
+}
+
+.checkboxWrapper .round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
 }
 
 .tarefa label {
   font-family: "Montserrat";
   font-size: 0.8rem;
   color: #4a4a4a;
-  margin-left: 0.5rem;
+  padding: 0.7rem;
 }
 
 .containerBotao {
@@ -288,10 +336,10 @@
 .botao {
   background-color: #df7061;
   color: white;
-  padding: 10px 15px;
+  padding: 0.7rem 2rem;
   border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;
+  border-radius: 7px;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 

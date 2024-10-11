@@ -5,6 +5,7 @@ import { useRef } from "react";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Categoria from "../../componentes/Categoria/Categoria";
+import Contagem from "../../componentes/ContagemRegressiva/ContagemRegressiva";
 import {
   faCalendarAlt,
   faUserFriends,
@@ -13,10 +14,14 @@ import {
 
 import edit from "./assets/edit.svg";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
+import Assessor from "../../componentes/Assessor/Assessor";
 
 function Painel() {
   const [imageUrl, setImageUrl] = useState(null);
   const inputRef = useRef(null);
+  const [checkedTarefa1, setCheckedTarefa1] = useState(true);
+  const [checkedTarefa2, setCheckedTarefa2] = useState(false);
+  const [checkedTarefa3, setCheckedTarefa3] = useState(false);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -79,31 +84,37 @@ function Painel() {
             </div>
 
             <div className={styles.containerInfos}>
-              <div className={styles.container_welcome_user}>
-                <span className={styles.welcome}>Bem vindo de volta,</span>
-                <span className={styles.user}>Amanda & Enzo</span>
-              </div>
-
-              <div className={styles.iconsContainer}>
-                <div className={styles.icon}>
-                  <FontAwesomeIcon icon={faCalendarAlt} />
-                  <span>11 de Fevereiro, 2026</span>
+              <div className={styles.boxInformacoes}>
+                <div className={styles.container_welcome_user}>
+                  <span className={styles.welcome}>Bem vindo de volta,</span>
+                  <span className={styles.user}>Amanda & Enzo</span>
                 </div>
 
-                <div className={styles.icon}>
-                  <FontAwesomeIcon icon={faUserFriends} />
-                  <span>101-150 convidados</span>
-                </div>
+                <div className={styles.iconsContainer}>
+                  <div className={styles.icon}>
+                    <FontAwesomeIcon icon={faCalendarAlt} />
+                    <span>11 de Fevereiro, 2026</span>
+                  </div>
 
-                <div className={styles.icon}>
-                  <FontAwesomeIcon icon={faMapMarkerAlt} />
-                  <span>São Paulo</span>
+                  <div className={styles.icon}>
+                    <FontAwesomeIcon icon={faUserFriends} />
+                    <span>101-150 convidados</span>
+                  </div>
+
+                  <div className={styles.icon}>
+                    <FontAwesomeIcon icon={faMapMarkerAlt} />
+                    <span>São Paulo</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className={styles.containerContagem}></div>
+          <div className={styles.caixaCountdown}>
+            <div className={styles.containerContagem}>
+              <Contagem />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -112,32 +123,48 @@ function Painel() {
           <div className={styles.content}>
             <div className={styles.container_titulodesc}>
               <div className={styles.caixa}>
-                <span className={styles.titulo_clnesq}>Meus Fornecedores</span>
+                <span className={styles.titulo_clnesq}>Meus fornecedores</span>
                 <span className={styles.descricao}>
                   Lorem ipsum lorem ipsum lorem ipsum
                 </span>
-              </div>              
+              </div>
             </div>
 
             <div className={styles.filtros}>
-                <div className={styles.containerFiltro}>
-                  <input
-                    className={styles.inputPesquisa}
-                    type="text"
-                    placeholder="Pesquisar categoria de fornecedores"
-                  />
-                  <input
-                    className={styles.inputFiltro}
-                    type="text"
-                    placeholder="Filtrar por tipo"
-                  />
-                </div>
+              <div className={styles.containerFiltro}>
+                <input
+                  className={styles.inputPesquisa}
+                  type="text"
+                  placeholder="Pesquisar categoria de fornecedores"
+                />
+                <input
+                  className={styles.inputFiltro}
+                  type="text"
+                  placeholder="Filtrar por tipo"
+                />
               </div>
-            <div>
-              <Categoria />
             </div>
+            <>
+              <Categoria />
+            </>
 
-            <div></div>
+            <div>
+              <div className={styles.container_titulodesc}>
+                <div className={styles.caixaAssessor}>
+                  <span className={styles.titulo_clnesq}>
+                    Meu assessor de casamento
+                  </span>
+                  <span className={styles.descricao}>
+                    Lorem ipsum lorem ipsum lorem ipsum
+                  </span>
+                </div>
+
+                <>
+                  <Assessor
+                  />
+                </>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -150,21 +177,49 @@ function Painel() {
               </div>
 
               <div className={styles.listaTarefas}>
-                <div className={styles.tarefa}>
-                  <input type="checkbox" id="tarefa1" checked />
-                  <label htmlFor="tarefa1">
-                    Anuncie seu noivado para familiares e amigos.
-                  </label>
-                </div>
-                <div className={styles.tarefa}>
-                  <input type="checkbox" id="tarefa2" />
-                  <label htmlFor="tarefa2">Enviar convites.</label>
-                </div>
-                <div className={styles.tarefa}>
-                  <input type="checkbox" id="tarefa3" />
-                  <label htmlFor="tarefa3">
-                    Escolha e reserve um fotógrafo.
-                  </label>
+                <div className={styles.listaTarefas}>
+                  <div className={`${styles.tarefa} ${styles.checkboxWrapper}`}>
+                    <div className={styles.round}>
+                      <input
+                        type="checkbox"
+                        id="tarefa1"
+                        checked={checkedTarefa1}
+                        onChange={() => setCheckedTarefa1(!checkedTarefa1)}
+                      />
+                      <label htmlFor="tarefa1"></label>
+                    </div>
+                    <label htmlFor="tarefa1">
+                      Anuncie seu noivado para familiares e amigos.
+                    </label>
+                  </div>
+
+                  <div className={`${styles.tarefa} ${styles.checkboxWrapper}`}>
+                    <div className={styles.round}>
+                      <input
+                        type="checkbox"
+                        id="tarefa2"
+                        checked={checkedTarefa2}
+                        onChange={() => setCheckedTarefa2(!checkedTarefa2)}
+                      />
+                      <label htmlFor="tarefa2"></label>
+                    </div>
+                    <label htmlFor="tarefa2">Enviar convites.</label>
+                  </div>
+
+                  <div className={`${styles.tarefa} ${styles.checkboxWrapper}`}>
+                    <div className={styles.round}>
+                      <input
+                        type="checkbox"
+                        id="tarefa3"
+                        checked={checkedTarefa3}
+                        onChange={() => setCheckedTarefa3(!checkedTarefa3)}
+                      />
+                      <label htmlFor="tarefa3"></label>
+                    </div>
+                    <label htmlFor="tarefa3">
+                      Escolha e reserve um fotógrafo.
+                    </label>
+                  </div>
                 </div>
               </div>
 

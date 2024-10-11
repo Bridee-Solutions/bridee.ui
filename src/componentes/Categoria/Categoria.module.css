@@ -12,9 +12,9 @@
 
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: calc(1rem - 1px)
+  display: flex;
+  gap: calc(1rem - 1px);
+  flex-wrap: wrap;
 }
 
 .categoriaCard {
@@ -63,14 +63,3 @@
   width: 3.3vw;
 }
 
-@media (max-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
