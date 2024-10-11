@@ -1,17 +1,17 @@
 import styles from "./Categoria.module.css";
 
-import wedding from "./assets/icons/wedding.svg";
-import buffet from "./assets/icons/buffet.svg";
-import camera from "./assets/icons/camera.svg";
-import confeitaria from "./assets/icons/confeitaria.svg";
-import moda from "./assets/icons/moda.svg";
-import hospedagem from "./assets/icons/hospedagem.svg";
-import decoracao from "./assets/icons/decoracao.svg";
-import florista from "./assets/icons/florista.svg";
-import papelaria from "./assets/icons/papel.svg";
-import entretenimento from "./assets/icons/entretenimento.svg";
-import videografo from "./assets/icons/videografo.svg";
-import local from "./assets/icons/local.svg";
+import wedding from "../../assets/painel/wedding.svg";
+import buffet from "../../assets/painel/buffet.svg";
+import camera from "../../assets/painel/camera.svg";
+import confeitaria from "../../assets/painel/confeitaria.svg";
+import moda from "../../assets/painel/moda.svg";
+import hospedagem from "../../assets/painel/hospedagem.svg";
+import decoracao from "../../assets/painel/decoracao.svg";
+import florista from "../../assets/painel/florista.svg";
+import papelaria from "../../assets/painel/papel.svg";
+import entretenimento from "../../assets/painel/entretenimento.svg";
+import videografo from "../../assets/painel/videografo.svg";
+import local from "../../assets/painel/local.svg";
 
 function Categoria({ icone, titulo }) {
   return (

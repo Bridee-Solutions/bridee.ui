@@ -1,5 +1,5 @@
 import styles from "./Assessor.module.css";
-import iconeAssessor from "./assets/assessor.svg";
+import iconeAssessor from "../../assets/assessor.svg";
 
 function Assessor({ nome, descricao }) {
   return (
