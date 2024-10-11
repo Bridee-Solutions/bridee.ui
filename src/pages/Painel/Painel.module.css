@@ -232,14 +232,11 @@
 
 .containerColunaDireita {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  height: 90vh;
+  justify-content: space-between;
 }
 
-.colunaDireita {
-  height: 55vh;
-  width: 30vw;
-}
 
 .conteudoColuna {
   justify-content: space-between;
@@ -248,11 +245,13 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  height: 90%;
+  
   box-shadow: 0px 1px 7px 0px rgb(225 225 225 / 25%);
 }
 
+.boxColuna {
 
+}
 
 .containerTitulo {
   display: flex;
