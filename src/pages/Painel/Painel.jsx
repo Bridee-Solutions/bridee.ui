@@ -2,6 +2,7 @@ import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
 import { useState } from "react";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Categoria from "../../componentes/Categoria/Categoria";
@@ -230,7 +231,11 @@ function Painel() {
                 </div>
 
                 <div className={styles.containerBotao}>
-                  <button className={styles.botao}>Ver todas as tarefas</button>
+                  <Link to="/lista-tarefas">
+                    <button className={styles.botao}>
+                      Ver todas as tarefas
+                    </button>
+                  </Link>
                   <div className={styles.contador}>1 de 50 itens completos</div>
                 </div>
               </div>

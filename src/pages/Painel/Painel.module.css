@@ -253,7 +253,10 @@
 }
 
 .boxColuna {
-
+  height: 40vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .containerTitulo {
@@ -294,7 +297,7 @@
 }
 
 .checkboxWrapper .round label:after {
-  border: 2px solid #fff;
+  border: 2px solid #05c575;
   border-top: none;
   border-right: none;
   content: "";
@@ -314,8 +317,8 @@
 }
 
 .checkboxWrapper .round input[type="checkbox"]:checked + label {
-  background-color: #66bb6a;
-  border-color: #66bb6a;
+  background-color: #ffffff;
+  border-color: #ccc;
 }
 
 .checkboxWrapper .round input[type="checkbox"]:checked + label:after {
