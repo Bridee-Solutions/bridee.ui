@@ -233,18 +233,24 @@
   outline: none;
 }
 
-.colunaDireita { 
-  display: flex;
+.teste {
+  
+}
+
+.colunaDireita {  
+  width: 30vw;
   flex-direction: column;
   justify-content: space-between;
-  height: 50vh;
-}
+  display: flex;
+} 
+
 
 .containerColunaDireita {
- width: 30vw;
- 
-}
-
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+} 
 .conteudoColuna {
   justify-content: space-between;
   padding: 1.9rem 2rem;
@@ -252,16 +258,9 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-
   box-shadow: 0px 1px 7px 0px rgb(225 225 225 / 25%);
 }
 
-.boxColuna {
-  height: 37vh;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
 
 .containerTitulo {
   display: flex;
