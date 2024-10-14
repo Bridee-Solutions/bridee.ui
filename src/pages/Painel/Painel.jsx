@@ -174,85 +174,83 @@ function Painel() {
           </div>
         </div>
 
-        <div className={styles.teste}>
-          <div className={styles.containerColunaDireita}>
-            <div className={styles.colunaDireita}>
-              <div className={styles.conteudoColuna}>
-                <div className={styles.boxColuna}>
-                  <div className={styles.containerTitulo}>
-                    <span>Lista de tarefas</span>
-                    <div className={styles.divider}></div>
-                  </div>
+        <div className={styles.containerColunaDireita}>
+          <div className={styles.colunaDireita}>
+            <div className={styles.conteudoColuna}>
+              <div className={styles.boxColuna}>
+                <div className={styles.containerTitulo}>
+                  <span>Lista de tarefas</span>
+                  <div className={styles.divider}></div>
+                </div>
 
+                <div className={styles.listaTarefas}>
                   <div className={styles.listaTarefas}>
-                    <div className={styles.listaTarefas}>
-                      <div
-                        className={`${styles.tarefa} ${styles.checkboxWrapper}`}
-                      >
-                        <div className={styles.round}>
-                          <input
-                            type="checkbox"
-                            id="tarefa1"
-                            checked={checkedTarefa1}
-                            onChange={() => setCheckedTarefa1(!checkedTarefa1)}
-                          />
-                          <label htmlFor="tarefa1"></label>
-                        </div>
-                        <label htmlFor="tarefa1">
-                          Anuncie seu noivado para familiares e amigos.
-                        </label>
+                    <div
+                      className={`${styles.tarefa} ${styles.checkboxWrapper}`}
+                    >
+                      <div className={styles.round}>
+                        <input
+                          type="checkbox"
+                          id="tarefa1"
+                          checked={checkedTarefa1}
+                          onChange={() => setCheckedTarefa1(!checkedTarefa1)}
+                        />
+                        <label htmlFor="tarefa1"></label>
                       </div>
-
-                      <div
-                        className={`${styles.tarefa} ${styles.checkboxWrapper}`}
-                      >
-                        <div className={styles.round}>
-                          <input
-                            type="checkbox"
-                            id="tarefa2"
-                            checked={checkedTarefa2}
-                            onChange={() => setCheckedTarefa2(!checkedTarefa2)}
-                          />
-                          <label htmlFor="tarefa2"></label>
-                        </div>
-                        <label htmlFor="tarefa2">Enviar convites.</label>
-                      </div>
-
-                      <div
-                        className={`${styles.tarefa} ${styles.checkboxWrapper}`}
-                      >
-                        <div className={styles.round}>
-                          <input
-                            type="checkbox"
-                            id="tarefa3"
-                            checked={checkedTarefa3}
-                            onChange={() => setCheckedTarefa3(!checkedTarefa3)}
-                          />
-                          <label htmlFor="tarefa3"></label>
-                        </div>
-                        <label htmlFor="tarefa3">
-                          Escolha e reserve um fotógrafo.
-                        </label>
-                      </div>
+                      <label htmlFor="tarefa1">
+                        Anuncie seu noivado para familiares e amigos.
+                      </label>
                     </div>
-                  </div>
 
-                  <div className={styles.containerBotao}>
-                    <div>
-                      <LinkButton
-                        to="/lista-tarefas"
-                        label="Ver todas as tarefas"
-                      />
+                    <div
+                      className={`${styles.tarefa} ${styles.checkboxWrapper}`}
+                    >
+                      <div className={styles.round}>
+                        <input
+                          type="checkbox"
+                          id="tarefa2"
+                          checked={checkedTarefa2}
+                          onChange={() => setCheckedTarefa2(!checkedTarefa2)}
+                        />
+                        <label htmlFor="tarefa2"></label>
+                      </div>
+                      <label htmlFor="tarefa2">Enviar convites.</label>
                     </div>
-                    <div className={styles.contador}>
-                      1 de 50 itens completos
+
+                    <div
+                      className={`${styles.tarefa} ${styles.checkboxWrapper}`}
+                    >
+                      <div className={styles.round}>
+                        <input
+                          type="checkbox"
+                          id="tarefa3"
+                          checked={checkedTarefa3}
+                          onChange={() => setCheckedTarefa3(!checkedTarefa3)}
+                        />
+                        <label htmlFor="tarefa3"></label>
+                      </div>
+                      <label htmlFor="tarefa3">
+                        Escolha e reserve um fotógrafo.
+                      </label>
                     </div>
                   </div>
                 </div>
+
+                <div className={styles.containerBotao}>
+                  <div>
+                    <LinkButton
+                      to="/lista-tarefas"
+                      label="Ver todas as tarefas"
+                    />
+                  </div>
+                  <div className={styles.contador}>1 de 50 itens completos</div>
+                </div>
               </div>
             </div>
-            <div className={styles.colunaDireita}>
-              <div className={styles.conteudoColuna}>
+          </div>
+          <div className={styles.colunaDireita}>
+            <div className={styles.conteudoColuna}>
+              <div className={styles.boxColunaOrcamento}>
                 <div className={styles.containerTitulo}>
                   <span>Meu orçamento</span>
                   <div className={styles.divider}></div>
@@ -274,8 +272,10 @@ function Painel() {
                 </div>
               </div>
             </div>
-            <div className={styles.colunaDireita}>
-              <div className={styles.conteudoColuna}>
+          </div>
+          <div className={styles.colunaDireita}>
+            <div className={styles.conteudoColuna}>
+              <div className={styles.boxColunaPlanejador}>
                 <div className={styles.containerTitulo}>
                   <span>Planejador de assentos</span>
                   <div className={styles.divider}></div>

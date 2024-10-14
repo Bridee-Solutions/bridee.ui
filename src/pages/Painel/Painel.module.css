@@ -233,9 +233,6 @@
   outline: none;
 }
 
-.teste {
-  
-}
 
 .colunaDireita {  
   width: 30vw;
@@ -244,12 +241,31 @@
   display: flex;
 } 
 
+.boxColuna {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40vh;
+}
 
+.boxColunaPlanejador { 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vw;
+}
+
+.boxColunaOrcamento { 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vw;
+} 
 .containerColunaDireita {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 100%;
+  height: 170vh;
 } 
 .conteudoColuna {
   justify-content: space-between;
@@ -387,5 +403,5 @@
 }
 
 .iconePlanejador > img {
-  width: 2.5rem;
+  width: 2.2rem;
 }
