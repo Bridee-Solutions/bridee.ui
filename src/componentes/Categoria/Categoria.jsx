@@ -90,27 +90,29 @@ function Categorias() {
       </div>
       {modalAberto && (
         <Modal>
-          <ModalHeader>
+          <ModalHeader onClose={fecharModal}>
             <h2>Adicionar {categoriaSelecionada}</h2>
           </ModalHeader>
-          <ModalBody>
-            <div className={styles.form_group}>
-              <label htmlFor="assessorName">
-                Nome do assessor que você fechou negócio
-              </label>
-              <div className={styles.search_input_container}>
-                <input
-                  type="text"
-                  id="assessorName"
-                  className={styles.search_input}
-                  placeholder="Digite o nome do assessor"
-                />
-                <button className={styles.search_button}>
-                  <FontAwesomeIcon icon={faSearch} />
-                </button>
-              </div>
-            </div>
-          </ModalBody>
+              <ModalBody>
+                <div className={styles.containerModal}>
+                  <div className={styles.form_group}>
+                    <label htmlFor="assessorName">
+                      Nome do assessor que você fechou negócio
+                    </label>
+                  </div>
+                  <div className={styles.search_input_container}>
+                    <input
+                      type="text"
+                      id="assessorName"
+                      className={styles.search_input}
+                      placeholder="Digite o nome do assessor"
+                    />
+                    <button className={styles.search_button}>
+                      <FontAwesomeIcon icon={faSearch} className={styles.iconSearch} />
+                    </button>
+                  </div>
+                </div>
+              </ModalBody>
           <ModalFooter>
             <ModalFooterButton
               button="cancel_button"
