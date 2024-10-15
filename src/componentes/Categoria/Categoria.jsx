@@ -97,7 +97,7 @@ function Categorias() {
                 <div className={styles.containerModal}>
                   <div className={styles.form_group}>
                     <label htmlFor="categoriaSelect">
-                      Nome do {categoriaSelecionada} que você fechou negócio
+                      Nome do fornecedor que você fechou negócio
                     </label>
                   </div>
                   <div className={styles.search_input_container}>
