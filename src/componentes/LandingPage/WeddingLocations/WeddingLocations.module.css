@@ -55,3 +55,53 @@
 .location:hover {
   transform: scale(1.05);
 }
+
+@media(max-width:768px) {
+  .wedding_locations h1 {
+    font-size: 32px;
+  }
+
+  .wedding_locations img {
+    width: 80vw;
+  }
+
+  .slide_wrapper{
+    overflow: hidden;
+  }
+  
+  .wedding_locations .container {
+    width: calc(100%*4);
+    animation: slide 10s infinite;
+    justify-content: space-between !important;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(1.3%); /* Primeiro slide */
+    }
+    20% {
+      transform: translateX(1.3%); /* Pausa no primeiro slide */
+    }
+    25% {
+      transform: translateX(-25%); /* Move para o segundo slide */
+    }
+    45% {
+      transform: translateX(-25%); /* Pausa no segundo slide */
+    }
+    50% {
+      transform: translateX(-50%); /* Move para o terceiro slide */
+    }
+    70% {
+      transform: translateX(-50%); /* Pausa no terceiro slide */
+    }
+    75% {
+      transform: translateX(-76%); /* Move para o quarto slide */
+    }
+    95% {
+      transform: translateX(-76%); /* Pausa no quarto slide */
+    }
+    100% {
+      transform: translateX(1.3%); /* Volta ao primeiro slide */
+    }
+  }
+}

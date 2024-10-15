@@ -14,25 +14,28 @@ function WeddingLocations() {
   return (
     <section className={styles.wedding_locations}>
       <h1>Encontre o local perfeito para seu casamento</h1>
-      <div className={styles.container}>
-        <div className={styles.location}>
-          <img src={BeachLocation} alt="" />
-          <p>Casamento na praia</p>
-        </div>
+      <div className={styles.slide_wrapper}>
 
-        <div className={styles.location}>
-          <img src={OutdoorLocation} alt="" />
-          <p>Casamento ao ar livre</p>
-        </div>
+        <div className={styles.container}>
+          <div className={styles.location}>
+            <img src={BeachLocation} alt="" />
+            <p>Casamento na praia</p>
+          </div>
 
-        <div className={styles.location}>
-          <img src={ChurchLocation} alt="" />
-          <p>Casamento na igreja</p>
-        </div>
+          <div className={styles.location}>
+            <img src={OutdoorLocation} alt="" />
+            <p>Casamento ao ar livre</p>
+          </div>
 
-        <div className={styles.location}>
-          <img src={ResortsLocation} alt="" />
-          <p>Casamento em resorts</p>
+          <div className={styles.location}>
+            <img src={ChurchLocation} alt="" />
+            <p>Casamento na igreja</p>
+          </div>
+
+          <div className={styles.location}>
+            <img src={ResortsLocation} alt="" />
+            <p>Casamento em resorts</p>
+          </div>
         </div>
       </div>
       <div className={styles.button_area}>
