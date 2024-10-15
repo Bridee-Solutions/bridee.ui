@@ -1,4 +1,3 @@
-import React from "react";
 import { GaugeComponent } from "react-gauge-component";
 
 const ArcoFinanceiro = ({ gasto = 0, total = 10000 }) => {
@@ -12,18 +11,7 @@ const ArcoFinanceiro = ({ gasto = 0, total = 10000 }) => {
   const containerStyle = {
     textAlign: "center",
     position: "relative"
-  };
-
-  const tickContainerStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    marginTop: "-10px", // Ajuste a distância entre a barra e os ticks
-    width: "100%",
-    padding: "0 20px",
-    position: "absolute",
-    bottom: "0",
-  };
- 
+  }; 
 
   return (
     <div style={containerStyle}>
@@ -74,8 +62,7 @@ const ArcoFinanceiro = ({ gasto = 0, total = 10000 }) => {
         maxValue={100} // Representa 100% do total
       />
 
-      {/* Texto adicional para o restante e gasto */}
-      <div style={{ position: "absolute", top: "60%", left: "50%", transform: "translate(-50%, -50%)" }}>
+            <div style={{ position: "absolute", top: "60%", left: "50%", transform: "translate(-50%, -50%)" }}>
         <div style={{ fontSize: "15px", fontWeight: "500", color: "#333", fontFamily: "Montserrat" }}>
           R$ {gastoValidado.toFixed(0)}
         </div>

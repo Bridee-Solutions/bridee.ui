@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css/Modal.module.css';
+import styles from '../Modal.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
