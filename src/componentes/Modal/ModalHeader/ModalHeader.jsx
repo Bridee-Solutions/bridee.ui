@@ -12,7 +12,7 @@ function ModalHeader({ children, onClose  }) {
       <div className={styles.containerSuperior}>
         <div className={styles.container_close}>
           <button className={styles.modal_close} onClick={onClose}>
-            <FontAwesomeIcon icon={faXmark} />
+            <FontAwesomeIcon icon={faXmark} className={styles.iconClose} />
           </button>
         </div>
       </div>

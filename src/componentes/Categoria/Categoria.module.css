@@ -10,7 +10,6 @@
   max-width: 100%;
 }
 
-
 .grid {
   display: flex;
   gap: calc(1rem - 1px);
@@ -50,6 +49,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.gerenciar {
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+.gerenciar:hover {
+  text-decoration: underline;
+}
+
+.icone {
+  width: 3.3vw;
 }
 
 .containerModal { 
@@ -102,20 +117,5 @@
 
 .search_input_container:focus-within {
   border-color: #999; 
-}
-
-.gerenciar {
-  font-family: "Montserrat";
-  font-size: 0.9rem;
-  color: var(--cor-primaria);
-  text-decoration: none;
-}
-
-.gerenciar:hover {
-  text-decoration: underline;
-}
-
-.icone {
-  width: 3.3vw;
 }
 

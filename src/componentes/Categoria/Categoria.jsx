@@ -96,16 +96,16 @@ function Categorias() {
               <ModalBody>
                 <div className={styles.containerModal}>
                   <div className={styles.form_group}>
-                    <label htmlFor="assessorName">
-                      Nome do assessor que você fechou negócio
+                    <label htmlFor="categoriaSelect">
+                      Nome do {categoriaSelecionada} que você fechou negócio
                     </label>
                   </div>
                   <div className={styles.search_input_container}>
                     <input
                       type="text"
-                      id="assessorName"
+                      id=""
                       className={styles.search_input}
-                      placeholder="Digite o nome do assessor"
+                      placeholder={`Digite o nome do ${categoriaSelecionada}`}
                     />
                     <button className={styles.search_button}>
                       <FontAwesomeIcon icon={faSearch} className={styles.iconSearch} />
