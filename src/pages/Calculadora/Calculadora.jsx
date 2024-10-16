@@ -5,6 +5,12 @@ import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import add from "../../assets/calculadora/add.svg";
+import decoracao from "../../assets/calculadora/decoracaocalculadora.svg";
+import moda from "../../assets/calculadora/modabeleza.svg";
+import aliancas from "../../assets/calculadora/aliancas.svg";
+import transporte from "../../assets/calculadora/transporteacomodacao.svg";
+import entretenimento from "../../assets/calculadora/entretenimentocalc.svg";
+
 import {
   faChevronDown,
   faChevronUp,
@@ -16,26 +22,31 @@ function Calculadora() {
   const [categorias, setCategorias] = useState([
     {
       nome: "Moda e beleza",
+      icon: moda,
       itens: [{ titulo: "Vestido de Daminha de Honra", custo: 400 }],
       aberta: true,
     },
     {
       nome: "Alianças de casamento",
+      icon: aliancas,
       itens: [{ titulo: "Meu anel", custo: 2000 }],
       aberta: true,
     },
     {
       nome: "Decoração",
+      icon: decoracao,
       itens: [{ titulo: "Teste", custo: 2000 }],
       aberta: true,
     },
     {
       nome: "Transporte e Acomodação",
+      icon: transporte,
       itens: [{ titulo: "Teste", custo: 2000 }],
       aberta: true,
     },
     {
       nome: "Entretenimento",
+      icon: entretenimento,
       itens: [{ titulo: "Teste", custo: 2000 }],
       aberta: true,
     },
@@ -51,6 +62,12 @@ function Calculadora() {
     const { value } = e.target;
     const novasCategorias = [...categorias];
     novasCategorias[catIndex].itens[itemIndex].custo = value;
+    setCategorias(novasCategorias);
+  };
+
+  const adicionarItem = (catIndex) => {
+    const novasCategorias = [...categorias];
+    novasCategorias[catIndex].itens.push({ titulo: "Novo item", custo: 0 });
     setCategorias(novasCategorias);
   };
 
@@ -107,6 +124,10 @@ function Calculadora() {
                         <FontAwesomeIcon icon={faChevronDown} />
                       )}
                     </button>
+                    <img
+                      src={categoria.icon}
+                      className={styles.iconCategoria}
+                    />
                     <span className={styles.categoriaNome}>
                       {categoria.nome}
                     </span>
@@ -131,7 +152,10 @@ function Calculadora() {
                         </div>
                       ))}
 
-                      <button className={styles.adicionarItem}>
+                      <button
+                        className={styles.adicionarItem}
+                        onClick={() => adicionarItem(catIndex)}
+                      >
                         <img
                           src={add}
                           className={styles.add}

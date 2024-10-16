@@ -208,3 +208,7 @@ border: none;}
   display: flex;
   flex-direction: column;
 }
+
+.iconCategoria { 
+  width: 2vw;
+}
