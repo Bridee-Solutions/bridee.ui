@@ -212,3 +212,15 @@ border: none;}
 .iconCategoria { 
   width: 2vw;
 }
+
+/* Exemplo de como pode estar o estilo */
+.dragIcon {
+  display: inline-block; /* Garantir que o ícone seja exibido */
+  cursor: grab; /* Muda o cursor para indicar que é arrastável */
+}
+
+/* Adicione um estilo para o ícone quando está sendo arrastado */
+.dragIcon:active {
+  cursor: grabbing; /* Muda para 'grabbing' quando o ícone está sendo arrastado */
+}
+  
