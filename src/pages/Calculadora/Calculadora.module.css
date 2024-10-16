@@ -2,4 +2,121 @@
     background-color: white;  
     color: black;  
   }
+
+  .background {
+    background-color: #f3eed9;
+    height: 100vh;
+    width: 100%;
+  }
   
+  .colunaEsquerda {
+    width: 55vw;
+    border-radius: 30px;
+    background: white;
+  }
+
+  .colunaDireita {  
+    width: 30vw;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+  } 
+
+  .conteudoColuna {
+    justify-content: space-between;
+    padding: 1.9rem 2rem;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 1px 7px 0px rgb(225 225 225 / 25%);   
+   
+  }
+
+.container_titulodesc {
+  width: 100%;
+  padding: 2rem 2.7rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  width: 75vh;
+}
+
+.titulo_clnesq {
+  font-family: "Playfair Display";
+  font-size: 2rem;
+}
+
+.descricao {
+  font-family: "Montserrat";
+}
+
+
+.conteudo {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-direction: row-reverse;
+}
+.containerTitulo {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerTitulo > span {
+  font-family: "Playfair Display";
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  flex-grow: 1;
+}
+
+.planejamento {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.colunaDireita {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.conteudoColuna {
+  width: 100%;
+}
+
+
+.divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+
+.buttonExport{ 
+border: #D2D1D1 solid 2px;
+background-color: white;
+border-radius: 06px;
+height: 5vh;
+width: 8vw;
+cursor: pointer;
+font-family: "Montserrat";
+color: #5C5757;
+}
+
+.containerButton {
+  display: flex;
+  justify-content: space-evenly;
+}
+
