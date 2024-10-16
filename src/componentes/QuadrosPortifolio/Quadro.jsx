@@ -3,6 +3,7 @@ import styles from "./Quadros.module.css";
 
 export const Quadro = ({ title, image, rating, reviews, location, description, estrela, line }) => {
   return (
+    <div className={styles["container"]}>
     <div className={styles["group"]}>
       <div className={styles["imagem"]}>
       <img className={styles["mask-group"]} alt={title} src={image} />
@@ -24,6 +25,6 @@ export const Quadro = ({ title, image, rating, reviews, location, description, e
       <p className={styles["p"]}>{description}</p>
       <div className={styles["button"]}>
       <div className={styles["div"]}>Solicitar orçamento</div></div>
-    </div></div>
+    </div></div></div>
   );
 };

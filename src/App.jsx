@@ -10,6 +10,7 @@ import ListaConvidados from './pages/ListaConvidados/ListaConvidados';
 import PlanejadorAssentos from './pages/PlanejadorAssentos/PlanejadorAssentos';
 import ListaTarefas from './pages/ListaTarefas/ListaTarefas';
 import Assessores from './pages/Assessores/Assessores';
+import Locais from './pages/Locais/Locais';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       <Route path='/planejador-assentos' element={<PlanejadorAssentos/>}></Route>
       <Route path='/lista-tarefas' element={<ListaTarefas/>}></Route>
       <Route path='/assessores' element={<Assessores/>}></Route>
+      <Route path='/locais' element={<Locais/>}></Route>
 
     </Routes>
    </Router>

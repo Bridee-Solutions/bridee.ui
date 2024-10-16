@@ -15,6 +15,8 @@ const Container = () => {
         style={{height: '60vh'}}
       />
 
+
+
       <div className={styles["searchBar"]}>
         <SearchBar
           placeholder="Pesquisar por nome do assessor"
