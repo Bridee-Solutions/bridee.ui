@@ -4,11 +4,13 @@ import styles from "./Calculadora.module.css";
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import add from "../../assets/calculadora/add.svg";
 import {
   faChevronDown,
   faChevronUp,
   faFileExport,
 } from "@fortawesome/free-solid-svg-icons";
+import LinkButton from "../../componentes/LinkButton/LinkButton";
 
 function Calculadora() {
   const [categorias, setCategorias] = useState([
@@ -20,6 +22,21 @@ function Calculadora() {
     {
       nome: "Alianças de casamento",
       itens: [{ titulo: "Meu anel", custo: 2000 }],
+      aberta: true,
+    },
+    {
+      nome: "Decoração",
+      itens: [{ titulo: "Teste", custo: 2000 }],
+      aberta: true,
+    },
+    {
+      nome: "Transporte e Acomodação",
+      itens: [{ titulo: "Teste", custo: 2000 }],
+      aberta: true,
+    },
+    {
+      nome: "Entretenimento",
+      itens: [{ titulo: "Teste", custo: 2000 }],
       aberta: true,
     },
   ]);
@@ -60,8 +77,11 @@ function Calculadora() {
               <button className={styles.buttonExport}>
                 <div className={styles.containerButton}>
                   <div>
-                    <FontAwesomeIcon icon={faFileExport} className={styles.iconExport} />{" "}
-                  </div>                  
+                    <FontAwesomeIcon
+                      icon={faFileExport}
+                      className={styles.iconExport}
+                    />{" "}
+                  </div>
                   <span> Exportar </span>
                 </div>
               </button>
@@ -69,46 +89,82 @@ function Calculadora() {
           </div>
 
           {/* Categorias */}
-          {categorias.map((categoria, catIndex) => (
-            <div key={catIndex} className={styles.categoria}>
-              <div className={styles.cabecalhoCategoria}>
-                <button onClick={() => toggleCategoria(catIndex)}>
-                  {categoria.aberta ? (
-                    <FontAwesomeIcon icon={faChevronUp} />
-                  ) : (
-                    <FontAwesomeIcon icon={faChevronDown} />
-                  )}
-                </button>
-                <span className={styles.categoriaNome}>{categoria.nome}</span>
-              </div>
+          <div className={styles.containerCategoria}>
+            <div className={styles.categoriaBox}>
+              {categorias.map((categoria, catIndex) => (
+                <div key={catIndex} className={styles.categoria}>
+                  <div className={styles.cabecalhoCategoria}>
+                    <button
+                      className={styles.setaCategoria}
+                      onClick={() => toggleCategoria(catIndex)}
+                    >
+                      {categoria.aberta ? (
+                        <FontAwesomeIcon
+                          icon={faChevronUp}
+                          className={styles.iconArrow}
+                        />
+                      ) : (
+                        <FontAwesomeIcon icon={faChevronDown} />
+                      )}
+                    </button>
+                    <span className={styles.categoriaNome}>
+                      {categoria.nome}
+                    </span>
+                  </div>
 
-              {categoria.aberta && (
-                <div className={styles.itensCategoria}>
-                  {categoria.itens.map((item, itemIndex) => (
-                    <div key={itemIndex} className={styles.itemCategoria}>
-                      <span>{item.titulo}</span>
-                      <input
-                        type="number"
-                        value={item.custo}
-                        onChange={(e) =>
-                          handleInputChange(e, catIndex, itemIndex)
-                        }
-                        onBlur={(e) =>
-                          handleInputChange(e, catIndex, itemIndex)
-                        }
-                      />
+                  {categoria.aberta && (
+                    <div className={styles.itensCategoria}>
+                      {categoria.itens.map((item, itemIndex) => (
+                        <div key={itemIndex} className={styles.itemCategoria}>
+                          <span>{item.titulo}</span>
+                          <input
+                            type="number"
+                            value={item.custo}
+                            className={styles.inputCusto}
+                            onChange={(e) =>
+                              handleInputChange(e, catIndex, itemIndex)
+                            }
+                            onBlur={(e) =>
+                              handleInputChange(e, catIndex, itemIndex)
+                            }
+                          />
+                        </div>
+                      ))}
+
+                      <button className={styles.adicionarItem}>
+                        <img
+                          src={add}
+                          className={styles.add}
+                          alt="Adicionar item"
+                        />
+                        Adicionar novo item
+                      </button>
                     </div>
-                  ))}
-                  <button className={styles.adicionarItem}>
-                    Adicionar novo item
-                  </button>
+                  )}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
-          <button className={styles.adicionarCategoria}>
-            Adicionar nova categoria
-          </button>
+            <div className={styles.containerInferior}>
+              <div className={styles.box}>
+                <div className={styles.containerEsquerda}>
+                  <div className={styles.containerAdcCategoria}>
+                    <LinkButton label="Adicionar nova categoria" />
+                  </div>
+                </div>
+                <div className={styles.containerDireita}>
+                  <div>
+                    <div className={styles.containerTotal}>
+                      <span>Total atual</span>
+                      <span>500</span>
+                    </div>
+                    <div>
+                      <span>Orçamento: R$ 500.00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className={styles.colunaDireita}>
@@ -122,7 +178,7 @@ function Calculadora() {
               <div className={styles.orcamento}>
                 <ArcoFinanceiro />
               </div>
-            </div>            
+            </div>
           </div>
         </div>
       </div>

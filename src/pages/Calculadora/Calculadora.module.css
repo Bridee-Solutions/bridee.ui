@@ -5,7 +5,7 @@
 
   .background {
     background-color: #f3eed9;
-    height: 100vh;
+    height: 100%;
     width: 100%;
   }
   
@@ -13,6 +13,7 @@
     width: 55vw;
     border-radius: 30px;
     background: white;
+    height: 90vh;
   }
 
   .colunaDireita {  
@@ -120,3 +121,90 @@ color: #5C5757;
   justify-content: space-evenly;
 }
 
+.categoriaBox { 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.categoria {
+width: 90%;
+
+}
+
+.categoriaNome { 
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #2c2c2c;
+  height: 2rem;
+  width: 30vw;
+}
+
+.setaCategoria{ 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+.adicionarItem {
+  background-color: transparent;
+  border: none;
+  color:  #B55557;
+  font-family: "Montserrat";
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.add{
+  width: 1.2rem;
+}
+
+.itemCategoria{
+  font-family: "Montserrat";
+  display: flex;
+  width: 60vw;
+  justify-content: space-between;
+  width: 50vw;
+}
+
+.inputCusto { 
+  background-color: transparent;
+border: none;}
+
+
+.containerCategoria { 
+  display: flex;
+  flex-direction: column;
+}
+
+.containerAdcCategoria { 
+  padding-left: 2rem;
+}
+
+.containerInferior {
+  display: flex;
+  width: 100%;
+}
+
+.box { 
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.containerDireita { 
+  display: flex;
+  flex-direction: column;
+}
+
+.containerTotal { 
+  display: flex;
+  flex-direction: column;
+}
