@@ -1,5 +1,5 @@
 import styles from './ListaTarefas.module.css';
-import "../../index.css"
+import "../../index.css";
 import Navbar from "../../componentes/Navbar/Navbar";
 import OpcaoFiltro from "../../componentes/OpcoesFiltro/OpcaoFiltro";
 

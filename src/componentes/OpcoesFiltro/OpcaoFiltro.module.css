@@ -3,7 +3,9 @@
 }
 
 .checkbox-group h2 {
-    font-size: 1.5rem;
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
@@ -14,6 +16,7 @@
 }
   
 .checkbox-option label {
-    margin-left: 8px;
-    font-size: 1rem;
+    font-family: 'ProductSans';
+    font-size: 20px; 
+    margin-left: 20px;
 }
