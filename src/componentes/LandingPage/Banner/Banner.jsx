@@ -8,6 +8,7 @@ function Banner({ titulo, subtitulo, imagem }) {
   useEffect(() => {
     divImage.current.style.backgroundImage = `url(${imagem})`;
     divImage.current.style.backgroundSize = 'cover'; 
+    divImage.current.style.width = '100%'; 
     divImage.current.style.backgroundPosition = 'center'; 
   }, [imagem]);
 

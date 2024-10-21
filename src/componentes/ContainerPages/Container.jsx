@@ -12,7 +12,7 @@ const Container = () => {
         titulo="Encontre os melhores assessores para seu casamento" 
         subtitulo="Explore nossos profissionais e encontre o assessor ideal para planejar cada detalhe do seu dia perfeito." 
         imagem={bannerAssessores}
-        style={{height: '60vh'}}
+      
       />
 
 

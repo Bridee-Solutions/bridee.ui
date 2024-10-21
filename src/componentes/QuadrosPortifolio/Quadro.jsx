@@ -1,30 +1,22 @@
 import React from "react";
 import styles from "./Quadros.module.css";
 
-export const Quadro = ({ title, image, rating, reviews, location, description, estrela, line }) => {
+export const Quadro = ({ title, image, rating, reviews, location, description, estrela }) => {
   return (
-    <div className={styles["container"]}>
-    <div className={styles["group"]}>
-      <div className={styles["imagem"]}>
-      <img className={styles["mask-group"]} alt={title} src={image} />
+    <div className={styles.quadro}>
+      <img className={styles.image} alt={title} src={image} />
+      <div className={styles.content}>
+        <h3 className={styles.title}>{title}</h3>
+        <div className={styles.ratingContainer}>
+          <img src={estrela} alt="Estrela" className={styles.estrela} />
+          <p>
+            <span className={styles.rating}>{rating}</span> ({reviews} avaliações)
+          </p>
+        </div>
+        <p className={styles.location}>{location}</p>
+        <p className={styles.description}>{description}</p>
+        <button className={styles.button}>Solicitar orçamento</button>
       </div>
-
-<div className={styles["body"]}>
-      <div className={styles["text-wrapper"]}>{title}</div>
-      
-      <div className={styles["div-wrapper-2"]}>
-        <img className={styles["material-symbols"]} alt="Estrela" src={estrela} />
-        <p className={styles["element"]}>
-          <span className={styles["span"]}>{rating} </span>
-          <span className={styles["text-wrapper-3"]}>({reviews})</span>
-        </p>
-      </div>
-
-      <p className={styles["text-wrapper-4"]}>{location}</p>
-      
-      <p className={styles["p"]}>{description}</p>
-      <div className={styles["button"]}>
-      <div className={styles["div"]}>Solicitar orçamento</div></div>
-    </div></div></div>
+    </div>
   );
 };
