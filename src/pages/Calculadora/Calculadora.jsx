@@ -10,6 +10,7 @@ import moda from "../../assets/calculadora/modabeleza.svg";
 import aliancas from "../../assets/calculadora/aliancas.svg";
 import transporte from "../../assets/calculadora/transporteacomodacao.svg";
 import entretenimento from "../../assets/calculadora/entretenimentocalc.svg";
+import CategoriaCalc from "../../componentes/CategoriaCalculadora/CategoriaCalculadora";
 
 import {
   faChevronDown,
@@ -17,34 +18,40 @@ import {
   faFileExport,
 } from "@fortawesome/free-solid-svg-icons";
 import LinkButton from "../../componentes/LinkButton/LinkButton";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 
 function Calculadora() {
   const [categorias, setCategorias] = useState([
     {
+      id: "categoria-1",
       nome: "Moda e beleza",
       icon: moda,
       itens: [{ titulo: "Vestido de Daminha de Honra", custo: 400 }],
       aberta: true,
     },
     {
+      id: "categoria-2",
       nome: "Alianças de casamento",
       icon: aliancas,
       itens: [{ titulo: "Meu anel", custo: 2000 }],
       aberta: true,
     },
     {
+      id: "categoria-3",
       nome: "Decoração",
       icon: decoracao,
       itens: [{ titulo: "Teste", custo: 2000 }],
       aberta: true,
     },
     {
+      id: "categoria-4",
       nome: "Transporte e Acomodação",
       icon: transporte,
       itens: [{ titulo: "Teste", custo: 2000 }],
       aberta: true,
     },
     {
+      id: "categoria-5",
       nome: "Entretenimento",
       icon: entretenimento,
       itens: [{ titulo: "Teste", custo: 2000 }],
@@ -70,6 +77,32 @@ function Calculadora() {
     novasCategorias[catIndex].itens.push({ titulo: "Novo item", custo: 0 });
     setCategorias(novasCategorias);
   };
+
+  function reorganizar(list, startIndex, endIndex) {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+  }
+
+  function onDragEnd(result) {
+    if (!result.destination) {
+      return;
+    }
+
+    console.log(result.source.index); // posicao onde iniciei o drag
+    console.log(result.destination.index); // posicao onde soltei o item
+
+    const items = reorganizar(
+      categorias,
+      result.source.index,
+      result.destination.index
+    );
+
+    console.log(items);
+    setCategorias(items);
+  }
 
   return (
     <div className={styles.background}>
@@ -107,67 +140,33 @@ function Calculadora() {
 
           {/* Categorias */}
           <div className={styles.containerCategoria}>
-            <div className={styles.categoriaBox}>
-              {categorias.map((categoria, catIndex) => (
-                <div key={catIndex} className={styles.categoria}>
-                  <div className={styles.cabecalhoCategoria}>
-                    <button
-                      className={styles.setaCategoria}
-                      onClick={() => toggleCategoria(catIndex)}
-                    >
-                      {categoria.aberta ? (
-                        <FontAwesomeIcon
-                          icon={faChevronUp}
-                          className={styles.iconArrow}
-                        />
-                      ) : (
-                        <FontAwesomeIcon icon={faChevronDown} />
-                      )}
-                    </button>
-                    <img
-                      src={categoria.icon}
-                      className={styles.iconCategoria}
-                    />
-                    <span className={styles.categoriaNome}>
-                      {categoria.nome}
-                    </span>
+            <DragDropContext onDragEnd={onDragEnd}>
+              <Droppable
+                droppableId="categorias"
+                type="list"
+                direction="vertical"
+              >
+                {(provided) => (
+                  <div
+                    className={styles.categoriaBox}
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                  >
+                    {categorias.map((categoria, catIndex) => (
+                      <CategoriaCalc
+                        key={categoria.id}
+                        categoria={categoria}
+                        catIndex={catIndex}
+                        toggleCategoria={toggleCategoria}
+                        handleInputChange={handleInputChange}
+                        adicionarItem={adicionarItem}
+                      />
+                    ))}
+                    {provided.placeholder}
                   </div>
-
-                  {categoria.aberta && (
-                    <div className={styles.itensCategoria}>
-                      {categoria.itens.map((item, itemIndex) => (
-                        <div key={itemIndex} className={styles.itemCategoria}>
-                          <span>{item.titulo}</span>
-                          <input
-                            type="number"
-                            value={item.custo}
-                            className={styles.inputCusto}
-                            onChange={(e) =>
-                              handleInputChange(e, catIndex, itemIndex)
-                            }
-                            onBlur={(e) =>
-                              handleInputChange(e, catIndex, itemIndex)
-                            }
-                          />
-                        </div>
-                      ))}
-
-                      <button
-                        className={styles.adicionarItem}
-                        onClick={() => adicionarItem(catIndex)}
-                      >
-                        <img
-                          src={add}
-                          className={styles.add}
-                          alt="Adicionar item"
-                        />
-                        Adicionar novo item
-                      </button>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+                )}
+              </Droppable>
+            </DragDropContext>
             <div className={styles.containerInferior}>
               <div className={styles.box}>
                 <div className={styles.containerEsquerda}>
