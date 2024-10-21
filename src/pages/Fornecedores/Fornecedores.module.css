@@ -1,0 +1,53 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Exibe 4 colunas */
+    gap: 45px 55px; /* Espaçamento entre as colunas e linhas */
+    padding: 0 100px; /* Padding lateral para centralizar melhor */
+  }
+  
+  .categorias {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .searchBarContainer{
+    position: absolute;
+    bottom: 132px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .box {
+    height: 631px;
+    width: 1920px;
+  }
+  
+
+  .box .rectangle {
+    background-color: #0000005c;
+    height: 627px;
+    left: 0;
+    position: absolute;
+    top: 137px;
+    width: 1920px;
+  }
+
+  h2{
+    font-size: 50px;
+    font-family: 'Playfair Display';
+    line-height: 66px;
+  }
+
+  p{
+    font-size: 27px;
+    font-family: 'Playfair Display';
+    line-height: 35px;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+  

@@ -11,6 +11,7 @@ import PlanejadorAssentos from './pages/PlanejadorAssentos/PlanejadorAssentos';
 import ListaTarefas from './pages/ListaTarefas/ListaTarefas';
 import Assessores from './pages/Assessores/Assessores';
 import Locais from './pages/Locais/Locais';
+import Fornecedores from './pages/Fornecedores/Fornecedores';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
       <Route path='/lista-tarefas' element={<ListaTarefas/>}></Route>
       <Route path='/assessores' element={<Assessores/>}></Route>
       <Route path='/locais' element={<Locais/>}></Route>
+      <Route path='/fornecedores' element={<Fornecedores/>}></Route>
 
     </Routes>
    </Router>
