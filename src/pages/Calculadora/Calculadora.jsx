@@ -10,8 +10,10 @@ import moda from "../../assets/calculadora/modabeleza.svg";
 import aliancas from "../../assets/calculadora/aliancas.svg";
 import transporte from "../../assets/calculadora/transporteacomodacao.svg";
 import entretenimento from "../../assets/calculadora/entretenimentocalc.svg";
+import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
+import {DragDropContext, Droppable} from  '@hello-pangea/dnd';
 
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+// import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import {
   faChevronDown,
   faFileExport,
@@ -75,52 +77,62 @@ function Calculadora() {
 
   const onDragEnd = (result) => {
     console.log("Resultado do Drag:", result); // Log do resultado do drag
-  
+
     const { source, destination } = result;
-  
+
     // Se não houver destino, saia da função
     if (!destination) {
       console.log("Sem destino; a operação foi cancelada.");
       return;
     }
-  
-    // Log dos IDs das categorias e índices
-    console.log(`Arrastado de ${source.droppableId} (índice: ${source.index}) para ${destination.droppableId} (índice: ${destination.index})`);
-  
+ 
     const sourceCategoryIndex = parseInt(source.droppableId, 10);
     const destCategoryIndex = parseInt(destination.droppableId, 10);
-  
+
     // Se não houve mudança de categoria, saia da função
-    if (sourceCategoryIndex === destCategoryIndex && source.index === destination.index) {
-      console.log("Sem mudanças; o item permaneceu na mesma posição.");
+    if (
+      sourceCategoryIndex === destCategoryIndex &&
+      source.index === destination.index
+    ) {      console.log("Sem mudanças; o item permaneceu na mesma posição.");
       return;
     }
-  
+
     // Cria uma cópia das categorias
     const novasCategorias = [...categorias];
-  
+
     // Log da categoria de origem e destino
-    console.log("Categorias antes da atualização:", JSON.stringify(novasCategorias, null, 2));
-  
+    console.log(
+      "Categorias antes da atualização:",
+      JSON.stringify(novasCategorias, null, 2)
+    );
+
     // Remove o item da categoria de origem
-    const [removido] = novasCategorias[sourceCategoryIndex].itens.splice(source.index, 1);
+    const [removido] = novasCategorias[sourceCategoryIndex].itens.splice(
+      source.index,
+      1
+    );
     console.log(`Item removido: ${JSON.stringify(removido)}`);
-  
+
     // Adiciona o item à categoria de destino
-    novasCategorias[destCategoryIndex].itens.splice(destination.index, 0, removido);
-  
+    novasCategorias[destCategoryIndex].itens.splice(
+      destination.index,
+      0,
+      removido
+    );
+
     // Log da atualização das categorias
-    console.log("Categorias após a atualização:", JSON.stringify(novasCategorias, null, 2));
-  
+    console.log(
+      "Categorias após a atualização:",
+      JSON.stringify(novasCategorias, null, 2)
+    );
+
     // Atualiza o estado com as novas categorias
     setCategorias(novasCategorias);
   };
-  
 
   return (
     <div className={styles.background}>
       <Navbar />
-
       <div className={styles.planejamento}>
         <span>Ferramentas de planejamento - Calculadora Financeira</span>
       </div>
@@ -188,38 +200,38 @@ function Calculadora() {
                           <div className={styles.itensCategoria}>
                             {categoria.itens.map((item, itemIndex) => (
                               <Draggable
-                              key={`item-${catIndex}-${itemIndex}`}
-                              draggableId={`item-${catIndex}-${itemIndex}`}
-                              index={itemIndex}
-                            >
-                              {(provided) => (
-                                <div
-                                  ref={provided.innerRef}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                  className={styles.itemCategoria}
-                                >
-                                  {/* Ícone de arrastar */}
-                                  <span className={styles.dragIcon}>
-                                    <FontAwesomeIcon icon={faBars} />
-                                  </span>
-                                  <span>{item.titulo}</span>
-                                  <input
-                                    type="number"
-                                    value={item.custo}
-                                    className={styles.inputCusto}
-                                    onChange={(e) =>
-                                      handleInputChange(
-                                        e,
-                                        catIndex,
-                                        itemIndex
-                                      )
-                                    }
-                                  />
-                                </div>
-                              )}
-                            </Draggable>
-                          ))}
+                                key={`item-${catIndex}-${itemIndex}`}
+                                draggableId={`item-${catIndex}-${itemIndex}`}
+                                index={itemIndex}
+                              >
+                                {(provided) => (
+                                  <div
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                    className={styles.itemCategoria}
+                                  >
+                                    {/* Ícone de arrastar */}
+                                    <span className={styles.dragIcon}>
+                                      <FontAwesomeIcon icon={faBars} />
+                                    </span>
+                                    <span>{item.titulo}</span>
+                                    <input
+                                      type="number"
+                                      value={item.custo}
+                                      className={styles.inputCusto}
+                                      onChange={(e) =>
+                                        handleInputChange(
+                                          e,
+                                          catIndex,
+                                          itemIndex
+                                        )
+                                      }
+                                    />
+                                  </div>
+                                )}
+                              </Draggable>
+                            ))}
                             {provided.placeholder}
                             <button
                               className={styles.adicionarItem}
@@ -271,6 +283,9 @@ function Calculadora() {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Baseboard />
       </div>
     </div>
   );
