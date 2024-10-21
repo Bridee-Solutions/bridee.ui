@@ -1,0 +1,30 @@
+.task-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.task-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.tag {
+    background-color: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.delete-btn {
+    background: none; 
+    border: none; 
+    color: #ff4d4f;
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+}
+
+.delete-btn .icon {
+    font-size: 24px; /* Ajusta o tamanho do ícone */
+}

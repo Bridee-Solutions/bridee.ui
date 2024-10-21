@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './opcaoFiltro.module.css';
+import styles from './OpcaoFiltro.module.css';
 import "../../index.css";
 
 const OpcaoFiltro = ({title, options}) =>{
