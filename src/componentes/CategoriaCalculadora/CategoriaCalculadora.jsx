@@ -28,7 +28,7 @@ function CategoriaCalc({
         >
           <div className={styles.cabecalhoCategoria}>
             <button
-              className={styles.setaCategoria}
+              className={styless.setaCategoria}
               onClick={() => toggleCategoria(catIndex)}
             >
               {categoria.aberta ? (
