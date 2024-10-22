@@ -1,8 +1,8 @@
 import styles from "../../pages/Calculadora/Calculadora.module.css";
+import "./CategoriaCalculadora.module.css";
 import "../../index.css";
 import add from "../../assets/calculadora/add.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { Draggable } from "@hello-pangea/dnd";
 import {
   faChevronDown,
@@ -18,68 +18,78 @@ function CategoriaCalc({
   adicionarItem,
 }) {
   return (
-    <Draggable draggableId={categoria.id} index={catIndex}>
-      {(provided) => (
-        <div
-          className={styles.categoria}
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-        >
-          <div className={styles.cabecalhoCategoria}>
-            <button
-              className={styless.setaCategoria}
-              onClick={() => toggleCategoria(catIndex)}
-            >
-              {categoria.aberta ? (
-                <FontAwesomeIcon
-                  icon={faChevronUp}
-                  className={styles.iconArrow}
-                />
-              ) : (
-                <FontAwesomeIcon icon={faChevronDown} />
-              )}
-            </button>
-            <img src={categoria.icon} className={styles.iconCategoria} />
-            <span className={styles.categoriaNome}>{categoria.nome}</span>
+    <div className={styles.categoria}>
+      <div className={styles.cabecalhoCategoria}>
+        <div className={styles.containerCat}>
+          <button
+            className={styles.setaCategoria}
+            onClick={() => toggleCategoria(catIndex)}
+          >
+            {categoria.aberta ? (
+              <FontAwesomeIcon icon={faChevronUp} />
+            ) : (
+              <FontAwesomeIcon icon={faChevronDown} />
+            )}
+          </button>
+
+          <div className={styles.iconeCategoria}>
+            <img src={categoria.icon} alt="Ícone da Categoria" />
           </div>
 
-          {categoria.aberta && (
-            <div className={styles.itensCategoria}>
-              {categoria.itens.map((item, itemIndex) => (
-                <div key={itemIndex} className={styles.itemCategoria}>
-                  <div>
-                    <FontAwesomeIcon
-                      icon={faGripVertical}
-                      className={styles.dragIcon}
-                      style={{ marginRight: "8px", cursor: "grab" }}
-                      
-                    />
-                    <span>{item.titulo}</span>
-                  </div>
-                  
-                  <input
-                    type="number"
-                    value={item.custo}
-                    className={styles.inputCusto}
-                    onChange={(e) => handleInputChange(e, catIndex, itemIndex)}
-                    onBlur={(e) => handleInputChange(e, catIndex, itemIndex)}
-                  />
-                </div>
-              ))}
-
-              <button
-                className={styles.adicionarItem}
-                onClick={() => adicionarItem(catIndex)}
-              >
-                <img src={add} className={styles.add} alt="Adicionar item" />
-                Adicionar novo item
-              </button>
-            </div>
-          )}
+          <div className={styles.categoriaNome}>{categoria.nome}</div>
         </div>
+      </div>
+
+      {categoria.aberta && (
+        <>
+          {categoria.itens.map((item, itemIndex) => (
+            <Draggable
+              key={item.id}
+              draggableId={String(item.id)}
+              index={itemIndex}
+            >
+              {(provided) => (
+                <div
+                  className={styles.item}
+                  ref={provided.innerRef}
+                  {...provided.draggableProps}
+                  {...provided.dragHandleProps}
+                >
+                  <div className={styles.containerItem}>
+                    <div className={styles.itemEsquerda}>
+                      <FontAwesomeIcon
+                        icon={faGripVertical}
+                        className={styles.gripIcon}
+                      />
+                      <span>{item.titulo}</span>
+                    </div>
+
+                    <div className={styles.inputBox}>
+                      <span>R$</span>
+                      <input
+                        className={styles.inputCusto}
+                        value={item.custo}
+                        onChange={(e) =>
+                          handleInputChange(e, catIndex, itemIndex)
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </Draggable>
+          ))}
+
+          <div
+            className={styles.adicionarItem}
+            onClick={() => adicionarItem(catIndex)}
+          >
+            <img src={add} alt="Adicionar item" />
+            <span>Adicionar item</span>
+          </div>
+        </>
       )}
-    </Draggable>
+    </div>
   );
 }
 

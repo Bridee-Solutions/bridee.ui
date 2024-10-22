@@ -22,6 +22,7 @@ import edit from "../../assets/edit.svg";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 import Assessor from "../../componentes/Assessor/Assessor";
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
+import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 
 function Painel() {
   const [imageUrl, setImageUrl] = useState(null);
@@ -258,16 +259,15 @@ function Painel() {
               <div>
                 <div className={styles.containerOrcamento}>
                   <div className={styles.orcamento}>
-                    <ArcoFinanceiro/>
-                    
+                    <ArcoFinanceiro />
                   </div>
 
                   <div className={styles.containerBotao}>
-                      <LinkButton
-                        to="/calculadora-financeira"
-                        label="Ver calculadora financeira"
-                      />
-                    </div>
+                    <LinkButton
+                      to="/calculadora-financeira"
+                      label="Ver calculadora financeira"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -339,6 +339,10 @@ function Painel() {
           </div>
         </div>
       </div>
+
+      <footer>
+        <Baseboard />
+      </footer>
     </div>
   );
 }

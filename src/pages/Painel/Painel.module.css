@@ -1,11 +1,17 @@
+
+
 .painelBackground {
   background-color: #f3eed9;
-  height: 100%;
+ 
   width: 100%;
+  
 }
+
+
 
 .containerPai {
   width: 100%;
+  
   display: flex;
   justify-content: center;
 }
@@ -405,3 +411,4 @@
 .iconePlanejador > img {
   width: 2.2rem;
 }
+

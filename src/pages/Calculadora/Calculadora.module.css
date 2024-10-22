@@ -3,9 +3,11 @@
     color: black;  
   }
 
+
+
   .background {
     background-color: #f3eed9;
-    height: 100%;
+    height: 100vh;
     width: 100%;
   }
   
@@ -13,7 +15,6 @@
     width: 55vw;
     border-radius: 30px;
     background: white;
-    height: 90vh;
   }
 
   .colunaDireita {  
@@ -62,6 +63,7 @@
   justify-content: space-evenly;
   width: 100%;
   flex-direction: row-reverse;
+  height: 100vh;
 }
 .containerTitulo {
   display: flex;
@@ -81,9 +83,17 @@
 }
 
 .planejamento {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 13px;
+  font-family: "Montserrat";
+  height: 3rem;
+  display: flex;
+}
+
+.planejamento > span {
+  display: flex;
+  align-items: center;
+  width: 42vw;
+    padding-left: 2rem;
 }
 
 
@@ -126,6 +136,7 @@ color: #5C5757;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 1.4rem;
 }
 
 .categoria {
@@ -133,10 +144,16 @@ width: 90%;
 
 }
 
+.containerItem { 
+  display: flex;
+  justify-content: space-between; 
+  font-family: 'Montserrat';
+}
+
 .categoriaNome { 
   font-family: "Montserrat";
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #2c2c2c;
   height: 2rem;
   width: 30vw;
@@ -148,6 +165,10 @@ width: 90%;
   cursor: pointer;
 }
 
+.containerCat {
+  display: flex;
+  align-items: center;
+}
 
 
 .adicionarItem {
@@ -160,10 +181,12 @@ width: 90%;
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-size: 13px;
+
 }
 
 .add{
-  width: 1.2rem;
+  width: 0.8rem;
 }
 
 .itemCategoria{
@@ -204,11 +227,48 @@ border: none;}
   flex-direction: column;
 }
 
-.containerTotal { 
-  display: flex;
-  flex-direction: column;
+.gripIcon {
+  font-size: 1rem; 
+  padding-right: 0.5rem;
 }
 
-.iconCategoria { 
-  width: 2vw;
+.iconeCategoria  > img{ 
+  width: 2.0vw;
+}
+
+.containerTotal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "Montserrat";
+}
+
+.total {   
+  font-weight: 500;
+}
+.valor {
+  color: #636363;
+  border-bottom: #DFDEDE 1px solid;
+  padding-bottom: 5px;
+  width: 25vw;
+  justify-content: flex-end;
+  display: flex;
+
+}
+
+.orcamentoContainer {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.5rem;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.orcamento {
+  color: #545454;
+}
+
+.totalorcamento {
+  color: #939292;
+  padding-left: 0.9rem;
 }

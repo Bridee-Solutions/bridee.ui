@@ -19,6 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import LinkButton from "../../componentes/LinkButton/LinkButton";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
+import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 
 function Calculadora() {
   const [categorias, setCategorias] = useState([
@@ -74,7 +75,11 @@ function Calculadora() {
 
   const adicionarItem = (catIndex) => {
     const novasCategorias = [...categorias];
-    novasCategorias[catIndex].itens.push({ titulo: "Novo item", custo: 0 });
+    novasCategorias[catIndex].itens.push({
+      id: `item-${new Date().getTime()}`, // Garante que o id é uma string
+      titulo: "Novo item",
+      custo: 0,
+    });
     setCategorias(novasCategorias);
   };
 
@@ -86,126 +91,170 @@ function Calculadora() {
     return result;
   }
 
+  // function onDragEnd(result) {
+  //   if (!result.destination) {
+  //     return;
+  //   }
+
+  //   console.log(result.source.index); // posicao onde iniciei o drag
+  //   console.log(result.destination.index); // posicao onde soltei o item
+
+  //   const items = reorganizar(
+  //     categorias,
+  //     result.source.index,
+  //     result.destination.index
+  //   );
+
+  //   console.log(items);
+  //   setCategorias(items);
+  // }
+
   function onDragEnd(result) {
-    if (!result.destination) {
+    const { source, destination } = result;
+
+    if (!destination) {
       return;
     }
 
-    console.log(result.source.index); // posicao onde iniciei o drag
-    console.log(result.destination.index); // posicao onde soltei o item
-
-    const items = reorganizar(
-      categorias,
-      result.source.index,
-      result.destination.index
+    const sourceCatIndex = categorias.findIndex(
+      (cat) => cat.id === source.droppableId
+    );
+    const destinationCatIndex = categorias.findIndex(
+      (cat) => cat.id === destination.droppableId
     );
 
-    console.log(items);
-    setCategorias(items);
+    // Movendo dentro da mesma categoria
+    if (sourceCatIndex === destinationCatIndex) {
+      const novaCategoria = [...categorias];
+      const novaListaItens = reorganizar(
+        novaCategoria[sourceCatIndex].itens,
+        source.index,
+        destination.index
+      );
+      novaCategoria[sourceCatIndex].itens = novaListaItens;
+      setCategorias(novaCategoria);
+    } else {
+      // Movendo entre categorias diferentes
+      const novaCategoria = [...categorias];
+      const [movedItem] = novaCategoria[sourceCatIndex].itens.splice(
+        source.index,
+        1
+      );
+      novaCategoria[destinationCatIndex].itens.splice(
+        destination.index,
+        0,
+        movedItem
+      );
+      setCategorias(novaCategoria);
+    }
   }
 
   return (
-    <div className={styles.background}>
+    <>
       <Navbar />
+      <div className={styles.background}>
+        <div className={styles.planejamento}>
+          <span>Ferramentas de planejamento - Calculadora Financeira</span>
+        </div>
 
-      <div className={styles.planejamento}>
-        <span>Ferramentas de planejamento - Calculadora Financeira</span>
-      </div>
-
-      <div className={styles.conteudo}>
-        <div className={styles.colunaEsquerda}>
-          <div className={styles.container_titulodesc}>
-            <div className={styles.caixa}>
-              <span className={styles.titulo_clnesq}>
-                Calculadora Financeira
-              </span>
-              <span className={styles.descricao}>
-                Lorem ipsum lorem ipsum lorem ipsum
-              </span>
-            </div>
-            <div>
-              <button className={styles.buttonExport}>
-                <div className={styles.containerButton}>
-                  <div>
-                    <FontAwesomeIcon
-                      icon={faFileExport}
-                      className={styles.iconExport}
-                    />{" "}
-                  </div>
-                  <span> Exportar </span>
-                </div>
-              </button>
-            </div>
-          </div>
-
-          {/* Categorias */}
-          <div className={styles.containerCategoria}>
-            <DragDropContext onDragEnd={onDragEnd}>
-              <Droppable
-                droppableId="categorias"
-                type="list"
-                direction="vertical"
-              >
-                {(provided) => (
-                  <div
-                    className={styles.categoriaBox}
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
-                  >
-                    {categorias.map((categoria, catIndex) => (
-                      <CategoriaCalc
-                        key={categoria.id}
-                        categoria={categoria}
-                        catIndex={catIndex}
-                        toggleCategoria={toggleCategoria}
-                        handleInputChange={handleInputChange}
-                        adicionarItem={adicionarItem}
-                      />
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </Droppable>
-            </DragDropContext>
-            <div className={styles.containerInferior}>
-              <div className={styles.box}>
-                <div className={styles.containerEsquerda}>
-                  <div className={styles.containerAdcCategoria}>
-                    <LinkButton label="Adicionar nova categoria" />
-                  </div>
-                </div>
-                <div className={styles.containerDireita}>
-                  <div>
-                    <div className={styles.containerTotal}>
-                      <span>Total atual</span>
-                      <span>500</span>
-                    </div>
+        <div className={styles.conteudo}>
+          <div className={styles.colunaEsquerda}>
+            <div className={styles.container_titulodesc}>
+              <div className={styles.caixa}>
+                <span className={styles.titulo_clnesq}>
+                  Calculadora Financeira
+                </span>
+                <span className={styles.descricao}>
+                  Lorem ipsum lorem ipsum lorem ipsum
+                </span>
+              </div>
+              <div>
+                <button className={styles.buttonExport}>
+                  <div className={styles.containerButton}>
                     <div>
-                      <span>Orçamento: R$ 500.00</span>
+                      <FontAwesomeIcon
+                        icon={faFileExport}
+                        className={styles.iconExport}
+                      />{" "}
+                    </div>
+                    <span> Exportar </span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* Categorias */}
+            <div className={styles.containerCategoria}>
+              <DragDropContext onDragEnd={onDragEnd}>
+                {categorias.map((categoria, catIndex) => (
+                  <Droppable
+                    droppableId={categoria.id}
+                    key={categoria.id}
+                    type="item"
+                  >
+                    {(provided) => (
+                      <div
+                        className={styles.categoriaBox}
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                      >
+                        <CategoriaCalc
+                          categoria={categoria}
+                          catIndex={catIndex}
+                          toggleCategoria={toggleCategoria}
+                          handleInputChange={handleInputChange}
+                          adicionarItem={adicionarItem}
+                        />
+                        {provided.placeholder}
+                      </div>
+                    )}
+                  </Droppable>
+                ))}
+              </DragDropContext>
+              <div className={styles.containerInferior}>
+                <div className={styles.box}>
+                  <div className={styles.containerEsquerda}>
+                    <div className={styles.containerAdcCategoria}>
+                      <LinkButton label="Adicionar nova categoria" />
+                    </div>
+                  </div>
+                  <div className={styles.containerDireita}>
+                    <div>
+                      <div className={styles.containerTotal}>
+                        <span className={styles.total}>Total atual</span>
+                        <span className={styles.valor}>R$500.00</span>
+                      </div>
+                      <div className={styles.orcamentoContainer}>
+                        <span className={styles.orcamento}>Orçamento:</span>
+                        <span className={styles.totalorcamento}>R$ 500.00</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className={styles.colunaDireita}>
-          <div className={styles.conteudoColuna}>
-            <div className={styles.containerTitulo}>
-              <span>Orçamento total</span>
-              <div className={styles.divider}></div>
-            </div>
+          <div className={styles.colunaDireita}>
+            <div className={styles.conteudoColuna}>
+              <div className={styles.containerTitulo}>
+                <span>Orçamento total</span>
+                <div className={styles.divider}></div>
+              </div>
 
-            <div className={styles.containerOrcamento}>
-              <div className={styles.orcamento}>
-                <ArcoFinanceiro />
+              <div className={styles.containerOrcamento}>
+                <div className={styles.orcamento}>
+                  <ArcoFinanceiro />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <footer>
+          <Baseboard />
+        </footer>
       </div>
-    </div>
+    </>
   );
 }
 
