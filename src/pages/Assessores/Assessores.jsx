@@ -11,7 +11,7 @@ function Assessores() {
       <Navbar />
       <Container
         titulo="Encontre os melhores assessores para seu casamento"
-        subtitulo="Explore nossos profissionais e encontre o assessor ideal para planejar cada detalhe do seu dia perfeito."
+        subtitulo="Explore nossos profissionais e encontre o assessor ideal para , planejar cada detalhe do seu dia perfeito."
       />
         <Quadros />
       <Baseboard />

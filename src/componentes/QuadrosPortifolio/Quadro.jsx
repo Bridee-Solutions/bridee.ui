@@ -10,7 +10,7 @@ export const Quadro = ({ title, image, rating, reviews, location, description, e
         <div className={styles.ratingContainer}>
           <img src={estrela} alt="Estrela" className={styles.estrela} />
           <p>
-            <span className={styles.rating}>{rating}</span> ({reviews} avaliações)
+            <span className={styles.rating}>{rating}</span> ({reviews})
           </p>
         </div>
         <p className={styles.location}>{location}</p>

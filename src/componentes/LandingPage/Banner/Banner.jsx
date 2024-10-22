@@ -15,7 +15,7 @@ function Banner({ titulo, subtitulo, imagem }) {
   return (
     <div ref={divImage} className={styles.banner}>
       <h1>{titulo}</h1>
-      <p>{subtitulo}</p>
+      <p className={styles.subtitle}>{subtitulo}</p>
     </div>
   );
 }

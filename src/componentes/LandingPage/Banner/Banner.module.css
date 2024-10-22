@@ -25,7 +25,7 @@
     line-height: 60px;
     letter-spacing: 1.56px;
     font-size: 50px;
-    top:8px;
+    top:-26px;
     margin: 2vh;
     z-index: 1;
     font-family: 'ProductSans';
@@ -36,9 +36,17 @@
     font-weight: 700;
     font-size: 20px;
     font-style: normal;
-    top:9px;
+    top:-24px;
+    line-height: 38px;
     letter-spacing: 1.2px;
     z-index: 1;
     text-transform: uppercase;
     text-align: center;
 }
+.subtitle {
+    white-space: normal;  
+    max-width: 47%;      
+    margin: 0 auto;    
+    line-height: 1.5;     
+  }
+  

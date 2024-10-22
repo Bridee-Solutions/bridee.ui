@@ -13,24 +13,25 @@
   
   .searchBarContainer{
     position: absolute;
-    bottom: 132px;
+    bottom: 175px;
     width: 100%;
     z-index: 1;
   }
 
   .box {
-    height: 624px;
-    width: 1920px;
+    height: 100%;
+    width: 100%;
   }
   
 
   .box .rectangle {
     background-color: #0000005c;
-    height: 627px;
-    left: 0;
+    filter: drop-shadow(29px 7px 11px black);
+    height: 622px;
+    left: -21px;
     position: absolute;
     top: 137px;
-    width: 1920px;
+    width: 101%;
   }
 
   h2{

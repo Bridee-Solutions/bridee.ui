@@ -12,7 +12,7 @@
 
 .quadro {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 29px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   display: flex;
@@ -45,6 +45,14 @@
   margin-bottom: 10px;
 }
 
+.p{
+  font-size: 19px;
+  font-family: 'Product Sans';
+  line-height: 35px;
+  font-weight: 400;
+  color: #A6A6A6;
+}
+
 .estrela {
   width: 20px;
   margin-right: 5px;
@@ -52,7 +60,8 @@
 
 .rating {
   font-weight: bold;
-  color: #ff6b6b;
+  font-size: 19px;
+  color: #0e0d0d;
 }
 
 .location {
