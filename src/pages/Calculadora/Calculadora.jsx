@@ -13,9 +13,8 @@ import entretenimento from "../../assets/calculadora/entretenimentocalc.svg";
 import CategoriaCalc from "../../componentes/CategoriaCalculadora/CategoriaCalculadora";
 
 import {
-  faChevronDown,
-  faChevronUp,
   faFileExport,
+  faPenToSquare
 } from "@fortawesome/free-solid-svg-icons";
 import LinkButton from "../../componentes/LinkButton/LinkButton";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
@@ -148,11 +147,23 @@ function Calculadora() {
       setCategorias(novaCategoria);
     }
   }
+  const [itemEditando, setItemEditando] = useState({
+    catIndex: null,
+    itemIndex: null,
+    field: null,
+  });
+  const handleTituloChange = (e, catIndex, itemIndex) => {
+    const { value } = e.target;
+    const novasCategorias = [...categorias];
+    novasCategorias[catIndex].itens[itemIndex].titulo = value;
+    setCategorias(novasCategorias);
+  };
 
   return (
-    <>
-      <Navbar />
+    
+    
       <div className={styles.background}>
+      <Navbar />
         <div className={styles.planejamento}>
           <span>Ferramentas de planejamento - Calculadora Financeira</span>
         </div>
@@ -165,7 +176,9 @@ function Calculadora() {
                   Calculadora Financeira
                 </span>
                 <span className={styles.descricao}>
-                  Lorem ipsum lorem ipsum lorem ipsum
+                  Organize os gastos do seu evento por categorias, adicionando
+                  itens e valores. Veja o total atualizado e exporte suas
+                  informações a qualquer momento.{" "}
                 </span>
               </div>
               <div>
@@ -203,6 +216,9 @@ function Calculadora() {
                           catIndex={catIndex}
                           toggleCategoria={toggleCategoria}
                           handleInputChange={handleInputChange}
+                          handleTituloChange={handleTituloChange} // Nova função para editar título
+                          itemEditando={itemEditando}
+                          setItemEditando={setItemEditando}
                           adicionarItem={adicionarItem}
                         />
                         {provided.placeholder}
@@ -238,7 +254,20 @@ function Calculadora() {
           <div className={styles.colunaDireita}>
             <div className={styles.conteudoColuna}>
               <div className={styles.containerTitulo}>
-                <span>Orçamento total</span>
+                <div className={styles.tituloBotao}>
+                  <span>Orçamento total</span>
+                  <button className={styles.buttonExport}>
+                    <div className={styles.containerButton}>
+                      <div>
+                        <FontAwesomeIcon
+                          icon={faPenToSquare}
+                          className={styles.iconExport}
+                        />{" "}
+                      </div>
+                      <span> Editar </span>
+                    </div>
+                  </button>
+                </div>
                 <div className={styles.divider}></div>
               </div>
 
@@ -254,7 +283,7 @@ function Calculadora() {
           <Baseboard />
         </footer>
       </div>
-    </>
+    
   );
 }
 

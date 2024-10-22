@@ -1,14 +1,15 @@
 .selecao-ativa {
     background-color: white;  
     color: black;  
+    
   }
 
 
 
   .background {
     background-color: #f3eed9;
-    height: 100vh;
     width: 100%;
+    
   }
   
   .colunaEsquerda {
@@ -55,6 +56,8 @@
 
 .descricao {
   font-family: "Montserrat";
+  font-size: 0.9rem;
+  width: 38vw;
 }
 
 
@@ -63,17 +66,21 @@
   justify-content: space-evenly;
   width: 100%;
   flex-direction: row-reverse;
-  height: 100vh;
+  padding-bottom: 2rem;
 }
 .containerTitulo {
   display: flex;
   flex-direction: column;
 }
 
-.containerTitulo > span {
+.tituloBotao > span {
   font-family: "Playfair Display";
   font-size: 1.5rem;
-  padding-bottom: 5px;
+}
+
+.tituloBotao { 
+  display: flex;
+  justify-content: space-between;
 }
 
 .divider {
@@ -137,11 +144,16 @@ color: #5C5757;
   flex-direction: column;
   align-items: center;
   padding-bottom: 1.4rem;
+
 }
 
-.categoria {
-width: 90%;
 
+.itemEsquerda { 
+  border-bottom: #DFDEDE 1px solid;
+  width: 45vw;
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+  font-size: 15px;
 }
 
 .containerItem { 
@@ -157,6 +169,8 @@ width: 90%;
   color: #2c2c2c;
   height: 2rem;
   width: 30vw;
+  display: flex;
+  align-items: center;
 }
 
 .setaCategoria{ 
@@ -182,7 +196,11 @@ width: 90%;
   align-items: center;
   cursor: pointer;
   font-size: 13px;
-
+  padding-top: 10px;
+}
+.adicionarItem > span {
+  
+  padding-left: 5px;
 }
 
 .add{
@@ -197,10 +215,22 @@ width: 90%;
   width: 50vw;
 }
 
+
+
+.categoria { 
+  width: 90%;
+
+}
 .inputCusto { 
   background-color: transparent;
 border: none;}
 
+.inputCusto:focus {
+  border-color: #007bff;
+  background-color: #f0f8ff;
+  outline: none;
+  font-family: 'Montserrat';
+}
 
 .containerCategoria { 
   display: flex;
@@ -214,6 +244,8 @@ border: none;}
 .containerInferior {
   display: flex;
   width: 100%;
+  height: 20vh;
+  justify-content: center;
 }
 
 .box { 
@@ -230,6 +262,7 @@ border: none;}
 .gripIcon {
   font-size: 1rem; 
   padding-right: 0.5rem;
+  padding-left: 0.5rem;;
 }
 
 .iconeCategoria  > img{ 
@@ -272,3 +305,13 @@ border: none;}
   color: #939292;
   padding-left: 0.9rem;
 }
+
+.inputBox { 
+width: 9vw;
+display: flex;
+justify-content: flex-end;
+}
+
+.inputCusto { 
+  width: 4vw;
+  }

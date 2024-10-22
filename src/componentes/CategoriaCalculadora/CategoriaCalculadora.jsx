@@ -15,6 +15,9 @@ function CategoriaCalc({
   catIndex,
   toggleCategoria,
   handleInputChange,
+  handleTituloChange,
+  itemEditando,
+  setItemEditando,
   adicionarItem,
 }) {
   return (
@@ -61,18 +64,42 @@ function CategoriaCalc({
                         icon={faGripVertical}
                         className={styles.gripIcon}
                       />
-                      <span>{item.titulo}</span>
+                      {itemEditando.catIndex === catIndex && itemEditando.itemIndex === itemIndex ? (
+                        // Campo de texto para edição
+                        <input
+                          type="text"
+                          value={item.titulo}
+                          onChange={(e) =>
+                            handleTituloChange(e, catIndex, itemIndex)
+                          }
+                          onBlur={() => setItemEditando({ catIndex: null, itemIndex: null })} // Sai do modo de edição ao desfocar
+                          className={styles.inputTitulo}
+                        />
+                      ) : (
+                        // Exibe o título e habilita o modo de edição ao clicar
+                        <span onClick={() => setItemEditando({ catIndex, itemIndex })}>
+                          {item.titulo}
+                        </span>
+                      )}
                     </div>
 
                     <div className={styles.inputBox}>
                       <span>R$</span>
-                      <input
-                        className={styles.inputCusto}
-                        value={item.custo}
-                        onChange={(e) =>
-                          handleInputChange(e, catIndex, itemIndex)
-                        }
-                      />
+                      {itemEditando.catIndex === catIndex && itemEditando.itemIndex === itemIndex && itemEditando.field === 'custo' ? (
+                        <input
+                          className={styles.inputCusto}
+                          value={item.custo}
+                          onChange={(e) =>
+                            handleInputChange(e, catIndex, itemIndex)
+                          }
+                          onBlur={() => setItemEditando({ catIndex: null, itemIndex: null, field: null })}
+                          className={styles.inputCusto}
+                        />
+                      ) : (
+                        <span onClick={() => setItemEditando({ catIndex, itemIndex, field: 'custo' })}>
+                          {item.custo}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>

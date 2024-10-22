@@ -3,6 +3,11 @@ html, body {
     
 }
 
+html, body, #root, .App {
+    height: 100%;
+  }
+
+
 @font-face {
     font-family: 'Qlassy';
     src: url('/src/assets/fonts/Qlassy.ttf') format('truetype');
