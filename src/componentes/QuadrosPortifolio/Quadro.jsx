@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Quadros.module.css";
+import line from "../../assets/line.svg";
 
 export const Quadro = ({ title, image, rating, reviews, location, description, estrela }) => {
   return (
@@ -10,10 +11,12 @@ export const Quadro = ({ title, image, rating, reviews, location, description, e
         <div className={styles.ratingContainer}>
           <img src={estrela} alt="Estrela" className={styles.estrela} />
           <p>
-            <span className={styles.rating}>{rating}</span> ({reviews})
+            <span className={styles.rating}>{rating}</span>
+            <span className={styles.reviews}>({reviews})</span>
+            <img src={line} alt="Traço" className={styles.traco} />
+            <span className={styles.location}>{location}</span>
           </p>
         </div>
-        <p className={styles.location}>{location}</p>
         <p className={styles.description}>{description}</p>
         <button className={styles.button}>Solicitar orçamento</button>
       </div>

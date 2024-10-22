@@ -101,8 +101,10 @@
 }
 
 .estrela {
-    width: 20px;
-    margin-right: 5px;
+    width: 26px;
+    margin-right: 7px;
+    height: 27px;
+    margin-top: -10px;
 }
 
 .rating {
