@@ -1,0 +1,13 @@
+.progress_bar_border{
+    width: 70%;
+    border-radius: 15px;
+    height: 9%;
+    border: none;
+    background-color: #e7e7e7;;
+}
+
+.progress_bar{
+    height: 100%;
+    border-radius: 15px;
+    background-color: #c6524e;
+}

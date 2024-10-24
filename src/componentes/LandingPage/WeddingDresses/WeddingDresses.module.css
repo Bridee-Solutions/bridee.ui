@@ -43,7 +43,7 @@
 }
 
 .wedding_dresses .context button:hover {
- background-color: #f3f3f3;
+    background-color: #f3f3f3;
 }
 
 .wedding_dresses .container_images {
@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    background-image: url('../assets/Wedding_dress_bg.svg');
+    background-image: url('../../../assets/Wendding_dress_bg.svg');
     background-position: right;
     background-repeat: no-repeat;
 }
@@ -60,4 +60,35 @@
 .container_images .carousel {
     width: 100%;
     height: 75%;
+}
+
+@media(max-width:768px) {
+    .wedding_dresses {
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .wedding_dresses .context {
+        width: 100%;
+        height: fit-content;
+    }
+    
+    .wedding_dresses .container_images {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        background-image: url('../../../assets/wendding_dress_bg_mobile.svg');
+        background-position: right top;
+        background-size: 90%;  
+        background-repeat: no-repeat;
+    }
+    
+    img {
+        height: 50vh !important;
+    }
+    
 }

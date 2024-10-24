@@ -31,6 +31,10 @@
     font-family: 'ProductSans';
 }
 
+.banner div{
+    margin: 2vh;
+}
+
 .banner p {
     font-family: 'ProductSans';
     font-weight: 700;
@@ -43,10 +47,20 @@
     text-transform: uppercase;
     text-align: center;
 }
+
 .subtitle {
     white-space: normal;  
     max-width: 47%;      
     margin: 0 auto;    
     line-height: 1.5;     
-  }
-  
+}
+
+@media (max-width: 768px) {
+    .banner h1{
+        font-size: 24px;
+    }
+    
+    .banner p {
+        font-size: 16px;
+    }
+}

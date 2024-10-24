@@ -13,6 +13,8 @@ function Categories() {
   return (
     <section className={styles.categories}>
     <h1>Descubra fornecedores de casamento por categoria</h1>
+    <div className={styles.sliderWrapper}>
+
     <div className={styles.container}>
       <div>
         <img src={Videography}/>
@@ -54,6 +56,7 @@ function Categories() {
         <p>Noivo</p>
       </div>
     </div>   
+    </div>
     </section>
   );
 }

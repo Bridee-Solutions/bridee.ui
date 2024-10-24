@@ -3,6 +3,10 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage/LandingPage'
 import Login from './pages/Login/Login';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
+import Cadastro from './pages/Cadastro/Cadastro';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer } from 'react-toastify';
+import ReenviarEmail from './pages/ReenviarEmail/ReenviarEmail';
 import Error from "./pages/Error/Error"
 import Painel from './pages/Painel/Painel';
 import Calculadora from './pages/Calculadora/Calculadora';
@@ -24,6 +28,8 @@ function App() {
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/tela-inicial' element={<TelaInicial/>}></Route>
+      <Route path='/cadastrar' element={<Cadastro/>}></Route>
+      <Route path='/reenviar-email' element={<ReenviarEmail/>}></Route>
       <Route path='*' element={<Error/>}></Route>      
       <Route path='/painel' element={<Painel/>}></Route>
       <Route path='/calculadora-financeira' element={<Calculadora/>}></Route>
@@ -38,6 +44,7 @@ function App() {
       <Route path='/FornecedoresCategorias' element={<FornecedoresCategorias/>}></Route>
 
     </Routes>
+    <ToastContainer autoClose={2000}/>
    </Router>
   )
 }
