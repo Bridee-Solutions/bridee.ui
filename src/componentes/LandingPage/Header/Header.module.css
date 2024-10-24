@@ -175,7 +175,9 @@ header {
   }
   
   .closed {
-    display: none;
+    opacity: 0%;
+    width: 0%;
+    transition: 0.5s;
   }
   
   .open {

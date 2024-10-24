@@ -112,6 +112,10 @@
     height: fit-content;
   }
 
+  .faq{
+    width: 100%;
+  }
+
   .footer_sections {
     height: fit-content;
     padding: 3vh 8vw;

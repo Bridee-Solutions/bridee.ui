@@ -74,11 +74,13 @@ function Footer() {
         <section className={styles.Footer}>
         <div className={styles.footer_sections}>
         <div className={styles.footer_mobile}>
-        <Faq
-        data={data}
-        styles={style}
-        config={config}
-        />    
+        <div className={styles.faq}>
+            <Faq
+            data={data}
+            styles={style}
+            config={config}
+            />    
+        </div>
         <div className={styles.footer_social_media}>
         <div><FontAwesomeIcon icon={faLinkedin} size='2xl'/></div>
         <div><FontAwesomeIcon icon={faInstagram} size='2xl'/></div>
