@@ -13,6 +13,7 @@ import Assessores from './pages/Assessores/Assessores';
 import Locais from './pages/Locais/Locais';
 import Fornecedores from './pages/Fornecedores/Fornecedores';
 import LocaisCategorias from './pages/LocaisCategorias/LocaisCategorias';
+import Services from './pages/Services/Services';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
       <Route path='/locais' element={<Locais/>}></Route>
       <Route path='/fornecedores' element={<Fornecedores/>}></Route>
       <Route path='/LocaisCategorias' element={<LocaisCategorias/>}></Route>
+      <Route path='/Services' element={<Services/>}></Route>
 
     </Routes>
    </Router>
