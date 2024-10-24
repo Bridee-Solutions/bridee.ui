@@ -2,7 +2,7 @@
     background-image: linear-gradient(rgba(48, 48, 48, 0.60), rgba(48, 48, 48, 0.60)),  url('../../../assets/wedding_planner.svg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     margin: 10vh 0px;
     height: 86vh;
     width: 100%;
@@ -15,7 +15,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: left;
-    padding: 15vh 6vw;
+    padding: 10vh 6vw;
     gap: 35px;
 }
 
@@ -83,3 +83,37 @@
     text-decoration-line: underline;
 }
 
+@media(max-width:768px) {
+
+    .wedding_planner {
+        height: 65vh;
+    }
+
+    .wedding_planner .container{
+        width: 100%;
+        align-items: start;
+    }
+    
+    .wedding_planner .container h1{
+        font-size: 42px;
+    }
+    
+    .wedding_planner .container h4{
+        font-size: 15px;
+    }
+    
+    .wedding_planner .container button{
+        font-size: 18px;
+        border-radius: 7px;
+        padding: 2vh 8vw;
+    }
+
+    .wedding_planner .container p{
+        font-size: 15px;
+        
+    }
+    
+    .wedding_planner .container a{
+        font-size: 15px;
+    }
+}
