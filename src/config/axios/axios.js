@@ -2,14 +2,39 @@ import axios from 'axios';
 
 // TODO: Usar variável de ambiente.
 const baseUrl = `http://localhost:8080`;
-const Api = axios.create({
-    baseURL: baseUrl
+export const Api = axios.create({
+    baseURL: baseUrl,
+    withCredentials: true
 });
 
-const response = (response) => response.data
+const response = (response) => response
 
 export const request = {
     getAssessores: async () => {
-        return  await Api.get(`/assessores`).then(response);
+        return  await Api.get(`/assessores`).then(response.data);
+    },
+    saveCasal: async (usuario) => {
+        return await Api.post(`/casais`, usuario).then(response)
+    },
+    saveCasalExterno: async (usuario) => {
+        return await Api.post(`/casais/externo`, usuario).then(response)
+    },
+    verifyUserEmail: async (email) => {
+        return await Api.get(`/usuarios/${email}`).then(response)
+    },
+    authenticate: async (usuario) => {
+        return await Api.post(`/authentication`, usuario).then(response)
+    },
+    resendVerificationEmail: async(email) => {
+        return await Api.get(`/usuarios/resend/verification-email/${email}`).then(response)
+    },
+    saveAssessor: async(usuario) => {
+        return await Api.post(`/assessores`, usuario).then(response)
+    },
+    saveAssessorExterno: async(usuario) => {
+        return await Api.post(`/assessores/externo`, usuario).then(response)
+    },
+    verifyAssessorEmpresaEmailAndCnpj: async(assessorFields) => {
+        return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
     }
 }
