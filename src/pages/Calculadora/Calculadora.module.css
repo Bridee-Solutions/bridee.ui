@@ -9,6 +9,7 @@
   .background {
     background-color: #f3eed9;
     width: 100%;
+    height: 100vh;
     
   }
   
@@ -67,6 +68,7 @@
   width: 100%;
   flex-direction: row-reverse;
   padding-bottom: 2rem;
+  background-color: #f3eed9;   
 }
 .containerTitulo {
   display: flex;
@@ -150,7 +152,7 @@ color: #5C5757;
 
 .itemEsquerda { 
   border-bottom: #DFDEDE 1px solid;
-  width: 45vw;
+  width: 35vw;
   padding-bottom: 0.4rem;
   padding-top: 0.4rem;
   font-size: 15px;
@@ -310,8 +312,16 @@ border: none;}
 width: 9vw;
 display: flex;
 justify-content: flex-end;
+border-bottom: #DFDEDE 1px solid;
+width: 100px;
+padding-top:  0.4rem;
 }
 
 .inputCusto { 
   width: 4vw;
+  }
+
+  .inputCusto { 
+    border-bottom: #DFDEDE 1px solid;
+    width: 100px;
   }

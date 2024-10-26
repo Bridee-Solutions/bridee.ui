@@ -91,28 +91,33 @@ function Categorias() {
       {modalAberto && (
         <Modal>
           <ModalHeader onClose={fecharModal}>
-            <h2>Adicionar {categoriaSelecionada}</h2>
+            <div className={styles.containerHeaderModal}>
+              <span>Adicionar {categoriaSelecionada}</span>
+            </div>
           </ModalHeader>
-              <ModalBody>
-                <div className={styles.containerModal}>
-                  <div className={styles.form_group}>
-                    <label htmlFor="categoriaSelect">
-                      Nome do fornecedor que você fechou negócio
-                    </label>
-                  </div>
-                  <div className={styles.search_input_container}>
-                    <input
-                      type="text"
-                      id=""
-                      className={styles.search_input}
-                      placeholder={`Digite o nome do ${categoriaSelecionada}`}
-                    />
-                    <button className={styles.search_button}>
-                      <FontAwesomeIcon icon={faSearch} className={styles.iconSearch} />
-                    </button>
-                  </div>
-                </div>
-              </ModalBody>
+          <ModalBody>
+            <div className={styles.containerModal}>
+              <div className={styles.form_group}>
+                <label htmlFor="categoriaSelect">
+                  Nome do fornecedor que você fechou negócio
+                </label>
+              </div>
+              <div className={styles.search_input_container}>
+                <input
+                  type="text"
+                  id=""
+                  className={styles.search_input}
+                  placeholder={`Digite o nome`}
+                />
+                <button className={styles.search_button}>
+                  <FontAwesomeIcon
+                    icon={faSearch}
+                    className={styles.iconSearch}
+                  />
+                </button>
+              </div>
+            </div>
+          </ModalBody>
           <ModalFooter>
             <ModalFooterButton
               button="cancel_button"

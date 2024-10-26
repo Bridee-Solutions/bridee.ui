@@ -58,10 +58,12 @@ height: 27vh;
     width: 100%;
     gap: 10px;
     border-bottom: 1px solid #C3C3C3;
-    font-family: 'Playfair Display';
-   
-    
+    font-family: 'Playfair Display';       
+    font-size: 1.6rem;
+    font-weight: 600;
 }
+
+
 
 .containerSuperior { 
     width: 100%;
@@ -93,7 +95,7 @@ height: 27vh;
     width: 35vw;
 }
 
-.modal_body h1 {
+.modal_body h2 {
     font-family: "ProductSans";
     font-size: 30px;
     color: #000000;
@@ -179,6 +181,10 @@ height: 27vh;
     transition: 0.5s;
     cursor: pointer;
 }
+.modal_footer .cancel_button:hover {
+    background-color: #e0e0e0;
+}
+
 
 .modal_footer .add_button {
     display: flex;
@@ -218,4 +224,5 @@ height: 27vh;
 .modal_footer .add_button:hover {
     background-color: #d85b4c;
 }
+
 

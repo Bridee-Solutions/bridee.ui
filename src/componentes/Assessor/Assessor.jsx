@@ -44,7 +44,7 @@ function Assessor({ nome, descricao }) {
       {modalAberto && (
         <Modal>
           <ModalHeader onClose={fecharModal}>
-            <h2>Adicionar Assessor </h2>
+            <span>Adicionar Assessor </span>
           </ModalHeader>
           <ModalBody>
             <div className={styles.containerModal}>

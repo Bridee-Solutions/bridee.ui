@@ -2,7 +2,7 @@
 
 .painelBackground {
   background-color: #f3eed9;
- 
+  height: 100vh;
   width: 100%;
   
 }
@@ -168,6 +168,8 @@
   justify-content: space-evenly;
   width: 100%;
   padding-bottom: 90px;
+  background: #F3EED9;
+  
 }
 
 .colunaEsquerda {
