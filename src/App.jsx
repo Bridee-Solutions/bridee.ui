@@ -19,6 +19,8 @@ import Fornecedores from './pages/Fornecedores/Fornecedores';
 import Services from './pages/Services/Services';
 import LocaisCategorias from './pages/LocaisCategorias/LocaisCategorias';
 import FornecedoresCategorias from './pages/FornecedoresCategorias/FornecedoresCategorias';
+import ConfirmarPresenca from './pages/ConfirmarPresença/ConfirmarPresenca';
+
 
 function App() {
 
@@ -42,6 +44,8 @@ function App() {
       <Route path='/LocaisCategorias' element={<LocaisCategorias/>}></Route>
       <Route path='/Services' element={<Services/>}></Route>
       <Route path='/FornecedoresCategorias' element={<FornecedoresCategorias/>}></Route>
+      <Route path='/confirmarPresenca' element={<ConfirmarPresenca/>}></Route>
+     
 
     </Routes>
     <ToastContainer autoClose={2000}/>
