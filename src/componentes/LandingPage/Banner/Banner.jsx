@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styles from './Banner.module.css';
+import SearchBar from '../SearchBar/SearchBar';
 
 function Banner({ titulo, subtitulo, imagem }) {
 
@@ -16,6 +17,9 @@ function Banner({ titulo, subtitulo, imagem }) {
     <div ref={divImage} className={styles.banner}>
       <h1>{titulo}</h1>
       <p className={styles.subtitle}>{subtitulo}</p>
+      <SearchBar
+          placeholder="Pesquisar por nome do assessor"
+        />
     </div>
   );
 }

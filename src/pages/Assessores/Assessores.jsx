@@ -4,18 +4,24 @@ import Container from "../../componentes/ContainerPages/Container";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import styles from "./Assessores.module.css";
 import { Quadros } from "../../componentes/QuadrosPortifolio/Quadros";
+import bannerAssessores from "../../assets/bannerAssessores.png"
 
 function Assessores() {
   return (
-    <>
+    <div className={styles.assessores_page}>
       <Navbar />
       <Container
-        titulo="Encontre os melhores assessores para seu casamento"
-        subtitulo="Explore nossos profissionais e encontre o assessor ideal para , planejar cada detalhe do seu dia perfeito."
+        bannerTitle="Encontre os melhores assessores para seu casamento"
+        bannerSubtitle="Explore nossos profissionais e encontre o assessor ideal para , planejar cada detalhe do seu dia perfeito."
+        bannerImage={bannerAssessores}
       />
-        <Quadros />
-      <Baseboard />
-    </>
+      <div className={styles.assessores_content}>
+          <Quadros />
+      </div>
+      <div className={styles.assessores_footer}>
+        <Baseboard/>
+      </div>
+    </div>
   );
 }
 

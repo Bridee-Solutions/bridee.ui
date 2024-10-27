@@ -10,16 +10,16 @@ export const Quadro = ({ title, image, rating, reviews, location, description, e
         <h3 className={styles.title}>{title}</h3>
         <div className={styles.ratingContainer}>
           <img src={estrela} alt="Estrela" className={styles.estrela} />
-          <p>
-            <span className={styles.rating}>{rating}</span>
-            <span className={styles.reviews}>({reviews})</span>
-            <img src={line} alt="Traço" className={styles.traco} />
-            <span className={styles.location}>{location}</span>
-          </p>
+          <span className={styles.rating}>{rating}</span>
+          <span className={styles.reviews}>({reviews})</span>
+          <img src={line} alt="Traço" className={styles.traco} />
+          <span className={styles.location}>{location}</span>
         </div>
         <p className={styles.description}>{description}</p>
-        <button className={styles.button}>Solicitar orçamento</button>
       </div>
+       <div className={styles.button_div}>
+          <button className={styles.button}>Solicitar orçamento</button>
+       </div>
     </div>
   );
 };

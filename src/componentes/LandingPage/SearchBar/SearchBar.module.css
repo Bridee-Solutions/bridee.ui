@@ -2,7 +2,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 8vh 0px;
+  margin: 5% 0px;
+  z-index: 1;
 }
 
 .search_bar {
@@ -10,7 +11,7 @@
   background-color: #F2F2F2;
   border:1px solid #AAAAAA;
   display: flex;
-  height: 8vh;
+  height: 100%;
   width: 65%;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +22,7 @@
   background-color: transparent;
   border: transparent;
   border-radius: 80px;
-  padding: 0px 2vw;
+  padding: 0px 4%;
   height: 100%;
   font-size: 20px;
   font-family: 'Montserrat';

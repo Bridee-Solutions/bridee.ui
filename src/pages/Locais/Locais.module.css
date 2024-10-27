@@ -1,3 +1,8 @@
+.locais_page{
+    width: 100vw;
+    height: 100vh;
+}
+
 .quadrosContainer {
     padding: 40px;
     background-color: #f9f7ef;
@@ -7,13 +12,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-}
-
-.searchBarContainer {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
 }
 
 .quadro .image {
@@ -56,14 +54,6 @@
     background-color: #c56a66;
 }
 
-.searchButton {
-    background-color: #dd7b77;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 .quadro {
     background-color: #fff;
@@ -80,10 +70,6 @@
     width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
-}
-
-.content {
-    padding: 0 10px;
 }
 
 .title {
@@ -182,3 +168,6 @@
     }
   }
   
+  .locais_footer{
+    height: 10%;
+  }

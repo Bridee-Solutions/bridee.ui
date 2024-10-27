@@ -1,11 +1,16 @@
-.landing_page {
-    background-color: #e8e0bd;
-    display: flex;
-    width: 1920px;
-    height: 2617px;
-    top:285px;
-    left: 4905px;
-    flex-direction: column;
-  }
+.assessores_page {
+    width: 100vw;
+    height: 100vh;
+}
+
+.assessores_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.assessores_footer{
+  height: 10%;
+}
 
   

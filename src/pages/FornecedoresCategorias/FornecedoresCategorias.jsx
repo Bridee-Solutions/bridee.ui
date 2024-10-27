@@ -18,6 +18,7 @@ import moda from '../../assets/moda.png';
 import videografo from '../../assets/videografo.png';
 import papelaria from '../../assets/papelaria.png';
 import entretenimento from '../../assets/entretenimento.png';
+import Container from '../../componentes/ContainerPages/Container';
 
 const FornecedoresCategorias = () => {
 
@@ -37,22 +38,18 @@ const FornecedoresCategorias = () => {
   ];
 
   return (
-    <div>
+    <div className={styles.categorias_page}>
       <Navbar />
-      <div className={styles["box"]}>
-        <div className={styles["rectangle"]}></div>
-        <Banner
-          titulo="Encontre os melhores fornecedores para seu casamento"
-          subtitulo="Descubra e contrate os fornecedores para vestuário, decoração, gastronomia e muito mais."
-          imagem={bannerImage}
+        <Container
+          bannerTitle="Encontre os melhores fornecedores para seu casamento"
+          bannerSubtitle="Descubra e contrate os fornecedores para vestuário, decoração, gastronomia e muito mais."
+          bannerImage={bannerImage}
         />
-        <div className={styles.searchBarContainer}>
-          <SearchBar placeholder="Pesquisar por nome do fornecedor" />
-        </div>
-      </div>
       <div className={styles.categorias}>
-        <h2>Navegar por categoria</h2>
-        <p>Explore os melhores fornecedores de casamento em todas as categorias e descubra o melhor dos melhores para o seu dia especial.</p>
+        <div className={styles.categorias_title}>
+          <h2>Navegar por categoria</h2>
+          <p>Explore os melhores fornecedores de casamento em todas as categorias e descubra o melhor dos melhores para o seu dia especial.</p>
+        </div>
         <div className={styles.grid}>
           {categorias.map((categoria, index) => (
             <Card
@@ -63,8 +60,10 @@ const FornecedoresCategorias = () => {
             />
           ))}
         </div>
+        <div className={styles.categorias_footer}>
+          <Baseboard />
+        </div>
       </div>
-      <Baseboard />
     </div>
   );
 };

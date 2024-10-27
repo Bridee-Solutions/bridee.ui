@@ -13,6 +13,7 @@ import beach from "../../assets/beach.png";
 import chez from "../../assets/chez.png";
 import castelo from "../../assets/castelo.png";
 import pordosol from "../../assets/pordosol.png";
+import Container from "../../componentes/ContainerPages/Container";
 
 const Locais = () => {
     const locais = [
@@ -67,19 +68,13 @@ const Locais = () => {
     ];
 
     return (
-        <>
+        <div className={styles.locais_page}>
             <Navbar />
-            <div className={styles["box"]}>
-                <div className={styles["rectangle"]}></div>
-                <Banner
-                    titulo="Encontre os melhores locais para seu casamento"
-                    subtitulo="Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais para um dia verdadeiramente memorável."
-                    imagem={bannerLocais}
-                />
-                <div className={styles.searchBarContainer}>
-                    <SearchBar placeholder="Pesquisar por nome do local" />
-                </div>
-            </div>
+            <Container
+                bannerTitle="Encontre os melhores locais para seu casamento"
+                bannerSubtitle="Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais para um dia verdadeiramente memorável."
+                bannerImage={bannerLocais}
+            />
 
             <div className={styles.quadrosContainer}>
                 <div className={styles.gridQuadros}>
@@ -97,9 +92,10 @@ const Locais = () => {
                     ))}
                 </div>
             </div>
-
-            <Baseboard />
-        </>
+            <div className={styles.locais_footer}>
+                <Baseboard />
+            </div>
+        </div>
     );
 };
 

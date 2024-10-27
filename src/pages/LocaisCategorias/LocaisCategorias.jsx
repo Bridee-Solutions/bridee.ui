@@ -14,6 +14,7 @@ import hotels from "../../assets/hotel.png";
 import sits from "../../assets/sitio.png";
 import igrejas from "../../assets/igreja.png";
 import banner from "../../assets/bannerLocais.png"
+import Container from "../../componentes/ContainerPages/Container";
 
 
 
@@ -30,22 +31,18 @@ const LocaisCategorias = () => {
      ];
     
       return (
-        <div>
+        <div className={styles.locais_categorias}>
           <Navbar />
-          <div className={styles["box"]}>
-            <div className={styles["rectangle"]}></div>
-            <Banner
-              titulo="Encontre os melhores locais para seu casamento"
-              subtitulo="Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável."
-              imagem={banner}
-            />
-            <div className={styles.searchBarContainer}>
-              <SearchBar placeholder="Pesquisar por local" />
-            </div>
-          </div>
+          <Container
+            bannerTitle="Encontre os melhores locais para seu casamento"
+            bannerSubtitle="Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável."
+            bannerImage={banner}
+          />
           <div className={styles.categorias}>
-            <h2>Navegar por estilo</h2>
-            <p>Encontre o cenário perfeito para o seu grande dia! Explore nossas categorias e descubra o espaço que combina com o seu sonho de casamento!</p>
+            <div className={styles.categorias_title}>
+              <h2>Navegar por estilo</h2>
+              <p>Encontre o cenário perfeito para o seu grande dia! Explore nossas categorias e descubra o espaço que combina com o seu sonho de casamento!</p>
+            </div>
             <div className={styles.grid}>
               {categorias.map((categoria, index) => (
                 <Card
@@ -56,8 +53,10 @@ const LocaisCategorias = () => {
                 />
               ))}
             </div>
+            <div className={styles.locais_footer}>
+              <Baseboard />
+            </div>
           </div>
-          <Baseboard />
         </div>
       );
     };
