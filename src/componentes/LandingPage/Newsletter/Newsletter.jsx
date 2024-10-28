@@ -9,26 +9,39 @@ function Newsletter() {
   return (
     <section className={styles.newsletter}>
       <div className={styles.container}>
-        <div>
+        <div className={styles.containerTitulo}>
           <span>A maneira fácil de planejar</span>
         </div>
-        <div className={styles.container_input}>
-          <div>
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              size="2xl"
-              style={{ color: "#494949" }}
-            />
-            <input type="text" placeholder=" Seu endereço de email" />
+        <div className={styles.containerBoxInput}>
+          <div className={styles.container_input}>
+            <div className={styles.container_input_email}>
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                size="2xl"
+                style={{
+                  color: "#494949",
+                  fontSize: "1.3rem",
+                  padding: "0.9rem",
+                }}
+              />
+              <input type="text" placeholder=" Seu endereço de email" />
+            </div>
+            <div className={styles.containerbotao}>
+              <div className={styles.botao}>
+                <span>COMECE A PLANEJAR</span>
+              </div>
+            </div>
           </div>
-          <button>COMECE A PLANEJAR</button>
         </div>
-        <p>
-          Já tem uma conta? <a href="">Entrar</a>
-        </p>
-        <p>
-          Você é um assessor? <a href="">Crie uma conta aqui</a>
-        </p>
+
+        <div className={styles.containerConvites}>
+          <span>
+            Já tem uma conta? <a href="">Entrar</a>
+          </span>
+          <span>
+            Você é um assessor? <a href="">Crie uma conta aqui</a>
+          </span>
+        </div>
       </div>
     </section>
   );

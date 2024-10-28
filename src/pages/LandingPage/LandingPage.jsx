@@ -30,7 +30,7 @@ function LandingPage() {
         <FAQ />
         <Newsletter />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

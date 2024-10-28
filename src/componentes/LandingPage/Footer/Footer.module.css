@@ -5,7 +5,6 @@
 }
 
 .footer_sections {
-  padding: 10vh 8vw;
   height: 35vh;
   width: 100%;
   display: flex;
@@ -26,7 +25,7 @@
 .footer_contact h2 {
   font-family: 'ProductSans';
   color: #514343;
-  font-size: 32px;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
@@ -36,7 +35,7 @@
   font-family: 'ProductSans';
   width: fit-content;
   color: #514343;
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
 }
@@ -50,16 +49,13 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  height: 100%;
-  width: 20%;
 }
 
 .footer_title {
   font-family: 'Qlassy';
   color: #3C3C3C;
-  font-size: 80px;
+  font-size: 3rem;
   font-weight: 400;
-  margin: 0;
 }
 
 .footer_div {
@@ -91,10 +87,10 @@
   border-radius: 100%;
 }
 
-.footer_logo .footer_subtitle {
+.footer_subtitle {
   font-family: 'Montserrat';
   color: #383737;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 500;
   width: 100%;
 }
