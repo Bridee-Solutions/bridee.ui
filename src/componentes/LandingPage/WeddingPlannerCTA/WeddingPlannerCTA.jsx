@@ -10,16 +10,20 @@ function WeddingPlannerCTA() {
             <span> casamento?</span>
           </div>
           <div className={styles.containerDescricao}>
-            <span>
-              Gerencie sua agenda e encontre noivas de forma fácil e rápida.
-            </span>
+            <div className={styles.texto}>
+              <span>Gerencie sua agenda e encontre noivas de forma fácil</span>
+              <span>e rápida</span>
+            </div>
+            <div className={styles.texto}>
+              <span>Nossa plataforma conecta você a casais e oferece </span>
 
-            <span>
-              Nossa plataforma conecta você a casais e oferece ferramentas para
-              organizar todos os detalhes do casamento.
-            </span>
-
-            <span>Facilite seu trabalho e crie momentos inesquecíveis.</span>
+              <span>
+                ferramentas para organizar todos os detalhes do casamento.
+              </span>
+            </div>
+            <div className={styles.ultima}>
+              <span>Facilite seu trabalho e crie momentos inesquecíveis.</span>
+            </div>
           </div>
 
           <div className={styles.containerBotao}>

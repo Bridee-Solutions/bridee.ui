@@ -11,18 +11,17 @@
 }
 
 .container {
-    height: 50%;
+    height: 80%;
     width: 90%;
-    border: 2px solid orange;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
 }
 
 .containerTitulo { 
     width: 100%;
     height: 20vh;
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
 
@@ -31,7 +30,7 @@
 .containerTitulo span {
     color: #FBF9F7;
         font-family: "ProductSans";
-    font-size: 2.8rem;
+    font-size: 2.7rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -40,13 +39,27 @@
 }
 
 .containerDescricao {
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
 
 }
 
-.containerDescricao span {
+.texto {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.ultima { 
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.texto, .ultima {
     color: #FBF9F7;
     font-family: 'Montserrat';
     font-size: 1rem;
@@ -58,13 +71,18 @@
 
 .containerBotao { 
     width: 100%;
-    border: 2px solid red;
+    display: flex;
+    align-items: center;
+    height: 15vh;
 }
 
 
 .containerConvite { 
     width: 100%;
-    border: 2px solid red;
+    height: 10vh;
+    display: flex;
+    
+    align-items: center;
 }
 .containerBotao button{
     font-family: 'Montserrat';

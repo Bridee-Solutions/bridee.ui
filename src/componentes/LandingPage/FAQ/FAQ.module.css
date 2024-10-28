@@ -10,12 +10,11 @@
 .container .title {
     width: 40%;
     color: #B55557;
-    font-family: "ProductSansB";
-    font-size: 40px;
+    font-family: "ProductSans";
+    font-size: 1.3rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin: 0vh;
     
 }
 

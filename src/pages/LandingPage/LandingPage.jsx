@@ -27,8 +27,8 @@ function LandingPage() {
         <WeddingDresses />
         {/* <UserReviews /> */}
         <WeddingPlannerCTA />
-        {/* <FAQ /> */}
-        {/* <Newsletter /> */}
+        <FAQ />
+        <Newsletter />
       </div>
       {/* <Footer /> */}
     </div>

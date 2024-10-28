@@ -15,9 +15,9 @@
     text-align: center;
 }
 
-.newsletter .container h1 {
+.newsletter .container span {
     font-family: 'Qlassy';
-    font-size: 54px;
+    font-size: 2.1rem;
     font-weight: 400;
     margin: 0vh 0vw;
 }
