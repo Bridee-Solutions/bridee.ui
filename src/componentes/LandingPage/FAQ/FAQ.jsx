@@ -36,7 +36,7 @@ const style = {
   rowTitleColor: "#000000",
   // rowContentColor: 'grey',
   arrowColor: "#CE8A89",
-  rowTitleTextSize: "24px",
+  rowTitleTextSize: "1.1rem",
 };
 
 const config = {

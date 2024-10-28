@@ -160,7 +160,9 @@ function Footer() {
             </div>
           </div>
 
-          {/* <div className={styles.footer_div}></div> */}
+          <div class={styles.container}>
+            <div class={styles.linha}></div>
+          </div>
 
           <div className={styles.containerEsquerda}>
             <div className={styles.footer_logo}>

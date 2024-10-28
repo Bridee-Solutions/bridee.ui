@@ -46,10 +46,18 @@
   height: 85%;
   justify-content: space-around;
 }
-
-.containerTitulo {
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: 10vw;
 }
 
+.linha {
+  border-left: 1px solid #AE6261; 
+  height: 100%;                 
+}
 .containerTitulo > span {
   font-family: "Montserrat";
   font-size: 1.2rem;

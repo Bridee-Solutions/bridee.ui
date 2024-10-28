@@ -7,10 +7,14 @@
     padding: 0px 6vw;
 }
 
+.content {
+    font-family: "Poppins";
+    font-size: 0.8rem;
+}
 .container .title {
     width: 40%;
     color: #B55557;
-    font-family: "ProductSans";
+    font-family: "Poppins";
     font-size: 1.3rem;
     font-style: normal;
     font-weight: 500;
