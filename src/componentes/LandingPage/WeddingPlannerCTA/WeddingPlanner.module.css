@@ -3,51 +3,76 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 10vh 0px;
     height: 86vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.wedding_planner .container {
-    height: 100%;
-    width: 45%;
+.container {
+    height: 50%;
+    width: 90%;
+    border: 2px solid orange;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: left;
-    padding: 10vh 6vw;
-    gap: 35px;
+
 }
 
-.wedding_planner .container h1{
+.containerTitulo { 
+    width: 100%;
+    height: 20vh;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.containerTitulo span {
     color: #FBF9F7;
-    margin: 0px;
-    font-family: "ProductSansB";
-    font-size: 68px;
+        font-family: "ProductSans";
+    font-size: 2.8rem;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: normal;
-    letter-spacing: 0.68px;
+    letter-spacing: 2px;
+    
 }
 
-.wedding_planner .container h4{
+.containerDescricao {
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.containerDescricao span {
     color: #FBF9F7;
-    margin: 0;
     font-family: 'Montserrat';
-    font-size: 22px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: 125%;
     letter-spacing: 1.3px;
 }
 
-.wedding_planner .container button{
+.containerBotao { 
+    width: 100%;
+    border: 2px solid red;
+}
+
+
+.containerConvite { 
+    width: 100%;
+    border: 2px solid red;
+}
+.containerBotao button{
     font-family: 'Montserrat';
     border: 0px;
     border-radius: 3px;
-    font-weight: 600;
+    font-weight: 500;
     height: 6vh;
-    font-size: 20px;
+    font-size: 1rem;
     padding: 0px 25px;
     cursor: pointer;
     background-color: #DD7B78;
@@ -59,24 +84,22 @@
     background-color: #D26966;
 }
 
-.wedding_planner .container div{
-    width: 100%;
-}
 
-.wedding_planner .container p{
+
+.containerConvite span {
     margin: 0;
     color: #FBF9F7;
     font-family: 'Montserrat';
-    font-size: 24px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 
-.wedding_planner .container a{
+.containerConvite span a{
     color: #FBF9F7;
     font-family: Montserrat;
-    font-size: 24px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;

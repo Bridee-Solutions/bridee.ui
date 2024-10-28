@@ -1,23 +1,38 @@
+
 .user_reviews {
-    text-align: center;
-    margin: 10vh 0px;
+    width: 100%;
+    height: 80vh;
+    border: 2px solid red;
 }
 
-.user_reviews h1 {
+.containerReview {
+    width: 90%;
+}
+
+.containerTitulo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 20vh;
+    align-items: center;
+}
+
+
+.user_reviews span {
     color: #312D2D;
     font-family: "Playfair";
-    font-size: 55px;
+    font-size: 2rem;
     font-weight: 500;
-    margin: 10vh 0vw;
 }
 
 .user_reviews .container {
     display: flex;
     justify-content: space-evenly;
+    height: 100%;
 }
 
 .user_reviews .review {
-    height: fit-content;
+    height: 90%;
     width: 25vw;
     border-radius: 50px 100px;
     background-color: #FFAFAC;

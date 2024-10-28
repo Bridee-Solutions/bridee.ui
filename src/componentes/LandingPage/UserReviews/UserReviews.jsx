@@ -1,14 +1,13 @@
 import styles from "./UserReviews.module.css";
 
 import abreAspas from "../../../assets/abre_aspas.svg";
-import fechaAspas from '../../../assets/fecha_aspas.svg';
-import star from '../../../assets/star.svg';
-import user_bride from '../../../assets/Isabela_cambui_photo.svg';
-import user_advisor from '../../../assets/Aghata_paula_photo.svg';
-import user_groom from '../../../assets/Enzo_martins_photo.svg';
+import fechaAspas from "../../../assets/fecha_aspas.svg";
+import star from "../../../assets/star.svg";
+import user_bride from "../../../assets/Isabela_cambui_photo.svg";
+import user_advisor from "../../../assets/Aghata_paula_photo.svg";
+import user_groom from "../../../assets/Enzo_martins_photo.svg";
 
 function UserReviews() {
-  
   const testimonials = [
     {
       id: 1,
@@ -32,46 +31,51 @@ function UserReviews() {
       image: user_advisor,
     },
   ];
-  
+
   return (
     <section className={styles.user_reviews}>
-    <h1>Avaliações dos nossos usuários</h1>
-    <div className={styles.slide_wrapper}>
-    
-    <div className={styles.container}>
-    {testimonials.map((testimonial, index) => (
-      <div key={testimonial.id} className={styles.review}>
-      <div className={styles.container_abreaspas}>
-      <img src={abreAspas} alt="abre aspas" />
-      </div>
-      
-      <div className={styles.text}>
-      {testimonial.text.split("\n").map((line, index) => (
-        <p key={index}>{line}</p>
-      ))}
-      </div>
-      
-      <div className={styles.container_fechaaspas}>
-      <img src={fechaAspas} alt="fecha aspas" />
-      </div>
-      
-      <div className={styles.user}>
-      <img src={testimonial.image} alt={`Avatar de ${testimonial.name}`} />
-      <div>
-      <p>{testimonial.name}</p>
-      <span>{testimonial.role}</span>
-      <div className={styles.star_rate}>
-      {[...Array(5)].map((_, starIndex) => (
-        <img key={starIndex} src={star} alt="estrela" />
-      ))}
-      </div>
-      </div>
-      </div>
+      <div className={styles.containerReview}>
+        <div className={styles.containerTitulo}>
+          <span>Avaliações dos nossos usuários</span>
+        </div>
+        <div className={styles.slide_wrapper}>
+          <div className={styles.container}>
+            {testimonials.map((testimonial, index) => (
+              <div key={testimonial.id} className={styles.review}>
+                <div className={styles.container_abreaspas}>
+                  <img src={abreAspas} alt="abre aspas" />
+                </div>
 
+                <div className={styles.text}>
+                  {testimonial.text.split("\n").map((line, index) => (
+                    <p key={index}>{line}</p>
+                  ))}
+                </div>
+
+                <div className={styles.container_fechaaspas}>
+                  <img src={fechaAspas} alt="fecha aspas" />
+                </div>
+
+                <div className={styles.user}>
+                  <img
+                    src={testimonial.image}
+                    alt={`Avatar de ${testimonial.name}`}
+                  />
+                  <div>
+                    <p>{testimonial.name}</p>
+                    <span>{testimonial.role}</span>
+                    <div className={styles.star_rate}>
+                      {[...Array(5)].map((_, starIndex) => (
+                        <img key={starIndex} src={star} alt="estrela" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    ))}
-    </div>
-    </div>
     </section>
   );
 }
