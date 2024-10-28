@@ -6,7 +6,6 @@ import lupa from "../../../assets/loupe_icon.svg";
 import networking from "../../../assets/networking_icon.svg";
 import lista from "../../../assets/tasklist_icon.svg";
 import pint from "../../../assets/pinterest_icon.svg";
-import 'normalize.css';
 
 library.add(faChevronRight);
 

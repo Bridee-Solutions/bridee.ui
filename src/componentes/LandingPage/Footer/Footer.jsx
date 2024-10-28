@@ -91,76 +91,89 @@ function Footer() {
   return (
     <section className={styles.Footer}>
       <div className={styles.footer_sections}>
-        <div className={styles.footer_mobile}>
-          <div className={styles.faq}>
-            <Faq data={data} styles={style} config={config} />
-          </div>
-          <div className={styles.footer_social_media}>
-            <div>
-              <FontAwesomeIcon icon={faLinkedin} size="2xl" />
+        <div className={styles.footer_reg}>
+          <div className={styles.containerDireita}>
+            <div className={styles.containerColuna}>
+              <div className={styles.containerBox}>
+                <div className={styles.containerTitulo}>
+                  <span>Explorar</span>
+                </div>
+                <div className={styles.containerOpcoes}>
+                  <span>Quem Assessores</span>
+                  <span>Ferramentas de planejamento</span>
+                  <span>Fornecedores</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <FontAwesomeIcon icon={faInstagram} size="2xl" />
+
+            <div className={styles.containerColuna}>
+              <div className={styles.containerBox}>
+                <div className={styles.containerTitulo}>
+                  <span>Sobre</span>
+                </div>
+                <div className={styles.containerOpcoes}>
+                  <span>Quem somos</span>
+                  <span>Fale conosco</span>
+                  <span>Perguntas Frequentes</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <FontAwesomeIcon icon={faFacebookF} size="2xl" />
+
+            <div className={styles.containerColuna}>
+              <div className={styles.containerBox}>
+                <div className={styles.containerTitulo}>
+                  <span>Explorar</span>
+                </div>
+                <div className={styles.containerOpcoes}>
+                  <div className={styles.containerItem}>
+                    <div className={styles.containerIcon}>
+                      <FontAwesomeIcon
+                        icon={faLocationDot}
+                        className={styles.icon}
+                      />
+                    </div>
+                    <div className={styles.item}>
+                      <span>R. Haddock Lobo, 595 - SP </span>
+                    </div>
+                  </div>
+                  <div className={styles.containerItem}>
+                    <div className={styles.containerIcon}>
+                      <FontAwesomeIcon icon={faPhone} className={styles.icon} />
+                    </div>
+                    <div className={styles.item}>
+                      <span>Telefone: +55 (11) 999999-9999</span>
+                    </div>
+                  </div>
+                  <div className={styles.containerItem}>
+                    <div className={styles.containerIcon}>
+                      <FontAwesomeIcon
+                        icon={faEnvelope}
+                        className={styles.icon}
+                      />
+                    </div>
+                    <div className={styles.item}>
+                      <span>E-mail: contato@bridee.com </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <FontAwesomeIcon icon={faXTwitter} size="2xl" />
+          </div>
+
+          {/* <div className={styles.footer_div}></div> */}
+
+          <div className={styles.containerEsquerda}>
+            <div className={styles.footer_logo}>
+              <div className={styles.container_logo}>
+                <span>
+                  bridee<b>.</b>
+                </span>
+              </div>
+              <div className={styles.container_subtitulo}>
+                <span>O match perfeito para o dia dos seus sonhos</span>
+              </div>
             </div>
           </div>
-
-          <h1 className={styles.footer_title}>
-            bridee<b>.</b>
-          </h1>
-        </div>
-
-        <div className={styles.footer_explore}>
-          <h2>Explorar</h2>
-          <div>
-            <p>Assessores</p>
-            <p>Ferramentas de planejamento</p>
-          </div>
-        </div>
-        <div className={styles.footer_about}>
-          <h2>Sobre</h2>
-          <div>
-            <p>Quem somos</p>
-            <p>Fale conosco</p>
-            <p>Perguntas frequentes</p>
-          </div>
-        </div>
-
-        <div className={styles.footer_contact}>
-          <h2>Contato</h2>
-          <div>
-            <p>
-              <FontAwesomeIcon
-                icon={faLocationDot}
-                style={{ color: "#ae6261" }}
-              />
-              Rua Haddock Lobo, 595 - São Paulo
-            </p>
-            <p>
-              <FontAwesomeIcon icon={faPhone} style={{ color: "#ae6261" }} />
-              Telefone: +55 (11) 999999-9999
-            </p>
-            <p>
-              <FontAwesomeIcon icon={faEnvelope} style={{ color: "#ae6261" }} />
-              E-mail: contato@bridee.com
-            </p>
-          </div>
-        </div>
-
-        <div className={styles.footer_div}></div>
-
-        <div className={styles.footer_logo}>
-          <span className={styles.footer_title}>
-            bridee<b>.</b>
-          </span>
-          <span className={styles.footer_subtitle}>
-            O match perfeito para o dia dos seus sonhos
-          </span>
         </div>
       </div>
       <Baseboard />

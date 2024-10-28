@@ -8,8 +8,6 @@ import Gastronomy from "../../../assets/gastronomy_icon.svg";
 import Bride from "../../../assets/wedding_dress_icon.svg";
 import Groom from "../../../assets/wedding_shirt_icon.svg";
 
-import "normalize.css";
-
 const categorias = [
   { image: Videography, descricao: "Fotos & Vídeo" },
   { image: Local, descricao: "Local" },

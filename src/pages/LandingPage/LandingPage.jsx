@@ -3,7 +3,6 @@ import Header from "../../componentes/LandingPage/Header/Header";
 import SearchBar from "../../componentes/LandingPage/SearchBar/SearchBar";
 import Benefits from "../../componentes/LandingPage/Benefits/Benefits";
 import Categories from "../../componentes/LandingPage/Categories/Categories";
-import 'normalize.css';
 
 import WeddingLocations from "../../componentes/LandingPage/WeddingLocations/WeddingLocations";
 import WeddingDresses from "../../componentes/LandingPage/WeddingDresses/WeddingDresses";
