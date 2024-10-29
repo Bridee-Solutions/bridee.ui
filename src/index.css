@@ -53,3 +53,8 @@ html, body {
     font-family: 'Poppins';
     src: url('/src/assets/fonts/Poppins-Regular.ttf');
 }
+
+:root {
+    --cor-primaria: #dd7b78;
+    --cor-secundaria: #ed9c9b;
+  }

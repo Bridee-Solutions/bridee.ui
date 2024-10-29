@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  .assessorCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f8f3;
+    border-radius: 15px;
+    padding: 1.5rem 0.5rem;
+    border: #eeeeee solid 2px;
+    transition: box-shadow 0.3s ease;
+    width: 15vw;
+    height: 32vh;
+  }
+  
+  .nome {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 1rem;
+    color: #2c2c2c;
+  }
+  
+  .gerenciar {
+    font-family: "Montserrat";
+    font-size: 0.9rem;
+    color: var(--cor-primaria);
+    text-decoration: none;
+  }
+  
+  .gerenciar:hover {
+    text-decoration: underline;
+  }
+  
+  .icone > img {
+    width: 4rem;
+  }
+  
+  .containerModal { 
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 10vh;
+  }
+  
+  .search_input_container{
+    display: flex;
+    align-items: center;
+    border: 1px solid #A9A8A8; 
+    border-radius: 5px;
+    overflow: hidden;
+  } 
+  
+  .containerSuperior {
+    width: 100%;
+    height: 5vh;
+  }
+  
+  .search_input {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    flex: 1;  
+    outline: none;
+  }
+  .search_button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .iconSearch { 
+    color: #C6C6C6;
+   font-size: 18px;
+  }
+  
+  .modal_header {
+    display: flex;
+  }
+  
+  .search_button:focus {
+    outline: none; 
+  
+  }
+  
+  .search_input_container:focus-within {
+    border-color: #999; 
+  }
+  

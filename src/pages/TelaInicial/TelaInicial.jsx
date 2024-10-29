@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { pexelsRequest } from "../../config/axios/pexels";
 
 
 const TelaInicial = () => {
@@ -7,13 +6,6 @@ const TelaInicial = () => {
     const[images, setImages] = useState([]);
 
     useEffect(() => {
-        pexelsRequest.getPhotos("wedding").then(data => {
-            setImages(data.photos)
-            console.log(data);
-            
-        })
-        images.sort((image1, image2) => image1.id - image2.id);
-        console.log(images);
         
     }, [])
 

@@ -1,0 +1,59 @@
+.fase3{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fase3_content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.fase3_body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+}
+
+.fase3_body label{
+    font-size: 20px;
+}
+
+.fase3_body_input{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10%;
+}
+
+.fase3_body_input input{
+    height: 60%;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.39);
+    padding-left: 0.6rem;
+    margin-top: 3%;
+}
+
+.fase3_button{
+    width: 100%;
+    height: 10%;
+}
+
+.fase3_button button{
+    background-color: #c6524e;
+    color: #ffffff;
+    border: none;
+    padding: 4% 20%;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
