@@ -1,81 +1,141 @@
 .user_reviews {
-    text-align: center;
-    margin: 10vh 0px;
-}
-
-.user_reviews h1 {
-    color: #312D2D;
-    font-family: "Playfair";
-    font-size: 55px;
-    font-weight: 500;
-    margin: 10vh 0vw;
-}
-
-.user_reviews .container {
+  width: 100%;
+  height: 96vh;
     display: flex;
+  justify-content: center;
+}
+
+.containerReview {
+  width: 90%;
+  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.containerTitulo {
+  
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 15vh;
+
+
+}
+
+.containerTitulo > span {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 75%;
+  
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.containerReg { 
+    display: flex;
+    width: 100%;
+    height: 90%;
     justify-content: space-evenly;
+
 }
 
-.user_reviews .review {
-    height: 50vh;
-    width: 20vw;
-    border-radius: 50px 100px;
-    background-color: #FFAFAC;
-    padding: 5vh 1vw 8vh;
-    font-family: 'ProductSans';
+.backgroundAvaliacao {
+  background-color: #ffafac;
+  width: 25vw;
+  border-radius: 50px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.user_reviews .review .container_abreaspas{
+.containerAvaliacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80%
+}
+
+.conteudoAvaliacao { 
+    height: 80%;
+    width: 80%;
+    justify-content: center;
     display: flex;
-    justify-content: left;
-    width: 100%;
-}
+    flex-direction: column;
 
-.user_reviews .review .container_fechaaspas{
+}
+.containerMeio {
     display: flex;
-    justify-content: right;
-    width: 100%;
-}
-
-.user_reviews .review .text p{
-    margin: 0;
-    color: #404040;
-    text-align: center;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-
-.user_reviews .review .user{
-    display: flex;
-    width: 100%;
     justify-content: center;
     align-items: center;
-    text-align: left;
-    gap: 1vw;
+    font-family: "Montserrat";
+    text-align: center;
+    font-size: 0.9rem;
+    width: 100%;
+    line-height: 1.3rem;
+
 }
 
-.user_reviews .review .user p{
-    margin: 0px;
-    color: #383838;
-    font-size: 20px;
-    font-style: normal;
-    font-family: 'ProductSansB';
-    font-weight: 500;
-    line-height: normal;
+.contMei {
+width: 80%;
+
 }
 
-.user_reviews .review .user span{
-    color: #383838;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.aspas {
+    width: 3.5vw;
+} 
+
+.containerInferior { 
+    display: flex;
+    justify-content: flex-end;
+}
+.conteinerUsuario {
+    display: flex;
+    align-items: center;
+    width: 70%;
 }
 
+.contimg {
+    width: 06vw;
+    display: flex;
+    justify-content: center;
 
-.user_reviews .review .user .star_rate{
-    margin: 1vh 0vw;
+}
+
+.contimg > img { 
+    width: 05vw;
+}
+
+.containerInfos {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.containerDesc { 
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat";
+
+}
+
+.stars {
+    display: flex;
+} 
+
+.stars > img { 
+    width: 1.2vw;
+}   
+
+.containerDesc > span, .nome { 
+    font-size: 0.9rem;
+}
+
+.nome { 
+    font-weight: 700;
 }

@@ -1,122 +1,86 @@
 import styles from "./UserReviews.module.css";
 
 import abreAspas from "../../../assets/abre_aspas.svg";
-import fechaAspas from '../../../assets/fecha_aspas.svg';
-import star from '../../../assets/star.svg';
-import user_bride from '../../../assets/Isabela_cambui_photo.svg';
-import user_advisor from '../../../assets/Aghata_paula_photo.svg';
-import user_groom from '../../../assets/Enzo_martins_photo.svg';
+import fechaAspas from "../../../assets/fecha_aspas.svg";
+import star from "../../../assets/star.svg";
+import user_bride from "../../../assets/Isabela_cambui_photo.svg";
+import user_advisor from "../../../assets/Aghata_paula_photo.svg";
+import user_groom from "../../../assets/Enzo_martins_photo.svg";
 
 function UserReviews() {
-    return (
-      <section className={styles.user_reviews}>
-        <h1>Avaliações dos nossos usuários</h1>
-        <div className={styles.container}>
-          <div className={styles.review}>
-            <div className={styles.container_abreaspas}>
-              <img src={abreAspas} alt="" />
-            </div>
-            <div className={styles.text}>
-             <p>
-              Usar a Bridee foi a melhor <br />
-              escolha! A plataforma <br />
-              simplificou o caos que é <br />
-              organizar um casamento e nos <br />
-              conectou com fornecedores <br />
-              maravilhosos. Super <br />
-              recomendo!
-             </p>
-            </div>
-            <div className={styles.container_fechaaspas}>
-              <img src={fechaAspas} alt="" />
-            </div>
-             <div className={styles.user}>
-                <img src={user_bride}/>
-                <div>
-                  <p>Isabela Cambui</p>
-                  <span>Noiva</span>
-                  <div className={styles.star_rate}>
-                    <img src={star}/>
-                    <img src={star}/>
-                    <img src={star}/>
-                    <img src={star}/>
-                    <img src={star}/>
-                  </div>
+  const testimonials = [
+    {
+      id: 1,
+      text: `Usar a Bridee foi a melhor\n escolha! A plataforma\n simplificou o caos que é\norganizar um casamento e nos\nconectou com fornecedores\nmaravilhosos. Super\nrecomendo!`,
+      name: "Isabela Cambui",
+      role: "Noiva",
+      image: user_bride,
+    },
+    {
+      id: 2,
+      text: `Nunca pensei que planejar\no casamento pudesse ser\ntão fácil. A Bridee nos ajudou\na encontrar o\nassessor certo e a manter\ntudo em ordem, sem\nestresse. Sensacional!`,
+      name: "Enzo Martins",
+      role: "Noivo",
+      image: user_groom,
+    },
+    {
+      id: 3,
+      text: `A Bridee foi uma mão na roda!\nEncontramos o assessor\nperfeito em poucos cliques, e\nele cuidou de tudo. Fiquei\n muito mais tranquila sabendo\n que cada detalhe estava\n sendo organizado por lá.`,
+      name: "Aghata Paula",
+      role: "Assessora",
+      image: user_advisor,
+    },
+  ];
 
-                </div>
-             </div>
-          </div>
-          
-          <div className={styles.review}>
-            <div className={styles.container_abreaspas}>
-              <img src={abreAspas} alt="" />
-            </div>
-            <div className={styles.text}>
-            <p>
-              Nunca pensei que planejar <br />
-              o casamento pudesse ser <br />
-              tão fácil. A Bridee nos <br />
-              ajudou a encontrar o <br />
-              assessor certo e a manter <br />
-              tudo em ordem, sem <br />
-              estresse. Sensacional!
-            </p>
-            </div>
-            <div className={styles.container_fechaaspas}>
-              <img src={fechaAspas} alt="" />
-            </div>
-            <div className={styles.user}>
-              <img src={user_groom}/>
-              <div>  
-                <p>Enzo Martins</p>
-                <span>Noivo</span>
-                <div className={styles.star_rate}>
-                  <img src={star}/>
-                  <img src={star}/>
-                  <img src={star}/>
-                  <img src={star}/>
-                  <img src={star}/>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className={styles.review}>
-          <div className={styles.container_abreaspas}>
-              <img src={abreAspas} alt="" />
-            </div>
-            <div className={styles.text}>
-            <p>
-                A Bridee foi uma mão na roda! <br />
-                Encontramos o assessor <br />
-                perfeito em poucos cliques, e <br />
-                ele cuidou de tudo. Fiquei <br />
-                muito mais tranquila sabendo <br />
-                que cada detalhe estava <br />
-                sendo organizado por lá.
-            </p>
-            </div>
-            <div className={styles.container_fechaaspas}>
-              <img src={fechaAspas} alt="" />
-            </div>
-            <div className={styles.user}>
-              <img src={user_advisor}/>
-              <div>
-                <p>Aghata Paula</p>
-                <span>Assessora</span>
-                <div className={styles.star_rate}>
-                  <img src={star}/>
-                  <img src={star}/>
-                  <img src={star}/>
-                  <img src={star}/>
-                  <img src={star}/>
+  return (
+    <section className={styles.user_reviews}>
+      <div className={styles.containerReview}>
+        <div className={styles.containerTitulo}>
+          <span>Avaliações dos nossos usuários</span>
+        </div>
+
+        <div className={styles.container}>
+          <div className={styles.containerReg}>
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className={styles.backgroundAvaliacao}>
+                <div className={styles.containerAvaliacao}>
+                  <div className={styles.conteudoAvaliacao}>
+                    <div className={styles.containerSuperior}>
+                      <img src={abreAspas} className={styles.aspas} />
+                    </div>
+                    <div className={styles.containerMeio}>
+                      <div className={styles.contMei}>
+                        <span>{testimonial.text}</span>
+                      </div>
+                    </div>
+                    <div className={styles.containerInferior}>
+                      <img src={fechaAspas} className={styles.aspas} />
+                    </div>
+                  </div>
+                  <div className={styles.conteinerUsuario}>
+                    <div className={styles.contimg}>
+                      <img src={testimonial.image} alt={testimonial.name} />
+                    </div>
+                    <div className={styles.containerInfos}>
+                      <div className={styles.containerDesc}>
+                        <span className={styles.nome}>{testimonial.name}</span>
+                        <span>{testimonial.role}</span>
+                      </div>
+                      <div className={styles.stars}>
+                        {[...Array(5)].map((_, index) => (
+                          <img key={index} src={star} alt="star" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-             </div>
+            ))}
           </div>
         </div>
-      </section>
-    );
-  }
-  
-  export default UserReviews;
+      </div>
+    </section>
+  );
+}
+
+export default UserReviews;

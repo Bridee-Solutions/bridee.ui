@@ -5,29 +5,28 @@ const data = {
   rows: [
     {
       title: "O que é o bridee?",
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-              ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-              In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-              Fusce sed commodo purus, at tempus turpis.`,
+      content: `A Bridee é uma plataforma digital projetada para ajudar noivos a planejar e organizar o casamento de forma prática e 
+            integrada. Nossa ferramenta oferece um espaço completo para gerenciar todos os detalhes, como lista de convidados, confirmações 
+            de presença e comunicação com fornecedores, tudo em um só lugar. A Bridee facilita cada etapa do planejamento, permitindo que 
+            vocês foquem em aproveitar essa fase tão especial sem o estresse de usar várias ferramentas diferentes. Simplificando o processo, 
+            garantimos mais tempo para o que realmente importa: celebrar o amor.`,
     },
     {
       title: "Quem pode se cadastrar?",
-      content:
-      "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.",
+      content: "Assesores e casais de noivos.",
     },
     {
       title: "Que vantagens o bridee me oferece?",
-      content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-            Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-            Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-            Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
+      content: `1. Controle de Orçamento - Calculadora financeira para gerenciar os custos com precisão.<br>
+                2. Controle de Assentos - Montagem flexível das mesas e lugares para o grande dia.<br>
+                3. Confirmação de Presença Online - Convites digitais com QR codes para facilitar a confirmação.<br>
+                4. Centralização de Tarefas - Tudo o que vocês precisam em um só lugar, simplificando o planejamento.`,
     },
     {
       title: "Como posso me cadastrar como assessor na plataforma?",
-      content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-            Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-            Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-            Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
+      content: `Para se cadastrar como assessor, navegue até o banner localizado acima destas perguntas e clique em “Comece Agora”. 
+                Essa é a única opção para realizar seu cadastro como assessor no site da Bridee. Assim, você terá acesso às ferramentas 
+                exclusivas para facilitar o planejamento dos eventos de seus clientes! `,
     }
   ],
 };
@@ -36,7 +35,7 @@ const style = {
   rowTitleColor: "#000000",
   // rowContentColor: 'grey',
   arrowColor: "#CE8A89",
-  rowTitleTextSize: "24px",
+  rowTitleTextSize: "1.1rem",
 };
 
 const config = {
