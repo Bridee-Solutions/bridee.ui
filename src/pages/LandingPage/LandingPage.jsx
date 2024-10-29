@@ -24,7 +24,7 @@ function LandingPage() {
         <Categories />
         <WeddingLocations />
         <WeddingDresses />
-        {/* <UserReviews /> */}
+        <UserReviews />
         <WeddingPlannerCTA />
         <FAQ />
         <Newsletter />

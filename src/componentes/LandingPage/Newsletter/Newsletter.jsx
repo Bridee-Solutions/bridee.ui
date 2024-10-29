@@ -35,12 +35,14 @@ function Newsletter() {
         </div>
 
         <div className={styles.containerConvites}>
-          <span>
-            Já tem uma conta? <a href="">Entrar</a>
-          </span>
-          <span>
-            Você é um assessor? <a href="">Crie uma conta aqui</a>
-          </span>
+          <div className={styles.contReg}>
+            <span>
+              Já tem uma conta? <a href="">Entrar</a>
+            </span>
+            <span>
+              Você é um assessor? <a href="">Crie uma conta aqui</a>
+            </span>
+          </div>
         </div>
       </div>
     </section>

@@ -27,7 +27,7 @@ function WeddingPlannerCTA() {
           </div>
 
           <div className={styles.containerBotao}>
-            <button>Comece agora!</button>
+            <button>COMECE AGORA!</button>
           </div>
         </div>
         <div className={styles.containerConvite}>

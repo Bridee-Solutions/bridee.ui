@@ -38,36 +38,39 @@ function UserReviews() {
         <div className={styles.containerTitulo}>
           <span>Avaliações dos nossos usuários</span>
         </div>
-        <div className={styles.slide_wrapper}>
-          <div className={styles.container}>
-            {testimonials.map((testimonial, index) => (
-              <div key={testimonial.id} className={styles.review}>
-                <div className={styles.container_abreaspas}>
-                  <img src={abreAspas} alt="abre aspas" />
-                </div>
 
-                <div className={styles.text}>
-                  {testimonial.text.split("\n").map((line, index) => (
-                    <p key={index}>{line}</p>
-                  ))}
-                </div>
-
-                <div className={styles.container_fechaaspas}>
-                  <img src={fechaAspas} alt="fecha aspas" />
-                </div>
-
-                <div className={styles.user}>
-                  <img
-                    src={testimonial.image}
-                    alt={`Avatar de ${testimonial.name}`}
-                  />
-                  <div>
-                    <p>{testimonial.name}</p>
-                    <span>{testimonial.role}</span>
-                    <div className={styles.star_rate}>
-                      {[...Array(5)].map((_, starIndex) => (
-                        <img key={starIndex} src={star} alt="estrela" />
-                      ))}
+        <div className={styles.container}>
+          <div className={styles.containerReg}>
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className={styles.backgroundAvaliacao}>
+                <div className={styles.containerAvaliacao}>
+                  <div className={styles.conteudoAvaliacao}>
+                    <div className={styles.containerSuperior}>
+                      <img src={abreAspas} className={styles.aspas} />
+                    </div>
+                    <div className={styles.containerMeio}>
+                      <div className={styles.contMei}>
+                        <span>{testimonial.text}</span>
+                      </div>
+                    </div>
+                    <div className={styles.containerInferior}>
+                      <img src={fechaAspas} className={styles.aspas} />
+                    </div>
+                  </div>
+                  <div className={styles.conteinerUsuario}>
+                    <div className={styles.contimg}>
+                      <img src={testimonial.image} alt={testimonial.name} />
+                    </div>
+                    <div className={styles.containerInfos}>
+                      <div className={styles.containerDesc}>
+                        <span className={styles.nome}>{testimonial.name}</span>
+                        <span>{testimonial.role}</span>
+                      </div>
+                      <div className={styles.stars}>
+                        {[...Array(5)].map((_, index) => (
+                          <img key={index} src={star} alt="star" />
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
