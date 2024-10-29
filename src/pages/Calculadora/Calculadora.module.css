@@ -61,7 +61,6 @@
   width: 38vw;
 }
 
-
 .conteudo {
   display: flex;
   justify-content: space-evenly;
@@ -70,6 +69,7 @@
   padding-bottom: 2rem;
   background-color: #f3eed9;   
 }
+
 .containerTitulo {
   display: flex;
   flex-direction: column;
@@ -102,9 +102,8 @@
   display: flex;
   align-items: center;
   width: 42vw;
-    padding-left: 2rem;
+  padding-left: 2rem;
 }
-
 
 .colunaDireita {
   display: flex;
@@ -116,23 +115,21 @@
   width: 100%;
 }
 
-
 .divider {
   height: 1px;
   background-color: #ddd;
   margin: 10px 0;
 }
 
-
-.buttonExport{ 
-border: #D2D1D1 solid 2px;
-background-color: white;
-border-radius: 06px;
-height: 5vh;
-width: 8vw;
-cursor: pointer;
-font-family: "Montserrat";
-color: #5C5757;
+.buttonExport { 
+  border: #D2D1D1 solid 2px;
+  background-color: white;
+  border-radius: 06px;
+  height: 5vh;
+  width: 8vw;
+  cursor: pointer;
+  font-family: "Montserrat";
+  color: #5C5757;
 }
 
 .containerButton {
@@ -146,9 +143,7 @@ color: #5C5757;
   flex-direction: column;
   align-items: center;
   padding-bottom: 1.4rem;
-
 }
-
 
 .itemEsquerda { 
   border-bottom: #DFDEDE 1px solid;
@@ -175,7 +170,7 @@ color: #5C5757;
   align-items: center;
 }
 
-.setaCategoria{ 
+.setaCategoria { 
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -185,7 +180,6 @@ color: #5C5757;
   display: flex;
   align-items: center;
 }
-
 
 .adicionarItem {
   background-color: transparent;
@@ -200,16 +194,16 @@ color: #5C5757;
   font-size: 13px;
   padding-top: 10px;
 }
+
 .adicionarItem > span {
-  
   padding-left: 5px;
 }
 
-.add{
+.add {
   width: 0.8rem;
 }
 
-.itemCategoria{
+.itemCategoria {
   font-family: "Montserrat";
   display: flex;
   width: 60vw;
@@ -217,15 +211,14 @@ color: #5C5757;
   width: 50vw;
 }
 
-
-
 .categoria { 
   width: 90%;
-
 }
+
 .inputCusto { 
   background-color: transparent;
-border: none;}
+  border: none;
+}
 
 .inputCusto:focus {
   border-color: #007bff;
@@ -264,10 +257,10 @@ border: none;}
 .gripIcon {
   font-size: 1rem; 
   padding-right: 0.5rem;
-  padding-left: 0.5rem;;
+  padding-left: 0.5rem;
 }
 
-.iconeCategoria  > img{ 
+.iconeCategoria > img { 
   width: 2.0vw;
 }
 
@@ -281,6 +274,7 @@ border: none;}
 .total {   
   font-weight: 500;
 }
+
 .valor {
   color: #636363;
   border-bottom: #DFDEDE 1px solid;
@@ -288,7 +282,6 @@ border: none;}
   width: 25vw;
   justify-content: flex-end;
   display: flex;
-
 }
 
 .orcamentoContainer {
@@ -309,19 +302,33 @@ border: none;}
 }
 
 .inputBox { 
-width: 9vw;
-display: flex;
-justify-content: flex-end;
-border-bottom: #DFDEDE 1px solid;
-width: 100px;
-padding-top:  0.4rem;
+  width: 9vw;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: #DFDEDE 1px solid;
+  width: 100px;
+  padding-top: 0.4rem;
 }
 
 .inputCusto { 
   width: 4vw;
-  }
+}
 
-  .inputCusto { 
-    border-bottom: #DFDEDE 1px solid;
-    width: 100px;
-  }
+.inputCusto { 
+  border-bottom: #DFDEDE 1px solid;
+  width: 100px;
+}
+.iconeLixeira {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #c2c2c2; 
+  font-size: 1rem;
+}
+
+.search_input{
+  display: flex;
+  align-items: center;
+  border: 1px solid #A9A8A8; 
+  border-radius: 5px;
+  overflow: hidden;
+}

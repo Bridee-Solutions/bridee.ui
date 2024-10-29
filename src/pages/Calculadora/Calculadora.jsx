@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Calculadora.module.css";
-import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 import "../../index.css";
+
+import { faFileExport, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import add from "../../assets/calculadora/add.svg";
+
 import decoracao from "../../assets/calculadora/decoracaocalculadora.svg";
 import moda from "../../assets/calculadora/modabeleza.svg";
 import aliancas from "../../assets/calculadora/aliancas.svg";
@@ -12,9 +13,15 @@ import transporte from "../../assets/calculadora/transporteacomodacao.svg";
 import entretenimento from "../../assets/calculadora/entretenimentocalc.svg";
 import CategoriaCalc from "../../componentes/CategoriaCalculadora/CategoriaCalculadora";
 
-import { faFileExport, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+
 import LinkButton from "../../componentes/LinkButton/LinkButton";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
+import Modal from "../../componentes/Modal/Modal";
+import ModalHeader from "../../componentes/Modal/ModalHeader/ModalHeader";
+import ModalBody from "../../componentes/Modal/ModalBody/ModalBody";
+import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
+import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
+import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 
 function Calculadora() {
   const [categorias, setCategorias] = useState([
@@ -54,13 +61,29 @@ function Calculadora() {
       aberta: true,
     },
   ]);
+  
+  const [isModalOpen, setIsModalOpen] = useState(false); // controle do modal
+  const [gasto, setGasto] = useState(0); // valor inicial de gasto
+  const [total] = useState(10000); // valor total fixo p exemplo
 
+  // função para abrir o modal
+  const handleEditClick = () => {
+    setIsModalOpen(true);
+  };
+
+  // função para fechar o modal
+  const fecharModal = () => {
+    setIsModalOpen(false);
+  };
+
+  // Função para abrir e fechar a categoria
   const toggleCategoria = (index) => {
     const novasCategorias = [...categorias];
     novasCategorias[index].aberta = !novasCategorias[index].aberta;
     setCategorias(novasCategorias);
   };
 
+  // Função para alterar o valor do input
   const handleInputChange = (e, catIndex, itemIndex) => {
     const { value } = e.target;
     const novasCategorias = [...categorias];
@@ -68,27 +91,31 @@ function Calculadora() {
     setCategorias(novasCategorias);
   };
 
+  // Função para adicionar um item
   const adicionarItem = (catIndex) => {
     const novasCategorias = [...categorias];
     novasCategorias[catIndex].itens.push({
-      id: `item-${new Date().getTime()}`, // Garante que o id é uma string
+      id: `item-${new Date().getTime()}`, 
       titulo: "Novo item",
       custo: 0,
     });
     setCategorias(novasCategorias);
   };
 
-  const deletarItem = (catIndex, itemIndex) => {
-    const novasCategorias = [...categorias];
-    novasCategorias[catIndex].itens.splice(itemIndex, 1); 
-    setCategorias(novasCategorias); 
-  };
-  
+  // Função para remover um item
+  function removerItem(catIndex, itemIndex) {
+    const novaCategoria = [...categorias];
+    novaCategoria[catIndex].itens.splice(itemIndex, 1); 
+    setCategorias(novaCategoria);
+  }
+
+  // Função para editar o título do item
   const [itemEditando, setItemEditando] = useState({
     catIndex: null,
     itemIndex: null,
     field: null,
   });
+ 
   const handleTituloChange = (e, catIndex, itemIndex) => {
     const { value } = e.target;
     const novasCategorias = [...categorias];
@@ -144,6 +171,7 @@ function Calculadora() {
                   itemEditando={itemEditando}
                   setItemEditando={setItemEditando}
                   adicionarItem={adicionarItem}
+                  removerItem={removerItem}
                 />
               </div>
             ))}
@@ -177,7 +205,10 @@ function Calculadora() {
             <div className={styles.containerTitulo}>
               <div className={styles.tituloBotao}>
                 <span>Orçamento total</span>
-                <button className={styles.buttonExport}>
+                <button
+                  className={styles.buttonExport}
+                  onClick={handleEditClick}
+                >
                   <div className={styles.containerButton}>
                     <div>
                       <FontAwesomeIcon
@@ -194,9 +225,52 @@ function Calculadora() {
 
             <div className={styles.containerOrcamento}>
               <div className={styles.orcamento}>
-                <ArcoFinanceiro />
+                <ArcoFinanceiro gasto={gasto} total={total} />
               </div>
             </div>
+
+            {/* Modal de edição */}
+            {isModalOpen && (
+              <Modal>
+                <ModalHeader onClose={fecharModal}>
+                  <div className={styles.containerHeaderModal}>
+                    <span>Editar Orçamento</span>
+                  </div>
+                </ModalHeader>
+
+                <ModalBody>
+                  <div className={styles.containerModal}>
+                    <div className={styles.search_input_container}>
+                      <input
+                        type="number"
+                        id="gastoInput"
+                        className={styles.search_input}
+                        placeholder="Digite o valor do gasto"
+                        onChange={(e) => setGasto(Number(e.target.value))}
+                      />
+                    </div>
+                    <div className={styles.form_group}>
+                      <label htmlFor="gastoInput">
+                        Orçamento atual: R$ 500000
+                      </label>
+                    </div>
+                  </div>
+                </ModalBody>
+
+                <ModalFooter>
+                  <ModalFooterButton
+                    button="cancel_button"
+                    text="Cancelar"
+                    onClick={fecharModal}
+                  />
+                  <ModalFooterButton
+                    button="add_button"
+                    text="Salvar"
+                    onClick={() => fecharModal()}
+                  />
+                </ModalFooter>
+              </Modal>
+            )}
           </div>
         </div>
       </div>

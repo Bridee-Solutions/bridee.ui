@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
   faChevronUp,
-  faTrash
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 function CategoriaCalc({
@@ -18,6 +18,7 @@ function CategoriaCalc({
   itemEditando,
   setItemEditando,
   adicionarItem,
+  removerItem,
 }) {
   return (
     <div className={styles.categoria}>
@@ -48,18 +49,25 @@ function CategoriaCalc({
             <div key={`item-${itemIndex}`} className={styles.item}>
               <div className={styles.containerItem}>
                 <div className={styles.itemEsquerda}>
-                  {itemEditando.catIndex === catIndex && itemEditando.itemIndex === itemIndex ? (
+                  {itemEditando.catIndex === catIndex &&
+                  itemEditando.itemIndex === itemIndex ? (
                     // Campo de texto para edição do título
                     <input
                       type="text"
                       value={item.titulo}
-                      onChange={(e) => handleTituloChange(e, catIndex, itemIndex)}
-                      onBlur={() => setItemEditando({ catIndex: null, itemIndex: null })} // Sai do modo de edição ao desfocar
+                      onChange={(e) =>
+                        handleTituloChange(e, catIndex, itemIndex)
+                      }
+                      onBlur={() =>
+                        setItemEditando({ catIndex: null, itemIndex: null })
+                      } // Sai do modo de edição ao desfocar
                       className={styles.inputTitulo}
                     />
                   ) : (
                     // Exibe o título e habilita o modo de edição ao clicar
-                    <span onClick={() => setItemEditando({ catIndex, itemIndex })}>
+                    <span
+                      onClick={() => setItemEditando({ catIndex, itemIndex })}
+                    >
                       {item.titulo}
                     </span>
                   )}
@@ -73,22 +81,41 @@ function CategoriaCalc({
                     <input
                       className={styles.inputCusto}
                       value={item.custo}
-                      onChange={(e) => handleInputChange(e, catIndex, itemIndex)}
+                      onChange={(e) =>
+                        handleInputChange(e, catIndex, itemIndex)
+                      }
                       onBlur={() =>
-                        setItemEditando({ catIndex: null, itemIndex: null, field: null })
+                        setItemEditando({
+                          catIndex: null,
+                          itemIndex: null,
+                          field: null,
+                        })
                       }
                     />
                   ) : (
-                    <span onClick={() => setItemEditando({ catIndex, itemIndex, field: "custo" })}>
+                    <span
+                      onClick={() =>
+                        setItemEditando({ catIndex, itemIndex, field: "custo" })
+                      }
+                    >
                       {item.custo}
                     </span>
                   )}
+
+                  <FontAwesomeIcon
+                    icon={faTrash}
+                    className={styles.iconeLixeira}
+                    onClick={() => removerItem(catIndex, itemIndex)}
+                  />
                 </div>
               </div>
             </div>
           ))}
 
-          <div className={styles.adicionarItem} onClick={() => adicionarItem(catIndex)}>
+          <div
+            className={styles.adicionarItem}
+            onClick={() => adicionarItem(catIndex)}
+          >
             <img src={add} alt="Adicionar item" />
             <span>Adicionar item</span>
           </div>
