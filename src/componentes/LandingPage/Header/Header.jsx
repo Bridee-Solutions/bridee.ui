@@ -38,6 +38,10 @@ function Header() {
       </div>
       <div className={styles.header_boarder}></div>
       <div className={styles.header_body}>
+
+        <div className={styles.embranco}>
+ {/* essa div eh pra alinhamentoo da nav, nao retirar */}
+        </div>
         <div className={styles.header_logo}>
           <h1>bridee<b>.</b></h1>
           <p>O match perfeito para o dia dos sonhos</p>

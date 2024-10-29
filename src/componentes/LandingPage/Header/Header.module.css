@@ -8,14 +8,13 @@ header {
   color: #DD7B78;
 }
 
-
 @media (min-width: 768px) { 
+  .embranco { 
+    width: 20%;
+  }
+  
   .header_logo {
     text-align: center;
-    position: relative;
-    top: 7vh;
-    left: 50%;
-    transform: translate(-50%, -40%); 
   }
   
   .header_logo h1 {
@@ -37,10 +36,10 @@ header {
   }
   
   .header_body {
-    padding: 0px 30px;
     height: 16vh;
     display: flex;
     justify-content: space-between;
+    width: 100%;
   }
   
   .header_boarder {
