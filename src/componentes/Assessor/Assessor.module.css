@@ -50,7 +50,7 @@
     align-items: center;
     border: 1px solid #A9A8A8; 
     border-radius: 5px;
-    overflow: hidden;
+    overflow: hidden; 
   } 
   
   .containerSuperior {
@@ -90,3 +90,6 @@
     border-color: #999; 
   }
   
+  .form_group { 
+    padding-bottom: 0.4rem;
+  }

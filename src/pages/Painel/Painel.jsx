@@ -22,6 +22,7 @@ import edit from "../../assets/edit.svg";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 import Assessor from "../../componentes/Assessor/Assessor";
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
+import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 
 function Painel() {
   const [imageUrl, setImageUrl] = useState(null);
@@ -250,24 +251,22 @@ function Painel() {
           </div>
           <div className={styles.colunaDireita}>
             <div className={styles.conteudoColuna}>
-              <div className={styles.boxColunaOrcamento}>
-                <div className={styles.containerTitulo}>
-                  <span>Meu orçamento</span>
-                  <div className={styles.divider}></div>
-                </div>
+              <div className={styles.containerTitulo}>
+                <span>Meu orçamento</span>
+                <div className={styles.divider}></div>
+              </div>
 
-                <div>
-                  <div className={styles.containerOrcamento}>
-                    <div className={styles.orcamento}>
-                      <ArcoFinanceiro />
-                    </div>
+              <div>
+                <div className={styles.containerOrcamento}>
+                  <div className={styles.orcamento}>
+                    <ArcoFinanceiro />
+                  </div>
 
-                    <div className={styles.containerBotao}>
-                      <LinkButton
-                        to="/calculadora-financeira"
-                        label="Ver calculadora financeira"
-                      />
-                    </div>
+                  <div className={styles.containerBotao}>
+                    <LinkButton
+                      to="/calculadora-financeira"
+                      label="Ver calculadora financeira"
+                    />
                   </div>
                 </div>
               </div>
@@ -275,73 +274,75 @@ function Painel() {
           </div>
           <div className={styles.colunaDireita}>
             <div className={styles.conteudoColuna}>
-              <div className={styles.boxColunaPlanejador}>
-                <div className={styles.containerTitulo}>
-                  <span>Planejador de assentos</span>
-                  <div className={styles.divider}></div>
-                </div>
-                <div className={styles.conteudoPlanejador}>
-                  <div className={styles.colunaPlanejador}>
-                    <div className={styles.containerImgDesc}>
-                      <div className={styles.iconePlanejador}>
-                        <img src={grupo}></img>
-                      </div>
-
-                      <div className={styles.descricaoPlanejador}>
-                        <span>Total de convidados</span>
-                      </div>
+              <div className={styles.containerTitulo}>
+                <span>Planejador de assentos</span>
+                <div className={styles.divider}></div>
+              </div>
+              <div className={styles.conteudoPlanejador}>
+                <div className={styles.colunaPlanejador}>
+                  <div className={styles.containerImgDesc}>
+                    <div className={styles.iconePlanejador}>
+                      <img src={grupo}></img>
                     </div>
-                    <div>
-                      <span>10</span>
+
+                    <div className={styles.descricaoPlanejador}>
+                      <span>Total de convidados</span>
                     </div>
                   </div>
-                </div>
-
-                <div className={styles.conteudoPlanejador}>
-                  <div className={styles.colunaPlanejador}>
-                    <div className={styles.containerImgDesc}>
-                      <div className={styles.iconePlanejador}>
-                        <img src={sentados}></img>
-                      </div>
-
-                      <div className={styles.descricaoPlanejador}>
-                        <span>Convidados sentados</span>
-                      </div>
-                    </div>
-                    <div>
-                      <span>10</span>
-                    </div>
+                  <div>
+                    <span>10</span>
                   </div>
                 </div>
+              </div>
 
-                <div className={styles.conteudoPlanejador}>
-                  <div className={styles.colunaPlanejador}>
-                    <div className={styles.containerImgDesc}>
-                      <div className={styles.iconePlanejador}>
-                        <img src={mesas}></img>
-                      </div>
-
-                      <div className={styles.descricaoPlanejador}>
-                        <span>Total de mesas</span>
-                      </div>
+              <div className={styles.conteudoPlanejador}>
+                <div className={styles.colunaPlanejador}>
+                  <div className={styles.containerImgDesc}>
+                    <div className={styles.iconePlanejador}>
+                      <img src={sentados}></img>
                     </div>
-                    <div>
-                      <span>10</span>
+
+                    <div className={styles.descricaoPlanejador}>
+                      <span>Convidados sentados</span>
                     </div>
                   </div>
+                  <div>
+                    <span>10</span>
+                  </div>
                 </div>
+              </div>
 
-                <div className={styles.containerBotao}>
-                  <LinkButton
-                    to="/planejador-assentos"
-                    label="Gerenciar assentos"
-                  />
+              <div className={styles.conteudoPlanejador}>
+                <div className={styles.colunaPlanejador}>
+                  <div className={styles.containerImgDesc}>
+                    <div className={styles.iconePlanejador}>
+                      <img src={mesas}></img>
+                    </div>
+
+                    <div className={styles.descricaoPlanejador}>
+                      <span>Total de mesas</span>
+                    </div>
+                  </div>
+                  <div>
+                    <span>10</span>
+                  </div>
                 </div>
+              </div>
+
+              <div className={styles.containerBotao}>
+                <LinkButton
+                  to="/planejador-assentos"
+                  label="Gerenciar assentos"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <footer>
+        <Baseboard />
+      </footer>
     </div>
   );
 }

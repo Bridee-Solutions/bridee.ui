@@ -1,6 +1,12 @@
 html, body {
     margin: 0;
+    
 }
+
+html, body, #root, .App {
+    height: 100%;
+  }
+
 
 @font-face {
     font-family: 'Qlassy';
@@ -57,4 +63,8 @@ html, body {
 :root {
     --cor-primaria: #dd7b78;
     --cor-secundaria: #ed9c9b;
+  }
+
+  html, body {
+    height: 100%;
   }
