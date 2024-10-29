@@ -1,30 +1,64 @@
 .wedding_locations {
-  text-align: center;
-  margin: 10vh 0px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerLocais {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
-.wedding_locations h1 {
-  color: #312D2D;
-  font-size: 50px;
+.containerTituloLocal {
+  display: flex;
+  width: 100%;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.location { 
+  transition: transform 0.5s ease;
+}
+
+.wedding_locations span {
+  font-size: 2rem;
   font-weight: 500;
-  font-family: 'Playfair';
-  margin: 8vh 0vw;
+  font-family: "Playfair";
 }
 
-.wedding_locations .button_area{
-  margin: 3vh 0px;
+
+.containerBotao { 
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.button_area {
   display: flex;
   justify-content: center;
 }
 
-.wedding_locations button {
+.icon { 
+  color: #b55557;
+}
+
+.button_area  button {
   padding: 1.5vh 2vw;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: 600;
-  font-size: 18px;
-  color: #5C5656;
-  background-color: #FBF9F7;
-  border: 1px solid #9B9B9B;
+  font-size: 1rem;
+  color: #5c5656;
+  background-color: #fbf9f7;
+  border: 1px solid #d6d6d6;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -40,23 +74,39 @@
 .wedding_locations .container {
   display: flex;
   justify-content: space-around;
-  padding: 0px 5vw;
 }
 
-.location {
+
+.containerDescr span{
   color: #B55557;
-  font-family: 'Montserrat';
-  font-size: 22px;
+  font-family: "Montserrat";
+  font-size: 1.1rem;
   font-weight: 600;
-  line-height: normal;
-  transition: 0.5s;
+  line-height: normal; 
+}
+
+.containerDescr {
+  display: flex;
+  height: 6vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerImage > img {
+  width: 17vw;
 }
 
 .location:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-@media(max-width:768px) {
+.location { 
+  height: 45vh;
+}
+
+
+
+@media (max-width: 768px) {
   .wedding_locations h1 {
     font-size: 32px;
   }
@@ -65,12 +115,12 @@
     width: 80vw;
   }
 
-  .slide_wrapper{
+  .slide_wrapper {
     overflow: hidden;
   }
-  
+
   .wedding_locations .container {
-    width: calc(100%*4);
+    width: calc(100% * 4);
     animation: slide 10s infinite;
     justify-content: space-between !important;
   }

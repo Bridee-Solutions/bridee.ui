@@ -56,7 +56,7 @@ function Header() {
           )}
         </div>
         <button onClick={navigateLogin} className={styles.login_button}>Login</button>
-        <button className={styles.register_button}>Cadastre-se agora</button>
+        <button className={styles.register_button}>Cadastre-se</button>
         </div>
       </div>
     </header>
