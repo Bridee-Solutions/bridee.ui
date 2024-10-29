@@ -2,8 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 3vw;
     padding: 10px;
+    border-radius: 15px;
     border-bottom: 1px solid #eaeaea;
+}
+
+.task-list{
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
 }
 
 .task-details{
@@ -11,9 +18,21 @@
     flex-direction: column;
 }
 
+.task{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+.tag_container {
+    height: 7.5vh;
+}
+
 .tag {
-    background-color: #f0f0f0;
-    padding: 2px 6px;
+    background-color: #FFFFFF;
+    padding: 0.2vh 1vw;
+    height: fit-content;
+    border: 1px solid #ADADAD;
     border-radius: 4px;
     font-size: 12px;
 }
@@ -21,10 +40,49 @@
 .delete-btn {
     background: none; 
     border: none; 
-    color: #ff4d4f;
     cursor: pointer; /* Altera o cursor para indicar que é clicável */
+}
+
+.check_task {
+    border-radius: 100%;
+    height: 6vh;
+    width: 6vh;
+    border: solid 2px #ADADAD;
+    transition: 0.3s;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.check_task_checked {
+    border: solid 2px #3DDB2F;
+    background-image: url('../../assets/check_task.svg');
 }
 
 .delete-btn .icon {
     font-size: 24px; /* Ajusta o tamanho do ícone */
+}
+
+.add_task{
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    width: fit-content;
+    cursor: pointer;
+}
+
+
+.add_task button{
+    background-color: transparent;
+    border: 0;
+    color: #B55557;
+}
+
+.task_checked {
+    background-color: #F8F8F8;
+    transition: 0.5s;
+}
+
+.task_checked  h3,
+.task_checked  p{
+    text-decoration: line-through;
 }

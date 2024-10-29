@@ -1,17 +1,34 @@
 import styles from './Tasks.module.css';
 import "../../index.css";
-// import { Icon } from '@iconify/react';
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 
-const TaskItem = ({ title, date, tag}) => {
+const TaskItem = ({ index, title, date, tag, onDelete, onCheck}) => {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = () => {
+        const checkedStatus = !isChecked;
+        setIsChecked(checkedStatus);
+        onCheck(checkedStatus); 
+    };
+   
     return (
-        <div className={styles['task-item']}>
-            <input type="checkbox" />
-            <div className={styles['task-details']}>
-                <h3>{title}</h3>
-                <p>{date}</p>
-                {tag && <span className="tag">{tag}</span>}
+        <div className={`${styles['task-item']} ${isChecked ? styles.task_checked : ''}`}>
+            <div className={`${styles.task} ${isChecked ? styles.task_checked : ''}`}>
+                <input type="checkbox" id={index} checked={isChecked} onChange={handleCheckboxChange} style={{display: 'none'}}/>
+                <label htmlFor={index}  className={`${styles.check_task} ${isChecked ? styles.check_task_checked : ''}`} ></label>
+                <div className={styles.task}>
+                    <div className={styles['task-details']}>
+                        <h3>{title}</h3>
+                        <p>{date}</p>
+                    </div>
+                    <div className={styles.tag_container}>
+                    {tag && <span className={styles.tag}>{tag}</span>}
+                    </div>
+                </div>
             </div>
-            {/* <button onClick={onDelete} className="delete-btn"><Icon icon= "twotone-delete" /></button> */}
+            <button className={styles['delete-btn']} onClick={onDelete}><FontAwesomeIcon icon={faTrashCan} size='xl'/></button>
         </div>
     )
 }
