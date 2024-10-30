@@ -6,10 +6,32 @@
     align-items: center;
     justify-content: space-around;
     text-align: center;
+    border: 2px solid red;
 }
 
-.fase2_image{
-    height: 40%;
+.fase2_image { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fase2_image > img{
+    height: 15vh;
+    width: 08vw ;    
+    
+}
+
+.vamosCont {
+width: 100%;
+border: 2px solid red;
+
+}
+
+.vamos > span {
+font-family: "Playfair";
+font-size: 2.3rem;
+
 }
 
 .fase2_image img{
@@ -17,18 +39,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-bottom: 8%;
+    border: 2px solid yellow;
 }
 
 .fase2_image span{
     font-size: 20px;
     font-weight: 600;
+    
+    border: 2px solid purple;
 }
 
 .fase2_content{
     width: 100%;
-    height: 35%;
+    border: 2px solid yellow;
+    
 }
 
 .fase2_content span{
@@ -38,10 +62,21 @@
 .fase2_button{
     margin-top: 4%;
     padding: 3% 20%;
-    border-radius: 15px;
+    border-radius: 08px;
     border: none;
     background-color: #c6524e;
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+
+.containerDesc {
+    border: 2px red solid;
+    width: 100%;
+   
+}
+
+.containerDesc > span {
+    font-family: "Montserrat";
+    font-size: 1rem;
 }

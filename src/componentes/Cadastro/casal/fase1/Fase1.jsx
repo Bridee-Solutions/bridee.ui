@@ -188,7 +188,7 @@ const Fase1 = (props) => {
         <div className={fase1Style.fase1_button}>
           <div className={fase1Style.containerBotao}>
             <div className={fase1Style.conteBt}>
-              <button onClick={proximaFase}>Criar Conta</button>
+              <button onClick={proximaFase}>Criar conta</button>
             </div>
           </div>
           <div className={fase1Style.ou}>
