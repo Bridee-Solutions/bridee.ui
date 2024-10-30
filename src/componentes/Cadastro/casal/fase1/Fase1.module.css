@@ -35,9 +35,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
     width: 100%;
-    border: 2px solid purple ;
 }
 
 .fase1_button a{
@@ -74,7 +72,6 @@
   .containerRodape { 
     width: 100%;
     height: 100%;
-    border: 2px red solid;
     display: flex;
     justify-content: center;
     
@@ -122,16 +119,18 @@
     width: 100%;
     justify-content: center;
     display: flex;
+    height: 14vh;
+    align-items: center;
 }
 
 .fase1_button button{
     background-color: #c6524e;
     color: white;
     border: none;
-    padding: 3% 30%;
-    border-radius: 10px;
+    padding: 2% 30%;        border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+    height: 7vh;
 }
 
 .fase1_footer{
@@ -151,6 +150,10 @@
 
 .google_button{
     width: 72%;
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    
 }
 
 .ou { 
@@ -167,7 +170,6 @@
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    border: 2px solid yellow;
   
   }
   
@@ -199,3 +201,10 @@
     display: flex;
   }
   
+.conteBt { 
+  height: 10vh;
+  width: 20vw;   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

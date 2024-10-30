@@ -155,8 +155,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  
+  justify-content: center;  
   height: 100%;
   width: 100%;
   justify-content: space-around;
@@ -185,14 +184,14 @@
 }
 
 .login_content_button button {
-  background-color: #c6524e;
-  color: white;
-  border: none;
-  padding: 3% 28%;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  font-family: 'Montserrat';
+    background-color: #c6524e;
+    color: white;
+    border: none;
+    padding: 4% 39%;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Montserrat';
 }
 
 .ou { 
@@ -210,7 +209,6 @@
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  border: 2px solid yellow;
 
 }
 
@@ -240,10 +238,20 @@
     display: flex;
 }
 
+.conteBt { 
+    height: 10vh;
+    width: 20vw;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .google_button {
   width: 100%;
   justify-content: center;
   display: flex;
+      height: 10vh;
+    align-items: center;
+
 }
 

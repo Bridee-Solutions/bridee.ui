@@ -109,7 +109,9 @@ const Login = () => {
         <div className={styles.login_content}>
           <div className={styles.login_content_header}>
             <div className={styles.titulo}>
-              <span>bridee<b>.</b></span>
+              <span>
+                bridee<b>.</b>
+              </span>
             </div>
             <div className={styles.subtitulo}>
               <div className={styles.contSub}>
@@ -155,7 +157,9 @@ const Login = () => {
                 </div>
               </div>
               <div className={styles.containerBotao}>
-                <button onClick={authenticate}>Entrar</button>
+                <div className={styles.conteBt}>
+                  <button onClick={authenticate}>Entrar</button>
+                </div>
               </div>
               <div className={styles.ou}>
                 <span>ou</span>
