@@ -1,4 +1,3 @@
-import styles from "../../../../pages/Login/Login.module.css";
 import fase1Style from "./Fase1.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { CiLock, CiMail } from "react-icons/ci";
@@ -124,14 +123,14 @@ const Fase1 = (props) => {
 
   return (
     <div className={fase1Style.fase1_content}>
-      <div className={styles.login_content_header}>
-        <div className={styles.titulo}>
+      <div className={fase1Style.login_content_header}>
+        <div className={fase1Style.titulo}>
           <span>
             bridee<b>.</b>
           </span>
         </div>
-        <div className={styles.subtitulo}>
-          <div className={styles.contSub}>
+        <div className={fase1Style.subtitulo}>
+          <div className={fase1Style.contSub}>
             {props.usuario.tipo == "casal" ? (
               <p>O match perfeito para o dia dos seus sonhos.</p>
             ) : (
@@ -143,20 +142,20 @@ const Fase1 = (props) => {
 
       <div className={fase1Style.fase1_content_body}>
         {props.usuario.tipo == "casal" ? (
-          <div className={styles.containerBemvind}>
+          <div className={fase1Style.containerBemvind}>
             <span>Crie uma conta e comece a planejar seu casamento!</span>
           </div>
         ) : (
-          <div className={styles.containerBemvind}>
+          <div className={fase1Style.containerBemvind}>
             <span>
               Crie uma conta gratuita para desbloquear seu painel personalizado
               de planejamento de eventos.
             </span>
           </div>
         )}
-        <div className={styles.login_inputs}>
+        <div className={fase1Style.login_inputs}>
           <div style={{ position: "relative" }}>
-            <CiMail className={styles.login_inputs_icon} />
+            <CiMail className={fase1Style.login_inputs_icon} />
             <input
               type="text"
               ref={email}
@@ -166,7 +165,7 @@ const Fase1 = (props) => {
             />
           </div>
           <div style={{ position: "relative" }}>
-            <CiLock className={styles.login_inputs_icon} />
+            <CiLock className={fase1Style.login_inputs_icon} />
             <input
               type="password"
               ref={password}
@@ -176,7 +175,7 @@ const Fase1 = (props) => {
             />
           </div>
           <div style={{ position: "relative" }}>
-            <CiLock className={styles.login_inputs_icon} />
+            <CiLock className={fase1Style.login_inputs_icon} />
             <input
               type="password"
               ref={confirmPassword}
@@ -187,25 +186,30 @@ const Fase1 = (props) => {
           </div>
         </div>
         <div className={fase1Style.fase1_button}>
-          <div className={styles.containerBotao}>
+          <div className={fase1Style.containerBotao}>
             <button onClick={proximaFase}>Criar Conta</button>
           </div>
-          <div className={styles.ou}>
+          <div className={fase1Style.ou}>
             <span>ou</span>
           </div>
-          <div className={styles.google_button}>
+          <div className={fase1Style.google_button}>
             <GoogleLogin
               onSuccess={googleSuccessLogin}
               onError={errorMessage}
             />
           </div>
         </div>
-        {props.usuario.tipo == "casal" && (
-          <div className={fase1Style.fase1_footer}>
-            <p>Você é um assessor?</p>
-            <Link onClick={cadastrarAssessor}>Clique aqui.</Link>
-          </div>
-        )}
+
+        <div className={fase1Style.containerRodape}>
+          {props.usuario.tipo == "casal" && (
+            <div className={fase1Style.login_content_footer}>
+              <div>
+                <span>Você é um assessor?</span>
+                <Link onClick={cadastrarAssessor}>Clique aqui.</Link>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
