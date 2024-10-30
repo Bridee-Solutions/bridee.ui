@@ -1,0 +1,91 @@
+.contentContagem {
+  width: 100%;
+  background-color: var(--cor-primaria);
+  border-radius: 28px;
+    font-family: "Montserrat";  
+}
+
+.containerHeader { 
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  padding: 0.7rem;
+}
+
+
+
+.header span {
+  font-weight: 600;
+  color: white;
+}
+
+.iconarrow, .faClock {
+  color: white;  
+}
+
+.faClock {
+  cursor: default;
+}
+
+.containerIcons {
+  display: flex;
+  justify-content: space-between;
+  width: 3vw;
+}
+
+
+.content {
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  height: 27vh;
+}
+  
+ 
+.contentContainer { 
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: space-around;
+  align-items: center;
+ }
+
+.escrita {
+  font-size: 0.9rem;
+  width: 22vw;
+}
+
+.countdown {
+  display: flex;
+  width: 99%;
+  align-items: center;
+  justify-content: center; 
+}
+
+.countdownItem {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.containerCountdown { 
+  display: flex; width: 90%; justify-content: space-evenly;
+}
+
+.countdownItem span:first-child {
+  font-size: 1.9rem;
+  color: var(--cor-primaria);
+  font-weight: bold;
+}
+
+.countdownItem span:last-child {
+  font-size: 0.9rem;
+  color: #6e6e6e;
+}
