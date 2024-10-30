@@ -5,11 +5,39 @@ import Navbar from "../../componentes/Navbar/Navbar";
 import OpcaoFiltro from "../../componentes/OpcoesFiltro/OpcaoFiltro";
 import TaskList from '../../componentes/Tasks/TaskList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+
+import Modal from '../../componentes/Modal/Modal';
+import ModalHeader from '../../componentes/Modal/ModalHeader/ModalHeader';
+import ModalBody from '../../componentes/Modal/ModalBody/ModalBody'
+import ModalFooter from '../../componentes/Modal/ModalFooter/ModalFooter'
+import ModalFooterButton from '../../componentes/Modal/ModalFooterButton/ModalFooterButton'
 
 function ListaTarefas() {
     
     const [checkedCount, setCheckedCount] = useState(0);
+    const [modalDelete, setModalDelete] = useState(false);
+    const [modalAddTask, setModalAddTask] = useState(false);
+    const [task, setTask] = useState("");
+
+    const abrirModalDelete = (task) => {
+        setTask(task);
+        setModalDelete(true);
+    };
+
+    const abrirModalAdd = () => {
+        setModalAddTask(true);
+    }
+
+    const fecharModalAdd = () => {
+        setModalAddTask(false);
+    }
+    
+
+    const fecharModalDelete = () => {
+        setModalDelete(false);
+        setTask("");
+    };
 
     const handleCheckboxChange = (isChecked) => {
         setCheckedCount(prevCount => isChecked ? prevCount + 1 : prevCount - 1);
@@ -76,23 +104,88 @@ function ListaTarefas() {
                             <div className={styles.list}>
                                 <div>
                                     <h2>Atrasado</h2>
-                                    <TaskList taskList={overdueTasks} onCheckboxChange={handleCheckboxChange}/>
+                                    <TaskList taskList={overdueTasks} onCheckboxChange={handleCheckboxChange} onDelete={abrirModalDelete}/>
                                 </div>
 
                                 <div>
                                     <h2>Outubro 2024</h2>
-                                    <TaskList taskList={currentMonthTasks} onCheckboxChange={handleCheckboxChange}/>
+                                    <TaskList taskList={currentMonthTasks} onCheckboxChange={handleCheckboxChange} onDelete={abrirModalDelete}/>
                                 </div>
 
                                 <div>
                                     <h2>Novembro 2024</h2>
-                                    <TaskList taskList={nextMonthTasks} onCheckboxChange={handleCheckboxChange}/>
+                                    <TaskList taskList={nextMonthTasks} onCheckboxChange={handleCheckboxChange} onDelete={abrirModalDelete}/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {modalAddTask && (
+            <Modal>
+                <ModalHeader onClose={fecharModalAdd}>
+                <h1>Criar tarefa</h1>
+                </ModalHeader>
+                <ModalBody>
+                <div className={styles.containerModal}>
+                    <div>
+                        <p>Nome da tarefa</p>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <p>Descrição da tarefa personalizada</p>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <p>Notas</p>
+                        <input type="text" placeholder='Escreva algo aqui...'/>
+                    </div>
+                    <div>
+                        <div>
+                            <p>Data</p>
+                            <input type="date" />
+                        </div>
+                        <div>
+                            <p>Categoria</p>
+                            <input type="text" />
+                        </div>
+                    </div>
+                </div>
+                </ModalBody>
+                <ModalFooter>
+                <ModalFooterButton
+                    button="cancel_button"
+                    text="Cancelar"
+                    onClick={fecharModalAdd}
+                />
+                <ModalFooterButton button="add_button" text="Salvar" />
+                </ModalFooter>
+            </Modal>
+            )}
+
+            {modalDelete && (
+            <Modal>
+                <ModalHeader onClose={fecharModalDelete}>
+                <h1>Remover tarefa</h1>
+                </ModalHeader>
+                <ModalBody>
+                <div className={styles.containerModal}>
+                <FontAwesomeIcon className={styles.iconAlert} icon={faTriangleExclamation} style={{color: "#FF5154"}}/>
+                <p>Deseja remover a tarefa "{task}?"</p>
+                <span>Você não poderá recuperá-lo novamente após a exclusão.</span>
+                </div>
+                </ModalBody>
+                <ModalFooter>
+                <ModalFooterButton
+                    button="cancel_button"
+                    text="Cancelar"
+                    onClick={fecharModalDelete}
+                />
+                <ModalFooterButton button="delete_button" text="Deletar" />
+                </ModalFooter>
+            </Modal>
+            )}
         </div>
     );
 };
