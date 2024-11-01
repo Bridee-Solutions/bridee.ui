@@ -1,4 +1,5 @@
 import styles from "../../pages/Calculadora/Calculadora.module.css";
+import stylesCalc from "../CategoriaCalculadora/CategoriaCalculadora.module.css"
 import "./CategoriaCalculadora.module.css";
 import "../../index.css";
 import add from "../../assets/calculadora/add.svg";
@@ -60,13 +61,16 @@ function CategoriaCalc({
                       }
                       onBlur={() =>
                         setItemEditando({ catIndex: null, itemIndex: null })
+                        
                       } // Sai do modo de edição ao desfocar
-                      className={styles.inputTitulo}
-                    />
+                      className={`${styles.inputTitulo} ${stylesCalc.titulo}`}                    />
                   ) : (
                     // Exibe o título e habilita o modo de edição ao clicar
                     <span
                       onClick={() => setItemEditando({ catIndex, itemIndex })}
+                      className={`${stylesCalc.titulo} ${
+                        itemEditando.catIndex === catIndex && itemEditando.itemIndex === itemIndex ? stylesCalc.editando : ""
+                      }`}
                     >
                       {item.titulo}
                     </span>
@@ -79,8 +83,7 @@ function CategoriaCalc({
                   itemEditando.itemIndex === itemIndex &&
                   itemEditando.field === "custo" ? (
                     <input
-                      className={styles.inputCusto}
-                      value={item.custo}
+                    className={`${styles.inputBox} ${styles.inputCusto}`}                      value={item.custo}
                       onChange={(e) =>
                         handleInputChange(e, catIndex, itemIndex)
                       }
@@ -96,7 +99,8 @@ function CategoriaCalc({
                     <span
                       onClick={() =>
                         setItemEditando({ catIndex, itemIndex, field: "custo" })
-                      }
+                      } 
+                      
                     >
                       {item.custo}
                     </span>
