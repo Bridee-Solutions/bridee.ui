@@ -55,6 +55,11 @@ html, body, #root, .App {
     src: url('/src/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf');
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url('/src/assets/fonts/Poppins-Regular.ttf');
+}
+
 :root {
     --cor-primaria: #dd7b78;
     --cor-secundaria: #ed9c9b;
