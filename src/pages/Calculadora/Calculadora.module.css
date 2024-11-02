@@ -132,6 +132,12 @@
   color: #5C5757;
 }
 
+.buttonExport:hover { 
+  background-color: rgb(247, 247, 247);
+  transition: 0.3s ease;
+}
+
+
 .containerButton {
   display: flex;
   justify-content: space-evenly;
@@ -145,59 +151,10 @@
   padding-bottom: 1.4rem;
 }
 
-.itemEsquerda { 
-  border-bottom: #DFDEDE 1px solid;
-  width: 35vw;
-  padding-bottom: 0.4rem;
-  padding-top: 0.4rem;
-  font-size: 1rem;
-}
 
-.containerItem { 
-  display: flex;
-  justify-content: space-between; 
-  font-family: 'Montserrat';
-}
 
-.categoriaNome { 
-  font-family: "Montserrat";
-  font-weight: 500;
-  font-size: 1rem;
-  color: #2c2c2c;
-  height: 2rem;
-  width: 30vw;
-  display: flex;
-  align-items: center;
-}
 
-.setaCategoria { 
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
 
-.containerCat {
-  display: flex;
-  align-items: center;
-}
-
-.adicionarItem {
-  background-color: transparent;
-  border: none;
-  color:  #B55557;
-  font-family: "Montserrat";
-  font-weight: 600;
-  line-height: normal;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 13px;
-  padding-top: 10px;
-}
-
-.adicionarItem > span {
-  padding-left: 5px;
-}
 
 .add {
   width: 0.8rem;
@@ -211,9 +168,7 @@
   width: 50vw;
 }
 
-.categoria { 
-  width: 90%;
-}
+
 
 .inputCusto { 
   background-color: transparent;
@@ -255,9 +210,6 @@
   padding-left: 0.5rem;
 }
 
-.iconeCategoria > img { 
-  width: 2.0vw;
-}
 
 .containerTotal {
   display: flex;
@@ -296,29 +248,8 @@
   padding-left: 0.9rem;
 }
 
-.inputBox { 
-  width: 9vw;
-  display: flex;
-  justify-content: flex-end;
-  border-bottom: #DFDEDE 1px solid;
-  width: 100px;
-  padding-top: 0.4rem;
-}
 
-.inputCusto { 
-  width: 4vw;
-}
 
-.inputCusto { 
-  border-bottom: #DFDEDE 1px solid;
-  width: 100px;
-}
-.iconeLixeira {
-  margin-left: 0.5rem;
-  cursor: pointer;
-  color: #c2c2c2; 
-  font-size: 1rem;
-}
 
 .search_input{
   display: flex;
@@ -326,11 +257,29 @@
   border: 1px solid #A9A8A8; 
   border-radius: 5px;
   overflow: hidden;
+  padding-left: 1rem;
 }
 
-.inputTitulo {
-  width: 100%;
-  outline: none;
-  border: none;
+.form_group { 
+  width: 50%;
+  height: 6vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+font-size: 0.9rem;
+}
 
+.search_input[type="number"]::-webkit-outer-spin-button,
+.search_input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove as setas de input[type="number"] no Firefox */
+.search_input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.search_input:focus { 
+  border: 1px solid #636363;
 }
