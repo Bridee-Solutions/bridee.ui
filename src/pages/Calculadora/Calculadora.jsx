@@ -68,6 +68,26 @@ function Calculadora() {
   const [gasto, setGasto] = useState(0); // valor inicial de gasto
   const [total] = useState(10000); // valor total fixo p exemplo
   const [totalAtual, setTotalAtual] = useState(0);
+
+  // editar nome da categoria
+  const [categoriaEditando, setCategoriaEditando] = useState(null);
+  const iniciarEdicaoCategoria = (catIndex) => {
+    setCategoriaEditando(catIndex);
+  };
+
+  const finalizarEdicaoCategoria = () => {
+    setCategoriaEditando(null);
+  };
+
+  // Handlers para edição do nome da categoria
+  const handleCategoryNomeChange = (e, catIndex) => {
+    const { value } = e.target;
+    const novasCategorias = [...categorias];
+    novasCategorias[catIndex].nome = value;
+    setCategorias(novasCategorias);
+    // Aqui você pode adicionar lógica para indicar que houve modificação
+  };
+
   // função para abrir o modal
   const handleEditClick = () => {
     setIsModalOpen(true);
@@ -111,6 +131,15 @@ function Calculadora() {
     setCategorias(novaCategoria);
   }
 
+ // remover categoria
+ const removerCategoria = (index) => {
+  const novasCategorias = [...categorias]; 
+  novasCategorias.splice(index, 1);
+  setCategorias(novasCategorias); 
+};
+
+
+
   // Função para editar o título do item
   const [itemEditando, setItemEditando] = useState({
     catIndex: null,
@@ -131,7 +160,7 @@ function Calculadora() {
 
     const novaCategoria = {
       id: uuidv4(),
-      nome: "Nova Categoria",
+      nome: "Digite o nome da nova categoria",
       icon: etiqueta,
       itens: [{ titulo: "Novo item", custo: 0 }],
       aberta: true,
@@ -153,7 +182,6 @@ function Calculadora() {
     setTotalAtual(somaTotal); // Atualiza o total com a soma de todas as categorias
   }, [categorias]);
 
-
   return (
     <div className={styles.background}>
       <Navbar />
@@ -169,7 +197,9 @@ function Calculadora() {
                 Calculadora Financeira
               </span>
               <span className={styles.descricao}>
-              Organize gastos por categoria, acompanhe o total e exporte dados facilmente.              </span>
+                Organize gastos por categoria, acompanhe o total e exporte dados
+                facilmente.{" "}
+              </span>
             </div>
             <div>
               <button className={styles.buttonExport}>
@@ -200,6 +230,9 @@ function Calculadora() {
                   setItemEditando={setItemEditando}
                   adicionarItem={adicionarItem}
                   removerItem={removerItem}
+                  removerCategoria={removerCategoria}
+                  categorias={categorias} // Adicione essa linha
+                  setCategorias={setCategorias} // Adicione essa linha
                 />
               </div>
             ))}
@@ -216,7 +249,6 @@ function Calculadora() {
                 </div>
 
                 <div className={styles.containerDireita}>
-                 
                   <div>
                     <div className={styles.containerTotal}>
                       <span className={styles.total}>Total atual</span>

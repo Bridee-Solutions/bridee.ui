@@ -10,7 +10,7 @@ import {
   faChevronDown,
   faChevronUp,
   faTrash,
-  faCheck
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 function CategoriaCalc({
@@ -23,9 +23,32 @@ function CategoriaCalc({
   setItemEditando,
   adicionarItem,
   removerItem,
+  categorias,
+  setCategorias,
+  removerCategoria,
 }) {
+  const [categoriaEditando, setCategoriaEditando] = useState(null);
+
+  const iniciarEdicaoCategoria = () => {
+    setCategoriaEditando(catIndex);
+  };
+
+  const finalizarEdicaoCategoria = () => {
+    setCategoriaEditando(null);
+  };
+
   // Estado para controlar se houve modificação
   const [isModified, setIsModified] = useState(false);
+
+  const [isCategoriaModified, setIsCategoriaModified] = useState(false);
+
+  const handleCategoriaNomeChange = (e) => {
+    const { value } = e.target;
+    setIsModified(true); // Define que houve modificação
+    const novasCategorias = [...categorias];
+    novasCategorias[catIndex].nome = value; // Atualiza o nome da categoria
+    setCategorias(novasCategorias); // Atualiza o estado com as novas categorias
+  };
 
   // Função para verificar alterações nos campos de entrada
   const handleModifiedChange = (e, catIndex, itemIndex) => {
@@ -47,23 +70,65 @@ function CategoriaCalc({
     <div className={stylesCalc.categoria}>
       <div className={stylesCalc.cabecalhoCategoria}>
         <div className={stylesCalc.containerCat}>
-          <button
-            className={stylesCalc.setaCategoria}
-            onClick={() => toggleCategoria(catIndex)}
-          >
-            {categoria.aberta ? (
-              <FontAwesomeIcon icon={faChevronUp} />
-            ) : (
-              <FontAwesomeIcon icon={faChevronDown} />
-            )}
-          </button>
+          <div className={stylesCalc.direita}>
+            <button
+              className={stylesCalc.setaCategoria}
+              onClick={() => toggleCategoria(catIndex)}
+            >
+              {categoria.aberta ? (
+                <FontAwesomeIcon icon={faChevronUp} />
+              ) : (
+                <FontAwesomeIcon icon={faChevronDown} />
+              )}
+            </button>
 
-          <div className={stylesCalc.iconeCategoria}>
-            <img src={categoria.icon} alt="Ícone da Categoria" />
+            <div className={stylesCalc.iconeCategoria}>
+              <img src={categoria.icon} alt="Ícone da Categoria" />
+            </div>
+
+            <div className={stylesCalc.categoriaNome}>
+              {categoriaEditando === catIndex ? (
+                <input
+                  type="text"
+                  value={categoria.nome}
+                  onChange={handleCategoriaNomeChange}
+                  onBlur={finalizarEdicaoCategoria} // Sai do modo de edição ao desfocar
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      finalizarEdicaoCategoria(); // Finaliza a edição ao pressionar Enter
+                    }
+                  }}
+                  className={`${stylesCalc.inputTitulo}`} // Aqui você pode aplicar estilos que desejar
+                />
+              ) : (
+                <span
+                  onClick={iniciarEdicaoCategoria}
+                  className={stylesCalc.titulo}
+                >
+                  {categoria.nome}
+                </span>
+              )}
+            </div>
           </div>
 
-          <div className={stylesCalc.categoriaNome}>{categoria.nome}</div>
+          <div className={stylesCalc.lixo}>
+            <FontAwesomeIcon
+              icon={faTrash}
+              className={stylesCalc.iconeLixeira}
+              onClick={() => removerCategoria(catIndex)}
+            />
+          </div>
         </div>
+        {categoria.aberta && (
+          <div className={stylesCalc.containerLegenda}>
+            <div>
+              <span>Titulo</span>
+            </div>
+            <div className={stylesCalc.custototal}>
+              <span>Custo total</span>
+            </div>
+          </div>
+        )}
       </div>
 
       {categoria.aberta && (
@@ -169,20 +234,20 @@ function CategoriaCalc({
         </>
       )}
 
+
+{categoria.aberta && ( // Exibe o botão de salvar apenas se a categoria estiver aberta
       <div className={stylesCalc.salvar}>
-        {isModified && (
+        {(isModified || isCategoriaModified) && (
           <button
             className={stylesCalc.buttonSaveChanges}
             onClick={salvarAlteracoes}
           >
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.iconExport}
-                    />{" "}
+            <FontAwesomeIcon icon={faCheck} className={styles.iconExport} />{" "}
             Salvar alterações
           </button>
         )}
       </div>
+      )}
     </div>
   );
 }
