@@ -4,18 +4,11 @@ import "../../index.css";
 import TaskItem from './TaskItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import Modal from '../Modal/Modal';
-import ModalHeader from '../Modal/ModalHeader/ModalHeader';
 
-const TaskList = ({ taskList, onCheckboxChange , countTaskNumber}) => {
+const TaskList = ({ taskList, onCheckboxChange , onDelete, onCreate}) => {
     const [tasks, setTasks] = useState(
         taskList.map(task => ({ ...task, id: `${task.title}-${Math.random().toString(36).substr(2, 9)}` }))
     );
-
-    const deleteTask = (taskId) => {
-        const updatedTasks = tasks.filter((task) => task.id !== taskId);
-        setTasks(updatedTasks);
-    };
 
     return (
         <div>
@@ -28,12 +21,12 @@ const TaskList = ({ taskList, onCheckboxChange , countTaskNumber}) => {
                         date={task.date} 
                         tag={task.tag}
                         onCheck={onCheckboxChange}
-                        onDelete={() => deleteTask(task.id)}
+                        onDelete={() => onDelete(task.title)}
                     />
                 ))}  
             </div>
             <label htmlFor='addTask' className={styles.add_task}>
-                <button id='addTask'><FontAwesomeIcon icon={faPlus} size='2xl'/></button>
+                <button id='addTask' onClick={onCreate}><FontAwesomeIcon icon={faPlus} size='2xl'/></button>
                 <h3>Adicionar tarefa</h3>
             </label>
         </div>

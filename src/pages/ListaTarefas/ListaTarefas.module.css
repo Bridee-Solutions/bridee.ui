@@ -1,11 +1,12 @@
 .lista-de-tarefas{
     background-color: #F3EED9;
-    height: 100%;
+    padding-bottom: 5%;
+    height: fit-content;
 }
 
 .tituloPage{
     align-self: flex-start;
-    padding-left: 12vh;
+    padding-left: 5.5%;
     padding-top: 25px;
     margin-bottom: 12px; 
     font-family: "Montserrat";
@@ -16,6 +17,7 @@
 .tituloLista {
     font-family: "PlayFair";
     font-size: 50px;
+    margin: 1% 0%;
 }
 
 .subtitulo{
@@ -28,12 +30,12 @@
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    min-height: calc(100vh - 80px);
+    min-height: 30%;
 }
 
 .card-fundo{
     background-color: #fffffff6; 
-    padding: 10vh 14vh; /* ordem: topo, direita, base e esquerda */
+    padding: 10vh 14vh; /* ordem: topo, direita, base e esquerda */ /* Adiciona um espaço extra ao fundo */
     width: 90%; 
     border-radius: 30px;
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
@@ -43,19 +45,19 @@
 .card-fundo .header {
     display: flex;
     align-items: center;
-    gap: 3vw;
+    gap: 3.92%;
 }
 
 .progress_bar_container {
     width: 72.89%;
-    height: 7vh;
+    height: 10%;
     display: flex;
     flex-direction: column;
     justify-content: end;
 }
 
 .progress_bar_container p {
-    margin: 0.3vh 0vw;
+    margin: 0.3% 0%;
     font-family: 'ProductSans';
 }
 
@@ -73,20 +75,20 @@
 }
 .container {
     display: flex;
-    gap: 12.5vw;
+    gap: 15%;
 }
 
 .searchBar {
     width: 100%;
     border: 1px solid #838383;
     border-radius: 10px;
-    height: 5vh;
+    height: 4%;
     display: flex;
-    gap: 0.5vw;
+    gap: 0.5%;
     align-items: center;
-    padding: 0vh 1vw;
+    padding: 0% 2%;
     color: #7E7E7E;
-    margin: 3vh 0vw;
+    margin: 3% 0%;
     cursor: text;
 }
 
@@ -116,7 +118,7 @@
 
 .tasksList .list{
     display: flex;
-    gap: 6vh;
+    gap: 6%;
     flex-direction: column;
 }
 
@@ -124,12 +126,82 @@
     font-family: "PlayFair";
 }
 
-.containerModal {
+.containerModalDelete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.containerModalCreate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    height: 100%;
+    margin: 3% 0%;
+    gap: 5%;
+}
+
+.containerModalCreate input{
+    border: 1px solid #A9A8A8;
+    border-radius: 10px;
+    padding: 0% 1%;
+}
+
+.containerModalCreate p{
+    margin: 0;
+    font-family: 'ProductSans';
+    font-weight: 400;
+}
+
+.containerModalCreate .containerDateTag {
+    display: flex;
+    justify-content: space-between;
+    width: 83%;
+}
+
+.containerModalCreate .containerDateTag div{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    
+}
+.containerModalCreate .containerDateTag div div{
+    border: 1px solid #A9A8A8;
+    border-radius: 10px;
+    padding: 0% 2%;   
+    height: 100%;
+    width: 100%;
+}
+
+.containerModalCreate .containerDateTag label{
+    width: 100%;
+    display: flex;
+    align-items: center;  
+    gap: 2%;
+}
+
+.containerModalCreate .containerDateTag label span{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.containerModalCreate .containerDateTag div input{
+    width: 100%;
+    border: 0;
+}
+
+
+.containerModalDelete div{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.containerModal .iconAlert{
-    font-size: 36px;
+.containerModalDelete .iconAlert{
+    font-size: 48px;
 }

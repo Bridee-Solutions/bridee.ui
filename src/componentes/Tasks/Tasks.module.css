@@ -2,8 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 3vw;
-    padding: 10px;
+    padding: 0% 1.5%;
     border-radius: 15px;
     border-bottom: 1px solid #eaeaea;
 }
@@ -25,7 +24,7 @@
 }
 
 .tag_container {
-    height: 7.5vh;
+    height: 100%;
 }
 
 .tag {
