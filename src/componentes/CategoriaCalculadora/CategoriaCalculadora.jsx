@@ -44,16 +44,16 @@ function CategoriaCalc({
 
   const handleCategoriaNomeChange = (e) => {
     const { value } = e.target;
-    setIsModified(true); // Define que houve modificação
+    setIsModified(true);
     const novasCategorias = [...categorias];
-    novasCategorias[catIndex].nome = value; // Atualiza o nome da categoria
-    setCategorias(novasCategorias); // Atualiza o estado com as novas categorias
+    novasCategorias[catIndex].nome = value; 
+    setCategorias(novasCategorias); 
   };
 
   // Função para verificar alterações nos campos de entrada
   const handleModifiedChange = (e, catIndex, itemIndex) => {
     handleInputChange(e, catIndex, itemIndex);
-    setIsModified(true); // Define como modificado quando a função é chamada
+    setIsModified(true); 
   };
 
   const handleTituloModifiedChange = (e, catIndex, itemIndex) => {
@@ -63,7 +63,7 @@ function CategoriaCalc({
 
   // Define o estado como `false` ao salvar as alterações
   const salvarAlteracoes = () => {
-    // Aqui você pode adicionar lógica para salvar as alterações se necessário
+    // adicionar lógica para salvar as alterações se necessário
     setIsModified(false); // Reseta o estado após salvar
   };
   return (
@@ -92,13 +92,13 @@ function CategoriaCalc({
                   type="text"
                   value={categoria.nome}
                   onChange={handleCategoriaNomeChange}
-                  onBlur={finalizarEdicaoCategoria} // Sai do modo de edição ao desfocar
+                  onBlur={finalizarEdicaoCategoria}
                   onKeyPress={(e) => {
                     if (e.key === "Enter") {
-                      finalizarEdicaoCategoria(); // Finaliza a edição ao pressionar Enter
+                      finalizarEdicaoCategoria(); 
                     }
                   }}
-                  className={`${stylesCalc.inputTitulo}`} // Aqui você pode aplicar estilos que desejar
+                  className={`${stylesCalc.inputTitulo}`}
                 />
               ) : (
                 <span
@@ -184,7 +184,6 @@ function CategoriaCalc({
                         }
                         onKeyDown={(e) => {
                           if (e.key === "Enter") {
-                            // Sai do estado de edição
                             setItemEditando({
                               catIndex: null,
                               itemIndex: null,
@@ -235,7 +234,7 @@ function CategoriaCalc({
       )}
 
 
-{categoria.aberta && ( // Exibe o botão de salvar apenas se a categoria estiver aberta
+{categoria.aberta && ( 
       <div className={stylesCalc.salvar}>
         {(isModified || isCategoriaModified) && (
           <button

@@ -231,8 +231,8 @@ function Calculadora() {
                   adicionarItem={adicionarItem}
                   removerItem={removerItem}
                   removerCategoria={removerCategoria}
-                  categorias={categorias} // Adicione essa linha
-                  setCategorias={setCategorias} // Adicione essa linha
+                  categorias={categorias}
+                  setCategorias={setCategorias} 
                 />
               </div>
             ))}
