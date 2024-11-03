@@ -9,11 +9,11 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import weddingDress1 from "../../../assets/card_dress1.svg";
-import weddingDress2 from "../../../assets/card_dress2.svg";
-import weddingDress3 from "../../../assets/card_dress3.svg";
-import weddingDress4 from "../../../assets/card_dress4.svg";
-import weddingDress5 from "../../../assets/card_dress5.svg";
+import weddingDress1 from "../../../assets/landingpage/weddingDresses/card_dress1.svg";
+import weddingDress2 from "../../../assets/landingpage/weddingDresses/card_dress2.svg";
+import weddingDress3 from "../../../assets/landingpage/weddingDresses/card_dress3.svg";
+import weddingDress4 from "../../../assets/landingpage/weddingDresses/card_dress4.svg";
+import weddingDress5 from "../../../assets/landingpage/weddingDresses/card_dress5.svg";
 
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 library.add(faArrowRight);

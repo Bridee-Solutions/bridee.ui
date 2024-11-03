@@ -1,12 +1,12 @@
 import styles from "./Categories.module.css";
-import Videography from "../../../assets/foto_video_icon.svg";
-import Local from "../../../assets/local_icon.svg";
-import Music from "../../../assets/music_icon.svg";
-import Cake from "../../../assets/wedding_cake_icon.svg";
-import Decoration from "../../../assets/decoration_icon.svg";
-import Gastronomy from "../../../assets/gastronomy_icon.svg";
-import Bride from "../../../assets/wedding_dress_icon.svg";
-import Groom from "../../../assets/wedding_shirt_icon.svg";
+import Videography from "../../../assets/landingpage/Categories/foto_video_icon.svg";
+import Local from "../../../assets/landingpage/Categories/local_icon.svg";
+import Music from "../../../assets/landingpage/Categories/music_icon.svg";
+import Cake from "../../../assets/landingpage/Categories/wedding_cake_icon.svg";
+import Decoration from "../../../assets/landingpage/Categories/decoration_icon.svg";
+import Gastronomy from "../../../assets/landingpage/Categories/gastronomy_icon.svg";
+import Bride from "../../../assets/landingpage/Categories/wedding_dress_icon.svg";
+import Groom from "../../../assets/landingpage/Categories/wedding_shirt_icon.svg";
 
 const categorias = [
   { image: Videography, descricao: "Fotos & Vídeo" },

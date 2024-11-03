@@ -12,7 +12,7 @@ const Fase2 = (props) => {
     return(
         <div className={styles.fase2}>
             <div className={styles.fase2_image}>
-                <img src={"/src/assets/streamline_champagne-party-alcohol.svg"} alt="" />
+                <img src={"/src/assets/login/streamline_champagne-party-alcohol.svg"} alt="" />
                 <span>Vamos começar a festa...</span>
             </div>
             <div className={styles.fase2_content}>

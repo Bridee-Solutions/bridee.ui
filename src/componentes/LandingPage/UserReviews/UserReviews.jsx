@@ -1,11 +1,11 @@
 import styles from "./UserReviews.module.css";
 
-import abreAspas from "../../../assets/abre_aspas.svg";
-import fechaAspas from "../../../assets/fecha_aspas.svg";
-import star from "../../../assets/star.svg";
-import user_bride from "../../../assets/Isabela_cambui_photo.svg";
-import user_advisor from "../../../assets/Aghata_paula_photo.svg";
-import user_groom from "../../../assets/Enzo_martins_photo.svg";
+import abreAspas from "../../../assets/landingpage/UserReviews/abre_aspas.svg";
+import fechaAspas from "../../../assets/landingpage/UserReviews/fecha_aspas.svg";
+import star from "../../../assets/landingpage/UserReviews/star.svg";
+import user_bride from "../../../assets/landingpage/UserReviews/Isabela_cambui_photo.svg";
+import user_advisor from "../../../assets/landingpage/UserReviews/Aghata_paula_photo.svg";
+import user_groom from "../../../assets/landingpage/UserReviews/Enzo_martins_photo.svg";
 
 function UserReviews() {
   const testimonials = [
