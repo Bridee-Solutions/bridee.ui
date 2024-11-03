@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import OutdoorLocation from "../../../assets/outdoor_location.svg";
-import BeachLocation from "../../../assets/beach_location.svg";
-import ChurchLocation from "../../../assets/church_location.svg";
-import ResortsLocation from "../../../assets/resorts_location.svg";
+import OutdoorLocation from "../../../assets/landingpage/WeddingLocations/outdoor_location.svg";
+import BeachLocation from "../../../assets/landingpage/WeddingLocations/beach_location.svg";
+import ChurchLocation from "../../../assets/landingpage/WeddingLocations/church_location.svg";
+import ResortsLocation from "../../../assets/landingpage/WeddingLocations/resorts_location.svg";
 
 library.add(faArrowRight);
 
