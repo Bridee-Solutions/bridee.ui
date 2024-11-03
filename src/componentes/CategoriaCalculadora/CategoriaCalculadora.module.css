@@ -10,42 +10,57 @@
 }
 
 .salvar button {
-  border: #D2D1D1 solid 2px;
+  border: #d2d1d1 solid 2px;
   background-color: white;
   border-radius: 06px;
   height: 6vh;
   width: 23%;
   cursor: pointer;
   font-family: "Montserrat";
-  color: #5C5757;
+  color: #5c5757;
 }
 
-.salvar :hover { 
+.salvar :hover {
   background-color: rgb(247, 247, 247);
   transition: 0.3s ease;
 }
 
-.categoria { 
+.categoria {
   width: 90%;
+}
+
+.direita {
+  display: flex;
+}
+
+.lixo {
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lixo:hover {
+  opacity: 1;
 }
 
 .containerCat {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 07vh;
 }
 
-.setaCategoria { 
+.setaCategoria {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-
-.iconeCategoria > img { 
-  width: 2.0vw;
+.iconeCategoria > img {
+  width: 2vw;
 }
 
-.categoriaNome { 
+.categoriaNome {
   font-family: "Montserrat";
   font-weight: 500;
   font-size: 1rem;
@@ -57,18 +72,31 @@
   padding-left: 0.2rem;
 }
 
-.containerItem { 
+.containerItem {
   display: flex;
-  justify-content: space-between; 
-  font-family: 'Montserrat';
+  justify-content: space-between;
+  font-family: "Montserrat";
 }
 
-.itemEsquerda { 
-  border-bottom: #DFDEDE 1px solid;
+.itemEsquerda {
+  border-bottom: #dfdede 1px solid;
   width: 35vw;
   padding-bottom: 0.4rem;
   padding-top: 0.4rem;
   font-size: 1rem;
+}
+
+.containerLegenda {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 0.9rem;
+
+}
+.custototal {
+  width: 20%;
 }
 
 
@@ -76,19 +104,19 @@
   width: 100%;
   outline: none;
   border: none;
-
+  font-family: "Montserrat";
+  font-size: 1rem;
 }
 
-.inputBox { 
-  width: 09rem;
+.inputBox {
+  width: 20%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: #DFDEDE 1px solid;
-
+  border-bottom: #dfdede 1px solid;
 }
 
-.inputBoxEdit { 
+.inputBoxEdit {
   font-family: "Montserrat";
   width: 09rem;
   display: flex;
@@ -97,15 +125,14 @@
   font-size: 1rem;
 }
 
-.inputCusto { 
-width: 100%;
-display: flex;
-border: none;
-justify-content: flex-start;
+.inputCusto {
+  width: 100%;
+  display: flex;
+  border: none;
+  justify-content: flex-start;
 }
 
-
-.containerDinheiro { 
+.containerDinheiro {
   display: flex;
   width: 100%;
 }
@@ -113,15 +140,14 @@ justify-content: flex-start;
 .iconeLixeira {
   margin-left: 0.5rem;
   cursor: pointer;
-  color: #c2c2c2; 
+  color: #c2c2c2;
   font-size: 1rem;
 }
-
 
 .adicionarItem {
   background-color: transparent;
   border: none;
-  color:  #B55557;
+  color: #b55557;
   font-family: "Montserrat";
   font-weight: 600;
   line-height: normal;
