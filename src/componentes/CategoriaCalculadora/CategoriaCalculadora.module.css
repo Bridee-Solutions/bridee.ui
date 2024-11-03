@@ -1,0 +1,137 @@
+/* editando */
+.titulo {
+  font-size: 1rem;
+  color: #333;
+}
+.salvar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.salvar button {
+  border: #D2D1D1 solid 2px;
+  background-color: white;
+  border-radius: 06px;
+  height: 6vh;
+  width: 23%;
+  cursor: pointer;
+  font-family: "Montserrat";
+  color: #5C5757;
+}
+
+.salvar :hover { 
+  background-color: rgb(247, 247, 247);
+  transition: 0.3s ease;
+}
+
+.categoria { 
+  width: 90%;
+}
+
+.containerCat {
+  display: flex;
+  align-items: center;
+}
+
+.setaCategoria { 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+.iconeCategoria > img { 
+  width: 2.0vw;
+}
+
+.categoriaNome { 
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1rem;
+  color: #2c2c2c;
+  height: 2rem;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+  padding-left: 0.2rem;
+}
+
+.containerItem { 
+  display: flex;
+  justify-content: space-between; 
+  font-family: 'Montserrat';
+}
+
+.itemEsquerda { 
+  border-bottom: #DFDEDE 1px solid;
+  width: 35vw;
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+  font-size: 1rem;
+}
+
+
+.inputTitulo {
+  width: 100%;
+  outline: none;
+  border: none;
+
+}
+
+.inputBox { 
+  width: 09rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: #DFDEDE 1px solid;
+
+}
+
+.inputBoxEdit { 
+  font-family: "Montserrat";
+  width: 09rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.inputCusto { 
+width: 100%;
+display: flex;
+border: none;
+justify-content: flex-start;
+}
+
+
+.containerDinheiro { 
+  display: flex;
+  width: 100%;
+}
+
+.iconeLixeira {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #c2c2c2; 
+  font-size: 1rem;
+}
+
+
+.adicionarItem {
+  background-color: transparent;
+  border: none;
+  color:  #B55557;
+  font-family: "Montserrat";
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  padding-top: 10px;
+}
+
+.adicionarItem > span {
+  padding-left: 5px;
+}
