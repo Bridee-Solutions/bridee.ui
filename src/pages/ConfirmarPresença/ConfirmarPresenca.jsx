@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './ConfirmarPresenca.module.css'; 
-import backgroundImage from '../../assets/Ellipse.png'; 
 import arrow from '../../assets/arrow.svg'; 
 
 const ConfirmarPresenca = () => {
@@ -8,7 +7,6 @@ const ConfirmarPresenca = () => {
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState('');
 
-  // Simulação de validação de código
   const validatePresencaCodigo = (codigo) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -38,29 +36,29 @@ const ConfirmarPresenca = () => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.ellipseContainer}>
-        <img src={backgroundImage} alt="Elipse" className={styles.ellipseImage} /> 
-        <div className={styles.content}>
-          <h2 className={styles.heading}>Insira o pin ou nome do convite</h2>
-          <p className={styles.description}>Você pode informar o nome do convite ou o PIN enviado por Amanda & Enzo.</p>
-          
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <input
-              type="text"
-              placeholder="Identificação do convite"
-              value={presencaCodigo}
-              onChange={(e) => setPresencaCodigo(e.target.value)}  
-              disabled={carregando} 
-              required
-              className={styles.input}
-            />
-            {erro && <p className={styles.errorMessage}>{erro}</p>}
+      {/* Adiciona classe condicional para fundo alternativo */}
+      <div className={`${styles.formContainer} ${erro ? styles.errorBackground : styles.defaultBackground}`}>
+        <h2 className={styles.heading}>Insira o pin ou nome do convite</h2>
+        <p className={styles.description}>Você pode informar o nome do convite ou o PIN enviado por Amanda & Enzo.</p>
+        
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            type="text"
+            placeholder="Identificação do convite"
+            value={presencaCodigo}
+            onChange={(e) => setPresencaCodigo(e.target.value)}  
+            disabled={carregando} 
+            required
+            className={styles.input}
+          />
+          <button type="submit" disabled={carregando} className={styles.button}>
+            {carregando ? 'Verificando convite...' : 'Continuar'} <img src={arrow} alt="Seta" className={styles.arrowIcon} />
+          </button>
+        </form>
 
-            <button type="submit" disabled={carregando} className={styles.button}>
-              {carregando ? 'Verificando convite...' : 'Continuar'} <img src={arrow} alt="Seta" />
-            </button>
-          </form>
-        </div>
+        {erro && (
+            <p className={styles.errorMessage}>{erro}</p>
+        )}
       </div>
     </div>
   );

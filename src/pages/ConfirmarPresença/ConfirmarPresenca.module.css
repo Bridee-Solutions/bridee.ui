@@ -7,47 +7,35 @@
   padding: 20px;
 }
 
-.ellipseContainer {
-  position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 47%;
-    height: 51%;
-    max-width: 720px;
-}
 
-.ellipseImage {
-  position: absolute;
-    width: 85%;
-    height: 30%;
-    max-width: 800px;
-}
-
-.content {
-  padding: 20px;
-  text-align: center;
-  max-width: 500px;
+.defaultBackground {
+  background: url('../../assets/Ellipse.png') no-repeat center / cover;
+  padding: 198px 40px;
+  max-width: 49%;
   width: 100%;
-  position: relative;
-  box-sizing: border-box; 
+  text-align: center;
+
+}
+
+
+.errorBackground {
+  background: url('../../assets/Ellipse.png') no-repeat center / cover;
+  padding: 179px 40px;
+  max-width: 49%;
+  width: 100%;
+  text-align: center;
+
 }
 
 .heading {
-  font-size: 4vw;
-    font-family: 'Product Sans';
-    width: 100%;
-    font-weight: 100;
-    display: flex;
-    color: #333;
-    /* margin-top: -20px; */
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
+  font-size: 2rem;
+  font-family: 'Product Sans', sans-serif;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .description {
-  font-size: 2vw; 
+  font-size: 1rem;
   color: #514d4d;
   margin-bottom: 20px;
 }
@@ -56,65 +44,72 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
 .input {
   width: 100%;
   max-width: 400px;
-  font-size: 1vw; 
+  font-size: 1rem;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box;
-}
-
-img {
-  margin-bottom: -13px;
-  width: 22%;
 }
 
 .button {
   width: 100%;
   max-width: 200px; 
-  font-size: 2vw;
+  font-size: 1rem;
   padding: 12px;
   background-color: #d67a66;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .button:disabled {
   background-color: #e8a89b;
 }
 
+.arrowIcon {
+  width: 1em;
+  height: auto;
+}
+
+.errorContainer {
+  margin-top: 20px;
+  background-color: #ffe6e6;
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+}
+
 .errorMessage {
-  color: red;
-  font-size: 4vw; 
-  margin-top: 10px;
+  color: #e83737;
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
   .heading {
-    font-size: 8vw;
+    font-size: 1.5rem;
   }
 
-  .description {
-    font-size: 5vw;
-  }
-
-  .input {
-    font-size: 5vw;
+  .description,
+  .input,
+  .button,
+  .errorMessage {
+    font-size: 0.9rem;
   }
 
   .button {
-    font-size: 5vw;
-  }
-
-  .errorMessage {
-    font-size: 5vw;
+    padding: 10px;
   }
 }
