@@ -20,6 +20,7 @@ import Services from './pages/Services/Services';
 import LocaisCategorias from './pages/LocaisCategorias/LocaisCategorias';
 import FornecedoresCategorias from './pages/FornecedoresCategorias/FornecedoresCategorias';
 import ConfirmarPresenca from './pages/ConfirmarPresença/ConfirmarPresenca';
+import QuemVai from './pages/QuemVai/QuemVai';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
       <Route path='/Services' element={<Services/>}></Route>
       <Route path='/FornecedoresCategorias' element={<FornecedoresCategorias/>}></Route>
       <Route path='/confirmarPresenca' element={<ConfirmarPresenca/>}></Route>
+      <Route path='/QuemVai' element={<QuemVai/>}></Route>
      
 
     </Routes>
