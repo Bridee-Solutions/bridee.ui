@@ -114,11 +114,10 @@ function Locais() {
     setPage(value);
   };
 
-  // Função de redirecionamento
+ 
   const handleCardClick = (categoriaNome) => {
     console.log(`Redirecionando para a categoria: ${categoriaNome}`);
-    // Aqui você pode adicionar a lógica para redirecionar ou mostrar os cards filtrados
-    handleCategoryClick(categoriaNome); // Chama a função de click da categoria
+    handleCategoryClick(categoriaNome); 
   };
 
   const handleBack = () => {
@@ -190,7 +189,7 @@ function Locais() {
         </div>
       </div>
 
-      <div className={styles.paginacaoContainer}>
+      <div className={`${styles.paginacaoContainer} ${!selectedCategory ? styles.hidden : ''}`}>
         {selectedCategory && (
           <Pagination
             count={totalPages}
