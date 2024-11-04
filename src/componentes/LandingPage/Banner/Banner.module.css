@@ -12,10 +12,6 @@
     text-align: center;
 }
 
-.containerBanner {
-
-}
-
 .containerFrase { 
    display: flex;
    flex-direction: column;
@@ -36,7 +32,7 @@
     line-height: 2.5rem;
     letter-spacing: 1.56px;
     font-size: 2rem;
-    margin: 0vh;
+    margin-top: 1vh;
     font-family: "PlayFair";
 }
 
@@ -62,4 +58,30 @@
     .banner p {
         font-size: 16px;
     }
+}
+
+@media (max-width: 360px){
+    .banner{
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .banner h1 {
+        font-size: 0.9em;
+        line-height: 1.2em;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .banner p {
+        font-size: 0.6em;
+    }
+
+    .banner h1,
+    .banner p {
+        top: 4vh;
+    }
+
 }
