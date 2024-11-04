@@ -33,27 +33,19 @@ function NavComp() {
   const [dropdownLocaisAberto, setDropdownLocaisAberto] = useState(false);
 
   const handleDropdownClick = () => {
-    setDropdownAberto(!dropdownAberto);
-    setDropdownLocaisAberto(false);
+    setDropdownAberto((prev) => !prev);
+    if (dropdownLocaisAberto) setDropdownLocaisAberto(false); 
   };
 
   const handleDropdownLocaisClick = () => {
-    setDropdownLocaisAberto(!dropdownLocaisAberto);
-    setDropdownAberto(false);
+    setDropdownLocaisAberto((prev) => !prev);
+    if (dropdownAberto) setDropdownAberto(false);
   };
 
   const handleClick = (nomeFerramenta, rota) => {
     console.log(`Ferramenta selecionada: ${nomeFerramenta}`);
     if (rota) {
       navigate(rota);
-    }
-  };
-
-  const handleItemClick = () => {
-    console.log(`Navegando para: ${item.rota}`);
-    onClick(item.nome);
-    if (item.rota) {
-      navigate(item.rota);
     }
   };
 

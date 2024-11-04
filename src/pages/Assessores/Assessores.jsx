@@ -17,9 +17,7 @@ function Assessores() {
   const cardsPerPage = 6;
   const [cardsData, setCardsData] = useState([]);
 
-
   useEffect(() => {
-    // Simulação de chamada ao backend - substitua com um fetch real quando disponível
     const fetchData = async () => {
       const data = [
         {
@@ -27,51 +25,74 @@ function Assessores() {
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image1,
+          cidade: "São Paulo",
+          category: "Praia",
         },
         {
-            title: "Pôr do Sol",
-            description:
-              "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-            imageUrl: image1,
-          },
-          {
-            title: "Pôr do Sol",
-            description:
-              "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-            imageUrl: image1,
-          },
-          {
-            title: "Pôr do Sol",
-            description:
-              "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-            imageUrl: image1,
-          },
-          
+          title: "Pôr do Sol",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image1,
+          cidade: "São Paulo",
+          category: "Praia",
+        },
+        {
+          title: "Pôr do Sol",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image1,
+          cidade: "São Paulo",
+          category: "Praia",
+        },
+        {
+          title: "Pôr do Sol",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image1,
+          cidade: "São Paulo",
+          category: "Praia",
+        },
+
         {
           title: "Castelo de Monte Mor",
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image2,
+          cidade: "São Paulo",
+          category: "Praia",
         },
         {
           title: "Hee Beach House",
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image3,
+          cidade: "São Paulo",
+          category: "Praia",
         },
         {
           title: "Hee Beach House",
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image3,
+          cidade: "São Paulo",
+          category: "Praia",
         },
         {
           title: "Hee Beach House",
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image3,
+          cidade: "São Paulo",
+          category: "Praia",
         },
-        { title: "Hee Beach House", description: "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla", imageUrl: image3 },
+        {
+          title: "Hee Beach House",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image3,
+          cidade: "São Paulo",
+          category: "Praia",
+        },
       ];
       setCardsData(data);
     };
@@ -81,12 +102,12 @@ function Assessores() {
   const startIndex = (page - 1) * cardsPerPage;
   const endIndex = startIndex + cardsPerPage;
   const currentCards = cardsData.slice(startIndex, endIndex);
-  
+
   const totalCards = cardsData.length;
   const totalPages = Math.ceil(totalCards / cardsPerPage);
 
   const handleChange = (event, value) => {
-    setPage(value); // Atualiza a página atual quando a paginação é alterada
+    setPage(value);
   };
 
   return (
@@ -103,25 +124,29 @@ function Assessores() {
       </Banner>
 
       <div className={stylesAll.container}>
-        <div className={stylesAll.cardContainer}>
-          <div className={stylesAll.cadaCard}>
-            {currentCards.map((card, index) => (
-              <Card
-                key={index}
-                title={card.title}
-                description={card.description}
-                imageUrl={card.imageUrl}
-              />
-            ))}
+        <div className={stylesAll.containerOpcoes}>
+          <div className={stylesAll.cardContainer}>
+            <div className={stylesAll.cadaCard}>
+              {currentCards.map((card, index) => (
+                <Card
+                  key={index}
+                  title={card.title}
+                  bairro={card.bairro}
+                  cidade={card.cidade}
+                  description={card.description}
+                  imageUrl={card.imageUrl}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
       <div className={stylesAll.paginacaoContainer}>
         <div>
           <Pagination
-            count={totalPages} 
-            page={page} // Página atual
-            onChange={handleChange} // Função chamada ao mudar de página
+            count={totalPages}
+            page={page}
+            onChange={handleChange}
             shape="rounded"
             sx={{
               "& .MuiPaginationItem-root.Mui-selected": {
