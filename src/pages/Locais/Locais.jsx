@@ -3,54 +3,86 @@ import Banner from "../../componentes/Banner/Banner";
 import imagem from "../../assets/Banner/bannerLocais.svg";
 import SearchBar from "../../componentes/LandingPage/SearchBar/SearchBar";
 import Card from "../../componentes/Card/Card";
-import Baseboard from '../../componentes/LandingPage/BaseBoard/Baseboard';
-import Navbar from "../../componentes/Navbar/Navbar"
+import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
+import Navbar from "../../componentes/Navbar/Navbar";
 import image1 from "../../assets/mockImages/5.png";
 import image2 from "../../assets/mockImages/33.png";
 import image3 from "../../assets/mockImages/image.png";
+import React, { useState, useEffect } from "react";
+
+import Pagination from "@mui/material/Pagination";
 
 function Locais() {
-  const cardsData = [
-    {
-      title: "Pôr do Sol ",
-      description: "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um...",
-      imageUrl: image1,
-    },
-    {
-      title: "Castelo de Monte Mor",
-      description: "Castelo de Monte Mor é um local ideal para aqueles casais que estão a procura de um ambiente rústico para tornar esse dia inesquecível. Desde 1997 no ramo de eventos, a empresa que conta com ampla experiência, idealizou no castelo um cenário de festas de casamentos, noivados, bodas, aniversários, 15....",
-      imageUrl: image2,
-    },
-    {
-      title: "Hee Beach House",
-      description: "Se quiser garantir tranquilidade durante todo o pré-casamento e a segurança de que tudo dará certo durante o dia da cerimônia, a dica é contratar o serviço cerimonial como o da Denise Monteiro Assessoria de Eventos, que garante não apenas encontrar os melhores fornecedores como também ser os olhos...",
-      imageUrl: image3,
-    },
-    {
-        title: "Local 1",
-        description: "Talismã é uma empresa planejadora, organizadora e executora de mais belas e emocionantes cerimônias de casamento. Com profissionais altamente especializados na arte de ser cerimonialista, essa equipe vai realizar seu sonho de uma forma única, especial e inesquecível. ",
-        imageUrl: image1,
-      },
-      {
-        title: "Local 2",
-        description: "Descrição do local 2.",
-        imageUrl: image2,
-      },
-      {
-        title: "Local 3",
-        description: "Descrição do local 3.",
-        imageUrl: image3,
-      },
-    
-  ];
+  const [page, setPage] = useState(1);
+  const cardsPerPage = 6;
+  const [cardsData, setCardsData] = useState([]);
+
+  useEffect(() => {
+    // Simulação de chamada ao backend - substitua com um fetch real quando disponível
+    const fetchData = async () => {
+      const data = [
+        {
+          title: "Pôr do Sol",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image1,
+        },
+        {
+          title: "Castelo de Monte Mor",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image2,
+        },
+        {
+          title: "Hee Beach House",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image3,
+        },
+        {
+          title: "Hee Beach House",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image3,
+        },
+        {
+          title: "Hee Beach House",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image3,
+        },
+        {
+          title: "Hee Beach House",
+          description:
+            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
+          imageUrl: image3,
+        },
+        
+      ];
+      setCardsData(data);
+    };
+
+    fetchData();
+  }, []);
+
+
+  const totalCards = cardsData.length;
+  const totalPages = Math.ceil(totalCards / cardsPerPage);
+    const startIndex = (page - 1) * cardsPerPage;
+  const endIndex = startIndex + cardsPerPage;
+  const currentCards = cardsData.slice(startIndex, endIndex);
+
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   return (
-    <div>
-        <Navbar/>
+    <div className={styles.containerPai}>
+      <Navbar />
       <Banner
         imageUrl={imagem}
         title="Encontre os melhores locais para seu casamento"
-        subtitle="Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável."
+        subtitle="Descubra e selecione espaços deslumbrantes que atendem ao seu estilo e orçamento, garantindo o cenário perfeito para o seu grande dia."
       >
         <div className={styles.searchbar}>
           <SearchBar />
@@ -59,17 +91,35 @@ function Locais() {
 
       <div className={styles.container}>
         <div className={styles.cardContainer}>
-          {cardsData.map((card, index) => (
-            <Card
-              key={index}
-              title={card.title}
-              description={card.description}
-              imageUrl={card.imageUrl}
-            />
-          ))}
+          <div className={styles.cadaCard}>
+            {currentCards.map((card, index) => (
+              <Card
+                key={index}
+                title={card.title}
+                description={card.description}
+                imageUrl={card.imageUrl}
+              />
+            ))}
+          </div>
         </div>
       </div>
-      <Baseboard/>
+      <div className={styles.paginacaoContainer}>
+        <div>
+          <Pagination
+             count={totalPages} 
+            page={page} // Página atual
+            onChange={handleChange} // Função chamada ao mudar de página
+            shape="rounded"
+            sx={{
+              "& .MuiPaginationItem-root.Mui-selected": {
+                backgroundColor: "#DD7B78",
+                color: "#FFFFFF",
+              },
+            }}
+          />
+        </div>
+      </div>
+      <Baseboard />
     </div>
   );
 }

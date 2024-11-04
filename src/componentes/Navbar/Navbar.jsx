@@ -10,7 +10,6 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-import weddingRing from "../../assets/wedding.svg";
 import { useNavigate, useLocation  } from 'react-router-dom';
 import { useEffect } from "react";
 
@@ -20,6 +19,9 @@ import {
   faClipboardList,
   faChair,
   faCalculator,
+  faHandshake,
+  faLocationDot,
+  faUserTie 
 } from "@fortawesome/free-solid-svg-icons";
 import MenuLink from "../MenuLink/MenuLink";
 import DropdownItem from "../DropdownItem/DropdownItem";
@@ -107,24 +109,25 @@ function NavComp() {
 
   const LocaisEFornecedores = [
     {
-      nome: "Assessores de Casamento",
+      nome: "Assessores",
       descricao:
-        "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
-      icon: <GiBigDiamondRing />,
+        "Explore nossos profissionais e encontre o assessor ideal para planejar cada detalhe do seu dia perfeito.",
+      icon: faUserTie,
       rota: "/assessores",
     },
     {
       nome: "Fornecedores",
       descricao:
-        "Uma lista de convidados prática e intuitiva para ajudar você a gerenciar facilmente quem irá convidar e acompanhar as confirmações.",
-      icon: faClipboardList,
+        "Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável."
+,
+      icon: faHandshake,
        rota: "/fornecedores"
     },
     {
       nome: "Locais",
       descricao:
-        "Nossa lista de verificação de planejamento de casamento é a maneira mais fácil de gerenciar o cronograma do planejamento do seu casamento sem estresse",
-      icon: faListCheck,
+        "Descubra e selecione espaços deslumbrantes que atendem ao seu estilo e orçamento, garantindo o cenário perfeito para o seu grande dia.",
+      icon: faLocationDot,
        rota: "/locais"
     },
   ];
