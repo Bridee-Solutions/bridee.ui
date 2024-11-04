@@ -139,7 +139,7 @@ function Fornecedores() {
     { nome: "Decoração", imagem: decoracao },
     { nome: "Locais", imagem: locais },
     { nome: "Transporte & Acomodação", imagem: transporte },
-    { nome: "Padeiro de bolos & Sobremesas", imagem: padeiro },
+    { nome: "Padeiro & Sobremesas", imagem: padeiro },
     { nome: "Moda & Beleza", imagem: modabeleza },
     { nome: "Videógrafos", imagem: videografos },
     { nome: "Papelaria", imagem: papelaria },
@@ -182,7 +182,7 @@ function Fornecedores() {
           <div className={stylesAll.navegarCategoria}>
             <div className={stylesAll.containerTitulo}>
               <div className={stylesAll.titulo}>
-                <span>Navegar por estilo</span>
+                <span>Navegar por categoria</span>
               </div>
               <div className={stylesAll.subtitulo}>
                 <span>

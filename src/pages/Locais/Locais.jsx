@@ -22,7 +22,6 @@ import CardNavegacao from "../../componentes/PesquisaCategoria/CardNavegacao";
 import Pagination from "@mui/material/Pagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { color } from "d3-color";
 
 function Locais() {
   const [page, setPage] = useState(1);
@@ -38,13 +37,17 @@ function Locais() {
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image1,
-          category: "Espaços de Eventos",
+          bairro: "São Caetano do Sul",
+          cidade: "São Paulo",
+          category: "Praia",
         },
         {
           title: "Teste de eventos",
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento ? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image2,
+          bairro: "São Bernado",
+          cidade: "São Paulo",
           category: "Espaços de Eventos",
         },
         {
@@ -52,6 +55,8 @@ function Locais() {
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image3,
+          bairro: "São Matheus",
+          cidade: "São Paulo",
           category: "Castelos",
         },
         {
@@ -59,6 +64,8 @@ function Locais() {
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image3,
+          bairro: "São Vila Olimpia",
+          cidade: "São Paulo",
           category: "Castelos",
         },
         {
@@ -66,6 +73,8 @@ function Locais() {
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image3,
+          bairro: "Vila das merces",
+          cidade: "São Paulo",
           category: "Castelos",
         },
         {
@@ -73,6 +82,8 @@ function Locais() {
           description:
             "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
           imageUrl: image3,
+          bairro: "Vila Vermelha",
+          cidade: "São Paulo",
           category: "Praia",
         },
       ];
@@ -114,10 +125,9 @@ function Locais() {
     setPage(value);
   };
 
- 
   const handleCardClick = (categoriaNome) => {
     console.log(`Redirecionando para a categoria: ${categoriaNome}`);
-    handleCategoryClick(categoriaNome); 
+    handleCategoryClick(categoriaNome);
   };
 
   const handleBack = () => {
@@ -170,7 +180,8 @@ function Locais() {
           {selectedCategory && (
             <div className={styles.containerOpcoes}>
               <div onClick={handleBack} className={styles.setaVolta}>
-                <FontAwesomeIcon icon={faArrowLeft} /> <span className={styles.voltar}>VOLTAR</span>
+                <FontAwesomeIcon icon={faArrowLeft} />{" "}
+                <span className={styles.voltar}>VOLTAR</span>
               </div>
               <div className={styles.cardContainer}>
                 <div className={styles.cadaCard}>
@@ -178,6 +189,8 @@ function Locais() {
                     <Card
                       key={index}
                       title={card.title}
+                      bairro={card.bairro}
+                      cidade={card.cidade}
                       description={card.description}
                       imageUrl={card.imageUrl}
                     />
@@ -189,7 +202,11 @@ function Locais() {
         </div>
       </div>
 
-      <div className={`${styles.paginacaoContainer} ${!selectedCategory ? styles.hidden : ''}`}>
+      <div
+        className={`${styles.paginacaoContainer} ${
+          !selectedCategory ? styles.hidden : ""
+        }`}
+      >
         {selectedCategory && (
           <Pagination
             count={totalPages}
