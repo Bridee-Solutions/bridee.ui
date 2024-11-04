@@ -2,7 +2,7 @@ import styles from "./Assessores.module.css";
 import Navbar from "../../componentes/Navbar/Navbar";
 import stylesAll from "../Locais/Locais.module.css";
 import Banner from "../../componentes/Banner/Banner";
-import imagem from "../../assets/Banner/assessorBanner.svg";
+import imagem from "../../assets/Banner/assessorbanner.svg";
 import SearchBar from "../../componentes/LandingPage/SearchBar/SearchBar";
 import Card from "../../componentes/Card/Card";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
