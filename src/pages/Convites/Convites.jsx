@@ -6,16 +6,15 @@ import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { faChair } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import styles from "./Convites.module.css"
-import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import rightArrow from "../../assets/right-arrow.svg"
 import { toast } from "react-toastify";
+import Modal from "../../componentes/Modal/Modal"
+import { ModalHeader } from "react-bootstrap";
 
 
 const Convites = () => {
-
-    const location = useLocation();
-    
+ 
     const copyTextToClipBoard = () => {
         window.navigator.clipboard.writeText(window.location.href);
         toast.success("Link copiado com sucesso!")
@@ -46,7 +45,7 @@ const Convites = () => {
                             </div>
                             <div className={styles.convites_container_left_body_item}>
                                 <FontAwesomeIcon icon={faGear}/>
-                                <p>Gerenciar configurações</p>
+                                <p>Gerenciar confirmações</p>
                             </div>
                             <div className={styles.convites_container_left_body_item}>
                                 <FontAwesomeIcon icon={faChair}/>
@@ -64,6 +63,11 @@ const Convites = () => {
                     </div>
                 </div>
             </div>
+            <Modal>
+                <ModalHeader>
+                    <h2></h2>
+                </ModalHeader>
+            </Modal>
         </div>
     );
 
