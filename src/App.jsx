@@ -20,7 +20,8 @@ import Services from './pages/Services/Services';
 import LocaisCategorias from './pages/LocaisCategorias/LocaisCategorias';
 import FornecedoresCategorias from './pages/FornecedoresCategorias/FornecedoresCategorias';
 import ConfirmarPresenca from './pages/ConfirmarPresença/ConfirmarPresenca';
-import QuemVai from './pages/QuemVai/QuemVai';
+import QuemVai from './pages/ConfirmarPresença/QuemVai/QuemVai';
+import Agradecimento from './pages/ConfirmarPresença/Agradecimento/Agradecimento';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
       <Route path='/FornecedoresCategorias' element={<FornecedoresCategorias/>}></Route>
       <Route path='/confirmarPresenca' element={<ConfirmarPresenca/>}></Route>
       <Route path='/QuemVai' element={<QuemVai/>}></Route>
+      <Route path='/Agradecimentos' element={<Agradecimento/>}></Route>
      
 
     </Routes>
