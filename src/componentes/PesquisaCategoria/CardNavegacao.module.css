@@ -20,7 +20,6 @@
 .card:hover {
   transform: scale(1.02);
   transition: transform 0.3s ease;
-  /* Exemplo de efeito: aumenta levemente o cartão ao passar o mouse */
 }
 .titleContainer {
   width: 100%;
