@@ -186,3 +186,26 @@ header {
     display: block;
   }
 }
+
+@media (max-width: 360px){
+  .header_body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 1.5rem;
+    width: 100%;
+  }
+
+  .header_logo {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .header_logo h1 {
+    font-family: 'Qlassy';
+    font-size: 2em;
+    font-weight: 300;
+    margin: 0;
+  }
+
+}
