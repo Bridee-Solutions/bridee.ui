@@ -14,7 +14,7 @@
 }
 
 .error_image {
-  background: url('../../assets/penguimError.svg');
+  background: url('../../assets/404/penguimError.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -60,7 +60,7 @@
 
 @media (max-width: 768px) {
   .error_image {
-    background: url('../../assets/penguim_error_mobile.svg');
+    background: url('../../assets/404/penguim_error_mobile.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
