@@ -11,6 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import weddingRing from "../../assets/wedding.svg";
+import { useNavigate, useLocation  } from 'react-router-dom';
+import { useEffect } from "react";
 
 import {
   faUser,
@@ -23,15 +25,47 @@ import MenuLink from "../MenuLink/MenuLink";
 import DropdownItem from "../DropdownItem/DropdownItem";
 
 function NavComp() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [dropdownAberto, setDropdownAberto] = useState(false);
+  const [dropdownLocaisAberto, setDropdownLocaisAberto] = useState(false);
 
   const handleDropdownClick = () => {
     setDropdownAberto(!dropdownAberto);
+    setDropdownLocaisAberto(false);
   };
 
-  const handleClick = (nomeFerramenta) => {
-    console.log(`Ferramenta selecionada: ${nomeFerramenta}`);
+  const handleDropdownLocaisClick = () => {
+    setDropdownLocaisAberto(!dropdownLocaisAberto);
+    setDropdownAberto(false);
   };
+
+  const handleClick = (nomeFerramenta, rota) => {
+    console.log(`Ferramenta selecionada: ${nomeFerramenta}`);
+    if (rota) {
+      navigate(rota);
+    }
+  };
+
+  const handleItemClick = () => {
+    console.log(`Navegando para: ${item.rota}`);
+    onClick(item.nome);
+    if (item.rota) {
+      navigate(item.rota);
+    }
+  };
+
+  const [paginaAtiva, setPaginaAtiva] = useState("ferramentas");
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/locais" || path === "/assessores" || path === "/fornecedores") {
+      setPaginaAtiva("locaisFornecedores");
+    } else {
+      setPaginaAtiva("ferramentas");
+    }
+  }, [location]);
+
 
   const ferramentasDePlanejamento = [
     {
@@ -39,32 +73,71 @@ function NavComp() {
       descricao:
         "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
       icon: <GiBigDiamondRing />,
+       rota: "/painel",
     },
     {
       nome: "Lista de convidados",
       descricao:
         "Uma lista de convidados prática e intuitiva para ajudar você a gerenciar facilmente quem irá convidar e acompanhar as confirmações.",
       icon: faClipboardList,
+      rota: "/lista-convidados",
     },
     {
       nome: "Lista de tarefas",
       descricao:
         "Nossa lista de verificação de planejamento de casamento é a maneira mais fácil de gerenciar o cronograma do planejamento do seu casamento sem estresse",
       icon: faListCheck,
+      rota: "/lista-tarefas",
     },
     {
       nome: "Planejador de assentos",
       descricao:
         "Um planejador de assentos intuitivo para organizar sua recepção de forma fácil e eficaz.",
       icon: faChair,
+      rota: "/planejador-assentos",
     },
     {
       nome: "Calculadora Financeira",
       descricao:
         "Uma calculadora financeira prática para ajudá-la a planejar o orçamento do seu grande dia.",
       icon: faCalculator,
+      rota: "/calculadora-financeira",
     },
   ];
+
+  const LocaisEFornecedores = [
+    {
+      nome: "Assessores de Casamento",
+      descricao:
+        "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
+      icon: <GiBigDiamondRing />,
+      rota: "/assessores",
+    },
+    {
+      nome: "Fornecedores",
+      descricao:
+        "Uma lista de convidados prática e intuitiva para ajudar você a gerenciar facilmente quem irá convidar e acompanhar as confirmações.",
+      icon: faClipboardList,
+       rota: "/fornecedores"
+    },
+    {
+      nome: "Locais",
+      descricao:
+        "Nossa lista de verificação de planejamento de casamento é a maneira mais fácil de gerenciar o cronograma do planejamento do seu casamento sem estresse",
+      icon: faListCheck,
+       rota: "/locais"
+    },
+  ];
+
+  const submenuOpcoes = {
+    ferramentas: ferramentasDePlanejamento,
+    locaisFornecedores: LocaisEFornecedores,
+  };
+
+  const opcoesAtuais =
+    paginaAtiva === "ferramentas"
+      ? submenuOpcoes.ferramentas
+      : submenuOpcoes.locaisFornecedores;
 
   return (
     <nav className={styles.navbar}>
@@ -96,8 +169,7 @@ function NavComp() {
                       <DropdownItem
                         key={ferramentasDePlanejamento[0].nome}
                         item={ferramentasDePlanejamento[0]}
-                        onClick={handleClick}
-                      />
+                        onClick={() => handleClick(ferramentasDePlanejamento[0].nome, ferramentasDePlanejamento[0].rota)}                      />
                     </div>
 
                     <div className={styles.coluna}>
@@ -106,7 +178,7 @@ function NavComp() {
                         <DropdownItem
                           key={item.nome}
                           item={item}
-                          onClick={handleClick}
+                          onClick={() => handleClick(item.nome, item.rota)}
                         />
                       ))}
                     </div>
@@ -117,7 +189,7 @@ function NavComp() {
                         <DropdownItem
                           key={item.nome}
                           item={item}
-                          onClick={handleClick}
+                          onClick={() => handleClick(item.nome, item.rota)}
                         />
                       ))}
                     </div>
@@ -129,14 +201,33 @@ function NavComp() {
           <div className={styles.containerMenu}>
             <div
               className={styles.dropdownTitle}
-              aria-expanded={dropdownAberto}
+              onClick={handleDropdownLocaisClick}
+              aria-expanded={dropdownLocaisAberto}
             >
               Locais e Fornecedores{" "}
               <FontAwesomeIcon
                 icon={faChevronDown}
+                onClick={handleDropdownLocaisClick}
+                aria-expanded={dropdownLocaisAberto}
                 className={styles.icon_arrow}
               />
             </div>
+
+            {dropdownLocaisAberto && (
+              <div className={styles.dropdown}>
+                <div className={styles.dropdownContainer}>
+                  <div className={styles.dropdownContent}>
+                    {LocaisEFornecedores.map((item) => (
+                      <DropdownItem
+                        key={item.nome}
+                        item={item}
+                        onClick={() => handleClick(item.nome, item.rota)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className={styles.userIcon}>
@@ -148,25 +239,16 @@ function NavComp() {
         <div className={styles.inferior}>
           <div className={styles.submenu}>
             <ul>
-              <li>
-                <MenuLink to="/painel">Painel</MenuLink>
-              </li>
-              <li>
-                <MenuLink to="/lista-convidados">Lista de Convidados</MenuLink>
-              </li>
-              <li>
-                <MenuLink to="/lista-tarefas">Lista de Tarefas</MenuLink>
-              </li>
-              <li>
-                <MenuLink to="/planejador-assentos">
-                  Planejador de Assentos
-                </MenuLink>
-              </li>
-              <li>
-                <MenuLink to="/calculadora-financeira">
-                  Calculadora Financeira
-                </MenuLink>
-              </li>
+              {opcoesAtuais.map((opcao) => (
+                <li key={opcao.nome}>
+                  <MenuLink
+                    to={opcao.rota}
+                    onClick={() => setPaginaAtiva(opcao.nome.toLowerCase())}
+                  >
+                    {opcao.nome}
+                  </MenuLink>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

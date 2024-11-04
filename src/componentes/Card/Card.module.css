@@ -1,0 +1,70 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px #0000001a;
+    background-color: white;
+    width: 30%;
+    height: 90%;
+  }
+ 
+  .image {
+ width: 100%;
+ border-radius: 10px 10px 0 0;
+  }
+
+  .titleContainer {
+    display: flex;
+    border: 2px solid yellow;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .title { 
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border: 2px solid yellow;
+    width: 85%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .button {
+    background-color: var(--cor-primaria);
+    border: none;
+    border-radius: 20px;
+    padding: 3% 10%;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    transition: 0.3s ease;
+  }
+
+  .button:hover {
+
+    background-color: #D26966;
+    transition: 0.3s ease;
+  }
+
+  .containerDescricao {
+    display: flex;
+    border: 2px solid yellow;
+    justify-content: center;
+     
+    width: 100%;
+  }
+
+  .description {
+    width: 85%;
+    font-family: "Montserrat", sans-serif;
+    border: 2px solid blue;
+    color: #6D6D6D;
+    font-size: 0.9rem;
+   text-align: start;
+  }
+
+  .containerButton { 
+    width: 100%;
+    border: 2px solid blue;
+    height: 20%;
+  }

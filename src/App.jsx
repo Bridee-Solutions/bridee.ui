@@ -13,7 +13,9 @@ import Calculadora from './pages/Calculadora/Calculadora';
 import ListaConvidados from './pages/ListaConvidados/ListaConvidados';
 import PlanejadorAssentos from './pages/PlanejadorAssentos/PlanejadorAssentos';
 import ListaTarefas from './pages/ListaTarefas/ListaTarefas';
-
+import Assessores from './pages/Assessores/Assessores';
+import Locais from './pages/Locais/Locais';  
+import Fornecedores from './pages/Fornecedores/Fornecedores';
 function App() {
 
   return (
@@ -30,6 +32,9 @@ function App() {
       <Route path='/lista-convidados' element={<ListaConvidados/>}></Route>
       <Route path='/planejador-assentos' element={<PlanejadorAssentos/>}></Route>
       <Route path='/lista-tarefas' element={<ListaTarefas/>}></Route>
+      <Route path='/assessores' element={<Assessores/>}></Route>
+      <Route path='/locais' element={<Locais/>}></Route>
+      <Route path='/fornecedores' element={<Fornecedores/>}></Route>
 
     </Routes>
     <ToastContainer autoClose={2000}/>
