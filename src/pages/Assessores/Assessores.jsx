@@ -11,6 +11,9 @@ import image2 from "../../assets/mockImages/33.png";
 import image3 from "../../assets/mockImages/image.png";
 import Pagination from "@mui/material/Pagination";
 import React, { useState, useEffect } from "react";
+import "react-photo-view/dist/react-photo-view.css";
+import ImageGallery from "../../componentes/ImageGallery/ImageGallery";
+import FAQSection from "../../componentes/FAQSection/Faq.jsx";
 
 function Assessores() {
   const [page, setPage] = useState(1);
@@ -110,10 +113,24 @@ function Assessores() {
     setPage(value);
   };
 
+
+
+  const images = [
+    {
+      url: "https://scontent-gru2-2.xx.fbcdn.net/v/t51.75761-15/464204559_18466724368046718_8305253541620917575_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=a9Z0Ytkot4AQ7kNvgH7p60u&_nc_zt=23&_nc_ht=scontent-gru2-2.xx&_nc_gid=Ai6YVbT_QsypcHMaYIDeFaP&oh=00_AYC2IlSBa-lhExZXyv1TgY8JDmpXg1SdHdC7scsU1ey0zw&oe=673031B7",
+      title: "Imagem 1",
+    },
+    {
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSUygEE7UR8Cr1FUnZq3dPOdKWGDC6_qg3vg&s",
+      title: "Imagem 2",
+    },
+    { url: "https://via.placeholder.com/800", title: "Imagem 3" },
+  ];
+
   return (
     <div>
       <Navbar />
-      <Banner
+      {/* <Banner
         imageUrl={imagem}
         title="Encontre os melhores assessores para seu casamento"
         subtitle="Explore nossos profissionais e encontre o assessor ideal para planejar cada detalhe do seu dia perfeito."
@@ -121,9 +138,39 @@ function Assessores() {
         <div className={stylesAll.searchbar}>
           <SearchBar />
         </div>
-      </Banner>
+      </Banner> */}
 
-      <div className={stylesAll.container}>
+      <div className={styles.containerAssessor}>
+        <div className={styles.containerConteudo}>
+          <div className={styles.containerImagens}>
+            <ImageGallery images={images} />
+          </div>
+
+          <div className={styles.esquerda}>
+            <div className={styles.containerTitulo}>
+              <div className={styles.nome}>
+                <span>Agda Paula Assessoria</span>
+              </div>
+              <div className={styles.containerSubt}>
+                <div className={styles.subtitulo}>
+                  <span>Moema, São Paulo</span>
+                </div>
+                <div className={styles.website}>
+                  <span>Visitar website</span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.containerApresent}>
+              <div>
+                <FAQSection />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className={stylesAll.container}>
         <div className={stylesAll.containerOpcoes}>
           <div className={stylesAll.cardContainer}>
             <div className={stylesAll.cadaCard}>
@@ -156,7 +203,7 @@ function Assessores() {
             }}
           />
         </div>
-      </div>
+          </div> */}
       <Baseboard />
     </div>
   );

@@ -1,0 +1,13 @@
+.container { 
+    width: 50%;
+    height: 100%;
+    border: 2px solid red;
+    display: flex;
+}
+
+.container > img { 
+    width: 20vw;
+    height: 100%;
+    object-fit: cover;
+    object-position: top; 
+}

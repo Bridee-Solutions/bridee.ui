@@ -1,0 +1,35 @@
+/* FAQSection.module.css */
+
+.containerApresent {
+    padding: 20px;
+  }
+  
+  .content {
+    margin-bottom: 20px;
+  }
+  
+  .tituloApr {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .descricao {
+    margin-top: 10px;
+  }
+  
+  .questions {
+    margin-top: 20px;
+  }
+  
+  .question {
+    margin-bottom: 10px;
+  }
+  
+  .answers {
+    margin-left: 15px;
+  }
+  
+  .answer {
+    font-size: 0.9em;
+  }
+  
