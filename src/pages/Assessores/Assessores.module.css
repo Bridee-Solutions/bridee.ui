@@ -1,85 +1,132 @@
-.containerAssessor { 
-    border: 2px solid red;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:  #F3EED9;
+.containerAssessor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3eed9;
 }
 
-.containerConteudo { 
-    width: 85%;
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+.containerConteudo {
+  width: 85%;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.containerImagens { 
-    border: 2px solid red;    
-    width: 90%;
-    height: 30%;
+.containerImagens {
+  border: 2px solid red;
+  width: 90%;
+  height: 30%;
 }
 
-.containerTitulo { 
-    border: 2px solid yellow;
-    width: 90%;
-    display: flex;
-    flex-direction: column
+.containerTitulo {
+  border: 2px solid yellow;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
 }
 
-.nome { 
-    border: 2px solid yellowgreen;
+.nome {
+  border: 2px solid yellowgreen;
 }
-.nome span{
-    font-weight: 700;
-    font-family: "Playfair";
-    font-size: 1.7rem;
-}
-
-.containerSubt { 
-    display: flex;
-    
-    font-family: 'Montserrat';
-    font-size: 0.9rem;
-    border: 2px solid red;
+.nome span {
+  font-weight: 700;
+  font-family: "Playfair";
+  font-size: 1.7rem;
 }
 
-.subtitulo { 
-    display: flex;
+.containerSubt {
+  display: flex;
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+  border: 2px solid rgb(125, 216, 113);
+}
+
+.subtitulo {
+  display: flex;
 }
 
 .subtitulo span {
-    color: #454545;
-    border-bottom: #454545 1px solid;
-    font-weight: 600;
+  color: #454545;
+  border-bottom: #454545 1px solid;
+  font-weight: 600;
 }
 
-.website { 
-    color: black;
-    border-bottom: 1px solid;
-    font-weight: 600;
+.website {
+  color: black;
+  border-bottom: 1px solid;
+  font-weight: 600;
 }
 
-
-.containerApresent { 
-    border: 2px solid black;
-    width: 60%;
+.containerApresent {
+  border: 2px solid black;
+  width: 100%;
 }
 
 .containerApresent span {
-
-color: black;
-font-family: 'Montserrat';
+  color: black;
+  font-family: "Montserrat";
 }
 
-.tituloApr span { 
-font-weight: 700;
-font-size: 1.2rem;
+.tituloApr span {
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
-.descricao { 
-font-weight: 500;
+.descricao {
+  font-weight: 500;
+}
+
+.esquerda {
+  width: 60%;
+}
+
+.direita {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+}
+
+.todoconteudo {
+  display: flex;
+  width: 94%;
+  font-family: "Montserrat";
+
+}
+
+.cardOrcamento {
+  width: 90%;
+  border: 2px solid #f3eed9;
+border-radius: 15px;
+height: 50vh;
+}
+.tituloOrcamento {
+  height: 4%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.fundo {
+  background-color: #ece4c5;
+  border-radius: 12px;
+  height: 50%;
+  width: 95%;
+}
+
+.detalhes { 
+    width: 100%;
+}
+
+.inputgrandona { 
+    border: 1px solid #ECE4C1;
+    border-radius: 7px;
+    width: 90%;
 }
