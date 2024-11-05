@@ -1,5 +1,4 @@
 .container { 
-    width: 50%;
     height: 100%;
     border: 2px solid red;
     display: flex;
@@ -11,3 +10,38 @@
     object-fit: cover;
     object-position: top; 
 }
+
+.imageOne { 
+    width: 300px; 
+    border: 2px solid blue;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 8px; 
+}
+
+  
+  .twoImages {
+    display: flex;
+    flex-direction: column;align-items: center;
+    gap: 08px; 
+    flex: 1; 
+    height: 100%;
+    object-fit: cover; 
+    border: 2px solid yellow;
+  }
+  
+  .imageTwo {
+    width: 300px; 
+    border: 2px solid blue;
+    height: 200px;
+    object-fit: cover; 
+    border-radius: 8px; 
+  }
+
+  .imageThree { 
+    width: 300px; 
+    border: 2px solid blue;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 8px; 
+  }
