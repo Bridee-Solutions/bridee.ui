@@ -146,7 +146,7 @@ function ListaTarefas() {
             {modalAddTask && (
             <Modal>
                 <ModalHeader onClose={fecharModalAdd}>
-                <h1>Criar tarefa</h1>
+                <span>Criar tarefa</span>
                 </ModalHeader>
                 <ModalBody>
                 <div className={styles.containerModalCreate}>
@@ -197,7 +197,7 @@ function ListaTarefas() {
             {modalDelete && (
             <Modal>
                 <ModalHeader onClose={fecharModalDelete}>
-                <h1>Remover tarefa</h1>
+                <span>Remover tarefa</span>
                 </ModalHeader>
                 <ModalBody>
                 <div className={styles.containerModalDelete}>
