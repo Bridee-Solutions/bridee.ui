@@ -20,7 +20,7 @@ import {
   faCalculator,
 } from "@fortawesome/free-solid-svg-icons";
 import MenuLink from "../MenuLink/MenuLink";
-import DropdownItem from "../DropdownItem/DropdownItem";
+import DropdownItem from "../DropdownItem/Dropdownitem";
 
 function NavComp() {
   const [dropdownAberto, setDropdownAberto] = useState(false);

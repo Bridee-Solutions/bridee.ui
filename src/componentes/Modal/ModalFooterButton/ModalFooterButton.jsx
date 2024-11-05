@@ -19,7 +19,7 @@ function ModalFooterButton({ button, text, onClick }) {
         case "delete_button":
             return (
                 <button className={styles.delete_button} onClick={onClick}>
-                    <FontAwesomeIcon icon={faTrashCan} size='lg' />
+                    <FontAwesomeIcon icon={faTrashCan} />
                     {text}
                 </button>
             );
@@ -31,7 +31,7 @@ function ModalFooterButton({ button, text, onClick }) {
             return (
                 <button className={styles.add_button} onClick={onClick}>
                     <FontAwesomeIcon icon={faPlus} size='lg' />
-                    {text}
+                    <span>{text}</span>
                 </button>
             );
         case "whatsapp_button":
