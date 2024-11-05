@@ -1,0 +1,85 @@
+.containerAssessor { 
+    border: 2px solid red;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  #F3EED9;
+}
+
+.containerConteudo { 
+    width: 85%;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerImagens { 
+    border: 2px solid red;    
+    width: 90%;
+    height: 30%;
+}
+
+.containerTitulo { 
+    border: 2px solid yellow;
+    width: 90%;
+    display: flex;
+    flex-direction: column
+}
+
+.nome { 
+    border: 2px solid yellowgreen;
+}
+.nome span{
+    font-weight: 700;
+    font-family: "Playfair";
+    font-size: 1.7rem;
+}
+
+.containerSubt { 
+    display: flex;
+    
+    font-family: 'Montserrat';
+    font-size: 0.9rem;
+    border: 2px solid red;
+}
+
+.subtitulo { 
+    display: flex;
+}
+
+.subtitulo span {
+    color: #454545;
+    border-bottom: #454545 1px solid;
+    font-weight: 600;
+}
+
+.website { 
+    color: black;
+    border-bottom: 1px solid;
+    font-weight: 600;
+}
+
+
+.containerApresent { 
+    border: 2px solid black;
+    width: 60%;
+}
+
+.containerApresent span {
+
+color: black;
+font-family: 'Montserrat';
+}
+
+.tituloApr span { 
+font-weight: 700;
+font-size: 1.2rem;
+}
+
+.descricao { 
+font-weight: 500;
+}
