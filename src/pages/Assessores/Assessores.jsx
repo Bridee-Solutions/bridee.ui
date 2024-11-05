@@ -1,18 +1,17 @@
 import styles from "./Assessores.module.css";
 import Navbar from "../../componentes/Navbar/Navbar";
 import stylesAll from "../Locais/Locais.module.css";
-import Banner from "../../componentes/Banner/Banner";
+import Banner from "../../componentes/Banner/Banner.jsx";
 import imagem from "../../assets/Banner/assessorbanner.svg";
 import SearchBar from "../../componentes/LandingPage/SearchBar/SearchBar";
-import Card from "../../componentes/Card/Card";
+import Card from "../../componentes/Card/Card.jsx";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import image1 from "../../assets/mockImages/5.png";
 import image2 from "../../assets/mockImages/33.png";
 import image3 from "../../assets/mockImages/image.png";
-import Pagination from "@mui/material/Pagination";
 import React, { useState, useEffect } from "react";
 import "react-photo-view/dist/react-photo-view.css";
-import ImageGallery from "../../componentes/ImageGallery/ImageGallery";
+import ImageGallery from "../../componentes/ImageGallery/ImageGallery.jsx";
 import FAQSection from "../../componentes/FAQSection/Faq.jsx";
 import LinkButton from "../../componentes/LinkButton/LinkButton";
 
