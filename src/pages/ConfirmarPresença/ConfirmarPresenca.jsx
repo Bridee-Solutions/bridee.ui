@@ -36,7 +36,7 @@ const ConfirmarPresenca = () => {
 
   return (
     <div className={styles.page}>
-      {/* Adiciona classe condicional para fundo alternativo */}
+     
       <div className={`${styles.formContainer} ${erro ? styles.errorBackground : styles.defaultBackground}`}>
         <h2 className={styles.heading}>Insira o pin ou nome do convite</h2>
         <p className={styles.description}>Você pode informar o nome do convite ou o PIN enviado por Amanda & Enzo.</p>

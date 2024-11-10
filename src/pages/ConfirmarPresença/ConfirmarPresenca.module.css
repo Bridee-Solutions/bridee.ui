@@ -9,7 +9,7 @@
 
 
 .defaultBackground {
-  background: url('../../assets/Ellipse.png') no-repeat center / cover;
+  background: url('../../assets/Ellipse.svg') no-repeat center / cover;
   padding: 198px 40px;
   max-width: 49%;
   width: 100%;
@@ -19,7 +19,7 @@
 
 
 .errorBackground {
-  background: url('../../assets/Ellipse.png') no-repeat center / cover;
+  background: url('../../assets/Ellipse.svg') no-repeat center / cover;
   padding: 179px 40px;
   max-width: 49%;
   width: 100%;
