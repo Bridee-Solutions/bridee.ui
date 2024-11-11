@@ -5,9 +5,8 @@
   height: 60vh;
   align-items: center;
   justify-content: center;
-
- 
 }
+
 .containerCategoria { 
   width: 90%;
   display: flex;
@@ -73,6 +72,7 @@ justify-content: space-between;
 @media(max-width: 768px) {
   .categories {
     padding: 0vh;
+    margin-top: 4%;
    }
 
    .categories .container img{
@@ -122,3 +122,6 @@ justify-content: space-between;
     font-size: 20px;
   }
 }
+
+/* @media(max-width: 360px) {
+} */

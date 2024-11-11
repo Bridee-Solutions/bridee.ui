@@ -5,12 +5,13 @@
   justify-content: center;
   height: 10%;
 }
+
 .containerbenefits {
   display: flex;
   width: 90%;
   justify-content: space-around;
   align-items: center;
-height: 100%;
+  height: 100%;
 }
 
 .containerReg {
@@ -41,10 +42,9 @@ height: 100%;
   display: flex;
   justify-content: space-between;
   width: 67%;
-    height: 100%;
-  
-
+  height: 100%;
 }
+
 .benefits_container_labels{
   display: flex;
   justify-content: space-between;
@@ -62,7 +62,6 @@ height: 100%;
   width: 100%;
 } 
 
-
 .start_label {
   background-color: #DD7B78;
   width: 25vw;
@@ -78,7 +77,6 @@ height: 100%;
   color: #FFFFFF;
   font-weight: 600;
   font-style: normal;
-  
 }
 
 .containerBaixo {
@@ -209,3 +207,86 @@ height: 100%;
     background-position: center;
   } 
 } */
+
+@media (max-width: 360px) {
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    padding-bottom: 20%;
+    height: auto;
+    position: relative;
+  }
+
+  .containerbenefits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .start_label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88%;
+    height: auto;
+    padding: 1rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    z-index: 10;
+  }
+
+  .start_label p {
+    font-size: 1rem;
+    text-align: left;
+    font-weight: 500;
+
+  }
+
+  .comece {
+    border: none;
+    display: flex;
+    margin-top: 1vh;
+    font-size: 0.8rem;
+  }
+
+  .containerBeneficios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50%;
+    gap: 0.5rem;
+  }
+
+  .benefits_labels {
+    width: 45%; 
+    padding: 1rem;
+    font-size: 0.6rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #AAA;
+    background: #FBF9F7;
+  }
+
+  .textodesc p {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+  .icon_benefits > img {
+    width: 75%;
+    max-height: 20vh; 
+    object-fit: contain; 
+  }
+}
