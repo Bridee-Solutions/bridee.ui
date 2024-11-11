@@ -10,9 +10,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import imagem from "../../assets/Banner/bannerFornecedores.svg";
 import stylesAll from "../Locais/Locais.module.css";
+import stylesAssessor from "../Assessores/Assessores.module.css";
 import image1 from "../../assets/mockImages/5.png";
 import image2 from "../../assets/mockImages/33.png";
 import image3 from "../../assets/mockImages/image.png";
+import FAQSection from "../../componentes/FAQSection/Faq.jsx";
+import OrcamentoCard from "../../componentes/OrcamentoCard/OrcamentoCard.jsx";
+import ImageGallery from "../../componentes/ImageGallery/ImageGallery.jsx";
 
 import decoracao from "../../assets/fornecedores/decoracao.png";
 import entretenimento from "../../assets/fornecedores/entretenimento.png";
@@ -27,91 +31,111 @@ import transporte from "../../assets/fornecedores/transporte.png";
 import vestidos from "../../assets/fornecedores/vestidos.png";
 import videografos from "../../assets/fornecedores/videografos.png";
 
+import imagemTeste from "../../assets/mockImages/image2.png";
+import imagemTeste2 from "../../assets/mockImages/imagemcinco.jpg";
+import imagemTeste3 from "../../assets/mockImages/imagemcinco.jpg";
+import imagemTeste4 from "../../assets/mockImages/imagemcinco.jpg";
+
 function Fornecedores() {
   const [page, setPage] = useState(1);
   const cardsPerPage = 6;
   const [cardsData, setCardsData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = [
         {
-          title: "Pôr do Sol",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image1,
-          category: "Vestidos",
+          categoria: "Fotógrafo",
+          images: [
+            { url: imagemTeste, titulo: "Foto em Cerimônia" },
+            { url: imagemTeste2, titulo: "Foto no Jardim" },
+            { url: imagemTeste2, titulo: "Sessão Pré-casamento" },
+            { url: imagemTeste2, titulo: "Foto na Recepção" },
+          ],
+          imagemPrincipal: imagemTeste,
+          cidade: "São Paulo",
+          bairro: "Jardins",
+          nome: "Studio Luz e Amor Fotografia",
+          website: "https://www.luzeamor.com.br/",
+          descricaoFornecedor:
+            "Com um olhar artístico e sensível, a equipe do Studio Luz e Amor captura os momentos mais especiais e autênticos de cada casamento, proporcionando memórias eternas.",
+          informacoesGerais: [
+            `Seu casamento será um dia cheio de momentos que irá querer guardar e relembrar. Uma recordação em papel ou um vídeo inconfundível de um dia que não se irá repetir, mas ficará para sempre. Faça com que as recordações mais especiais acompanhem você para toda a sua vida, e até depois, com Veiga Estudios! Retratos e filmagens que contam sua história de amor. A Veiga Estudios é uma empresa apaixonada e comprometida em transformar momentos em memórias eternas, utilizando a arte da fotografia e do vídeo para comunicar e encantar. Seguem em constante evolução, buscando sempre inovar e superar expectativas, fiéis à missão de inspirar, conectar e emocionar através das suas produções.` 
+            ,
+          ],
+          perguntasFrequentes: [
+            {
+              pergunta: "Quais pacotes de fotografia vocês oferecem?",
+              respostas: [
+                "Pacote básico - Cerimônia e recepção",
+                "Pacote completo - Cerimônia, recepção e sessão pré-casamento",
+              ],
+              mostrarIconeCheck: true,
+            },
+            {
+              pergunta: "Vocês fazem fotos em outros estados?",
+              respostas: ["Sim, mediante taxa adicional"],
+              mostrarIconeCheck: true,
+            },
+            {
+              pergunta: "Qual é o prazo para a entrega das fotos?",
+              respostas: ["Até 45 dias após o evento"],
+            },
+            {
+              pergunta: "Vocês oferecem serviços de vídeo?",
+              respostas: ["Sim, em parceria com videógrafos"],
+            },
+          ],
         },
         {
-          title: "Castelo de Monte Mor",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image2,
-          category: "Fotógrafos",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Fotógrafos",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Florista",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Decoração",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Decoração",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Papelaria",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Entretenimento",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Entretenimento",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Papelaria",
-        },
-        {
-          title: "Hee Beach House",
-          description:
-            "Quer ter as melhores lembranças do seu casamento, oferecendo os melhores pratos e o melhor atendimento? Com o buffet Pôr do Sol tudo isso é possível. A sua mesa será farta e terá uma apresentação impecável, com as melhores representações da cozinha nacional e internacional, além de oferecer um bla bla",
-          imageUrl: image3,
-          category: "Papelaria",
+          categoria: "Buffet & Gastronomia",
+          images: [
+            { url: imagemTeste, titulo: "Mesa de Buffet" },
+            { url: imagemTeste, titulo: "Prato Principal" },
+            { url: imagemTeste, titulo: "Mesa de Sobremesas" },
+            { url: imagemTeste, titulo: "Canapés" },
+          ],
+          imagemPrincipal: imagemTeste4,
+          cidade: "Rio de Janeiro",
+          bairro: "Copacabana",
+          nome: "Buffet Sabores do Mar",
+          website: "https://www.saboresdomar.com/",
+          descricaoFornecedor:
+            "Com uma culinária inovadora e ingredientes frescos, o Buffet Sabores do Mar traz uma experiência gastronômica única para seu casamento, combinando pratos tradicionais e toques contemporâneos.",
+          informacoesGerais: [
+            "Buffet completo para eventos",
+            "Cardápios personalizados",
+            "Estação de frutos do mar e finger food",
+            "Atende até 300 convidados",
+          ],
+          perguntasFrequentes: [
+            {
+              pergunta: "Quais tipos de menu são oferecidos?",
+              respostas: [
+                "Tradicional brasileiro",
+                "Mediterrâneo",
+                "Vegetariano e vegano",
+              ],
+              mostrarIconeCheck: true,
+            },
+            {
+              pergunta: "Vocês oferecem degustação antes do casamento?",
+              respostas: ["Sim, mediante agendamento"],
+              mostrarIconeCheck: true,
+            },
+            {
+              pergunta: "Vocês fornecem bebidas alcoólicas?",
+              respostas: [
+                "Não, mas temos parceria com fornecedores especializados",
+              ],
+            },
+            {
+              pergunta: "Qual é a capacidade máxima de atendimento?",
+              respostas: ["Até 300 convidados"],
+            },
+          ],
         },
       ];
       setCardsData(data);
@@ -120,6 +144,15 @@ function Fornecedores() {
     fetchData();
   }, []);
 
+
+
+  const handleBack = () => {
+    setSelectedCard(null);
+  };
+  
+  const handleSolicitarOrcamento = (fornecedor) => {
+    setSelectedCard(fornecedor);
+  };
   const totalCards = cardsData.length;
   const totalPages = Math.ceil(totalCards / cardsPerPage);
   const startIndex = (page - 1) * cardsPerPage;
@@ -127,7 +160,7 @@ function Fornecedores() {
   const currentCards = cardsData.slice(startIndex, endIndex);
 
   const filteredCards = selectedCategory
-    ? cardsData.filter((card) => card.category === selectedCategory)
+    ? cardsData.filter((card) => card.categoria === selectedCategory)
     : [];
   const displayedCards = filteredCards.slice(startIndex, endIndex);
 
@@ -152,14 +185,6 @@ function Fornecedores() {
     setPage(1);
   };
 
-  const handleCardClick = (categoriaNome) => {
-    console.log(`Redirecionando para a categoria: ${categoriaNome}`);
-    handleCategoryClick(categoriaNome);
-  };
-
-  const handleBack = () => {
-    setSelectedCategory(null);
-  };
 
   const handleChange = (event, value) => {
     setPage(value);
@@ -168,68 +193,122 @@ function Fornecedores() {
   return (
     <div>
       <Navbar />
-      <Banner
-        imageUrl={imagem}
-        title="Encontre os melhores fornecedores para seu casamento"
-        subtitle="Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável."
-      >
-        <div className={stylesAll.searchbar}>
-          <SearchBar />
-        </div>
-      </Banner>
+      {!selectedCard && (
+        <Banner
+          imageUrl={imagem}
+          title="Encontre os melhores fornecedores para seu casamento"
+          subtitle="Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável."
+        >
+          <div className={stylesAll.searchbar}>
+            <SearchBar />
+          </div>
+        </Banner>
+      )}
       <div className={stylesAll.container}>
-      {!selectedCategory && (
-          <div className={stylesAll.navegarCategoria}>
-            <div className={stylesAll.containerTitulo}>
-              <div className={stylesAll.titulo}>
-                <span>Navegar por categoria</span>
-              </div>
-              <div className={stylesAll.subtitulo}>
-                <span>
-                  Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
-                  ipsumLorem ipsumLorem ipsum
-                </span>
-              </div>
-            </div>
+        {!selectedCard ? (
+          <>
+            {/* Navegação por categoria */}
+            {!selectedCategory ? (
+              <div className={stylesAll.navegarCategoria}>
+                <div className={stylesAll.containerTitulo}>
+                  <div className={stylesAll.titulo}>
+                    <span>Navegar por categoria</span>
+                  </div>
+                  <div className={stylesAll.subtitulo}>
+                    <span>
+                      Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem
+                      ipsumLorem ipsumLorem ipsumLorem ipsum
+                    </span>
+                  </div>
+                </div>
 
-            <div className={stylesAll.containerCards}>
-              <div className={stylesAll.cadaCardLocal}>
-                {categorias.map((categoria, index) => (
-                  <CardNavegacao
-                    key={index}
-                    nome={categoria.nome}
-                    imagem={categoria.imagem}
-                    onClick={() => handleCardClick(categoria.nome)}
+                <div className={stylesAll.containerCards}>
+                  <div className={stylesAll.cadaCardLocal}>
+                    {categorias.map((categoria, index) => (
+                      <CardNavegacao
+                        key={index}
+                        nome={categoria.nome}
+                        imagem={categoria.imagem}
+                        onClick={() => handleCategoryClick(categoria.nome)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // Lista de fornecedores da categoria selecionada
+              <div className={stylesAll.pagina}>
+                <div className={stylesAll.containerOpcoes}>
+                  <div
+                    onClick={() => setSelectedCategory(null)}
+                    className={stylesAll.setaVolta}
+                  >
+                    <FontAwesomeIcon icon={faArrowLeft} />{" "}
+                    <span className={stylesAll.voltar}>VOLTAR</span>
+                  </div>
+                  <div className={stylesAll.cardContainer}>
+                    <div className={stylesAll.cadaCard}>
+                      {displayedCards.map((card, index) => (
+                        <Card
+                          key={index}
+                          nome={card.nome}
+                          descricao={card.descricaoFornecedor}
+                          imageUrl={card.imagemPrincipal}
+                          bairro={card.bairro}
+                          cidade={card.cidade}
+                          onClick={() => handleSolicitarOrcamento(card)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className={stylesAssessor.containerAssessor}>
+            <div className={stylesAssessor.containerConteudo}>
+              <div className={stylesAssessor.containerVoltar}>
+                <div onClick={handleBack} className={stylesAssessor.voltar}>
+                  <FontAwesomeIcon
+                    icon={faArrowLeft}
+                    className={stylesAssessor.iconvolt}
                   />
-                ))}
+                  <span>VOLTAR </span>
+                </div>
+              </div>
+              <div className={stylesAssessor.containerImagens}>
+                <ImageGallery images={selectedCard?.images || []} />{" "}
+              </div>
+
+              <div className={stylesAssessor.todoconteudo}>
+                <div className={stylesAssessor.esquerda}>
+                  <div className={stylesAssessor.containerApresent}>
+                    {cardsData.length > 0 && (
+                      <FAQSection
+                        perfilGeral={cardsData[0]}
+                        selectedCard={selectedCard}
+                      />
+                    )}
+                  </div>
+                </div>
+                <div className={stylesAssessor.direita}>
+                  <div className={stylesAssessor.regOrc}>
+                    <OrcamentoCard />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         )}
-        <div className={stylesAll.pagina}>
-          {selectedCategory && (
-            <div className={stylesAll.containerOpcoes}>
-              <div onClick={handleBack} className={stylesAll.setaVolta}>
-                <FontAwesomeIcon icon={faArrowLeft} /> <span className={stylesAll.voltar}>VOLTAR</span>
-              </div>
-              <div className={stylesAll.cardContainer}>
-                <div className={stylesAll.cadaCard}>
-                  {displayedCards.map((card, index) => (
-                    <Card
-                      key={index}
-                      title={card.title}
-                      description={card.description}
-                      imageUrl={card.imageUrl}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
       </div>
 
-      <div className={`${stylesAll.paginacaoContainer} ${!selectedCategory ? stylesAll.hidden : ''}`}>
+      {/* Paginação */}
+      <div
+        className={`${stylesAll.paginacaoContainer} ${
+          !selectedCategory ? stylesAll.hidden : ""
+        }`}
+      >
         {selectedCategory && (
           <Pagination
             count={totalPages}
@@ -245,6 +324,7 @@ function Fornecedores() {
           />
         )}
       </div>
+
       <Baseboard />
     </div>
   );
