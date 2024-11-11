@@ -14,8 +14,6 @@ import salao from "../../assets/locais/salaãoDeFestas.svg";
 import sitio from "../../assets/locais/sitio.svg";
 
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import DetalhesPerfil from "../../componentes/DetalhesPerfil/DetalhesPerfil.jsx";
 
@@ -42,7 +40,6 @@ function Locais() {
   );
   const startIndex = (page - 1) * cardsPerPage;
   const endIndex = startIndex + cardsPerPage;
-  const currentCards = cardsData.slice(startIndex, endIndex);
 
   const filteredCards = selectedCategory
     ? cardsData
@@ -69,20 +66,6 @@ function Locais() {
 
   const handleChange = (event, value) => {
     setPage(value);
-  };
-
-  const handleCardClick = (categoriaNome) => {
-    console.log(`Redirecionando para a categoria: ${categoriaNome}`);
-    handleCategoryClick(categoriaNome);
-  };
-
-  const handleBack = () => {
-    console.log(" voltar clicado");
-    setSelectedCard(null);
-    setSelectedCategory(null);
-  };
-  const handleSolicitarOrcamento = (fornecedor) => {
-    setSelectedCard(fornecedor);
   };
 
   return (
