@@ -1,108 +1,121 @@
 import styles from "../FAQSection/faq.module.css"; // Corrigido
+import { FaCheck } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+import { FaMapMarkerAlt, FaGlobe } from "react-icons/fa";
+
+function FAQSection({ assessor, selectedCard, perfilGeral }) {
+  console.log("faq foi renderizadaaaaaaaaaaaaaaaaaaaaaa");
+  const navigate = useNavigate();
+
+  const perfil = assessor || perfilGeral;
+  if (!perfil) {
+    navigate('/404');
+    return null;
+  }
 
 
-const sections = [
+  const sections = [
+    
+    ...(assessor
+      ? [
+        {
+          titulo: "Visão geral",
+          descricao: perfil.descricaoAssessor || perfil.descricao || "Descrição não disponível",
+        },
+          {
+            titulo: "Serviços oferecidos",
+            descricao: perfil.servicos || "Forma de serviço não disponível",
+          },
+          {
+            titulo: "Forma de trabalho",
+            descricao: perfil.formaTrabalho || "Forma de trabalho não disponível",
+          },
+        ]
+      : [
+          {
+            titulo: "Informações gerais",
+            descricao: perfil.informacoesGerais || "Informações gerais não disponíveis",
+          },
+        ]),
     {
-      title: "Visão geral",
-      description:
-        "Cada evento tratado como único e com a merecida e desejada atenção. Esta é a fórmula aplicada pela Ágila Paula Assessoria & Cerimonial em cada casamento realizado e que vem encantando seus clientes. Alinhando o carinho ao projeto dos noivos, esta profissional e equipe vêm contribuindo para o sucesso do grande dia."
+      titulo: "Perguntas Frequentes",
+      questions: perfil.perguntasFrequentes || [],
     },
-    {
-      title: "Serviços oferecidos",
-      description:
-        "Os serviços abrangem consultoria para casamentos e assessoria completa. Não utilizamos um assessor só do dia. As ações são desenvolvidas e coordenadas com criatividade, profissionalismo e eficácia. O atendimento é feito de acordo com as necessidades e preferências do cliente."
-    },
-    {
-      title: "Forma de trabalho",
-      description:
-        "A empresa Ágila Paula Assessoria e Cerimonial se destaca pelo trabalho de uma equipe experiente e motivada, buscando atender e satisfazer as expectativas dos públicos mais exigentes."
-    },
-    {
-      title: "Perguntas Frequentes",
-      questions: [
-        {
-          question: "Quais são os tamanhos dos casamentos para os quais trabalha?",
-          answers: [
-            "Com menos de 100 convidados",
-            "Entre 100 e 300 convidados",
-            "Entre 300 e 500 convidados",
-            "Mais de 500 convidados"
-          ]
-        },
-        {
-          question: "Que tipo de cerimônia organiza?",
-          answers: [
-            "Religiosa",
-            "Civil",
-            "Ao ar livre",
-            "Simbolica",
-            "Temática",
-            "Ecológica",
-            "Outro (Nível da Assessoria de Casamentos Ágila Paula, com capacitação para realizar qualquer tipo de cerimônia)"
-          ]
-        },
-        {
-          question: "Organiza casamentos de religiões não católicas?",
-          answers: ["Sim"]
-        },
-        {
-          question: "Em que tipo de casamento está especializado?",
-          answers: [
-            "Estilo americano, evangélico, espírita, católico e budista"
-          ]
-        },
-        {
-          question: "Como é o seu estilo de trabalho?",
-          answers: [
-            "Organizado, planejado e pontual"
-          ]
-        },
-        {
-          question: "Quais são as formas de pagamento?",
-          answers: [
-            "Dinheiro, cheque ou depósito"
-          ]
-        }
-      ]
-    }
   ];
-  
-  
 
-function FAQSection() {
-    console.log("FAQSection foi renderizado");
-    return (
-      <div className={styles.containerApresent}>
-        {sections.map((section, index) => (
-          <div key={index} className={styles.content}>
-            <div className={styles.tituloApr}>
-              <span>{section.title}</span>
+  return (
+    <div className={styles.containerApresent}>
+      <div className={styles.containerTitulo}>
+        <div className={styles.nome}>
+          <span>{selectedCard.nome}</span>
+        </div>
+        <div className={styles.containerSubt}>
+          <div className={styles.subtitulo}>
+            <div className={styles.iconContainer}>
+              <FaMapMarkerAlt className={styles.icon} />
             </div>
-            {section.description && (
+            <div className={styles.lugar}>
+              <span>{selectedCard.cidade}, </span>
+              <span>{selectedCard.bairro}</span>
+            </div>
+          </div>
+          <div className={styles.website}>
+            <div className={styles.iconContainer}>
+              <FaGlobe className={styles.icon} />
+            </div>
+            <div className={styles.lugar}>
+              <a href={selectedCard.website} target="_blank">
+                <span>Visitar website</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {sections.map((section, index) => (
+        <div key={index} className={styles.content}>
+          <div className={styles.tituloApr}>
+            <span>{section.titulo}</span>
+          </div>
+          {section.descricao && (
+            <div className={styles.containerDescricao}>
               <div className={styles.descricao}>
-                <span>{section.description}</span>
+                <span>{section.descricao}</span>
               </div>
-            )}
-            {section.questions && (
+            </div>
+          )}
+          {section.questions && (
+            <div className={styles.containerQuestions}>
               <div className={styles.questions}>
                 {section.questions.map((questionItem, qIndex) => (
                   <div key={qIndex} className={styles.question}>
-                    <span>{questionItem.question}</span>
+                    <div className={styles.titulo}>
+                      <span>{questionItem.pergunta}</span>
+                    </div>
                     <div className={styles.answers}>
-                      {questionItem.answers.map((answer, aIndex) => (
-                        <div key={aIndex} className={styles.answer}>
-                          <span>{answer}</span>
-                        </div>
-                      ))}
+                      {questionItem.respostas.map(
+                        (
+                          answer,
+                          aIndex 
+                        ) => (
+                          <div key={aIndex} className={styles.answer}>
+                            {questionItem.mostrarIconeCheck ? ( 
+                              <FaCheck className={styles.checkIcon} />
+                            ) : null}
+                            <span>{answer}</span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
-            )}
-          </div>
-        ))}
-      </div>
-    );
-  }
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default FAQSection;

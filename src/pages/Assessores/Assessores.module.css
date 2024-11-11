@@ -4,6 +4,8 @@
   justify-content: center;
   align-items: center;
   background-color: #f3eed9;
+  padding-bottom: 4rem;
+  padding-top: 3rem;
 }
 
 .containerConteudo {
@@ -17,52 +19,12 @@
 }
 
 .containerImagens {
-  border: 2px solid red;
   width: 90%;
   height: 30%;
 }
 
-.containerTitulo {
-  border: 2px solid yellow;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-}
-
-.nome {
-  border: 2px solid yellowgreen;
-}
-.nome span {
-  font-weight: 700;
-  font-family: "Playfair";
-  font-size: 1.7rem;
-}
-
-.containerSubt {
-  display: flex;
-  font-family: "Montserrat";
-  font-size: 0.9rem;
-  border: 2px solid rgb(125, 216, 113);
-}
-
-.subtitulo {
-  display: flex;
-}
-
-.subtitulo span {
-  color: #454545;
-  border-bottom: #454545 1px solid;
-  font-weight: 600;
-}
-
-.website {
-  color: black;
-  border-bottom: 1px solid;
-  font-weight: 600;
-}
 
 .containerApresent {
-  border: 2px solid black;
   width: 100%;
 }
 
@@ -81,52 +43,49 @@
 }
 
 .esquerda {
-  width: 60%;
+  height: 100%;
+width: 60%;
 }
 
 .direita {
   width: 40%;
+ }
+
+.regOrc { 
+  height: 55%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  height: 100%;
-
+  padding-top: 2rem;
 }
-
 .todoconteudo {
   display: flex;
   width: 94%;
   font-family: "Montserrat";
-
 }
 
-.cardOrcamento {
-  width: 90%;
-  border: 2px solid #f3eed9;
-border-radius: 15px;
-height: 50vh;
+
+
+.containerVoltar { 
+  width: 100%;
+  height: 10vh;
+padding-top: 2em;
+  cursor: pointer;
 }
-.tituloOrcamento {
-  height: 4%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+
+.voltar {   
+display: flex;
+align-items: center;}
+
+.iconvolt { 
+  color: #B55557;
+  font-size: 1.2em;
+  padding-left: 1em;  
+} 
+
+.voltar > span {
+  font-size: 1.0em;
   font-weight: 500;
-  font-size: 1rem;
-}
-
-.fundo {
-  background-color: #ece4c5;
-  border-radius: 12px;
-  height: 50%;
-  width: 95%;
-}
-
-.detalhes { 
-    width: 100%;
-}
-
-.inputgrandona { 
-    border: 1px solid #ECE4C1;
-    border-radius: 7px;
-    width: 90%;
+  font-family: "Montserrat";
+  padding-left: 0.4em;  
 }
