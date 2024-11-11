@@ -39,27 +39,17 @@ function Fornecedores() {
   }, []);
 
 
-  const handleBack = () => {
-    setSelectedCard(null);
-  };
-  
-  const handleSolicitarOrcamento = (fornecedor) => {
-    setSelectedCard(fornecedor);
-  };
+
   const totalCards = cardsData.length;
   const totalPages = Math.ceil(
     (selectedCategory
       ? cardsData.filter((card) => card.categoria === selectedCategory).length
       : totalCards) / cardsPerPage
   );
-    const startIndex = (page - 1) * cardsPerPage;
-  const endIndex = startIndex + cardsPerPage;
-  const currentCards = cardsData.slice(startIndex, endIndex);
 
   const filteredCards = selectedCategory
     ? cardsData.filter((card) => card.categoria === selectedCategory)
     : [];
-  const displayedCards = filteredCards.slice(startIndex, endIndex);
 
   const categorias = [
     { nome: "Vestido", imagem: vestidos },
