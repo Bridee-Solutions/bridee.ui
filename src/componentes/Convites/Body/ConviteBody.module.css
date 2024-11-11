@@ -124,12 +124,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 35%;
+    width: 30%;
 }
 
 .body_content_item_specific span{
-    padding: 2.5% 5%;
+    padding: 2.5% 3%;
     border-radius: 15px;
+    font-size: 16px;
     background-color: #C1C1C1;
 }
 

@@ -1,0 +1,65 @@
+.convite_modal_header{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+span{
+    font-size: 20px;
+}
+
+.convite_modal_header_title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.convite_modal_header_close{
+    width: 7%;
+    
+}
+
+.convite_modal_body{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.convite_modal_body_input{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-top: 2%;
+}
+
+.convite_modal_body_input input{
+    padding-left: 2%;
+    font-size: 14px;
+}
+
+.convite_modal_footer{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.delete_button{
+    padding: 3% 10%;
+    border-radius: 15px;
+    border: none;
+    background-color: #FF5154;
+    color: white;
+    cursor: pointer;
+}
+
+.save_button{
+    padding: 3% 10%;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    background-color: #DD7B78;
+    cursor: pointer;
+}

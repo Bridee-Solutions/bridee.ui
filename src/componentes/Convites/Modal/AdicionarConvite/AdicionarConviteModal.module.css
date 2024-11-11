@@ -1,0 +1,124 @@
+.convite_modal_header{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+span{
+    font-size: 20px;
+}
+
+.convite_modal_header_title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.convite_modal_header_close{
+    width: 7%;   
+}
+
+.convite_modal_body{
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 2%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.404);
+}
+
+.convite_modal_body_input{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-top: 2%;
+}
+
+.convite_modal_body_input input{
+    padding-left: 2%;
+    font-size: 14px;
+    height: 30px;
+}
+
+.convidado_modal_body{
+    overflow-y: scroll;
+    height: 240px;
+    padding-bottom: 2%;
+}
+
+.convidado_modal_border{
+    border: 1px solid rgba(0, 0, 0, 0.404);
+    padding: 2%;
+    border-radius: 15px;
+    margin-bottom: 3%;
+}
+
+.convidado_modal_body p{
+    margin: 1% 0 1% 2%;
+}
+
+.convidado_modal_body_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+}
+
+
+.convidado_modal_body_inputs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.convidado_modal_body_input{
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+}
+
+.convidado_modal_body_input label{
+    font-size: 18px;
+    margin-top: 2%;
+}
+
+.convidado_modal_body_input input{
+    font-size: 14px;
+    height: 30px;
+    padding-left: 2%;
+}
+
+.convidado_modal_body_input select{
+    font-size: 14px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #A9a8a8;
+}
+
+.add_convidado_button button{
+    padding: 2% 4%;
+    border: none;
+    background-color: #E2E2E2;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.add_convite_button{
+    padding: 3% 15%;
+    border: none;
+    border-radius: 15px;
+    background-color: #DD7B78;
+    color: white;
+    cursor: pointer;
+}
+
+.convite_modal_footer{
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}

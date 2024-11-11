@@ -3,7 +3,8 @@ import filterImage from "../../../assets/filter-image.png"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ConviteBody = () => {
+const ConviteBody = (props) => {
+    
     return(
         <div className={styles.convite_body}>
             <div className={styles.body_header}>
@@ -21,14 +22,14 @@ const ConviteBody = () => {
                         <img src={filterImage} alt="" />
                         <span>Filtro</span>
                     </div>
-                    <button>+ Adicionar Convite</button>
+                    <button onClick={() => props.setActualModal("Adicionar Convite")}>+ Adicionar Convite</button>
                 </div>
             </div>
             <div className={styles.body_content}>
                 <div className={styles.body_content_itens}>
                     <div className={styles.body_content_item}>
                         <h3>Família Forbes</h3>
-                        <button>Ver Convite -</button>
+                        <button onClick={() => props.setActualModal("Convite")}>Ver Convite -</button>
                     </div>
                     <div className={styles.body_content_item}>
                         <div className={styles.circle_item}>

@@ -46,6 +46,7 @@
     width: 100%;
     gap: 10px;
     border-bottom: 1px solid #979797;
+    margin-bottom: 2%;
 }
 
 .modal_header h1 {
@@ -55,10 +56,6 @@
     text-align: center;
     padding: 10px 5px;
     margin: 0px;
-}
-
-.modal_body {
-    padding: 10px;
 }
 
 .modal_body input {
@@ -99,12 +96,7 @@
 
 .modal_body span {
     font-family: "ProductSans";
-    font-size: 20px;
-    text-align: center;
-    color: #6B6565;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    color: black;
 }
 
 .modal_footer {
@@ -186,8 +178,4 @@
     font-family: 'Montserrat';
     border: 0px;
     transition: 0.5s;
-}
-
-.modal_footer button:hover {
-    background-color: #943431;
 }
