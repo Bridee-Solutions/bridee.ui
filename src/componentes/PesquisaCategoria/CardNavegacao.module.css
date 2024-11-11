@@ -1,15 +1,14 @@
 .card {
-  width: 20%;
   height: 35vh;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   color: white;
   border-radius: 20px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  width: 85%;
 }
 
 
