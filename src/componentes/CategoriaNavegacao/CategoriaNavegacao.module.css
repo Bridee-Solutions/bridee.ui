@@ -1,0 +1,47 @@
+.navegarCategoria {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  
+  
+.containerTitulo {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 25vh;
+    justify-content: center;
+  }
+
+  .titulo{
+    font-family: "Playfair";
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+
+  
+.subtitulo { 
+    padding: 1rem;
+  }
+  .subtitulo {
+    font-family: "Montserrat";
+  }
+
+  
+.containerCards {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+  }
+
+  .cadaCardLocal { 
+    grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    width: 95%;
+    gap: 1rem;
+    justify-items: center;
+
+  }

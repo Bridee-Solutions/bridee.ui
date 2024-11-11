@@ -1,10 +1,18 @@
 .containerPai {
   width: 100%;
   height: 100%;
+  
 }
 .searchbar {
   width: 90%;
   max-width: 90%;
+}
+
+.navegar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .container {
@@ -13,51 +21,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
-
-.pagina { 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.containerOpcoes { 
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.setaVolta { 
-  cursor: pointer;
-  width: 90%;  
-  color: #DD7B78;
-  font-size: 1.3rem;
-  display: flex;
-  justify-content: start;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  cursor: pointer;
-
-}
-
-.voltar {
-  font-family: "Montserrat";
-  color: black;
-  font-size: 1.1rem;
-  padding-left: 0.6rem;
-
-}
-
-.cardContainer {
-  width: 85%;
-  height: 85%;
-}
-
-.cadaCard {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  padding-top: 3rem;
+  
 }
 
 .paginacaoContainer {
@@ -67,54 +31,11 @@
   width: 100%;
   height: 10vh;
   background-color: #f3eed9;
-}
-
-.navegarCategoria {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-}
-
-.containerTitulo {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 25vh;
-  justify-content: center;
-}
-
-.containerCards {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  border: 3px solid red;
 }
 
 
-.cadaCardLocal {
-  width: 80%;
-  display: flex;
-  height: 90%;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 4rem;
-}
 
-.titulo span {
-  font-family: "Playfair";
-  font-size: 1.9rem;
-  font-weight: 700;
-}
-
-.subtitulo { 
-  padding: 1rem;
-}
-.subtitulo span {
-  font-family: "Montserrat";
-}
 
 .hidden {
   display: none;
