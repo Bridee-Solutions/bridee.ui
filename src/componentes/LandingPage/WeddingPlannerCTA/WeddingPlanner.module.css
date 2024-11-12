@@ -24,9 +24,7 @@
     height: 20vh;
     display: flex;
     flex-direction: column;
-    
     justify-content: center;
-
 }
 
 .containerTitulo span {
@@ -87,6 +85,7 @@
     
     align-items: center;
 }
+
 .containerBotao button{
     font-family: 'Montserrat';
     border: 0px;
@@ -161,5 +160,19 @@
     
     .wedding_planner .container a{
         font-size: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .containerTitulo span {
+        font-size: 1.4rem;
+    }
+
+    .containerConteudo {
+        padding: 4% 4%;
+    }
+
+    .texto {
+        font-size: 1rem;
     }
 }
