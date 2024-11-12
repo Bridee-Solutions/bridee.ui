@@ -24,6 +24,8 @@ function CategoriaCards({
               <Card
                 key={index}
                 nome={card.nome}
+                bairro={card.bairro}
+                cidade={card.cidade}
                 descricao={card.descricao}
                 imageUrl={card.imagemPrincipal}
                 onClick={() => onCardClick(card)}
