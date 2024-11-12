@@ -82,7 +82,6 @@
     width: 100%;
     height: 10vh;
     display: flex;
-    
     align-items: center;
 }
 
@@ -164,15 +163,56 @@
 }
 
 @media (max-width: 360px) {
+    .containerTitulo{
+        height: 8vh;
+    }
+
     .containerTitulo span {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        line-height: 1.2;
+        letter-spacing: 0.4vh;
     }
 
     .containerConteudo {
-        padding: 4% 4%;
+        padding: 8% 8% 0;
     }
 
     .texto {
-        font-size: 1rem;
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+
+    .containerDescricao {
+        gap: 2vh; 
+    }
+
+    .ultima {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+
+    .wedding_planner .container button {
+         font-size: 0.8rem;
+         width: 60%;
+         padding: 1vh 4vw;
+         height: 6vh;
+    }
+
+    .containerConvite span {
+        font-size: 0.8rem;
+        letter-spacing: 0.4vh;
+        padding: 2% 8% 8%;
+    }
+
+    .wedding_planner .containerConvite a {
+        font-size: 0.8rem;
+    }
+
+    .containerBotao {
+        height: 12vh;
+    }
+
+    .wedding_planner {
+        height: 74vh;
     }
 }

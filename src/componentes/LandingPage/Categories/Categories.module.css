@@ -133,9 +133,8 @@ justify-content: space-between;
   }
 
   .categories .container img {
-    width: 90px; 
+    width: 100%; 
     max-height: 10vh;
-    max-width: 65%;
     object-fit: contain;
   }
 
@@ -146,18 +145,12 @@ justify-content: space-between;
 
   .categories .sliderWrapper {
     overflow: visible;
-    padding: 0 5px;
+    padding: 0 4px;
   }
 
   .containerIcon {
     width: 20%;
-    max-width: 60%;
     text-align: center;
-    transition: transform 0.3 ease;
-  }
-
-  .containerIcon:hover {
-    transform: scale(1.1);
   }
 
   .categories .container p {
