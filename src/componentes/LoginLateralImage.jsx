@@ -4,7 +4,7 @@ const LateralImage = () => {
 
     return(
         <div className={styles.login_img}>
-            <img src="/src/assets/foto.svg" alt="" />
+            <img src="/src/assets/login/foto.svg" alt="" />
         </div>
     )
 
