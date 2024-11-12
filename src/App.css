@@ -1,0 +1,12 @@
+.react-scrollbars-custom::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .react-scrollbars-custom::-webkit-scrollbar-thumb {
+
+    border-radius: 10px;
+  }
+  
+  .react-scrollbars-custom::-webkit-scrollbar-thumb:hover {
+
+  }    

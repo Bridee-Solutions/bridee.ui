@@ -1,0 +1,109 @@
+.cardOrcamento {
+    width: 90%;
+    border: 2px solid #f3eed9;
+    border-radius: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tituloOrcamento {
+    height: 8%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .containerFundo { 
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  }
+  
+  .fundo {
+    background-color: #ece4c5;
+    border-radius: 12px;
+    height: 90%;
+    width: 89%;
+  }
+  
+  .detalhes {
+    width: 100%;padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .detalhes span {
+    width: 90%;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .containerinputgrandona { 
+    height: 30%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  }
+  .inputgrandona {
+    border: 1px solid #ece4c1;
+    border-radius: 7px;
+    width: 90%;
+    font-size: 0.8rem;
+  }
+  
+  .containerInputs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 80%;
+  }
+  
+  
+  
+  .conteudoInputs {
+    width: 90%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .duasinputs {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .inputgrandona {
+    width: 25vw;
+    height: 100%; 
+    border: 1px solid #e6e2cb; 
+    border-radius: 8px; 
+    padding: 16px;
+    color: #999999;
+    resize: none;
+    font-family: "Montserrat";
+    outline: none;
+  }
+  
+  .inputgrandona::placeholder {
+    color: #999999; 
+   
+  }
+  .containerBotao {
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  
+  

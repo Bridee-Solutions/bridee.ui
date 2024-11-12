@@ -8,9 +8,9 @@ import LinkButton from "../../componentes/LinkButton/LinkButton";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Categoria from "../../componentes/Categoria/Categoria";
-import grupo from "../../assets/grupo.svg";
-import sentados from "../../assets/sentados.svg";
-import mesas from "../../assets/mesas.svg";
+import grupo from "../../assets/painel/grupo.svg";
+import sentados from "../../assets/painel/sentados.svg";
+import mesas from "../../assets/painel/mesas.svg";
 import Contagem from "../../componentes/ContagemRegressiva/ContagemRegressiva";
 import {
   faCalendarAlt,

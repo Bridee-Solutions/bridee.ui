@@ -1,7 +1,7 @@
 import styles from "./Assessor.module.css";
 
 import React, { useState } from "react"; 
-import iconeAssessor from "../../assets/assessor.svg";
+import iconeAssessor from "../../assets/painel/assessor.svg";
 import Modal from "../Modal/Modal";
 import ModalHeader from "../Modal/ModalHeader/ModalHeader";
 import ModalBody from "../Modal/ModalBody/ModalBody";

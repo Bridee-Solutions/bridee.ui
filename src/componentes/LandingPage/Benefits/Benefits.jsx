@@ -2,10 +2,10 @@ import styles from "./Benefits.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import lupa from "../../../assets/loupe_icon.svg";
-import networking from "../../../assets/networking_icon.svg";
-import lista from "../../../assets/tasklist_icon.svg";
-import pint from "../../../assets/pinterest_icon.svg";
+import lupa from "../../../assets/landingpage/Benefits/loupe_icon.svg";
+import networking from "../../../assets/landingpage/Benefits/networking_icon.svg";
+import lista from "../../../assets/landingpage/Benefits/tasklist_icon.svg";
+import pint from "../../../assets/landingpage/Benefits/pinterest_icon.svg";
 
 library.add(faChevronRight);
 
