@@ -38,10 +38,9 @@ const Card = ({
         <span className={styles.title}>{tituloFormatado}</span>
       </div>
       <div className={styles.localidade}>
-        <span className={styles.bairro}>
-          {" "}
-          {capitalizarPrimeirasLetras(bairro)},{" "}
-          {capitalizarPrimeirasLetras(cidade)}
+        <span className={styles.bairro}>      
+          {capitalizarPrimeirasLetras(bairro)},  
+           {capitalizarPrimeirasLetras(cidade)}
         </span>
       </div>
       <div className={styles.containerDescricao}>
