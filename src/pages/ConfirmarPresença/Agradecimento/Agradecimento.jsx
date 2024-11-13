@@ -6,13 +6,15 @@ const Agradecimento = () => {
     <div className={styles.page}>
       <div className={styles.container}>
         <div className={styles.containerTextos}>
-        <span className={styles.heading}>Amanda & Enzo</span>
-        <span className={styles.subheading}>agradecem sua resposta!</span>
+          <div className={styles.amandaEnzo}>
+        <span>Amanda & Enzo</span>
+        <span>agradecem sua resposta!</span>
+       </div>
         <span className={styles.description}>
           Você pode mudar sua resposta sempre que precisar.
-        </span></div>
+        </span></div> </div>
       </div>
-    </div>
+    
   );
 };
 

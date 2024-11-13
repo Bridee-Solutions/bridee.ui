@@ -3,9 +3,7 @@ import styles from './QuemVai.module.css';
 import Agradecimento from './../Agradecimento/Agradecimento';
 
 const convidados = [
-  'Maria Silva', 'João Souza', 'Ana Oliveira', 'Pedro Santos', 'Luciana Pereira',
-  'Carlos Lima', 'Renata Almeida', 'Sérgio Mendes', 'Juliana Araújo', 'Marcos Paulo',
-  'Fernanda Costa', 'Paulo Henrique', 'Roberta Farias', 'André Martins', 'Bianca Torres'
+  'Giovanna França', 'Victor França', 'Samuel França', 'Daniele França', 'Rhuan França', 'João França',
 ];
 
 const QuemVai = () => {
