@@ -5,11 +5,12 @@ const Agradecimento = () => {
   return (
     <div className={styles.page}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>Amanda & Enzo</h2>
-        <h3 className={styles.subheading}>agradecem sua resposta!</h3>
-        <p className={styles.description}>
+        <div className={styles.containerTextos}>
+        <span className={styles.heading}>Amanda & Enzo</span>
+        <span className={styles.subheading}>agradecem sua resposta!</span>
+        <span className={styles.description}>
           Você pode mudar sua resposta sempre que precisar.
-        </p>
+        </span></div>
       </div>
     </div>
   );

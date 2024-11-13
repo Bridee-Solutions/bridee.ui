@@ -28,42 +28,62 @@ const QuemVai = () => {
   }
 
   return (
-  <div className={styles.container}>
-    <div className={styles.page}>
-      <div className={styles.formContainer}>
-        <div className={styles.texto}>
-        <h2 className={styles.heading}>Quem vai?</h2>
-        <p className={styles.description}>
-          Isso ajudará Amanda & Enzo a organizar melhor o grande dia. <br />
-          Você pode mudar sua resposta sempre que precisar.
-        </p>
-        
-        <div className={styles.convidadosList}>
-          {convidados.map((nome, index) => (
-            <div key={index} className={styles.convidadoItem}>
-              <span className={styles.convidadoNome}>{nome}</span>
-              <button
-                className={`${styles.button} ${presencas[nome] === 'confirmar' ? styles.selectedButton : ''}`}
-                onClick={() => handlePresencaChange(nome, 'confirmar')}
-              >
-                Confirmar presença
-              </button>
-              <button
-                className={`${styles.button} ${presencas[nome] === 'nao_comparecer' ? styles.selectedButton : ''}`}
-                onClick={() => handlePresencaChange(nome, 'nao_comparecer')}
-              >
-                Não irá comparecer
-              </button>
+    <div className={styles.container}>
+      <div className={styles.page}>
+        <div className={styles.formContainer}>
+          <div className={styles.containerTitulo}>
+            <div className={styles.containerQuemVai}>
+              <h2 className={styles.heading}>Quem vai?</h2>
             </div>
-          ))}
-        </div>
-        <div className={styles.botao}>
-          <button className={styles.continuarButton} onClick={handleContinuar}>
-            Continuar <span className={styles.arrowIcon}>→</span>
-          </button></div>
+            <div className={styles.containerSubtitulo}>
+              <div className={styles.description}>
+               <span> Isso ajudará Amanda & Enzo a organizar melhor o grande dia. </span> <br />
+               <span> Você pode mudar sua resposta sempre que precisar. </span>
+              </div>
+            </div>
+          </div>
+          <div className={styles.containerBotaoConvidados}>
+            <div className={styles.convidadosList}>
+
+              <div className={styles.containerConvidados}>
+                {convidados.map((nome, index) => (
+                  <div key={index} className={styles.convidadoItem}>
+                    <span className={styles.convidadoNome}>{nome}</span>
+
+                    <div className={styles.containerPresenca}>
+                      <div className={styles.containerBotaoPresenca}>
+                        <button
+                          className={`${styles.button} ${presencas[nome] === 'confirmar' ? styles.selectedButton : ''}`}
+                          onClick={() => handlePresencaChange(nome, 'confirmar')}
+                        > <span>Confirmar presença</span>
+                        </button>
+                      </div>
+
+                      <div className={styles.containerNaoIra}>
+                        <button
+                          className={`${styles.button} ${presencas[nome] === 'nao_comparecer' ? styles.selectedButton : ''}`}
+                          onClick={() => handlePresencaChange(nome, 'nao_comparecer')}
+                        ><span className={styles.naocomparece}>  Não irá comparecer</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.containerBotao}>
+              <div className={styles.conteudoBotao}>
+                <button className={styles.continuarButton} onClick={handleContinuar}>
+                  <span>Continuar </span>
+                  <span className={styles.arrowIcon}>→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div> 
     </div>
   );
 };

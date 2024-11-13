@@ -1,106 +1,185 @@
-.page {
-  min-height: 100vh;
-  width: 53%;
+.container {
   display: flex;
   justify-content: center;
-  background: url('../../../assets/Ellipse.svg') no-repeat center / cover;
-}
-.container{
-  width: 100%;
-  display: flex;
   align-items: center;
   height: 100vh;
   background-color: #F3EED9;
-  flex-direction: column;
+  width: 100%;
+
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  max-width: 52%;
+  /* border: 4px solid red; */
+  background-image: url(/src/assets/Ellipse.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerBotaoConvidados {
+  height: 65vh;
 }
 
 .formContainer {
-  max-width: 57%;
-    width: 47%;
+  text-align: center;
     display: flex;
-    text-align: center;
-    background-size: 115%;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: center;
     justify-content: center;
     align-items: center;
-    /* align-content: center; */
-    flex-direction: column;
-  
-}
-
-
-
-.texto{
-  width: 100vh;
-  border: 2px solid red ;
 }
 
 .heading {
-  font-size: 2rem;
-  font-family: 'Product Sans', sans-serif;
+  font-size: 25px;
   color: #333;
-  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+
 }
 
 .description {
   font-size: 1rem;
   color: #514d4d;
-  margin-bottom: 20px;
+  
+
 }
 
+
+.containerConvidados {
+  
+  height: 100vh;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.containerTitulo {
+
+  height: 30%;
+  width: 80%;
+
+}
+
+.containerQuemVai {
+
+  height: 10vh;
+}
+
+.containerBotao {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 13vh;
+}
+
+.conteudoBotao {
+  
+  height: 10vh;
+}
+
+.containerSubtitulo {
+  
+  height: 18vh;
+  font-family: "Montserrat", sans-serif;
+
+}
+
+.containerSubtitulo p {
+  font-family: "Montserrat", sans-serif;
+}
 
 .convidadosList {
   display: flex;
   flex-direction: column;
-  gap: 9px;
-  height: 37%;
-  width: 96%;
-  align-items: center;
-  max-height: 254px;
+  gap: 10px;
+  max-height: 243px;
   overflow-y: auto;
 }
 
 .convidadoItem {
   display: flex;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
   justify-content: space-between;
-  background: white;
-  width: 90%;
-  padding: 10px;
-  border-radius: 14px;
+  background-color: #FFF;
+  padding: 7px;
+  /* height: 42%; */
+  gap: 4%;
+  border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .convidadoNome {
   flex: 1;
-  font-size: 1rem;
   color: #333;
-  text-align: left;
-  margin-left: 10px;
+  
+  font-size: 0.9rem;
+  width: 10vw;
 }
 
-.button {
+.containerBotaoPresenca {
   font-size: 0.9rem;
   padding: 8px 12px;
-  margin-left: 10px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #ccc;
+  /* border: 2px solid black; */
+  /* border-radius: 5px; */
+  /* background-color: #E0E0E0; */
   color: #333;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+.containerNaoIra {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color:#696969;
+  color: #fbf8f8;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button {
+  /* font-size: 0.9rem;
+  padding: 8px 12px;
+  border: none;
+  border: 2px solid black;
+  background-color: #E0E0E0;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease; */
+  border: none;
+  background: none;
+}
+
+.containerPresenca{
+display: flex;
+
+background-color: #F9F9F9;
+border-radius: 10px;
+border: 1px solid #D1CBCB;
+}
+
+.naocomparece { 
+  color: white;
+}
 .selectedButton {
   background-color: #d67a66;
-  color: white;
+  color: #FFF;
 }
 
 .continuarButton {
   width: 100%;
-  max-width: 200px;
   font-size: 1rem;
-  padding: 12px;
+  padding: 9px;
   background-color: #d67a66;
   color: white;
   border: none;
@@ -110,12 +189,6 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  
-}
-
-.botao{
-  width: 20%;
-  margin-left: 26%;
 }
 
 .arrowIcon {
