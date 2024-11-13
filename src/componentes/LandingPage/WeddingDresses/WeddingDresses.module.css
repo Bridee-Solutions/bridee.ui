@@ -80,7 +80,6 @@
 }
 
 .container_images {
-  
   height: 100%;
   background-image: url("../../../assets/Wendding_dress_bg.svg");
   background-repeat: no-repeat;
@@ -91,7 +90,6 @@
 .containerImage {
   height: 80%;
   width: 50%;
-  
 }
 
 .containerVest {
@@ -127,7 +125,6 @@
   justify-content: space-around;
 }
 
-/*  */
 .containerBotao {
   display: flex;
   width: 80%;
@@ -187,6 +184,26 @@
     font-size: 1rem;
     width: 90vh;
     text-align: left;
+  }
+
+  /* Slides */
+  .containerSlider {
+    justify-content: flex-end; 
+    align-items: flex-end;
+    width: 50%; 
+    padding-right: 10%; 
+  }
+
+  .mainImage {
+    width: 30vw; 
+  }
+
+  .sideImage {
+    width: 15vw; 
+  }
+
+  .container_images {
+    justify-content: flex-end;
   }
 
 }

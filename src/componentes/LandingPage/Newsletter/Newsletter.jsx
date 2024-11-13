@@ -21,7 +21,7 @@ function Newsletter() {
                 style={{
                   color: "#494949",
                   fontSize: "1.3rem",
-                  padding: "0.9rem",
+                  padding: "0.2rem",
                 }}
               />
               <input type="text" placeholder=" Seu endereço de email" />

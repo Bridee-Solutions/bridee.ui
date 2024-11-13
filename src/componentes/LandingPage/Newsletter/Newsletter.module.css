@@ -180,6 +180,39 @@
 }
 
 @media (max-width: 360px) {
-  .newsletter {
+  .container span {
+    font-size: 1.2rem;
   }
+
+  .containerTitulo  span{
+    font-size: 1.6rem;
+  }
+
+  .container {
+    width: 95%;
+    height: 70%;
+  }
+
+  .contReg {
+    width: 90%;
+  }
+
+  .contReg span {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .newsletter .container .container_input div input {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .newsletter .container .container_input div{
+    height: 100%;
+  }
+
+  .newsletter .container .container_input span {
+    font-size: 1rem;
+  }
+
 }
