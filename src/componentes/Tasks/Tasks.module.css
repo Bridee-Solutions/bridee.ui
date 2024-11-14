@@ -15,16 +15,24 @@
 .task-details{
     display: flex;
     flex-direction: column;
+    padding: 5% 0%;
 }
+
+.task-details .nameTask {
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: 'Montserrat';
+}
+
 
 .task{
     display: flex;
     gap: 1vw;
-    align-items: center;
 }
 
 .tag_container {
     height: 100%;
+    padding: 4.3% 0%;
 }
 
 .tag {
@@ -55,6 +63,12 @@
 .check_task_checked {
     border: solid 2px #3DDB2F;
     background-image: url('../../assets/check_task.svg');
+}
+
+.check_container{
+    height: 100%;
+    display: flex;
+    padding: 2% 0%;
 }
 
 .delete-btn .icon {

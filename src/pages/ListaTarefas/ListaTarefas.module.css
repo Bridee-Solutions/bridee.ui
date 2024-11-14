@@ -149,6 +149,41 @@
     padding: 0% 1%;
 }
 
+.containerModalCreate .labelTaskView {
+    border: 1px solid #A9A8A8;
+    border-radius: 10px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 0% 1%;
+}
+
+.containerModalCreate .descriptionContainer .labelTaskView {
+    height: 100%;
+    display: flex;
+    align-items: start;
+    padding: 1% 1%;
+}
+
+.containerModalCreate .descriptionContainer .labelTaskView textarea{
+    border: 0;
+}
+
+.containerModalCreate .labelTaskView input{
+    border: 0;
+}
+
+.containerModalCreate .descriptionContainer{
+    height: 85%;
+    width: 83%;
+}
+
+.containerModalCreate .description{
+    height: 100%;
+    width: 100%;
+    resize: none;
+}
+
 .containerModalCreate p{
     margin: 0;
     font-family: 'ProductSans';
@@ -191,6 +226,11 @@
 }
 
 .containerModalCreate .containerDateTag div input{
+    width: 100%;
+    border: 0;
+}
+
+.containerModalCreate .containerDateTag div select{
     width: 100%;
     border: 0;
 }

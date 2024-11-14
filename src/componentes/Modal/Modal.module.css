@@ -98,6 +98,15 @@ input:focus {
     width: 35vw;
 }
 
+.modal_body select {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    height: 40px;
+    font-family: "ProductSans";
+    font-size: 15px;
+    width: 35vw;
+}
+
 .modal_body h2 {
     font-family: "ProductSans";
     font-size: 30px;

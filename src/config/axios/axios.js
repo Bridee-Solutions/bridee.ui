@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // TODO: Usar variável de ambiente.
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `http://localhost:8080/api`;
 export const Api = axios.create({
     baseURL: baseUrl,
     withCredentials: true
@@ -36,5 +36,17 @@ export const request = {
     },
     verifyAssessorEmpresaEmailAndCnpj: async(assessorFields) => {
         return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
-    }
+    },
+    getTasks: async (casamentoId, params = "") => {
+        return  await Api.get(`/tarefas/casamento/${casamentoId}${params}`).then(response.data);
+    },
+    saveTask: async(casamentoId, tarefa) => {
+        return await Api.post(`/tarefas/casamento/${casamentoId}`, tarefa).then(response);
+    },
+    updateTask: async(casamentoId, taskUpdated) => {
+        return await Api.put(`/tarefas/casamento/${casamentoId}/tarefa/${taskUpdated.id}`, taskUpdated).then(response);
+    },
+    deleteTask: async(taskId) => {
+        return await Api.delete(`/tarefas/${taskId}`).then(response);
+    } 
 }

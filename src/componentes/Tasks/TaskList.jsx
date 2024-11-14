@@ -5,23 +5,19 @@ import TaskItem from './TaskItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const TaskList = ({ taskList, onCheckboxChange , onDelete, onCreate}) => {
-    const [tasks, setTasks] = useState(
-        taskList.map(task => ({ ...task, id: `${task.title}-${Math.random().toString(36).substr(2, 9)}` }))
-    );
+const TaskList = ({ tasks, onCheckboxChange, onDelete, onCreate, onView}) => {
 
     return (
         <div>
             <div className={styles['task-list']}>
-                {tasks.map((task) => (
+                {tasks.map((task, index) => (
                     <TaskItem 
-                        key={task.id}
-                        index={task.id}
-                        title={task.title} 
-                        date={task.date} 
-                        tag={task.tag}
+                        key={task.id || index}
+                        index={task.id || index}
+                        task={task}
                         onCheck={onCheckboxChange}
-                        onDelete={() => onDelete(task.title)}
+                        onView={onView}
+                        onDelete={() => onDelete(task)}
                     />
                 ))}  
             </div>

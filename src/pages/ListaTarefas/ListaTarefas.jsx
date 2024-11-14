@@ -1,11 +1,12 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import styles from './ListaTarefas.module.css';
 import "../../index.css";
+import { request } from '../../config/axios/axios';
 import Navbar from "../../componentes/Navbar/Navbar";
 import OpcaoFiltro from "../../componentes/OpcoesFiltro/OpcaoFiltro";
 import TaskList from '../../componentes/Tasks/TaskList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faTriangleExclamation, faTag, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faTriangleExclamation, faTag, faCalendar, faPen } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from '../../componentes/Modal/Modal';
 import ModalHeader from '../../componentes/Modal/ModalHeader/ModalHeader';
@@ -14,13 +15,25 @@ import ModalFooter from '../../componentes/Modal/ModalFooter/ModalFooter'
 import ModalFooterButton from '../../componentes/Modal/ModalFooterButton/ModalFooterButton'
 
 function ListaTarefas() {
-    
+    useEffect(() => {loadTasks()}, []);
     const [checkedCount, setCheckedCount] = useState(0);
     const [modalDelete, setModalDelete] = useState(false);
     const [modalAddTask, setModalAddTask] = useState(false);
+    const [modalViewTask, setModalViewTask] = useState(false);
     const [taskDate, setTaskDate] = useState('');
     const [task, setTask] = useState("");
-    const dateInputRef = useRef(null);
+    const [gruposDeTarefas, setGruposDeTarefas] = useState([]);
+    const [filters, setFilters] = useState({});
+    const searchTaskInputRef = useRef(null);
+    const nameTaskSave = useRef(null);
+    const descriptionTaskSave = useRef(null);
+    const dateTaskSave = useRef(null);
+    const categoryTaskSave = useRef(null);
+    const nameTaskView = useRef(null);
+    const descriptionTaskView = useRef(null);
+    const dateTaskView = useRef(null);
+    const categoryTaskView = useRef(null);
+    useEffect(() => {loadTasks()}, [filters]);
 
     const abrirModalDelete = (task) => {
         setTask(task);
@@ -28,11 +41,15 @@ function ListaTarefas() {
     };
 
     const abrirModalAdd = () => {
-
         const today = new Date();
-        const formattedDate = today.toISOString().slice(0, 10);
-        setTaskDate(formattedDate);
+        setTaskDate(today)
         setModalAddTask(true);
+    }
+
+    const abrirModalView = (task) => {
+        setTask(task);
+        setTaskDate(task.dataLimite);
+        setModalViewTask(true);
     }
 
     const changeDate = (e) => {
@@ -40,14 +57,34 @@ function ListaTarefas() {
     }
 
     const handleLabelClick = () => {
-        if (dateInputRef.current) {
-            dateInputRef.current.showPicker();
+        if (dateTaskSave.current) {
+            dateTaskSave.current.showPicker();
+        } else if (dateTaskView.current) {
+            dateTaskView.current.showPicker();
         }
     };
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+    };
+
+    const formatDateTaskListTitle = (data) => {
+        const [ano, mesTexto] = data.split('-');
+        const meses = {
+            "janeiro": 0, "fevereiro": 1, "marco": 2, "abril": 3,
+            "maio": 4, "junho": 5, "julho": 6, "agosto": 7,
+            "setembro": 8, "outubro": 9, "novembro": 10, "dezembro": 11
+        };
+    
+        const mesIndex = meses[mesTexto.toLowerCase()];
+        if (mesIndex === undefined) return data;
+
+        const date = new Date(ano, mesIndex);
+        const options = { year: 'numeric', month: 'long' };
+        const dataFormatada = new Intl.DateTimeFormat('pt-BR', options).format(date);
+    
+        return dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1);
     };
 
     const fecharModalAdd = () => {
@@ -60,9 +97,11 @@ function ListaTarefas() {
         setTask("");
     };
 
-    const handleCheckboxChange = (isChecked) => {
-        setCheckedCount(prevCount => isChecked ? prevCount + 1 : prevCount - 1);
+    const fecharModalView = () => {
+        setModalViewTask(false);
+        setTask("");
     };
+    
     
     const statusOptions = ['Concluída', 'Em andamento'];
     const monthOptions = [
@@ -74,18 +113,182 @@ function ListaTarefas() {
         'Fotografia', 'Cabelo e maquiagem', 'Vestidos', 'Locais', 
         'Música', 'Planejador'
     ];
-    const overdueTasks = [{title: 'Defina o orçamento do seu casamento.', date: '02 de agosto de 2024', tag: null}, { title: 'Defina a data do seu casamento.', date: '05 de agosto de 2024', tag: 'Locais' }]
-    const currentMonthTasks = [
-        { title: 'Reserve o fotógrafo', date: '12 de outubro de 2024', tag: 'Fotografia' },
-        { title: 'Escolha o vestido de noiva', date: '20 de outubro de 2024', tag: 'Vestidos' }
-    ];
-    
-    const nextMonthTasks = [
-        { title: 'Defina o plano musical', date: '05 de novembro de 2024', tag: 'Música' },
-        { title: 'Contrate o cabeleireiro', date: '15 de novembro de 2024', tag: 'Cabelo e maquiagem' }
-    ];
 
-    let countTasks = overdueTasks.length + currentMonthTasks.length + nextMonthTasks.length;
+    let countTasks = gruposDeTarefas.reduce((total, group) => {
+        const monthlyTasks = Object.values(group.tarefas);
+        const groupTotal = monthlyTasks.reduce((monthTotal, tasks) => monthTotal + tasks.length, 0);
+        return total + groupTotal;
+    }, 0);
+
+    const saveTask = () => {   
+        let newTask = {
+            nome: nameTaskSave.current.value,
+            descricao: descriptionTaskSave.current.value,
+            categoria: categoryTaskSave.current.value,
+            status: "EM_ANDAMENTO",
+            dataLimite: dateTaskSave.current.value
+        }
+
+        request.saveTask(3, newTask)
+        .then(() => {
+            fecharModalAdd();
+            loadTasks();
+        })
+    }
+
+    const atualizarTask = () => {
+        const updatedTask = {
+            id: task.id,
+            nome: nameTaskView.current.value,
+            descricao: descriptionTaskView.current.value,
+            categoria: categoryTaskView.current.value,
+            status: task.status,
+            dataLimite: taskDate,
+            mesesAnteriores: task.mesesAnteriores
+        };
+
+        console.log(updatedTask)
+        request.updateTask(3, updatedTask)
+        .then(() => {
+            loadTasks();
+            fecharModalView();
+        });
+    };
+    
+    const loadTasks = () => {
+        const isEmpty = Object.keys(filters).length === 0 && filters.constructor === Object;
+        
+        if (isEmpty){
+
+            request.getTasks(3)
+            .then((data) => {
+                const tarefas = data.data;
+                const totalChecked = tarefas.reduce((count, group) => {
+                    return (
+                        count +
+                        Object.values(group.tarefas).reduce((monthCount, tasks) => {
+                            return monthCount + tasks.filter(task => task.status === "CONCLUIDO").length;
+                        }, 0)
+                    );
+                }, 0);
+                
+                setGruposDeTarefas(tarefas);
+                setCheckedCount(totalChecked);
+    
+            });
+
+        } else {
+            let uri = "?";
+            if (filters.nome) uri += `nome=${filters.nome}&`;
+            if (filters.status) uri += `status=${filters.status}&`;
+            if (filters.categoria && filters.categoria.length > 0) {
+                uri += "categoria=";
+                for (let i = 0; i < filters.categoria.length; i++) {
+                    uri += filters.categoria[i];
+                    if (i < filters.categoria.length - 1) uri += ",";
+                }
+                uri += "&";
+            }
+            if (filters.mes && filters.mes.length > 0) {
+                uri += "mes=";
+                for (let i = 0; i < filters.mes.length; i++) {
+                    uri += filters.mes[i];
+                    if (i < filters.mes.length - 1) uri += ",";
+                }
+                uri += "&";
+            }
+            
+            if (uri.endsWith("&")) {
+                uri = uri.slice(0, -1);
+            }
+            console.log(uri)
+            request.getTasks(3, uri)
+            .then((data) => {
+                const tarefas = data.data;
+                const totalChecked = tarefas.reduce((count, group) => {
+                    return (
+                        count +
+                        Object.values(group.tarefas).reduce((monthCount, tasks) => {
+                            return monthCount + tasks.filter(task => task.status === "CONCLUIDO").length;
+                        }, 0)
+                    );
+                }, 0);
+                
+                setGruposDeTarefas(tarefas);
+                setCheckedCount(totalChecked);
+    
+            });
+        }
+    };
+
+    const getAllOverdueTasks = (grupos) => {
+        return grupos.flatMap((grupo) => grupo.tarefas.atrasadas);
+    };
+    
+    const overdueTasks = getAllOverdueTasks(gruposDeTarefas);
+
+    const searchTask = () => {
+        let filter = { ...filters };
+
+        filter.nome = searchTaskInputRef.current.value;
+        setFilters(filter);
+    }
+
+    const configFilters = (title, option) => { 
+        let filter = { ...filters };
+
+        switch (title) {
+            case "Mês":
+                if (option instanceof Set) {
+                    filter.mes = Array.from(option).map(val => val + 1);
+                } else {
+                    delete filter.mes;
+                }
+                break;
+                
+            case "Status":
+                if (option === 0) {
+                    filter.status = "CONCLUIDO";
+                } else if (option === 1) {
+                    filter.status = "EM_ANDAMENTO";
+                } else {
+                    delete filter.status;
+                }
+                break;
+                
+            case "Categoria":
+                if (option instanceof Set) {
+                    filter.categoria = Array.from(option).map(val =>
+                        categoryOptions[val].toUpperCase().replace(/ /g, '_')
+                    );
+                } else {
+                    delete filter.categoria;
+                }
+                break;
+        }
+    
+        setFilters(filter);
+    };
+
+    const checkTask = (isChecked, task) => {
+        setCheckedCount(prevCount => isChecked ? prevCount + 1 : prevCount - 1);
+        
+        if (task.status == "EM_ANDAMENTO") task.status = "CONCLUIDO";
+        else task.status = "EM_ANDAMENTO";
+
+        request.updateTask(3, task)
+        .then(() => {
+            loadTasks();
+        });
+    };
+
+    const deleteTask = (id) => {
+        request.deleteTask(id)
+        .then(() =>{
+            loadTasks();
+            fecharModalDelete();
+        });
+    }
 
     return (
         <div className={styles['lista-de-tarefas']}>
@@ -111,32 +314,64 @@ function ListaTarefas() {
                                 <p> FILTROS </p>
                             </div>
                             <div className={styles.filtros}>
-                                <OpcaoFiltro title="Status" options={statusOptions}/>
-                                <OpcaoFiltro title="Mês" options={monthOptions} />
-                                <OpcaoFiltro title="Categoria" options={categoryOptions} />
+                                <OpcaoFiltro title="Status" options={statusOptions} singleSelection={true} filterSelection={configFilters}/>
+                                <OpcaoFiltro title="Mês" options={monthOptions} filterSelection={configFilters}/>
+                                <OpcaoFiltro title="Categoria" options={categoryOptions} filterSelection={configFilters}/>
                             </div>
                         </div>
                         
                         <div className={styles.tasksList}>
                             <label htmlFor='taskSearchBar' className={styles.searchBar}>
                                 <FontAwesomeIcon icon={faMagnifyingGlass} size='xl'/>
-                                <input type="text" name="task-search-bar" id="taskSearchBar" placeholder='Pesquisar tarefa' />
+                                <input 
+                                    type="text" 
+                                    name="task-search-bar" 
+                                    id="taskSearchBar" 
+                                    onChange={searchTask} 
+                                    ref={searchTaskInputRef} 
+                                    placeholder='Pesquisar tarefa'
+                                />
                             </label>
                             <div className={styles.list}>
-                                <div>
-                                    <h2>Atrasado</h2>
-                                    <TaskList taskList={overdueTasks} onCheckboxChange={handleCheckboxChange} onDelete={abrirModalDelete} onCreate={abrirModalAdd}/>
+                            {gruposDeTarefas.length == 0 && (
+                                <div key="task">
+                                    <h2>Criar nova tarefa</h2>
+                                    <TaskList 
+                                        tasks={[]} 
+                                        onCreate={abrirModalAdd}
+                                    />
                                 </div>
+                            )}
 
-                                <div>
-                                    <h2>Outubro 2024</h2>
-                                    <TaskList taskList={currentMonthTasks} onCheckboxChange={handleCheckboxChange} onDelete={abrirModalDelete} onCreate={abrirModalAdd}/>
+                            {overdueTasks.length > 0 && (
+                                <div key="atrasadas">
+                                    <h2>Tarefas atrasadas</h2>
+                                    <TaskList 
+                                        tasks={overdueTasks} 
+                                        onCheckboxChange={checkTask} 
+                                        onView={abrirModalView}
+                                        onDelete={abrirModalDelete} 
+                                        onCreate={abrirModalAdd}
+                                    />
                                 </div>
-
-                                <div>
-                                    <h2>Novembro 2024</h2>
-                                    <TaskList taskList={nextMonthTasks} onCheckboxChange={handleCheckboxChange} onDelete={abrirModalDelete} onCreate={abrirModalAdd}/>
-                                </div>
+                            )}
+                            
+                            {gruposDeTarefas.map((grupo) =>
+                                Object.entries(grupo.tarefas).map(([mes, tarefas]) => (
+                                    mes !== 'atrasadas' && tarefas.length > 0 && (
+                                        <div key={`${grupo.ano}-${mes}`}>
+                                            <h2>{formatDateTaskListTitle(`${grupo.ano}-${mes}`)}</h2>
+                                            <TaskList 
+                                                tasks={tarefas}
+                                                onCheckboxChange={checkTask}
+                                                onView={abrirModalView}
+                                                onDelete={abrirModalDelete}
+                                                onCreate={abrirModalAdd}
+                                            />
+                                        </div>
+                                    )
+                                ))
+                            )}
                             </div>
                         </div>
                     </div>
@@ -152,22 +387,18 @@ function ListaTarefas() {
                 <div className={styles.containerModalCreate}>
                     <div>
                         <p>Nome da tarefa</p>
-                        <input type="text" />
+                        <input type="text" ref={nameTaskSave}/>
                     </div>
-                    <div>
+                    <div className={styles.descriptionContainer}>
                         <p>Descrição da tarefa personalizada</p>
-                        <input type="text" />
-                    </div>
-                    <div>
-                        <p>Notas</p>
-                        <input type="text" placeholder='Escreva algo aqui...'/>
+                        <textarea type="text" className={styles.description} defaultValue={task.descricao} ref={descriptionTaskSave}/>
                     </div>
                     <div className={styles.containerDateTag}>
                         <div>
                             <p>Data</p>
-                            <div>
-                                <input type="date"  ref={dateInputRef} id="dateTaskInput" onChange={changeDate} value={taskDate} style={{opacity: 0, position: "absolute"}} />
-                                <label onClick={handleLabelClick} htmlFor="dateTaskInput">
+                            <div onClick={handleLabelClick} >
+                                <input type="date"  ref={dateTaskSave} id="dateTaskInput" onChange={changeDate} value={taskDate} style={{opacity: 0, position: "absolute", width: 0}} />
+                                <label htmlFor="dateTaskInput">
                                     <FontAwesomeIcon icon={faCalendar}/>
                                     <span>{formatDate(taskDate)}</span>
                                 </label>
@@ -177,7 +408,14 @@ function ListaTarefas() {
                             <p>Categoria</p>
                             <div>
                                 <FontAwesomeIcon icon={faTag}/>
-                                <input type="text" />
+                                <select ref={categoryTaskSave}>
+                                    <option value="FOTOGRAFIA">Fotografia</option>
+                                    <option value="CABELO_E_MAQUIAGEM">Cabelo e Maquiagem</option>   
+                                    <option value="VESTIDOS">Vestidos</option>   
+                                    <option value="LOCAIS">Locais</option>
+                                    <option value="MUSICA">Musica</option> 
+                                    <option value="PLANEJADOR">Planejador</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -189,7 +427,11 @@ function ListaTarefas() {
                     text="Cancelar"
                     onClick={fecharModalAdd}
                 />
-                <ModalFooterButton button="add_button" text="Salvar" />
+                <ModalFooterButton 
+                button="add_button" 
+                text="Salvar"
+                onClick={saveTask}
+                />
                 </ModalFooter>
             </Modal>
             )}
@@ -203,7 +445,7 @@ function ListaTarefas() {
                 <div className={styles.containerModalDelete}>
                     <div>
                         <FontAwesomeIcon className={styles.iconAlert} icon={faTriangleExclamation} style={{color: "#FF5154"}}/>
-                        <p>Deseja remover a tarefa "{task}?"</p>
+                        <p>Deseja remover a tarefa "{task.nome}?"</p>
                         <span>Você não poderá recuperá-lo novamente após a exclusão.</span>
                     </div>
                 </div>
@@ -214,7 +456,76 @@ function ListaTarefas() {
                     text="Cancelar"
                     onClick={fecharModalDelete}
                 />
-                <ModalFooterButton button="delete_button" text="Deletar" />
+                <ModalFooterButton
+                    button="delete_button" 
+                    text="Deletar" 
+                    onClick={() => deleteTask(task.id)}
+                />
+                </ModalFooter>
+            </Modal>
+            )}
+
+            {modalViewTask && (
+            <Modal>
+                <ModalHeader onClose={fecharModalView}>
+                <span>Visualizar tarefa</span>
+                </ModalHeader>
+                <ModalBody>
+                <div className={styles.containerModalCreate}>
+                    <div>
+                        <p>Nome da tarefa</p>
+                        <label htmlFor='nameTaskView' className={styles.labelTaskView}>
+                            <input type="text" id='nameTaskView' ref={nameTaskView} defaultValue={task.nome}/>
+                            <FontAwesomeIcon icon={faPen}/>
+                        </label>
+                    </div>
+                    <div className={styles.descriptionContainer}>
+                        <p>Descrição da tarefa personalizada</p>
+                        <label className={styles.labelTaskView} htmlFor="descriptionTaskView">
+                            <textarea 
+                                type="text"
+                                id='descriptionTaskView'
+                                className={styles.description} 
+                                defaultValue={task.descricao} 
+                                ref={descriptionTaskView}
+                            />
+                            <FontAwesomeIcon icon={faPen}/>
+                        </label>
+                    </div>
+                    <div className={styles.containerDateTag}>
+                        <div>
+                            <p>Data</p>
+                            <div onClick={handleLabelClick} >
+                                <input type="date"  ref={dateTaskView} id="dateTaskView" onChange={changeDate} style={{opacity: 0, position: "absolute", width: 0}} />
+                                <label htmlFor="dateTaskView">
+                                    <FontAwesomeIcon icon={faCalendar}/>
+                                    <span>{formatDate(taskDate)}</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Categoria</p>
+                            <div>
+                                <FontAwesomeIcon icon={faTag}/>
+                                <select ref={categoryTaskView} defaultValue={task.categoria}>
+                                    <option value="FOTOGRAFIA">Fotografia</option>
+                                    <option value="CABELO_E_MAQUIAGEM">Cabelo e Maquiagem</option>   
+                                    <option value="VESTIDOS">Vestidos</option>   
+                                    <option value="LOCAIS">Locais</option>
+                                    <option value="MUSICA">Musica</option> 
+                                    <option value="PLANEJADOR">Planejador</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </ModalBody>
+                <ModalFooter>
+                <ModalFooterButton 
+                button="add_button" 
+                text="Salvar"
+                onClick={atualizarTask}
+                />
                 </ModalFooter>
             </Modal>
             )}
