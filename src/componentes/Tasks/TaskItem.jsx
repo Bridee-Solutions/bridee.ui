@@ -18,7 +18,15 @@ const TaskItem = ({ index, task, onDelete, onCheck, onView}) => {
     };
 
     const formatDate = (dateString) => {
-        const date = new Date(dateString);
+        if (!dateString) return "Selecione uma data";
+    
+        const [year, month, day] = dateString.split("-"); // Supondo formato 'YYYY-MM-DD'
+        const date = new Date(year, month - 1, day); // Mês é zero-indexado em JavaScript
+    
+        if (isNaN(date.getTime())) {
+            return "Selecione uma data";
+        }
+    
         return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
     };
 

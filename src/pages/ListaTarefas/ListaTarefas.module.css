@@ -149,6 +149,13 @@
     padding: 0% 1%;
 }
 
+.containerModalCreate .descriptionContainer textarea{
+    border: 1px solid #A9A8A8;
+    border-radius: 10px;
+    padding: 1% 1%;
+    outline: none;
+}
+
 .containerModalCreate .labelTaskView {
     border: 1px solid #A9A8A8;
     border-radius: 10px;
@@ -167,6 +174,7 @@
 
 .containerModalCreate .descriptionContainer .labelTaskView textarea{
     border: 0;
+    outline: none;
 }
 
 .containerModalCreate .labelTaskView input{

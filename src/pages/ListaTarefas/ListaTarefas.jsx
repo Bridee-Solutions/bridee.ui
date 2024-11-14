@@ -1,4 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
+import { toast } from "react-toastify";
 import styles from './ListaTarefas.module.css';
 import "../../index.css";
 import { request } from '../../config/axios/axios';
@@ -20,7 +21,7 @@ function ListaTarefas() {
     const [modalDelete, setModalDelete] = useState(false);
     const [modalAddTask, setModalAddTask] = useState(false);
     const [modalViewTask, setModalViewTask] = useState(false);
-    const [taskDate, setTaskDate] = useState('');
+    const [taskDate, setTaskDate] = useState('Selecione uma data');
     const [task, setTask] = useState("");
     const [gruposDeTarefas, setGruposDeTarefas] = useState([]);
     const [filters, setFilters] = useState({});
@@ -65,7 +66,18 @@ function ListaTarefas() {
     };
 
     const formatDate = (dateString) => {
-        const date = new Date(dateString);
+        if (!dateString) return "Selecione uma data";
+    
+        const [year, month, day] = String(dateString).split("-");
+    
+        if (!year || !month || !day) return "Selecione uma data";
+    
+        const date = new Date(year, month - 1, day);
+    
+        if (isNaN(date.getTime())) {
+            return "Selecione uma data";
+        }
+    
         return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
     };
 
@@ -133,7 +145,15 @@ function ListaTarefas() {
         .then(() => {
             fecharModalAdd();
             loadTasks();
+            toast.done("Tarefa criada com sucesso!");
         })
+        .catch(() => {
+            if ( !newTask.nome || !newTask.dataLimite || !newTask.status){
+                toast.error("Preencha todos os campos");   
+            } else {
+                toast.error("Houve um erro ao criar a tarefa");
+            }
+        });
     }
 
     const atualizarTask = () => {
@@ -152,7 +172,15 @@ function ListaTarefas() {
         .then(() => {
             loadTasks();
             fecharModalView();
-        });
+            toast.done("Tarefa atualizada com sucesso!");
+        })
+        .catch(() => {
+            if ( !updatedTask.nome || !updatedTask.dataLimite || !updatedTask.status){
+                toast.error("Preencha todos os campos");   
+            } else {
+                toast.error("Houve um erro ao criar a tarefa");
+            }
+        })
     };
     
     const loadTasks = () => {
@@ -175,6 +203,9 @@ function ListaTarefas() {
                 setGruposDeTarefas(tarefas);
                 setCheckedCount(totalChecked);
     
+            })
+            .catch(() => {
+                toast.error("Houve um erro ao carregar as tarefas");
             });
 
         } else {
@@ -217,6 +248,8 @@ function ListaTarefas() {
                 setGruposDeTarefas(tarefas);
                 setCheckedCount(totalChecked);
     
+            }).catch(() => {
+                toast.error("Houve um erro ao carregar as tarefas");
             });
         }
     };
@@ -279,6 +312,8 @@ function ListaTarefas() {
         request.updateTask(3, task)
         .then(() => {
             loadTasks();
+        }).catch(() => {
+            toast.error("Houve um erro ao atualizar a tarefa");
         });
     };
 
@@ -287,6 +322,8 @@ function ListaTarefas() {
         .then(() =>{
             loadTasks();
             fecharModalDelete();
+        }).catch(() => {
+            toast.error("Houve um erro ao deletar a tarefa");
         });
     }
 
