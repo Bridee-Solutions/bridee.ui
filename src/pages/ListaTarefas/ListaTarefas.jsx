@@ -145,7 +145,7 @@ function ListaTarefas() {
         .then(() => {
             fecharModalAdd();
             loadTasks();
-            toast.done("Tarefa criada com sucesso!");
+            toast.success("Tarefa criada com sucesso!");
         })
         .catch(() => {
             if ( !newTask.nome || !newTask.dataLimite || !newTask.status){
@@ -172,7 +172,7 @@ function ListaTarefas() {
         .then(() => {
             loadTasks();
             fecharModalView();
-            toast.done("Tarefa atualizada com sucesso!");
+            toast.success("Tarefa atualizada com sucesso!");
         })
         .catch(() => {
             if ( !updatedTask.nome || !updatedTask.dataLimite || !updatedTask.status){
@@ -320,6 +320,7 @@ function ListaTarefas() {
     const deleteTask = (id) => {
         request.deleteTask(id)
         .then(() =>{
+            toast.success("Tarefa deletada com sucesso");
             loadTasks();
             fecharModalDelete();
         }).catch(() => {
