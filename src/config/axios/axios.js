@@ -11,7 +11,19 @@ const response = (response) => response
 
 export const request = {
     getAssessores: async () => {
-        return  await Api.get(`/assessores`).then(response.data);
+        return await Api.get(`/assessores/details`).then(response.data);
+    },
+    getFornecedores: async (subcategoriaId) => {
+        return await Api.get(`/fornecedores/details/subcategoria/${subcategoriaId}`).then(response.data)
+    },
+    getFornecedoresInformation: async(fornecedorId) => {
+        return await Api.get(`/fornecedores/information/${fornecedorId}`).then(response.data)
+    },
+    getCategorias: async () => {
+        return await Api.get(`/categorias-servicos`).then(response.data)
+    },
+    getSubcategorias: async (categoriaId) => {
+        return await Api.get(`subcategorias/${categoriaId}`).then(response.data)
     },
     saveCasal: async (usuario) => {
         return await Api.post(`/casais`, usuario).then(response)

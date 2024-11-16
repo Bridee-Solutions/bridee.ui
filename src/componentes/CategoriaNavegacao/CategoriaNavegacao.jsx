@@ -1,11 +1,24 @@
 import styles from "./CategoriaNavegacao.module.css";
 import CardNavegacao from "../PesquisaCategoria/CardNavegacao";
-function CategoriaNavegacao({ categorias, onSelectCategory, tipo }) {
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+function CategoriaNavegacao({ categorias, onSelectCategory, tipo, isSubcategoria, returnToCategories }) {
   return (
     <div className={styles.navegarCategoria}>
       <div className={styles.containerTitulo}>
         <span className={styles.titulo}>
-        {tipo === "fornecedores" ? "Navegar por categoria" : tipo === "locais" ? "Navegar por estilo" : ""}
+          <div className={styles.titulo_seta}>
+            {isSubcategoria && 
+                <div className={styles.setaVolta} onClick={returnToCategories}>
+                  <FontAwesomeIcon icon={faArrowLeft} />
+                <span className={styles.voltar}>VOLTAR</span>
+              </div>
+              }
+          </div>
+          <div style={{width: "70%"}}>
+            {tipo === "fornecedores" ? "Navegar por categoria" : tipo === "locais" ? "Navegar por estilo" : ""}
+          </div>
 
         </span>
         <span className={styles.subtitulo}>
@@ -17,12 +30,12 @@ function CategoriaNavegacao({ categorias, onSelectCategory, tipo }) {
       </div>
       <div className={styles.containerCards}>
         <div className={styles.cadaCardLocal}>
-          {categorias.map((categoria, index) => (
+          {categorias.content?.map((categoria, index) => (
             <CardNavegacao
               key={index}
               nome={categoria.nome}
-              imagem={categoria.imagem}
-              onClick={() => onSelectCategory(categoria.nome)}
+              imagem={categoria.imagemUrl}
+              onClick={() => onSelectCategory(categoria)}
             />
           ))}
         </div>

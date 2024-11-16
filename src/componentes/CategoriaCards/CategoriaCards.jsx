@@ -20,13 +20,14 @@ function CategoriaCards({
         </div>
         <div className={styles.cardContainer}>
           <div className={styles.cadaCard}>
-            {cards.map((card, index) => (
+            {cards.content?.map((card, index) => (
               <Card
                 key={index}
+                id={card.id}
                 nome={card.nome}
                 bairro={card.bairro}
                 cidade={card.cidade}
-                descricao={card.descricao}
+                descricao={card.visaoGeral}
                 imageUrl={card.imagemPrincipal}
                 onClick={() => onCardClick(card)}
               />
