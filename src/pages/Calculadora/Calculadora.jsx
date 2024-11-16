@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Calculadora.module.css";
 import "../../index.css";
@@ -24,49 +24,14 @@ import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFo
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 
 import { v4 as uuidv4 } from "uuid";
+import { request } from "../../config/axios/axios";
+import FornecedorCalc from "../../componentes/FornecedorCalculadora/FornecedorCalculadora";
+import { buildItemOrcamentos } from "./CalculadoraService";
 
 function Calculadora() {
-  const [categorias, setCategorias] = useState([
-    {
-      id: uuidv4(),
-      nome: "Moda e beleza",
-      icon: moda,
-      itens: [{ titulo: "Vestido de Daminha de Honra", custo: 400 }],
-      aberta: true,
-    },
-    {
-      id: uuidv4(),
-      nome: "Alianças de casamento",
-      icon: aliancas,
-      itens: [{ titulo: "Meu anel", custo: 2000 }],
-      aberta: true,
-    },
-    {
-      id: uuidv4(),
-      nome: "Decoração",
-      icon: decoracao,
-      itens: [{ titulo: "Teste", custo: 2000 }],
-      aberta: true,
-    },
-    {
-      id: uuidv4(),
-      nome: "Transporte e Acomodação",
-      icon: transporte,
-      itens: [{ titulo: "Teste", custo: 2000 }],
-      aberta: true,
-    },
-    {
-      id: uuidv4(),
-      nome: "Entretenimento",
-      icon: entretenimento,
-      itens: [{ titulo: "Teste", custo: 2000 }],
-      aberta: true,
-    },
-  ]);
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // controle do modal
-  const [gasto, setGasto] = useState(0); // valor inicial de gasto
-  const [total] = useState(10000); // valor total fixo p exemplo
+  const [orcamento, setOrcamento] = useState({})
+  const [isModalOpen, setIsModalOpen] = useState(false); // controle do modal// valor inicial de gasto
   const [totalAtual, setTotalAtual] = useState(0);
 
   // editar nome da categoria
@@ -75,18 +40,9 @@ function Calculadora() {
     setCategoriaEditando(catIndex);
   };
 
-  const finalizarEdicaoCategoria = () => {
-    setCategoriaEditando(null);
-  };
-
-  // Handlers para edição do nome da categoria
-  const handleCategoryNomeChange = (e, catIndex) => {
-    const { value } = e.target;
-    const novasCategorias = [...categorias];
-    novasCategorias[catIndex].nome = value;
-    setCategorias(novasCategorias);
-    // Aqui você pode adicionar lógica para indicar que houve modificação
-  };
+  const atualizarOrcamento = useRef();
+  const orcamentoFornecedorRequest = useRef([]);
+  const itensOrcamentoRequest = useRef([]);
 
   // função para abrir o modal
   const handleEditClick = () => {
@@ -98,89 +54,84 @@ function Calculadora() {
     setIsModalOpen(false);
   };
 
-  // Função para abrir e fechar a categoria
-  const toggleCategoria = (index) => {
-    const novasCategorias = [...categorias];
-    novasCategorias[index].aberta = !novasCategorias[index].aberta;
-    setCategorias(novasCategorias);
-  };
-
-  // Função para alterar o valor do input
-  const handleInputChange = (e, catIndex, itemIndex) => {
-    const { value } = e.target;
-    const novasCategorias = [...categorias];
-    novasCategorias[catIndex].itens[itemIndex].custo = value;
-    setCategorias(novasCategorias);
-  };
-
-  // Função para adicionar um item
-  const adicionarItem = (catIndex) => {
-    const novasCategorias = [...categorias];
-    novasCategorias[catIndex].itens.push({
-      id: `item-${new Date().getTime()}`,
-      titulo: "Novo item",
-      custo: 0,
-    });
-    setCategorias(novasCategorias);
-  };
-
-  // Função para remover um item
-  function removerItem(catIndex, itemIndex) {
-    const novaCategoria = [...categorias];
-    novaCategoria[catIndex].itens.splice(itemIndex, 1);
-    setCategorias(novaCategoria);
+  const salvarOrcamento = () => {
+    const valorOrcamento = atualizarOrcamento.current.value;
+    updateOrcamento(valorOrcamento)
+    request.updateOrcamentoTotal(Number(valorOrcamento), 2);
+    fecharModal();
   }
 
- // remover categoria
- const removerCategoria = (index) => {
-  const novasCategorias = [...categorias]; 
-  novasCategorias.splice(index, 1);
-  setCategorias(novasCategorias); 
-};
+  // Função para abrir e fechar a categoria
+  const toggleCategoria = (item) => {
+    item.aberta = !item.aberta
+    setOrcamento({...orcamento})
+  };
 
+  const updateOrcamento = (valor) => {
+    orcamento.orcamentoTotal = Number(valor);
+    setOrcamento({...orcamento})
+  };
 
-
-  // Função para editar o título do item
-  const [itemEditando, setItemEditando] = useState({
-    catIndex: null,
-    itemIndex: null,
-    field: null,
-  });
+  const updateItensOrcamento = (itens) => {
+    orcamento.itemOrcamentos = itens
+    setOrcamento({...orcamento})
+  }
+  
 
   const handleTituloChange = (e, catIndex, itemIndex) => {
     const { value } = e.target;
-    const novasCategorias = [...categorias];
-    novasCategorias[catIndex].itens[itemIndex].titulo = value;
-    setCategorias(novasCategorias);
+    const novasCategorias = [...orcamento.itemOrcamentos];
+    novasCategorias[catIndex].custos[itemIndex].nome = value;
+    updateItensOrcamento(novasCategorias)
   };
 
-  // como o nome já diz...
   const adicionarCategoria = () => {
     console.log("Adicionando nova categoria");
 
+    const categoriasAnteriores = [...orcamento.itemOrcamentos];
     const novaCategoria = {
-      id: uuidv4(),
-      nome: "Digite o nome da nova categoria",
+      id: null,
+      tipo: "Digite o nome da nova categoria",
       icon: etiqueta,
-      itens: [{ titulo: "Novo item", custo: 0 }],
+      custos: [{id: null, nome: "Novo item", precoAtual: 0 }],
       aberta: true,
     };
-
-    setCategorias([...categorias, novaCategoria]);
+    categoriasAnteriores.push(novaCategoria);
+    updateItensOrcamento(categoriasAnteriores)
   };
 
-  useEffect(() => {
-    const somaTotal = categorias.reduce((acc, categoria) => {
-      return (
-        acc +
-        categoria.itens.reduce((somaItens, item) => {
-          return somaItens + (parseFloat(item.custo) || 0); // Somando os custos dos itens, lidando com valores não numéricos
-        }, 0)
-      );
-    }, 0);
+  const downloadOrcamentoCsv = () => {
+    request.downloadOrcamentoCsv(2).then((response) => {
+      const blob = response.data;
+      const file = new File([...blob], "orcamento", {type: "text/plain"})
+     
+      const url = window.URL.createObjectURL(file)
+      const link = document.createElement("a");
+      link.href = url;
+     
+      link.setAttribute("download", "orcamento.csv")
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    })
+  }
 
-    setTotalAtual(somaTotal); // Atualiza o total com a soma de todas as categorias
-  }, [categorias]);
+  useEffect(() => {
+    request.getOrcamentoCasal(2)
+    .then(response => {
+    
+      response.data.itemOrcamentos = buildItemOrcamentos(response.data);
+      const fornecedoresOrcamento = response.data.orcamentoFornecedores.map(fornecedor => {
+        return {...fornecedor, aberta: true, icon: decoracao};
+      })
+      response.data.orcamentoFornecedores = fornecedoresOrcamento;
+
+      setOrcamento(response.data)
+      setTotalAtual(response.data.orcamentoGasto)
+    })
+    .catch(err => console.log(err))
+
+  }, []);
 
   return (
     <div className={styles.background}>
@@ -202,7 +153,7 @@ function Calculadora() {
               </span>
             </div>
             <div>
-              <button className={styles.buttonExport}>
+              <button className={styles.buttonExport} onClick={downloadOrcamentoCsv}>
                 <div className={styles.containerButton}>
                   <div>
                     <FontAwesomeIcon
@@ -218,24 +169,32 @@ function Calculadora() {
 
           {/* Categorias */}
           <div className={styles.containerCategoria}>
-            {categorias.map((categoria) => (
+            {orcamento.itemOrcamentos?.map((categoria) => (
               <div key={categoria.id} className={styles.categoriaBox}>
                 <CategoriaCalc
                   categoria={categoria}
-                  catIndex={categorias.indexOf(categoria)}
+                  catIndex={orcamento.itemOrcamentos.indexOf(categoria)}
                   toggleCategoria={toggleCategoria}
-                  handleInputChange={handleInputChange}
                   handleTituloChange={handleTituloChange}
-                  itemEditando={itemEditando}
-                  setItemEditando={setItemEditando}
-                  adicionarItem={adicionarItem}
-                  removerItem={removerItem}
-                  removerCategoria={removerCategoria}
-                  categorias={categorias}
-                  setCategorias={setCategorias} 
+                  categorias={orcamento}
+                  setCategorias={setOrcamento}
+                  itensOrcamentoRequest={itensOrcamentoRequest.current}
                 />
               </div>
             ))}
+              {/* {orcamento.orcamentoFornecedores[1].preco} */}
+            {orcamento.orcamentoFornecedores &&
+                <div className={styles.categoriaBox}>
+                  <FornecedorCalc
+                    categoria={orcamento.orcamentoFornecedores}
+                    toggleCategoria={toggleCategoria}
+                    handleTituloChange={handleTituloChange}
+                    categorias={orcamento}
+                    setCategorias={setOrcamento}
+                    orcamentoFornecedorRequest={orcamentoFornecedorRequest.current}
+                  />
+                </div>
+            }
 
             <div className={styles.containerInferior}>
               <div className={styles.box}>
@@ -258,7 +217,7 @@ function Calculadora() {
                     </div>
                     <div className={styles.orcamentoContainer}>
                       <span className={styles.orcamento}>Orçamento:</span>
-                      <span className={styles.totalorcamento}>R$ 500.00</span>
+                      <span className={styles.totalorcamento}>R${orcamento.orcamentoTotal}</span>
                     </div>
                   </div>
                 </div>
@@ -271,7 +230,7 @@ function Calculadora() {
           <div className={styles.conteudoColuna}>
             <div className={styles.containerTitulo}>
               <div className={styles.tituloBotao}>
-                <span>Orçamento total</span>
+                <span>Controle de Gastos</span>
                 <button
                   className={styles.buttonExport}
                   onClick={handleEditClick}
@@ -292,7 +251,7 @@ function Calculadora() {
 
             <div className={styles.containerOrcamento}>
               <div className={styles.orcamento}>
-                <ArcoFinanceiro gasto={gasto} total={total} />
+                <ArcoFinanceiro gasto={orcamento.orcamentoGasto} total={orcamento.orcamentoTotal} />
               </div>
             </div>
 
@@ -313,12 +272,12 @@ function Calculadora() {
                         id="gastoInput"
                         className={styles.search_input}
                         placeholder="Digite o valor do gasto"
-                        onChange={(e) => setGasto(Number(e.target.value))}
+                        ref={atualizarOrcamento}
                       />
                     </div>
                     <div className={styles.form_group}>
                       <label htmlFor="gastoInput">
-                        Orçamento atual: R$ 500000
+                        Orçamento atual: R$ {(orcamento.orcamentoTotal - orcamento.orcamentoGasto).toFixed(2)}
                       </label>
                     </div>
                   </div>
@@ -333,7 +292,7 @@ function Calculadora() {
                   <ModalFooterButton
                     button="add_button"
                     text="Salvar"
-                    onClick={() => fecharModal()}
+                    onClick={salvarOrcamento}
                   />
                 </ModalFooter>
               </Modal>

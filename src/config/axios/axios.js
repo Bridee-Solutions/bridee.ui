@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // TODO: Usar variável de ambiente.
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `http://localhost:8080/api`;
 export const Api = axios.create({
     baseURL: baseUrl,
     withCredentials: true
@@ -36,5 +36,26 @@ export const request = {
     },
     verifyAssessorEmpresaEmailAndCnpj: async(assessorFields) => {
         return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
+    },
+    getOrcamentoCasal: async (casalId) => {
+        return await Api.get(`/orcamentos/casal/${casalId}`).then(response)
+    },
+    saveOrcamentoFornecedores: async (orcamentoFornecedorRequest) =>{
+        return await Api.post(`/orcamento-fornecedor`, orcamentoFornecedorRequest)
+    },
+    saveItensOrcamentos: async(itensOrcamentoRequest) => {
+        return await Api.post(`/itens-orcamento`, itensOrcamentoRequest)
+    },
+    deleteItemOrcamento: async(id) => {
+        return await Api.delete(`/itens-orcamento/${id}`)
+    },
+    deleteCusto: async(id) => {
+        return await Api.delete(`/itens-orcamento/custo/${id}`)
+    },
+    updateOrcamentoTotal: async(orcamento, casalId) => {
+        return await Api.put(`/casais/orcamento-total/${casalId}`, {orcamentoTotal: orcamento})
+    },
+    downloadOrcamentoCsv: async(casalId) => {
+        return await Api.get(`/orcamentos/csv/casal/${casalId}`)
     }
 }
