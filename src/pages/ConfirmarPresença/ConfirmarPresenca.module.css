@@ -4,63 +4,104 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  /* border: 3px solid yellow; */
 }
 
 
 .defaultBackground {
-  background: url('../../assets/Ellipse.svg') no-repeat center / cover;
-  padding: 198px 40px;
-  max-width: 49%;
-  width: 100%;
-  text-align: center;
+  width: 56%;
+  height: 100vh;
+    /* max-width: 48%; */
+   /* border: 4px solid red;  */
+    background-image: url(/src/assets/Ellipse.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
 }
 
+.formulario{
+  /* border: 2px solid pink; */
+  display: flex;
+  height: 77vh;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.insira{
+  /* border: 3px solid red; */
+  display: flex;
+  font-weight: 700;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  font-size: 65px;
+  height: 31%;
+  align-items: center;
+  font-family: 'Product Sans';
+}
 
 .errorBackground {
-  background: url('../../assets/Ellipse.svg') no-repeat center / cover;
-  padding: 179px 40px;
-  max-width: 49%;
-  width: 100%;
-  text-align: center;
+  width: 56%;
+  height: 100vh;
+  /* max-width: 48%; */
+ /* border: 4px solid black;  */
+  background-image: url(/src/assets/Ellipse.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
 }
 
 .heading {
-  font-size: 2rem;
+  font-size: 70px;
+  font-weight: 700;
+  height: 23vh;
+  /* border: 3px solid green; */
   font-family: 'Product Sans', sans-serif;
   color: #333;
-  margin-bottom: 10px;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 32px;
+  height: 18%;
+  width: 62%;
   color: #514d4d;
-  margin-bottom: 20px;
+  /* border: 3px solid blue; */
+  
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 23%;
+  /* border: 3px solid purple; */
 }
 
 .input {
-  width: 100%;
-  max-width: 400px;
-  font-size: 1rem;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
+  width: 73%;
+  height: 40%;
+  font-size: 1.3rem;
   border-radius: 5px;
+  /* border: 3px solid orange; */
 }
 
 .button {
-  width: 100%;
-  max-width: 200px; 
+  width: 20%;
+  height: 4vh;
+  /* max-width: 200px; */
   font-size: 1rem;
-  padding: 12px;
   background-color: #d67a66;
   color: white;
   border: none;
@@ -70,10 +111,23 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  /* border: 3px solid violet; */
+}
+
+.botao{
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  /* border: 3px solid green; */
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:disabled {
   background-color: #e8a89b;
+  /* border: 3px solid black; */
 }
 
 .arrowIcon {
@@ -82,17 +136,27 @@
 }
 
 .errorContainer {
-  margin-top: 20px;
   background-color: #ffe6e6;
-  padding: 15px;
   border-radius: 8px;
+  /* border: 3px solid red; */
   max-width: 400px;
   width: 100%;
+}
+
+.container{
+  width: 100%;
+  /* border: 3px solid green; */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .errorMessage {
   color: #e83737;
   font-size: 0.9rem;
+  /* border: 3px solid brown; */
   margin: 0;
   text-align: center;
 }

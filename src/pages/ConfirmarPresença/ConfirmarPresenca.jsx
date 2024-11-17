@@ -36,10 +36,17 @@ const ConfirmarPresenca = () => {
 
   return (
     <div className={styles.page}>
-     
+     <div className={styles.container}>
       <div className={`${styles.formContainer} ${erro ? styles.errorBackground : styles.defaultBackground}`}>
-        <h2 className={styles.heading}>Insira o pin ou nome do convite</h2>
-        <p className={styles.description}>Você pode informar o nome do convite ou o PIN enviado por Amanda & Enzo.</p>
+
+        <div className={styles.formulario}>
+          <div className={styles.insira}>
+        <span>Insira o pin</span> 
+        <span> ou nome do convite</span></div>
+
+        <div className={styles.description}>
+        <span>Você pode informar o nome do convite ou o </span>
+          <span>PIN enviado por Amanda & Enzo.</span></div>
         
         <form onSubmit={handleSubmit} className={styles.form}>
           <input
@@ -51,16 +58,18 @@ const ConfirmarPresenca = () => {
             required
             className={styles.input}
           />
+
+          <div className={styles.botao}>
           <button type="submit" disabled={carregando} className={styles.button}>
             {carregando ? 'Verificando convite...' : 'Continuar'} <img src={arrow} alt="Seta" className={styles.arrowIcon} />
-          </button>
-        </form>
+          </button> </div>
+      
 
         {erro && (
             <p className={styles.errorMessage}>{erro}</p>
-        )}
+        )}  </form>
       </div>
-    </div>
+    </div></div></div>
   );
 };
 
