@@ -4,7 +4,7 @@ import styles from "./ImageGallery.module.css";
 import 'react-photo-view/dist/react-photo-view.css';
 
 const ImageGallery = ({ images }) => {
-  if (!images || images.length === 0) {
+  if (!images || images.length === 0 || images == null) {
     return <div>Sem imagens disponíveis</div>; 
     // melhorar isso dps 
   }

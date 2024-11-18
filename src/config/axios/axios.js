@@ -13,6 +13,9 @@ export const request = {
     getAssessores: async () => {
         return await Api.get(`/assessores/details`).then(response.data);
     },
+    getFornecedoresByCategoria: async (categoriaId, nome = "") => {
+        return await Api.get(`/fornecedores/details/categoria/${categoriaId}?nome=${nome}`)
+    },
     getFornecedores: async (subcategoriaId) => {
         return await Api.get(`/fornecedores/details/subcategoria/${subcategoriaId}`).then(response.data)
     },
@@ -69,5 +72,8 @@ export const request = {
     },
     downloadOrcamentoCsv: async(casalId) => {
         return await Api.get(`/orcamentos/csv/casal/${casalId}`)
+    },
+    getDashboard: async(casamentoId) => {
+        return await Api.get(`/dashboards/casamento/${casamentoId}`)
     }
 }
