@@ -13,6 +13,7 @@
   flex-direction: column;
   height: 100%;
 }
+
 .containerTitulo {
   
   justify-content: center;
@@ -69,6 +70,7 @@
     flex-direction: column;
 
 }
+
 .containerMeio {
     display: flex;
     justify-content: center;
@@ -94,6 +96,7 @@ width: 80%;
     display: flex;
     justify-content: flex-end;
 }
+
 .conteinerUsuario {
     display: flex;
     align-items: center;
@@ -138,4 +141,93 @@ width: 80%;
 
 .nome { 
     font-weight: 700;
+}
+
+.carouselContainer {
+  display: none;
+}
+
+@media (max-width: 360px) {
+  .stars > img { 
+    width: 4vw;
+  } 
+
+  .contimg > img { 
+    width: 14vw;
+  }
+
+  .container {
+    display: none;
+  }
+
+  .carouselContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .backgroundAvaliacao {
+    width: 80vw;
+    height: 80vw;
+    display: flex;
+    margin: 10% 0;
+    flex-direction: column;
+  }
+
+  .navigationButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 10px;
+  }
+
+  button {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .containerMeio {
+    font-size: 0.7rem;
+    width: 85%;
+  }
+
+  .contMei {
+    height: 60%;
+  } 
+
+  .containerAvaliacao {
+    height: 80%;
+  }
+
+  .containerAvaliacao {
+    align-items: center;
+    height: 50%;
+    position: relative; 
+  }
+  
+  .conteinerUsuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin-top: 1.2rem; 
+  }
+
+  .containerSuperior .aspas {
+    position: absolute;
+    top: 4%; 
+    left: 8%; 
+    width: 5vw; 
+  }
+
+  .containerInferior .aspas {
+    position: absolute;
+    top: 85%; 
+    right: 8%; 
+    width: 5vw; 
+  }
 }

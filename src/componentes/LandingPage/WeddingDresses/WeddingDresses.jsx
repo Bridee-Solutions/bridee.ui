@@ -112,6 +112,14 @@ function WeddingDresses() {
           </div>
         </div>
       </div>
+      <div className={styles.containerBotaoMobile}>
+        <div>
+          <button>
+            Buscar vestidos
+              <FontAwesomeIcon icon={faArrowRight} className={styles.icon} />
+          </button>
+        </div>
+      </div>
     </section>
   );
 }

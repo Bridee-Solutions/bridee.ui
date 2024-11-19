@@ -136,6 +136,10 @@
   color: #b55557;
 }
 
+.containerBotaoMobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .wedding_dresses {
     height: fit-content;
@@ -167,6 +171,13 @@
 }
 
 @media (max-width: 360px){
+  .wedding_dresses{
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
   .containerTexto span {
     font-size: 1.4rem;
   }
@@ -186,24 +197,42 @@
     text-align: left;
   }
 
+  .containerBotao {
+    display: none;
+  }
+
+  .containerBotaoMobile {
+    display: flex;
+    width: 70%;
+    height: 12vh;
+    padding: 1.5vh 2vw; 
+    gap: 10px; 
+  }
+
+  .containerBotaoMobile button {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 1.5vh 2vw; 
+  }
+
+  .containerBotaoMobile .icon {
+    margin-left: 0.5rem; 
+  }
+
+  .wedding_dresses .context button {
+    gap: 2rem;
+  }
+
   /* Slides */
-  .containerSlider {
-    justify-content: flex-end; 
-    align-items: flex-end;
-    width: 50%; 
-    padding-right: 10%; 
+
+  .containerImage {
+    margin: 10% 0;
+    width: 100%;
   }
 
-  .mainImage {
-    width: 30vw; 
+  img {
+    height: fit-content !important;
+    width: 100%;
   }
-
-  .sideImage {
-    width: 15vw; 
-  }
-
-  .container_images {
-    justify-content: flex-end;
-  }
-
 }
