@@ -10,7 +10,10 @@ export const Api = axios.create({
 const response = (response) => response
 
 export const request = {
-    getAssessores: async () => {
+    getAssessores: async (nome = "") => {
+        return await Api.get(`/assessores?nome=${nome}`).then(response.data)
+    },
+    getAssessoresDetails: async () => {
         return await Api.get(`/assessores/details`).then(response.data);
     },
     getFornecedoresByCategoria: async (categoriaId, nome = "") => {
@@ -26,7 +29,10 @@ export const request = {
         return await Api.get(`/categorias-servicos`).then(response.data)
     },
     getSubcategorias: async (categoriaId) => {
-        return await Api.get(`subcategorias/${categoriaId}`).then(response.data)
+        return await Api.get(`subcategorias/categoria/${categoriaId}`).then(response.data)
+    },
+    getSubcategoriasByNome: async (nome) => {
+        return await Api.get(`subcategorias/categoria/nome/${nome}`).then(response.data)
     },
     saveCasal: async (usuario) => {
         return await Api.post(`/casais`, usuario).then(response)
@@ -61,6 +67,9 @@ export const request = {
     saveItensOrcamentos: async(itensOrcamentoRequest) => {
         return await Api.post(`/itens-orcamento`, itensOrcamentoRequest)
     },
+    saveOrcamentoFornecedor: async(orcamentoFornecedorRequest, categoriaId) => {
+        return await Api.post(`/orcamento-fornecedor/categoria/${categoriaId}`, orcamentoFornecedorRequest)
+    },
     deleteItemOrcamento: async(id) => {
         return await Api.delete(`/itens-orcamento/${id}`)
     },
@@ -75,5 +84,20 @@ export const request = {
     },
     getDashboard: async(casamentoId) => {
         return await Api.get(`/dashboards/casamento/${casamentoId}`)
+    },
+    vinculateAssessorToWedding: async(casamentoId, assessorId) => {
+        return await Api.put(`/casamentos/${casamentoId}/assessor/${assessorId}`)
+    },
+    updatePrecoAssessor: async(assessorId, casamentoId, valor) => {
+        return await Api.put(`/assessores/${assessorId}/casamento/${casamentoId}`, {preco: valor})
+    },
+    updatePrecoOrcamentoFornecedor: async(orcamentoFornecedorId, valor) => {
+        return await Api.put(`/orcamento-fornecedor/preco/${orcamentoFornecedorId}`, {preco: valor})
+    },
+    uploadProfilePicture: async (casalId, formData) => {
+        return await Api.post(`/casais/imagem-perfil/${casalId}`, formData)
+    },
+    sendOrcamentoEmail: async(assessorId, solicitarOrcamentoRequest) => {
+        return await Api.post(`/assessores/solicitar-orcamento/${assessorId}`, solicitarOrcamentoRequest)
     }
 }

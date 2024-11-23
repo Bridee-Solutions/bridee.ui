@@ -23,7 +23,6 @@ function Fornecedores() {
   useEffect(() => {
     request.getCategorias().then(response => {
       setCardsData(response.data);
-      
     })
   }, []);
 

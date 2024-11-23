@@ -7,34 +7,32 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "./ContagemRegressiva.module.css";
 
-const ContagemRegressiva = () => {
+const ContagemRegressiva = ({dataCasamento}) => {
   const [isExpanded, setIsExpanded] = useState(true); // Controla o colapso
-  const [tempoRestante, setTempoRestante] = useState({
-    dias: 0,
-    horas: 0,
-    minutos: 0,
-  });
 
-  useEffect(() => {
-    const dataAlvo = new Date("2026-02-11T00:00:00"); // Data do casamento
-    const calcularTempoRestante = () => {
-      const agora = new Date();
-      const diferenca = dataAlvo - agora;
+  const dataAlvo = new Date(`${dataCasamento}`);
+  const month = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+  
+  const agora = new Date();
+  const diferenca = (dataAlvo.getTime() - agora.getTime());
+  const tempoRestante = {
+    dias: Math.floor(diferenca / (1000 * 60 * 60 * 24)),
+    horas: Math.floor((diferenca / (1000 * 60 * 60)) % 24),
+    minutos: Math.floor((diferenca / 1000 / 60) % 60),
+  };
 
-      const tempoRestante = {
-        dias: Math.floor(diferenca / (1000 * 60 * 60 * 24)),
-        horas: Math.floor((diferenca / (1000 * 60 * 60)) % 24),
-        minutos: Math.floor((diferenca / 1000 / 60) % 60),
-      };
+  setInterval(() => {
+    const dataAlvo = new Date(`${dataCasamento}`)
+    const agora = new Date();
+    const diferenca = (dataAlvo.getTime() - agora.getTime());
 
-      setTempoRestante(tempoRestante);
-    };
+    if(!isNaN(diferenca)){
+      document.getElementById("dias").innerHTML = `${Number(Math.floor(diferenca / (1000 * 60 * 60 * 24)))}`
+      document.getElementById("horas").innerHTML = `${Number(Math.floor((diferenca / (1000 * 60 * 60)) % 24))}`
+      document.getElementById("minutos").innerHTML = `${Number(Math.floor((diferenca / 1000 / 60) % 60))}`
+    }
 
-    const timer = setInterval(calcularTempoRestante, 60000); // Atualiza a cada minuto
-    calcularTempoRestante(); // Calcula imediatamente ao carregar a página
-
-    return () => clearInterval(timer); // Limpa o intervalo ao desmontar o componente
-  }, []);
+  }, 60000)
 
   const alternarExpandir = () => {
     setIsExpanded(!isExpanded);
@@ -62,22 +60,22 @@ const ContagemRegressiva = () => {
             <div className={styles.escrita}>
               <span>
                 Seu grande dia,{" "}
-                <span>terça-feira, 11 de fevereiro de 2026</span>, está cada vez
+                <span>terça-feira, dia {!isNaN(dataAlvo?.getDay()) ? dataAlvo?.getDay() : "---"} de {!isNaN(dataAlvo?.getMonth()) ? month[dataAlvo?.getMonth()] : "---"} de {!isNaN(dataAlvo?.getFullYear()) ? dataAlvo?.getFullYear() : "---"}</span>, está cada vez
                 mais próximo!
               </span>
             </div>
             <div className={styles.countdown}>
               <div className={styles.containerCountdown}>
                 <div className={styles.countdownItem}>
-                  <span>{tempoRestante.dias}</span>
+                  <span id="dias">{!isNaN(tempoRestante?.dias) ? tempoRestante?.dias : "---"}</span>
                   <span>DIAS</span>
                 </div>
                 <div className={styles.countdownItem}>
-                  <span>{tempoRestante.horas}</span>
+                  <span id="horas">{!isNaN(tempoRestante?.horas) ? tempoRestante?.horas : "---"}</span>
                   <span>HORAS</span>
                 </div>
                 <div className={styles.countdownItem}>
-                  <span>{tempoRestante.minutos}</span>
+                  <span id="minutos">{!isNaN(tempoRestante?.minutos) ? tempoRestante?.minutos : "---"}</span>
                   <span>MINUTOS</span>
                 </div>
               </div>

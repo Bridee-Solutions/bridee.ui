@@ -43,10 +43,26 @@ const itensDefault = [
     },
 ]
 
+export const iconItem = (tipo) => {
+  if(tipo == "Moda e beleza"){
+    return moda
+  }else if(tipo == "Alianças de casamento"){
+    return aliancas
+  }else if(tipo == "Decoração"){
+    return decoracao
+  }else if(tipo == "Transporte e Acomodação"){
+    return transporte
+  }else if(tipo == "Entretenimento"){
+    return entretenimento
+  }else{
+    return etiqueta
+  }
+}
+
 export const buildItemOrcamentos = (data) => {
     if(data.itemOrcamentos.length > 0){
         const itensOrcamento = data.itemOrcamentos.map(item => {
-          return {...item, aberta: true, icon: decoracao};
+          return {...item, aberta: true, icon: iconItem(item.tipo)};
         })
         return data.itemOrcamentos = itensOrcamento
       }else{

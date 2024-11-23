@@ -23,15 +23,20 @@ import ModalFooter from "../Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../Modal/ModalFooterButton/ModalFooterButton";
 import { request } from "../../config/axios/axios";
 
-function Categoria({ categoria, orcamentoFornecedorResponse, onAdicionar }) {
+function Categoria({ categoria, orcamentoFornecedores, orcamento, setOrcamento }) {
 
-  const container = useRef();
-
+  const [modalAberto, setModalAberto] = useState(false);
   const[isChosen, setIsChosen] = useState(false);
   const[orcamentoFornecedor, setOrcamentoFornecedor] = useState({});
+  const [fornecedoresModal, setFornecedoresModal] = useState();
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState({});
 
-  useEffect(() => {
-    orcamentoFornecedorResponse?.filter(orcamentoFornecedor => {
+  const [fornecedorSelected, setFornecedorSelected] = useState();
+  const fornecedoresModalRef = useRef();
+  const orcamentoFornecedorRequest = useRef();
+
+  setTimeout(() => {
+    orcamentoFornecedores?.filter(orcamentoFornecedor => {
       const subcategoriaFornecedor = orcamentoFornecedor.fornecedor.subcategoriaServico;
       const subcategoriasCategoria = categoria.subcategorias;
       for (let index = 0; index < subcategoriasCategoria.length; index++) {
@@ -44,7 +49,81 @@ function Categoria({ categoria, orcamentoFornecedorResponse, onAdicionar }) {
         }
       }
     })
-  }, [])
+  }, 500)
+
+  const searchFornecedor = async (nome) => {
+    const categoriaId = categoriaSelecionada.id
+    const fornecedoresResponse = await request.getFornecedoresByCategoria(categoriaId, nome);
+    const fornecedores = fornecedoresResponse.data.content;
+    
+    setFornecedoresModal(fornecedores)
+  }
+
+  const abrirModal = (categoria) => {
+    setCategoriaSelecionada({...categoria}); // Define a categoria a ser adicionada
+    setModalAberto(true); // Abre o modal
+  };
+
+  const fecharModal = () => {
+    setModalAberto(false); // Fecha o modal
+    setCategoriaSelecionada({});
+    setFornecedoresModal([]) // Reseta a categoria
+  };
+
+  const selectFornecedor = (fornecedor, e) => {
+    resetFornecedoresStyle(fornecedor)
+    selectedFornecedorStyle(e)
+    setFornecedorSelected(fornecedor)
+  };
+
+  const selectedFornecedorStyle = (e) => {
+    e.target.style.backgroundColor = `#DD7B78`;
+    e.target.style.color = `white`;
+  }
+
+  const resetFornecedoresStyle = (fornecedor) => {
+    const children = fornecedoresModalRef.current.childNodes;
+    console.log(children);
+    const childrenToBeReseted = [];
+    
+    for (let i = 0; i < children.length; i++) {
+      if(children[i].getAttribute("value") != fornecedor.id){
+        childrenToBeReseted.push(children[i])
+      }
+      
+    }
+
+    childrenToBeReseted.forEach(child => {
+      child.style.backgroundColor = `white`
+      child.style.color = `black`
+    }) 
+    
+  }
+
+  const saveOrcamentoFornecedor = async () => {
+
+    orcamentoFornecedorRequest.current = {
+      id: null,
+      preco: 0.0,
+      fornecedorId: fornecedorSelected.id,
+      casalId: 2
+    }
+
+    const orcamentoFornecedorResponse = await request.saveOrcamentoFornecedor(orcamentoFornecedorRequest.current, categoriaSelecionada.id)
+    setIsChosen(true)
+    setOrcamentoFornecedor(orcamentoFornecedorResponse.data)
+    fecharModal();
+  }
+
+  const updateOrcamentoFornecedorPreco = (value) => {
+    request.updatePrecoOrcamentoFornecedor(orcamentoFornecedor.id, Number(value))
+    const newPrice = Number(value);
+    const orcamentoFornecedorPrice = orcamentoFornecedor.preco;
+    orcamento.orcamentoGasto = orcamento.orcamentoGasto - orcamentoFornecedorPrice + newPrice;
+    orcamentoFornecedor.preco = newPrice;
+    setOrcamentoFornecedor({...orcamentoFornecedor})
+    setOrcamento({...orcamento})
+  }
 
 
   return (
@@ -59,7 +138,7 @@ function Categoria({ categoria, orcamentoFornecedorResponse, onAdicionar }) {
             <a
               href="#"
               className={styles.gerenciar}
-              onClick={() => onAdicionar(categoria)}
+              onClick={() => abrirModal(categoria)}
             >
               Adicionar
             </a>
@@ -69,29 +148,70 @@ function Categoria({ categoria, orcamentoFornecedorResponse, onAdicionar }) {
         <div className={styles.chosen_category}>
           <div className={styles.chosen_header}>
             <div>Reservado</div>
-            <FontAwesomeIcon icon={faEllipsis}/>
+            <FontAwesomeIcon icon={faEllipsis} onClick={() => abrirModal(categoria)} style={{cursor: "pointer"}}/>
           </div>
           <div className={styles.chosen_body}>
             <div>
               <span className={styles.chosen_body_category}>{orcamentoFornecedor.fornecedor?.subcategoriaServico?.nome}</span>
               <span className={styles.chosen_body_nome}>{orcamentoFornecedor.fornecedor?.nome}</span>
-              <span className={styles.chosen_body_preco}>R$ {orcamentoFornecedor.preco}</span>
+              <span className={styles.chosen_body_preco}><span>R$</span> <input type="number" onBlur={(e) => updateOrcamentoFornecedorPreco(e.target.value)} defaultValue={orcamentoFornecedor?.preco}/></span>
             </div>
           </div>
         </div>
       }
+      {modalAberto && (
+        <Modal>
+          <ModalHeader onClose={fecharModal}>
+            <div className={styles.containerHeaderModal}>
+              <span> {isChosen ? "Editar" : "Adicionar"} {categoriaSelecionada.nome}</span>
+            </div>
+          </ModalHeader>
+          <ModalBody>
+            <div className={styles.containerModal}>
+              <div className={styles.form_group}>
+                <label htmlFor="categoriaSelect">
+                  Nome do fornecedor que você fechou negócio
+                </label>
+              </div>
+              <div className={styles.search_input_container}>
+                <input
+                  type="text"
+                  id=""
+                  className={styles.search_input}
+                  placeholder={`Digite o nome`}
+                  onChange={(e) => searchFornecedor(e.target.value)}
+                />
+                <button className={styles.search_button}>
+                  <FontAwesomeIcon
+                    icon={faSearch}
+                    className={styles.iconSearch}
+                  />
+                </button>
+              </div>
+              <div className={styles.fornecedor_modal} ref={fornecedoresModalRef}>
+                {fornecedoresModal?.map(fornecedor => {
+                  return <div value={fornecedor.id} onClick={(e) => selectFornecedor(fornecedor, e)}>{fornecedor.nome}</div>
+                })}
+              </div>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <ModalFooterButton
+              button="cancel_button"
+              text="Cancelar"
+              onClick={fecharModal}
+            />
+            <ModalFooterButton button="add_button" text="Adicionar" onClick={saveOrcamentoFornecedor}/>
+          </ModalFooter>
+        </Modal>
+      )}
     </>
   );
 }
 
-function Categorias({orcamentoFornecedorResponse}) {
-  const [modalAberto, setModalAberto] = useState(false);
+function Categorias({orcamentoFornecedores, orcamento, setOrcamento}) {
 
-  const [categoriaSelecionada, setCategoriaSelecionada] = useState({});
-  const [categorias, setCategorias] = useState();
-  const [fornecedoresModal, setFornecedoresModal] = useState();
-
-  const container = useRef();
+  const [categorias, setCategorias] = useState();  
 
   useEffect(() => {
     request.getCategorias().then((response) => {
@@ -99,30 +219,10 @@ function Categorias({orcamentoFornecedorResponse}) {
       return {...categoria, icon: defineCategoriaIcon(categoria)}
     });
     setCategorias(categorias)
-    console.log(categorias);
     })
-    
-    
-    
   }, [])
 
-  const defineCategoriaState = (categoria) => {
-    fornecedores?.forEach((fornecedorInfo => {
-      console.log(fornecedorInfo.fornecedor.subcategoriaServico.nome);
-      
-      if(fornecedorInfo.fornecedor.subcategoriaServico.nome == categoria.nome){
-        container.current.style.backgroundImage = `url(${chosen})`
-      }
-    }))
-  }
-
-  const searchFornecedor = async (nome) => {
-    const categoriaId = categoriaSelecionada.id
-    const fornecedoresResponse = await request.getFornecedoresByCategoria(categoriaId, nome);
-    const fornecedores = fornecedoresResponse.data.content;
-    
-    setFornecedoresModal(fornecedores)
-  }
+  
 
   const defineCategoriaIcon = (categoria) => {
     if(categoria.nome == "Vestidos"){
@@ -152,79 +252,26 @@ function Categorias({orcamentoFornecedorResponse}) {
     }
   };
 
-  const abrirModal = (categoria) => {
-    setCategoriaSelecionada({...categoria}); // Define a categoria a ser adicionada
-    setModalAberto(true); // Abre o modal
-  };
-
-  const fecharModal = () => {
-    setModalAberto(false); // Fecha o modal
-    setCategoriaSelecionada({});
-    setFornecedoresModal([]) // Reseta a categoria
-  };
-
+  
+  
   return (
     <div className={styles.categoriasContainer}>
       <div className={styles.boxCategoria}>
         <div className={styles.containerGrid}>
-          <div className={styles.grid} ref={container}>
+          <div className={styles.grid}>
             {categorias?.map((categoria) => (
               <Categoria
                 key={categoria.nome}
                 categoria={categoria}
-                onAdicionar={abrirModal}
-                orcamentoFornecedorResponse={orcamentoFornecedorResponse}
+                orcamentoFornecedores={orcamentoFornecedores}
+                orcamento={orcamento}
+                setOrcamento={setOrcamento}
               />
             ))}
           </div>
         </div>
       </div>
-      {modalAberto && (
-        <Modal>
-          <ModalHeader onClose={fecharModal}>
-            <div className={styles.containerHeaderModal}>
-              <span>Adicionar {categoriaSelecionada.nome}</span>
-            </div>
-          </ModalHeader>
-          <ModalBody>
-            <div className={styles.containerModal}>
-              <div className={styles.form_group}>
-                <label htmlFor="categoriaSelect">
-                  Nome do fornecedor que você fechou negócio
-                </label>
-              </div>
-              <div className={styles.search_input_container}>
-                <input
-                  type="text"
-                  id=""
-                  className={styles.search_input}
-                  placeholder={`Digite o nome`}
-                  onChange={(e) => searchFornecedor(e.target.value)}
-                />
-                <button className={styles.search_button}>
-                  <FontAwesomeIcon
-                    icon={faSearch}
-                    className={styles.iconSearch}
-                  />
-                </button>
-              </div>
-              <div className={styles.fornecedor_modal}>
-                {fornecedoresModal?.map(fornecedor => {
-                  return <div>{fornecedor.nome}</div>
-                })}
-              </div>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <ModalFooterButton
-              button="cancel_button"
-              text="Cancelar"
-              onClick={fecharModal}
-            />
-            <ModalFooterButton button="add_button" text="Adicionar" />
-          </ModalFooter>
-        </Modal>
-      )}
+      
     </div>
   );
 }

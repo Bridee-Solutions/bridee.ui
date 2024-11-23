@@ -20,8 +20,8 @@ function Assessores() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [showAssessor, setShowAssessor] = useState(false);
 
-  const totalCards = cardsData.length;
-  const totalPages = Math.ceil(totalCards / cardsPerPage);
+  // const [totalCards, setTotalCards] = useState(0);
+  // const totalPages = Math.ceil(totalCards / cardsPerPage);
 
   // função para mudar a página
   const handleChange = (event, value) => {
@@ -42,8 +42,10 @@ function Assessores() {
   };
 
   useEffect(() => {
-      request.getAssessores().then(response => {
-        setCardsData(response)
+      request.getAssessoresDetails().then(response => {
+        console.log(response);
+        setCardsData(response.data)
+        setTotalCards(response.data.page.size)
       })
   }, [])
 
@@ -66,7 +68,7 @@ function Assessores() {
           <div className={stylesAll.container}>
             <div className={styles.navegar}>
               <CategoriaCards
-                cards={cardsData.content} // mostra os cards da página atual
+                cards={cardsData} // mostra os cards da página atual
                 onCardClick={handleCardClick} // passa a função para selecionar o card
                 totalPages={cardsData.totalPages} // total de páginas para a navegação (paginacao)
                 onPageChange={handleChange} // função de mudança de página

@@ -2,10 +2,7 @@ import { useEffect, useRef } from "react";
 import styles from "./ArcoFinanceiro.module.css"
 
 const ArcoFinanceiro = ({ gasto, total}) => {
-  const gastoValidado = isNaN(gasto) || gasto < 0 ? 0 : gasto;
-  const totalValidado = isNaN(total) || total <= 0 ? 10000 : total;
 
-  // Valor para o gauge
   let gaugeValue = (gasto / total) * 100;
   const restante = total - gasto;
 
@@ -19,6 +16,7 @@ const ArcoFinanceiro = ({ gasto, total}) => {
 
   useEffect(() => {
     if(gastoBar != undefined && restanteBar != undefined){
+      
       let restanteGaugeValue = (restante / total) * 100;
       if(gaugeValue > 100){
         gaugeValue = 100;
@@ -44,20 +42,20 @@ const ArcoFinanceiro = ({ gasto, total}) => {
         <div >
           <div className={styles.arco_financeiro_texto} >
             <span>Total Gasto</span>
-            <span>R$ {gasto?.toFixed(2)}</span>
+            <span>R$ {!isNaN(gasto?.toFixed(2)) ? gasto?.toFixed(2) : "---"}</span>
           </div>
           <div className={styles.arco_financeiro_gasto} ref={gastoBar}></div>
         </div>
         <div>
           <div className={styles.arco_financeiro_texto}>
             <span>Restante</span>
-            <span>R$ {restante?.toFixed(2)}</span>
+            <span>R$ {!isNaN(restante?.toFixed(2)) ? restante?.toFixed(2) : "---"}</span>
           </div>
           <div className={styles.arco_financeiro_gasto} ref={restanteBar}></div>
         </div>
         <div className={styles.arco_financeiro_texto}>
           <span>Orcamento Total</span>
-          <span>R$ {total?.toFixed(2)}</span>
+          <span>R$ {!isNaN(total?.toFixed(2)) ? total?.toFixed(2) : "---"}</span>
         </div>
       </div>
     </div>

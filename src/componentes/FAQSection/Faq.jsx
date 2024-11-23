@@ -76,7 +76,7 @@ function FAQSection({ assessor, selectedCard, perfilGeral }) {
       {
         pergunta: "Quais são as formas de pagamento?",
         mostrarIconeCheck: true,
-        respostas: selectedCard["formasPagamento"].map(forma => {
+        respostas: selectedCard["formasPagamento"]?.map(forma => {
           if(forma.toUpperCase() == "CARTÃO DE CRÉDITO"){
             return "Cartão de crédito"
           }else if(forma.toUpperCase() == "CARTÃO DE DÉBITO"){

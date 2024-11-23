@@ -45,7 +45,7 @@ function FornecedorCalc({
         id: orcamentoFornecedor.id,
         preco: Number(orcamentoFornecedor.preco),
         fornecedorId: orcamentoFornecedor.fornecedor.id,
-        // casalId: orcamentoFornecedor.casalId
+        casalId: 2
       }
     }))    
   }, [categorias])

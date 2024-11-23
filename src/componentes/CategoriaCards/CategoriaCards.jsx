@@ -3,6 +3,7 @@ import Pagination from "@mui/material/Pagination";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "../Card/Card";
+import { useEffect } from "react";
 
 function CategoriaCards({
   cards,
@@ -11,6 +12,11 @@ function CategoriaCards({
   totalPages,
   onPageChange,
 }) {
+
+  useEffect(() => {
+    console.log(cards);
+    
+  }, [])
   return (
     <div className={styles.pagina}>
       <div className={styles.containerOpcoes}>
