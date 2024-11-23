@@ -18,6 +18,7 @@
   import SimpleBar from 'simplebar-react';
   import 'simplebar-react/dist/simplebar.min.css';
   import Fornecedores from './pages/Fornecedores/Fornecedores';
+import Calendario from './pages/Calendario/Calendario';
   function App() {
 
     return (
@@ -36,6 +37,7 @@
           <Route path='/planejador-assentos' element={<PlanejadorAssentos />} />
           <Route path='/lista-tarefas' element={<ListaTarefas />} />
           <Route path='/assessores' element={<Assessores />} />
+          <Route path='/assessores/calendario' element={<Calendario />} />
           <Route path='/locais' element={<Locais />} />
           <Route path='/fornecedores' element={<Fornecedores />} />
         </Routes>

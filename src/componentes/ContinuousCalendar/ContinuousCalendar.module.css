@@ -1,0 +1,246 @@
+.week {
+    width: 100%;
+    display: flex;
+}
+
+.daySquare {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    width: 100%;
+    border: #D7D7D7 1px solid;
+    display: inline-block;
+    flex-grow: 1;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    border-radius: 1rem;
+    margin: -0.5px;
+    aspect-ratio: 1 / 1;
+    flex-grow: 1;
+    border-radius: 0.75rem;
+    background-color: #F2F2F2;
+}
+
+.daySquare:hover {
+    z-index: 20;
+    border-color: #ED9C9B;
+}
+
+.day {
+    position: absolute;
+    left: 0.25rem; /* left-1 */
+    top: 0.25rem; /* top-1 */
+    display: flex; /* flex */
+    width: 1.25rem; /* size-5 */
+    height: 1.25rem; /* size-5 */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    border-radius: 9999px; /* rounded-full */
+    font-size: 0.75rem;
+}
+
+.today {
+    background-color: #FFFFFF;
+}
+
+.currentMonthDay{
+    color: #EE5555;
+}
+
+.otherMonthDay {
+    color: #000000;
+}
+
+.monthName {
+    position: absolute;
+    bottom: 65%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: #AAAAAA;
+}
+
+
+.buttonAddEventContainer {
+    position: absolute;
+    bottom: 0.125rem;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #d1d5db;
+    background-color: transparent;
+    border: 0;
+}
+
+.buttonAddEvent {
+    width: 2rem;
+    height: 2rem;
+    transform: scale(0.9);
+    color: #ED9C9B;
+    transition: all 0.2s ease;
+}
+
+
+.buttonAddEvent:hover,
+.buttonAddEvent:focus {
+    transform: scale(1.2);
+}
+
+.customCalendar {
+    overflow-y: scroll;
+    max-height: 100%;
+    border-radius: 1.5rem; /* rounded-t-2xl */
+    background-color: white; /* bg-white */
+    padding-bottom: 2.5rem; /* pb-10 */
+    color: #1e293b; /* text-slate-800 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.customCalendar::-webkit-scrollbar {
+    display: none; /* noScrollbar equivalent */
+}
+
+.customCalendar {
+    -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.headerContainerCalendar {
+    position: sticky;
+    top: -1px; /* -top-px */
+    z-index: 50; /* z-50 */
+    width: 100%; /* w-full */
+    border-radius: 1.5rem; /* rounded-t-2xl */
+    background-color: white; /* bg-white */
+    padding-left: 1.25rem; /* px-5 */
+    padding-right: 1.25rem; /* px-5 */
+    padding-top: 1.75rem;
+}
+
+.containerHUD {
+    margin-bottom: 1rem; /* mb-4 */
+    display: flex; /* flex */
+    width: 100%; /* w-full */
+    flex-wrap: wrap; /* flex-wrap */
+    align-items: center; /* items-center */
+    justify-content: space-between; /* justify-between */
+    gap: 1.5rem;
+}
+
+.containerMounth {
+    display: flex; /* flex */
+    flex-wrap: wrap; /* flex-wrap */
+    gap: 0.5rem;
+}
+
+
+.controllerYear {
+    display: flex; /* flex */
+    width: fit-content; /* w-fit */
+    align-items: center; /* items-center */
+    justify-content: space-between;
+}
+
+.buttonYearControl {
+    border-radius: 9999px; /* rounded-full */
+    border: 0;
+    background-color: #ED9C9B;
+    padding: 0.25rem; /* p-1 */
+    transition: 0.3s; /* transition-colors */
+}
+
+.buttonYearControl:hover {
+    transform: scale(1.2);
+}
+
+.arrow {
+    width: 1.25rem; /* size-5 */
+    height: 1.25rem; /* size-5 */
+    color: #FFFFFF;
+}
+
+.textYear {
+    min-width: 4rem; /* min-w-16 */
+    text-align: center; /* text-center */
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600;
+}
+
+.daysOfTheWeek {
+    display: grid; /* grid */
+    width: 100%; /* w-full */
+    grid-template-columns: repeat(7, 1fr); /* grid-cols-7 */
+    justify-content: space-between; /* justify-between */
+    color: #FFFFFF;
+    background-color: #DD7B78;
+}
+
+.dayOfTheWeek {
+    width: 100%; /* w-full */
+    border-bottom: 1px solid #e5e7eb; /* border-b, border-slate-200 */
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    text-align: center; /* text-center */
+    font-weight: 600;
+}
+
+.generateCalendar {
+    width: 100%; /* w-full */
+    padding-left: 1.25rem; /* px-5 */
+    padding-right: 1.25rem; /* px-5 */
+    padding-top: 1rem;
+}
+
+.selectMounth {
+    cursor: pointer; /* cursorPointer */
+    border-radius: 0.5rem; /* roundedLg */
+    border: 1px solid #D1D5DB; /* borderGray300 */
+    background-color: #FFFFFF; /* bgWhite */
+    width: 10vw;
+    padding: 6% 10%;
+    font-size: 0.875rem; /* textSm */
+    font-weight: 500; /* fontMedium */
+    color: #1F2937; /* textGray900 */
+    transition: background-color 0.2s ease; /* hoverBgGray100 (transition for hover effect) */
+    display: flex;
+}
+
+.selectMounth select {
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+} 
+
+.selectMounth:hover {
+    background-color: #F3F4F6; /* hoverBgGray100 */
+}
+
+.arrowsSelect {
+    pointer-events: none; /* pointerEventsNone */
+    position: absolute; /* absolute */
+    top: 0; /* insetY0 (top 0) */
+    bottom: 0; /* insetY0 (bottom 0) */
+    right: 0; /* right0 */
+    margin-left: 0.75rem; /* ml3 */
+    display: flex; /* flex */
+    align-items: center; /* itemsCenter */
+    padding-right: 0.25rem; /* pr1 */
+}
+
+.arrowsSelect svg {
+    font-size: 1.25rem; /* size5 (geralmente é 1.25rem ou 20px dependendo da configuração do Tailwind) */
+    color: #4b5563;
+}
