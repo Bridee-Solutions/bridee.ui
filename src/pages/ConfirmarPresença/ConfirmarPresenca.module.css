@@ -9,24 +9,24 @@
 
 
 .defaultBackground {
-  width: 56%;
+  width: 53%;
   height: 100vh;
-    /* max-width: 48%; */
-   /* border: 4px solid red;  */
-    background-image: url(/src/assets/Ellipse.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  /* max-width: 48%; */
+  /* border: 4px solid red; */
+  background-image: url(/src/assets/Ellipse.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
 }
 
 .formulario{
   /* border: 2px solid pink; */
   display: flex;
-  height: 77vh;
+  height: 100vh;
   flex-direction: column;
   align-content: center;
   justify-content: center;
@@ -35,23 +35,23 @@
 }
 
 .insira{
-  /* border: 3px solid red; */
-  display: flex;
-  font-weight: 700;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  font-size: 65px;
-  height: 31%;
-  align-items: center;
-  font-family: 'Product Sans';
+      /* border: 3px solid red; */
+      display: flex;
+      font-weight: 700;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      font-size: 3rem;
+      height: 31%;
+      align-items: center;
+      font-family: 'Product Sans';
 }
 
 .errorBackground {
-  width: 56%;
+  width: 53%;
   height: 100vh;
   /* max-width: 48%; */
- /* border: 4px solid black;  */
+  /* border: 4px solid red; */
   background-image: url(/src/assets/Ellipse.svg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,8 +72,8 @@
 }
 
 .description {
-  font-size: 32px;
-  height: 18%;
+  font-size: 1.5rem;
+  height: 15%;
   width: 62%;
   color: #514d4d;
   /* border: 3px solid blue; */
@@ -84,24 +84,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 23%;
+  width: 98%;
+  height: 24%;
+  /* border: 3px solid purple; */
+  justify-content: space-around;
   /* border: 3px solid purple; */
 }
 
 .input {
   width: 73%;
-  height: 40%;
+  height: 22%;
   font-size: 1.3rem;
-  border-radius: 5px;
-  /* border: 3px solid orange; */
+  border: none;
+  border-radius: 16px;
+   /* border: 3px solid orange; */
 }
 
 .button {
-  width: 20%;
-  height: 4vh;
+  width: 23%;
+  height: 7vh;
   /* max-width: 200px; */
-  font-size: 1rem;
+  font-size: 1.2rem;
   background-color: #d67a66;
   color: white;
   border: none;
@@ -111,18 +114,23 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  /* border: 3px solid violet; */
+  /* border: 3px solid violet;*/
 }
 
 .botao{
-  width: 100%;
-  height: 12vh;
+  width: 23%;
+  height: 7vh;
+  /* max-width: 200px; */
+  font-size: 1.2rem;
+  background-color: #d67a66;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   display: flex;
-  /* border: 3px solid green; */
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .button:disabled {
@@ -155,10 +163,12 @@
 
 .errorMessage {
   color: #e83737;
-  font-size: 0.9rem;
-  /* border: 3px solid brown; */
-  margin: 0;
-  text-align: center;
+    font-size: 0.9rem;
+    /* border: 3px solid brown; */
+    margin: 0;
+    width: 60%;
+    height: 30%;
+    text-align: center;
 }
 
 @media (max-width: 600px) {
