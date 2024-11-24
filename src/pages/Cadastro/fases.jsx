@@ -138,7 +138,8 @@ const usuarioAssessor = () => {
         sobrenome: "",
         cnpj: "",
         emailEmpresa: "",
-        externo: false
+        externo: false,
+        preco: 0.0
     }
 }
 

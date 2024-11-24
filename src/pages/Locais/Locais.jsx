@@ -20,6 +20,7 @@ import DetalhesPerfil from "../../componentes/DetalhesPerfil/DetalhesPerfil.jsx"
 import CategoriaNavegacao from "../../componentes/CategoriaNavegacao/CategoriaNavegacao.jsx";
 import { dadosLocais } from "../../componentes/mocks/mockData";
 import CategoriaCards from "../../componentes/CategoriaCards/CategoriaCards.jsx";
+import { request } from "../../config/axios/axios.js";
 
 function Locais() {
   const [page, setPage] = useState(1);
@@ -29,23 +30,28 @@ function Locais() {
   const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
-    setCardsData(dadosLocais);
+    request.getSubcategoriasByNome("locais").then((response) => {
+      response.data.content.forEach(content => {
+        content.imagemUrl = defineLocalImage(content.nome)
+      })
+      setCardsData(response.data)
+      console.log(response.data);
+      
+    })
   }, []);
 
-  const totalCards = cardsData.length;
-  const totalPages = Math.ceil(
-    (selectedCategory
-      ? cardsData.filter((card) => card.categoria === selectedCategory).length
-      : totalCards) / cardsPerPage
-  );
-  const startIndex = (page - 1) * cardsPerPage;
-  const endIndex = startIndex + cardsPerPage;
+  const handleCategoryClick = async (categoria) => {
+    console.log("Categoria selecionada:", categoria);
+    const fornecedores = await request.getFornecedores(`${categoria.id}`)
+    console.log(fornecedores);
+    
+    setSelectedCategory(fornecedores.data);
+    setPage(1);
+  };
 
-  const filteredCards = selectedCategory
-    ? cardsData
-        .filter((card) => card.categoria === selectedCategory)
-        .slice(startIndex, endIndex)
-    : cardsData.slice(startIndex, endIndex);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   const categorias = [
     { nome: "Praia", imagem: praia },
@@ -58,15 +64,15 @@ function Locais() {
     { nome: "Igrejas", imagem: igreja },
   ];
 
-  const handleCategoryClick = (categoria) => {
-    console.log("Categoria selecionada:", categoria);
-    setSelectedCategory(categoria);
-    setPage(1);
-  };
-
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
+  const defineLocalImage = (nomeSubcategoria) => {    
+    const categoria = categorias.filter(categoria => categoria.nome == nomeSubcategoria)[0];
+    if(categoria != undefined){
+      const imagem = categoria.imagem;
+      console.log(imagem);
+      
+      return imagem;
+    }
+  }
 
   return (
     <div className={styles.containerPai}>
@@ -87,16 +93,16 @@ function Locais() {
         {!selectedCard ? (
           !selectedCategory ? (
             <CategoriaNavegacao
-              categorias={categorias}
+              categorias={cardsData}
               onSelectCategory={handleCategoryClick}
               tipo="locais" 
             />
           ) : (
             <CategoriaCards
-              cards={filteredCards}
+              cards={selectedCategory}
               onCardClick={setSelectedCard}
               onBack={() => setSelectedCategory(null)}
-              totalPages={totalPages}
+              totalPages={selectedCategory}
               onPageChange={handleChange}
             />
           )

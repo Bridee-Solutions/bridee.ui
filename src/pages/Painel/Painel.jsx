@@ -1,6 +1,6 @@
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -23,19 +23,38 @@ import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 import Assessor from "../../componentes/Assessor/Assessor";
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
+import { request } from "../../config/axios/axios";
+
 
 function Painel() {
-  const [imageUrl, setImageUrl] = useState(null);
   const inputRef = useRef(null);
+  const [imageUrl, setImageUrl] = useState(null);
   const [checkedTarefa1, setCheckedTarefa1] = useState(true);
   const [checkedTarefa2, setCheckedTarefa2] = useState(false);
   const [checkedTarefa3, setCheckedTarefa3] = useState(false);
+  const [dashboardInfo, setDashboardInfo] = useState({});
+  const [orcamento, setOrcamento] = useState({})
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const url = URL.createObjectURL(file);
-      setImageUrl(url);
+      const blob = new Blob([file], {type: "image/**"})
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onload = () => {
+        setImageUrl(reader.result)
+        console.log(reader.result);
+      }
+      const formData = new FormData();
+      formData.append("file", file)
+      const imageMetadata = {
+        nome: `${dashboardInfo.casamentoInfo.casal.nome}&${dashboardInfo.casamentoInfo.casal.nomeParceiro}`,
+        tipo: `Perfil`,
+        extensao: `${file.name.split(".")[file.name.split(".").length-1]}`
+      }
+      formData.append("metadata", JSON.stringify(imageMetadata))
+      request.uploadProfilePicture(2,formData);
+      
     }
   };
 
@@ -48,6 +67,24 @@ function Painel() {
   const handleEditClick = () => {
     inputRef.current.click();
   };
+
+  const defineTarefaCheckBox = (tarefa) => {
+    if(tarefa.status == "CONCLUIDO"){
+      return true;
+    }
+    return false;
+  }
+
+  useEffect(() => {
+    request.getDashboard(2).then(response => {
+      console.log(response.data)
+      setDashboardInfo(response.data)
+      setOrcamento(response.data.orcamento)
+      const url = `data:image/**;base64,${response.data.casamentoInfo.image}`
+      setImageUrl(url)
+    })
+    
+  }, [])
 
   return (
     <div className={styles.painelBackground}>
@@ -71,7 +108,7 @@ function Painel() {
                 {imageUrl ? (
                   <>
                     <img
-                      src={imageUrl}
+                      src={`${imageUrl}`}
                       alt="Imagem Selecionada"
                       className={styles.imagemCirculo}
                     />
@@ -95,23 +132,23 @@ function Painel() {
               <div className={styles.boxInformacoes}>
                 <div className={styles.container_welcome_user}>
                   <span className={styles.welcome}>Bem vindo de volta,</span>
-                  <span className={styles.user}>Amanda & Enzo</span>
+                  <span className={styles.user}>{dashboardInfo.casamentoInfo?.casal?.nome} & {dashboardInfo.casamentoInfo?.casal?.nomeParceiro}</span>
                 </div>
 
                 <div className={styles.iconsContainer}>
                   <div className={styles.icon}>
                     <FontAwesomeIcon icon={faCalendarAlt} />
-                    <span>11 de Fevereiro, 2026</span>
+                    <span>{dashboardInfo.casamentoInfo?.dataCasamento}</span>
                   </div>
 
                   <div className={styles.icon}>
                     <FontAwesomeIcon icon={faUserFriends} />
-                    <span>101-150 convidados</span>
+                    <span>{dashboardInfo.casamentoInfo?.quantidadeConvidados} convidados</span>
                   </div>
 
                   <div className={styles.icon}>
                     <FontAwesomeIcon icon={faMapMarkerAlt} />
-                    <span>São Paulo</span>
+                    <span>{dashboardInfo.casamentoInfo?.local}</span>
                   </div>
                 </div>
               </div>
@@ -120,7 +157,7 @@ function Painel() {
 
           <div className={styles.caixaCountdown}>
             <div className={styles.containerContagem}>
-              <Contagem />
+              <Contagem dataCasamento={dashboardInfo.casamentoInfo?.dataCasamento}/>
             </div>
           </div>
         </div>
@@ -153,7 +190,7 @@ function Painel() {
               </div>
             </div>
             <>
-              <Categoria />
+              <Categoria orcamentoFornecedores={dashboardInfo?.orcamentoFornecedorResponse} orcamento={orcamento} setOrcamento={setOrcamento} />
             </>
 
             <div>
@@ -168,7 +205,7 @@ function Painel() {
                 </div>
 
                 <>
-                  <Assessor />
+                  <Assessor assessorResponseDto={dashboardInfo?.assessorResponseDto} orcamento={orcamento} setOrcamento={setOrcamento}/>
                 </>
               </div>
             </div>
@@ -186,54 +223,23 @@ function Painel() {
 
                 <div className={styles.listaTarefas}>
                   <div className={styles.listaTarefas}>
-                    <div
-                      className={`${styles.tarefa} ${styles.checkboxWrapper}`}
-                    >
-                      <div className={styles.round}>
-                        <input
-                          type="checkbox"
-                          id="tarefa1"
-                          checked={checkedTarefa1}
-                          onChange={() => setCheckedTarefa1(!checkedTarefa1)}
-                        />
-                        <label htmlFor="tarefa1"></label>
+                    {dashboardInfo?.tarefas?.ultimasTarefas.map(tarefa => {
+                      <div
+                        className={`${styles.tarefa} ${styles.checkboxWrapper}`}
+                      >
+                        <div className={styles.round}>
+                          <input
+                            type="checkbox"
+                            id="tarefa1"
+                            checked={() => defineTarefaCheckBox(tarefa)}
+                          />
+                          <label htmlFor="tarefa1"></label>
+                        </div>
+                        <label htmlFor="tarefa1">
+                          {tarefa.nome}
+                        </label>
                       </div>
-                      <label htmlFor="tarefa1">
-                        Anuncie seu noivado para familiares e amigos.
-                      </label>
-                    </div>
-
-                    <div
-                      className={`${styles.tarefa} ${styles.checkboxWrapper}`}
-                    >
-                      <div className={styles.round}>
-                        <input
-                          type="checkbox"
-                          id="tarefa2"
-                          checked={checkedTarefa2}
-                          onChange={() => setCheckedTarefa2(!checkedTarefa2)}
-                        />
-                        <label htmlFor="tarefa2"></label>
-                      </div>
-                      <label htmlFor="tarefa2">Enviar convites.</label>
-                    </div>
-
-                    <div
-                      className={`${styles.tarefa} ${styles.checkboxWrapper}`}
-                    >
-                      <div className={styles.round}>
-                        <input
-                          type="checkbox"
-                          id="tarefa3"
-                          checked={checkedTarefa3}
-                          onChange={() => setCheckedTarefa3(!checkedTarefa3)}
-                        />
-                        <label htmlFor="tarefa3"></label>
-                      </div>
-                      <label htmlFor="tarefa3">
-                        Escolha e reserve um fotógrafo.
-                      </label>
-                    </div>
+                    })}
                   </div>
                 </div>
 
@@ -244,7 +250,7 @@ function Painel() {
                       label="Ver todas as tarefas"
                     />
                   </div>
-                  <div className={styles.contador}>1 de 50 itens completos</div>
+                  <div className={styles.contador}>{dashboardInfo.tarefas?.totalConcluidos} de {dashboardInfo.tarefas?.totalItens} itens completos</div>
                 </div>
               </div>
             </div>
@@ -259,7 +265,7 @@ function Painel() {
               <div>
                 <div className={styles.containerOrcamento}>
                   <div className={styles.orcamento}>
-                    <ArcoFinanceiro />
+                    <ArcoFinanceiro gasto={orcamento?.orcamentoGasto} total={orcamento?.orcamentoTotal}/>
                   </div>
 
                   <div className={styles.containerBotao}>
@@ -290,7 +296,7 @@ function Painel() {
                     </div>
                   </div>
                   <div>
-                    <span>10</span>
+                    <span>{dashboardInfo.assentosResumo?.totalConvidados}</span>
                   </div>
                 </div>
               </div>
@@ -307,7 +313,7 @@ function Painel() {
                     </div>
                   </div>
                   <div>
-                    <span>10</span>
+                    <span>{dashboardInfo.assentosResumo?.convidadosSentados}</span>
                   </div>
                 </div>
               </div>
@@ -324,7 +330,7 @@ function Painel() {
                     </div>
                   </div>
                   <div>
-                    <span>10</span>
+                    <span>{dashboardInfo.assentosResumo?.totalMesas}</span>
                   </div>
                 </div>
               </div>
