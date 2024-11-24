@@ -24,7 +24,7 @@ import {
   faUserTie 
 } from "@fortawesome/free-solid-svg-icons";
 import MenuLink from "../MenuLink/MenuLink";
-import DropdownItem from "../DropdownItem/Dropdownitem";
+import DropdownItem from "../DropdownItem/DropdownItem";
 
 function NavComp() {
   const navigate = useNavigate();

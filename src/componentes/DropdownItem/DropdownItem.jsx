@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./Dropdownitem.module.css";
+import styles from "./DropdownItem.module.css";
 import { faChevronRight  } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
