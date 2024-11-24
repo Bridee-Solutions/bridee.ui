@@ -1,0 +1,255 @@
+.lista-de-tarefas{
+    background-color: #F3EED9;
+    padding-bottom: 5%;
+    height: fit-content;
+}
+
+.tituloPage{
+    align-self: flex-start;
+    padding-left: 5.5%;
+    padding-top: 25px;
+    margin-bottom: 12px; 
+    font-family: "Montserrat";
+    text-align: left;
+    font-size: 18px;
+}
+
+.tituloLista {
+    font-family: "PlayFair";
+    font-size: 50px;
+    margin: 1% 0%;
+}
+
+.subtitulo{
+    font-family: "ProductSans";
+    font-size: 29px;
+    padding-top: 10px;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    min-height: 30%;
+}
+
+.card-fundo{
+    background-color: #fffffff6; 
+    padding: 10vh 14vh; /* ordem: topo, direita, base e esquerda */ /* Adiciona um espaço extra ao fundo */
+    width: 90%; 
+    border-radius: 30px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 40px auto;
+}
+
+.card-fundo .header {
+    display: flex;
+    align-items: center;
+    gap: 3.92%;
+}
+
+.progress_bar_container {
+    width: 72.89%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.progress_bar_container p {
+    margin: 0.3% 0%;
+    font-family: 'ProductSans';
+}
+
+.progress_bar_container .progress_bar {
+    width: 100%;
+    height: 2.2vh;
+    border: 1px solid #BCBCBC;
+    border-radius: 3px;
+}
+
+.progress_bar_container .progress_bar .progress {
+    height: 100%;
+    transition: 0.5s;
+    background-color: #D86B67;
+}
+.container {
+    display: flex;
+    gap: 15%;
+}
+
+.searchBar {
+    width: 100%;
+    border: 1px solid #838383;
+    border-radius: 10px;
+    height: 4%;
+    display: flex;
+    gap: 0.5%;
+    align-items: center;
+    padding: 0% 2%;
+    color: #7E7E7E;
+    margin: 3% 0%;
+    cursor: text;
+}
+
+.searchBar input{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+}
+
+.filtros {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 9vw;
+}
+
+.filtros h1 {
+    font-family: 'Montserrat';
+}
+
+.tasksList{
+    width: 100%;
+}
+
+
+.tasksList .list{
+    display: flex;
+    gap: 6%;
+    flex-direction: column;
+}
+
+.tasksList .list h2{
+    font-family: "PlayFair";
+}
+
+.containerModalDelete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+}
+
+.containerModalCreate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    height: 40vh;
+    margin: 3% 0%;
+    gap: 10%;
+}
+
+.containerModalCreate input{
+    border: 1px solid #A9A8A8;
+    border-radius: 10px;
+    padding: 0% 1%;
+}
+
+.containerModalCreate .descriptionContainer textarea{
+    border: 1px solid #A9A8A8;
+    border-radius: 10px;
+    padding: 1% 1%;
+    outline: none;
+}
+
+.containerModalCreate .labelTaskView {
+    border: 1px solid #A9A8A8;
+    border-radius: 10px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 0% 1%;
+}
+
+.containerModalCreate .descriptionContainer .labelTaskView {
+    height: 100%;
+    display: flex;
+    align-items: start;
+    padding: 1% 1%;
+}
+
+.containerModalCreate .descriptionContainer .labelTaskView textarea{
+    border: 0;
+    outline: none;
+}
+
+.containerModalCreate .labelTaskView input{
+    border: 0;
+}
+
+.containerModalCreate .descriptionContainer{
+    height: 85%;
+    width: 83%;
+}
+
+.containerModalCreate .description{
+    height: 100%;
+    width: 100%;
+    resize: none;
+}
+
+.containerModalCreate p{
+    margin: 0;
+    font-family: 'ProductSans';
+    font-weight: 400;
+}
+
+.containerModalCreate .containerDateTag {
+    display: flex;
+    justify-content: space-between;
+    width: 83%;
+}
+
+.containerModalCreate .containerDateTag div{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    
+}
+.containerModalCreate .containerDateTag div div{
+    border: 1px solid #A9A8A8;
+    border-radius: 10px;
+    padding: 0% 2%;   
+    height: 100%;
+    width: 100%;
+}
+
+.containerModalCreate .containerDateTag label{
+    width: 100%;
+    display: flex;
+    align-items: center;  
+    gap: 2%;
+}
+
+.containerModalCreate .containerDateTag label span{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.containerModalCreate .containerDateTag div input{
+    width: 100%;
+    border: 0;
+}
+
+.containerModalCreate .containerDateTag div select{
+    width: 100%;
+    border: 0;
+}
+
+
+.containerModalDelete div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerModalDelete .iconAlert{
+    font-size: 48px;
+}

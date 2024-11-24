@@ -1,0 +1,22 @@
+.checkbox-group {
+    margin-bottom: 20px;
+}
+
+.checkbox-group h2 {
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.checkbox-option {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+  
+.checkbox-option label {
+    font-family: 'ProductSans';
+    font-size: 20px; 
+    margin-left: 20px;
+}
