@@ -62,7 +62,9 @@ const CadastroHeader = (props) => {
                 <span>O match perfeito para o dia dos seus sonhos.</span>
               </div>
             ) : (
-              <p>Conecte-se com casais e construa celebrações memoráveis.</p>
+              <div className={headerStyles.containerSub}>
+                <span>Conecte-se com casais e construa celebrações memoráveis.</span>
+              </div>
             )}
             <div className={progressBarStyle.progress_bar_border}>
               <div

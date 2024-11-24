@@ -58,23 +58,25 @@ const Fase2Assessor = (props) => {
           <div className={styles.nome}>
             <span>Qual seu nome?</span>
           </div>
-          <div className={styles.inputnome}>
-            <input
-              type="text"
-              placeholder="Nome"
-              defaultValue={props.usuario.nome}
-              ref={nome}
-              onInput={isNomeValid}
-            />
-          </div>
-          <div className={styles.inputnome}>
-            <input
-              type="text"
-              placeholder="Sobrenome"
-              defaultValue={props.usuario.sobrenome}
-              ref={sobrenome}
-              onInput={isSobrenomeValid}
-            />
+          <div className={styles.inputs}>
+            <div className={styles.inputnome}>
+              <input
+                type="text"
+                placeholder="Nome"
+                defaultValue={props.usuario.nome}
+                ref={nome}
+                onInput={isNomeValid}
+              />
+            </div>
+            <div className={styles.inputnome}>
+              <input
+                type="text"
+                placeholder="Sobrenome"
+                defaultValue={props.usuario.sobrenome}
+                ref={sobrenome}
+                onInput={isSobrenomeValid}
+              />
+            </div>
           </div>
         </div>
         <div className={styles.fase2_button}>
