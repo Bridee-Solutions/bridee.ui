@@ -84,11 +84,20 @@
     justify-content: center;
 }
 
+.containerBemvindAssessor { 
+  font-family: "Playfair";
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 100%;
+
+}
 .containerBemvind > span {
   font-family: "Playfair";
   font-size: 1.1rem;
   font-weight: 500;
   white-space: nowrap;
+  text-align: center;
+
 
 }
 

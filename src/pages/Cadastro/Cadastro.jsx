@@ -41,7 +41,7 @@ const Cadastro = () => {
 
   return (
     <div className={loginStyles.login_body}>
-      <LateralImage />
+      <LateralImage tipo={usuario.current?.tipo} />{" "}
       <div className={loginStyles.login_container}>
         <CadastroHeader
           isNotFirst={!fases.current.fase1}
@@ -51,6 +51,7 @@ const Cadastro = () => {
           fases={fases.current}
         />
         <div className={loginStyles.login_content}>{fase}</div>
+        
       </div>
     </div>
   );

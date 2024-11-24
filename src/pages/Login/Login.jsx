@@ -91,107 +91,106 @@ const Login = () => {
 
   return (
     <div className={styles.login_body}>
-    
-        <LateralImage />
-        <div className={styles.login_container}>
-          <div className={styles.login_header}>
-            <div className={styles.login_header_icon}>
-              <FaLongArrowAltLeft onClick={() => navigate("/")} />
-            </div>
-            <div className={styles.login_header_text}>
-              <p>Não tem uma conta?</p>{" "}
-              {tipo.current == "assessor" ? (
-                <Link to={`/cadastrar?tipo=assessor`}>Cadastre-se</Link>
-              ) : (
-                <Link to={`/cadastrar`}>Cadastre-se</Link>
-              )}
-            </div>
+      <LateralImage tipo={tipo.current}/>
+      <div className={styles.login_container}>
+        <div className={styles.login_header}>
+          <div className={styles.login_header_icon}>
+            <FaLongArrowAltLeft onClick={() => navigate("/")} />
           </div>
-          <div className={styles.login_content}>
-            <div className={styles.login_content_header}>
-              <div className={styles.titulo}>
-                <span>
-                  bridee<b>.</b>
-                </span>
-              </div>
-              <div className={styles.subtitulo}>
-                <div className={styles.contSub}>
-                  {tipo.current == "assessor" ? (
-                    <p>
-                      Conecte-se com casais e construa celebrações memoráveis.
-                    </p>
-                  ) : (
-                    <p>O match perfeito para o dia dos seus sonhos</p>
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className={styles.login_content_body}>
-              {tipo.current == "assessor" ? (
-                <h4>
-                  Entre para atualizar seu perfil de assessor e colaborar com
-                  clientes.
-                </h4>
-              ) : (
-                <div className={styles.containerBemvind}>
-                  <span>Bem vindo de volta!</span>
-                </div>
-              )}
-              <div className={styles.login_inputs}>
-                <div style={{ position: "relative" }}>
-                  <CiMail className={styles.login_inputs_icon} />
-                  <input type="text" ref={email} />
-                </div>
-                <div style={{ position: "relative" }}>
-                  <CiLock className={styles.login_inputs_icon} />
-                  <input type="password" ref={senha} />
-                </div>
-              </div>
-              <div className={styles.login_content_button}>
-                <div className={styles.containerSenha}>
-                  <div className={styles.containerEsquece}>
-                    <div className={styles.senhaesq}>
-                      <Link to={`/recuperar-senha`} ref={esqueceuSenhaElement}>
-                        Esqueceu a senha?
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.containerBotao}>
-                  <div className={styles.conteBt}>
-                    <button onClick={authenticate}>Entrar</button>
-                  </div>
-                </div>
-                <div className={styles.ou}>
-                  <span>ou</span>
-                </div>
-                <div className={styles.google_button}>
-                  <GoogleLogin
-                    onSuccess={googleSuccessLogin}
-                    onError={errorMessage}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.login_content_footer}>
+          <div className={styles.login_header_text}>
+            <p>Não tem uma conta?</p>{" "}
             {tipo.current == "assessor" ? (
-              <div>
-                <p>Você é um casal?</p>
-                <Link onClick={alterarLogin}>Clique aqui.</Link>
-              </div>
+              <Link to={`/cadastrar?tipo=assessor`}>Cadastre-se</Link>
             ) : (
-              <div>
-                <p>Você é um assessor?</p>
-                <Link onClick={alterarLogin}>Clique aqui.</Link>
-              </div>
+              <Link to={`/cadastrar`}>Cadastre-se</Link>
             )}
           </div>
         </div>
-    
+        <div className={styles.login_content}>
+          <div className={styles.login_content_header}>
+            <div className={styles.titulo}>
+              <span>
+                bridee<b>.</b>
+              </span>
+            </div>
+            <div className={styles.subtitulo}>
+              <div className={styles.contSub}>
+                {tipo.current == "assessor" ? (
+                  <p>
+                    Conecte-se com casais e construa celebrações memoráveis.
+                  </p>
+                ) : (
+                  <p>O match perfeito para o dia dos seus sonhos.</p>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className={styles.login_content_body}>
+            {tipo.current == "assessor" ? (
+              <div className={styles.containerBemvind}>
+                <span>
+                Atualize seu perfil de assessor e conecte-se com clientes.
+                </span>
+              </div>
+            ) : (
+              <div className={styles.containerBemvind}>
+                <span>Bem vindo de volta!</span>
+              </div>
+            )}
+            <div className={styles.login_inputs}>
+              <div style={{ position: "relative" }}>
+                <CiMail className={styles.login_inputs_icon} />
+                <input type="text" ref={email} />
+              </div>
+              <div style={{ position: "relative" }}>
+                <CiLock className={styles.login_inputs_icon} />
+                <input type="password" ref={senha} />
+              </div>
+            </div>
+            <div className={styles.login_content_button}>
+              <div className={styles.containerSenha}>
+                <div className={styles.containerEsquece}>
+                  <div className={styles.senhaesq}>
+                    <Link to={`/recuperar-senha`} ref={esqueceuSenhaElement}>
+                      Esqueceu a senha?
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.containerBotao}>
+                <div className={styles.conteBt}>
+                  <button onClick={authenticate}>Entrar</button>
+                </div>
+              </div>
+              <div className={styles.ou}>
+                <span>ou</span>
+              </div>
+              <div className={styles.google_button}>
+                <GoogleLogin
+                  onSuccess={googleSuccessLogin}
+                  onError={errorMessage}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.login_content_footer}>
+          {tipo.current == "assessor" ? (
+            <div>
+              <p>Você é um casal?</p>
+              <Link onClick={alterarLogin}>Clique aqui.</Link>
+            </div>
+          ) : (
+            <div>
+              <p>Você é um assessor?</p>
+              <Link onClick={alterarLogin}>Clique aqui.</Link>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
-  )
+  );
 };
 
 export default Login;

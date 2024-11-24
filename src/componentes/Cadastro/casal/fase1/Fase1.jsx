@@ -146,10 +146,10 @@ const Fase1 = (props) => {
             <span>Crie uma conta e comece a planejar seu casamento!</span>
           </div>
         ) : (
-          <div className={fase1Style.containerBemvind}>
+          <div className={fase1Style.containerBemvindAssessor}>
             <span>
-              Crie uma conta gratuita para desbloquear seu painel personalizado
-              de planejamento de eventos.
+            Crie uma conta gratuita para planejar seus eventos de forma personalizada.
+
             </span>
           </div>
         )}

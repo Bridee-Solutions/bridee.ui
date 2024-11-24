@@ -17,6 +17,7 @@
 }
 
 .fase2_body{
+    border: 2px solid red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,12 +25,13 @@
     height: 100%;
 }
 
-.fase2_body p{
-    font-size: 20px;
+.nome{
+    font-size: 1rem;
+    font-family: "Playfair Display";
 }
 
 .fase2_body input{
-    height: 25%;
+    height: 45%;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.39);
     padding-left: 0.6rem;
