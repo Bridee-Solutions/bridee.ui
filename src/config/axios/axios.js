@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // TODO: Usar variável de ambiente.
-const baseUrl = `https://bridee-api-aje6e7eqg9c3febn.eastus-01.azurewebsites.net/api`;
+const baseUrl = `http://localhost:8080/api`;
 export const Api = axios.create({
     baseURL: baseUrl,
     withCredentials: true

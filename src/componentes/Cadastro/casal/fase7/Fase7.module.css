@@ -9,18 +9,23 @@
 .fase7_title{
     height: 20%;
     display: flex;
+    font-family: "Playfair Display", serif;
     align-items: center;
+    font-size: 1.3rem;
     justify-content: center;
 }
 
 .fase7_body{
     max-height: 70%;
-    width: 60%;
+    width: 67%;
     text-align: justify;
     background-color: white;
     padding: 2%;
     overflow-y: scroll;
     border-radius: 15px;
+    font-size: 0.9rem;
+    box-shadow: 0px 1px 8.4px -4px rgba(0, 0, 0, 0.25);
+    font-family: "Montserrat";
 }
 
 .fase7_body::-webkit-scrollbar{
@@ -28,7 +33,7 @@
 }
 
 .fase7_body::-webkit-scrollbar-track{
-    background-color: #ED9C9B;
+    background-color: #C6524E;
     border-radius: 15px;
 }
 
@@ -46,12 +51,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
-
+    font-family: "Montserrat";
+font-size: 0.9rem;
 }
 
 .fase7_checkbox input{
     accent-color: #c6524e;
-    width: 5%;
+    width: 3%;
+    
 }
 
 .fase7_button{
@@ -60,7 +67,9 @@
     color: white;
     border: none;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
+    font-family: "Montserrat";
+
     margin: 3% 0;
 }

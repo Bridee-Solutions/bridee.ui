@@ -53,15 +53,14 @@ const CadastroHeader = (props) => {
             <FaLongArrowAltLeft onClick={faseAnterior} />
           </div>
           {/* <span>Voltar</span> */}
-          <div
-            className={loginStyles.login_header_text}
-            style={{ flexDirection: "column", height: "14vh" }}
-          >
-            <h1>bridee</h1>
+          <div className={headerStyles.login_header_text}>
+            <div className={headerStyles.titulo}>
+              <span>bridee</span><span style={{color: "#C6524E"}}>.</span>
+            </div>
             {props.usuario.tipo == "casal" ? (
-              <p style={{ margin: "1% 0" }}>
-                O match perfeito para o dia dos seus sonhos.
-              </p>
+              <div className={headerStyles.containerSub}>
+                <span>O match perfeito para o dia dos seus sonhos.</span>
+              </div>
             ) : (
               <p>Conecte-se com casais e construa celebrações memoráveis.</p>
             )}

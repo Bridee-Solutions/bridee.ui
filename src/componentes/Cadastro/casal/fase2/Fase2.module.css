@@ -6,7 +6,6 @@
     align-items: center;
     justify-content: space-around;
     text-align: center;
-    border: 2px solid red;
 }
 
 .fase2_image { 
@@ -24,13 +23,14 @@
 
 .vamosCont {
 width: 100%;
-border: 2px solid red;
-
+height: 10vh;
+display: flex;
+align-items: center;
 }
 
 .vamos > span {
 font-family: "Playfair";
-font-size: 2.3rem;
+font-size: 2.5rem;
 
 }
 
@@ -39,19 +39,16 @@ font-size: 2.3rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid yellow;
 }
 
 .fase2_image span{
     font-size: 20px;
     font-weight: 600;
     
-    border: 2px solid purple;
 }
 
 .fase2_content{
     width: 100%;
-    border: 2px solid yellow;
     
 }
 
@@ -71,9 +68,11 @@ font-size: 2.3rem;
 }
 
 .containerDesc {
-    border: 2px red solid;
     width: 100%;
-   
+    height: 20vh;
+    display: flex;
+    align-items: center;
+
 }
 
 .containerDesc > span {

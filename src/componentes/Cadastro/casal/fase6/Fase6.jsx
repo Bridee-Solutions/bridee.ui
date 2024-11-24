@@ -115,7 +115,7 @@ const Fase6 = (props) => {
                         </div>
                         <div className={styles.fase6_content_input_radio}>
                             <input type="radio" ref={radio7} onInput={(e) => definirRadiosAtivo(e.target)}/>
-                            <label htmlFor="">Ainda não temos certeza</label>
+                            <label htmlFor="" className={styles.noSure}>Ainda não temos certeza</label>
                         </div>
                     </div>
                 </div>
