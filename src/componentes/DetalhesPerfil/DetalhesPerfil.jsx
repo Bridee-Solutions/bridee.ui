@@ -16,13 +16,13 @@ const DetalhesPerfil = ({ selectedCard, handleBack, cardsData }) => {
             </div>
           </div>
           <div className={styles.containerImagens}>
-            <ImageGallery images={selectedCard?.images || []} />
+            <ImageGallery images={selectedCard?.imagens} />
           </div>
           <div className={styles.todoconteudo}>
             <div className={styles.esquerda}>
               <div className={styles.containerApresent}>
-                {cardsData.length > 0 && (
-                  <FAQSection perfilGeral={cardsData[0]} selectedCard={selectedCard} />
+                {cardsData && (
+                  <FAQSection perfilGeral={cardsData} selectedCard={selectedCard} />
                 )}
               </div>
             </div>

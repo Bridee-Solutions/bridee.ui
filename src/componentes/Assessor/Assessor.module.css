@@ -42,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    height: 10vh;
+    height: 100%;
   }
   
   .search_input_container{
@@ -93,3 +93,84 @@
   .form_group { 
     padding-bottom: 0.4rem;
   }
+
+  .assessor_modal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .assessor_modal div{
+    cursor: pointer;
+    padding: 2% 1%;
+    margin-top: 1%;
+    border: 1px solid rgba(0, 0, 0, 0.349);
+    border-radius: 10px;
+  }
+
+  .chosen_category{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #f9f8f3;
+    border-radius: 15px;
+    padding: 1.5rem 0.5rem;
+    border: #eeeeee solid 2px;
+    justify-content: center;
+    width: 23%;
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/painel/chosen.png");
+  }
+
+  .chosen_header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .chosen_header div:first-child{
+    width: 60%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 1% 3%;
+    background-color: #DD7B78;
+  }
+  
+  .chosen_body{
+    display: flex;
+    height: 100px;
+    align-items: end;
+  }
+  
+  .chosen_body div{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chosen_body_category{
+    font-size: 14px;
+  }
+  
+  .chosen_body_preco{
+    font-size: 14px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  .chosen_body_preco input{
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  .chosen_body_preco input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  

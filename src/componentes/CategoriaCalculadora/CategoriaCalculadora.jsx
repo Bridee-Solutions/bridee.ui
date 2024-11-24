@@ -4,7 +4,7 @@ import "./CategoriaCalculadora.module.css";
 import "../../index.css";
 import add from "../../assets/calculadora/add.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   faChevronDown,
@@ -12,60 +12,92 @@ import {
   faTrash,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
+import { request } from "../../config/axios/axios";
 
 function CategoriaCalc({
   categoria,
   catIndex,
   toggleCategoria,
-  handleInputChange,
-  handleTituloChange,
-  itemEditando,
-  setItemEditando,
-  adicionarItem,
-  removerItem,
   categorias,
   setCategorias,
-  removerCategoria,
+  itensOrcamentoRequest
 }) {
-  const [categoriaEditando, setCategoriaEditando] = useState(null);
-
-  const iniciarEdicaoCategoria = () => {
-    setCategoriaEditando(catIndex);
-  };
-
-  const finalizarEdicaoCategoria = () => {
-    setCategoriaEditando(null);
-  };
 
   // Estado para controlar se houve modificação
   const [isModified, setIsModified] = useState(false);
-
+  const [category, setCategory] = useState(categoria)
   const [isCategoriaModified, setIsCategoriaModified] = useState(false);
 
+  const adicionarItem = () => {
+    category.custos.push({
+      id: null,
+      nome: "Novo item",
+      precoAtual: 0,
+    });
+    setIsModified(true)
+    setCategorias({...categorias})    
+  };
+
+  function removerItem(itemIndex) {;
+    const custoRemovido = category.custos.splice(itemIndex, 1);
+    if(custoRemovido[0].id != undefined){    
+      request.deleteCusto(custoRemovido[0].id)
+    }
+    setCategorias({...categorias})
+  }
+
+ const removerCategoria = (index) => {
+  const itemRemovido = category.itemOrcamentos.splice(index, 1);
+  if(itemRemovido[0].id != undefined){    
+    request.deleteItemOrcamento(itemRemovido[0].id)
+  }
+  setCategorias({...categorias})   
+};  
+
   const handleCategoriaNomeChange = (e) => {
-    const { value } = e.target;
-    setIsModified(true);
-    const novasCategorias = [...categorias];
-    novasCategorias[catIndex].nome = value; 
-    setCategorias(novasCategorias); 
+    category.tipo = e.target.value;
+    setIsCategoriaModified(true);
+    setCategorias({...categorias})
   };
 
   // Função para verificar alterações nos campos de entrada
-  const handleModifiedChange = (e, catIndex, itemIndex) => {
-    handleInputChange(e, catIndex, itemIndex);
-    setIsModified(true); 
+  const handleModifiedChange = (item, value) => {
+    item.precoAtual = Number(value)
+    setIsModified(true)
+    setCategorias({...categorias})
   };
 
-  const handleTituloModifiedChange = (e, catIndex, itemIndex) => {
-    handleTituloChange(e, catIndex, itemIndex);
-    setIsModified(true);
+  const handleTituloModifiedChange = (item, value) => {
+    item.nome = value;    
+    setIsModified(true)
+    setCategorias({...categorias})
   };
 
-  // Define o estado como `false` ao salvar as alterações
   const salvarAlteracoes = () => {
-    // adicionar lógica para salvar as alterações se necessário
-    setIsModified(false); // Reseta o estado após salvar
+    setIsModified(false);
+    setIsCategoriaModified(false)
+    request.saveItensOrcamentos(itensOrcamentoRequest).then(response => {
+      const item = {...response.data[0], aberta: true, icon: categoria.icon}
+      setCategory(item)
+    })
   };
+
+  useEffect(() => {
+    itensOrcamentoRequest = [{
+      id: category.id,
+      tipo: category.tipo,
+      casalId: 2,
+      custos: category.custos?.map(custo => {
+        return {
+          id: custo.id,
+          nome: custo.nome,
+          precoAtual: custo.precoAtual
+        }
+      })
+    }]
+    
+  }, [categorias])
+
   return (
     <div className={stylesCalc.categoria}>
       <div className={stylesCalc.cabecalhoCategoria}>
@@ -73,9 +105,9 @@ function CategoriaCalc({
           <div className={stylesCalc.direita}>
             <button
               className={stylesCalc.setaCategoria}
-              onClick={() => toggleCategoria(catIndex)}
+              onClick={() => toggleCategoria(category)}
             >
-              {categoria.aberta ? (
+              {category.aberta ? (
                 <FontAwesomeIcon icon={faChevronUp} />
               ) : (
                 <FontAwesomeIcon icon={faChevronDown} />
@@ -83,31 +115,17 @@ function CategoriaCalc({
             </button>
 
             <div className={stylesCalc.iconeCategoria}>
-              <img src={categoria.icon} alt="Ícone da Categoria" />
+              <img src={category.icon} alt="Ícone da Categoria" />
             </div>
 
             <div className={stylesCalc.categoriaNome}>
-              {categoriaEditando === catIndex ? (
                 <input
                   type="text"
-                  value={categoria.nome}
+                  defaultValue={category.tipo}
+                  readOnly={category.default}
                   onChange={handleCategoriaNomeChange}
-                  onBlur={finalizarEdicaoCategoria}
-                  onKeyPress={(e) => {
-                    if (e.key === "Enter") {
-                      finalizarEdicaoCategoria(); 
-                    }
-                  }}
                   className={`${stylesCalc.inputTitulo}`}
                 />
-              ) : (
-                <span
-                  onClick={iniciarEdicaoCategoria}
-                  className={stylesCalc.titulo}
-                >
-                  {categoria.nome}
-                </span>
-              )}
             </div>
           </div>
 
@@ -119,7 +137,7 @@ function CategoriaCalc({
             />
           </div>
         </div>
-        {categoria.aberta && (
+        {category.aberta && (
           <div className={stylesCalc.containerLegenda}>
             <div>
               <span>Titulo</span>
@@ -131,92 +149,40 @@ function CategoriaCalc({
         )}
       </div>
 
-      {categoria.aberta && (
+      {category.aberta && (
         <>
-          {categoria.itens.map((item, itemIndex) => (
+          {category.custos?.map((item, itemIndex) => (
             <div key={`item-${itemIndex}`} className={stylesCalc.item}>
               <div className={stylesCalc.containerItem}>
                 <div className={stylesCalc.itemEsquerda}>
-                  {itemEditando.catIndex === catIndex &&
-                  itemEditando.itemIndex === itemIndex ? (
-                    // Campo de texto para edição do título
                     <input
                       type="text"
                       maxLength={42}
-                      value={item.titulo}
+                      defaultValue={item.nome}
                       onChange={(e) =>
-                        handleTituloModifiedChange(e, catIndex, itemIndex)
+                        handleTituloModifiedChange(item, e.target.value)
                       }
-                      onBlur={() =>
-                        setItemEditando({ catIndex: null, itemIndex: null })
-                      } // Sai do modo de edição ao desfocar
                       className={`${stylesCalc.inputTitulo} ${stylesCalc.titulo}`}
                     />
-                  ) : (
-                    // Exibe o título e habilita o modo de edição ao clicar
-                    <span
-                      onClick={() => setItemEditando({ catIndex, itemIndex })}
-                      className={`${stylesCalc.titulo} ${
-                        itemEditando.catIndex === catIndex &&
-                        itemEditando.itemIndex === itemIndex
-                          ? stylesCalc.editando
-                          : ""
-                      }`}
-                    >
-                      {item.titulo}
-                    </span>
-                  )}
                 </div>
 
                 <div className={stylesCalc.inputBox}>
                   <div className={stylesCalc.containerDinheiro}>
                     <span>R$</span>
-                    {itemEditando.catIndex === catIndex &&
-                    itemEditando.itemIndex === itemIndex &&
-                    itemEditando.field === "custo" ? (
                       <input
                         className={`${stylesCalc.inputBoxEdit} ${stylesCalc.inputCusto}`}
-                        value={item.custo}
+                        defaultValue={item.precoAtual}
                         maxLength={8}
                         type="number"
                         onChange={(e) =>
-                          handleModifiedChange(e, catIndex, itemIndex)
-                        }
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") {
-                            setItemEditando({
-                              catIndex: null,
-                              itemIndex: null,
-                              field: null,
-                            });
-                          }
-                        }}
-                        onBlur={() =>
-                          setItemEditando({
-                            catIndex: null,
-                            itemIndex: null,
-                            field: null,
-                          })
+                          handleModifiedChange(item, e.target.value)
                         }
                       />
-                    ) : (
-                      <span
-                        onClick={() =>
-                          setItemEditando({
-                            catIndex,
-                            itemIndex,
-                            field: "custo",
-                          })
-                        }
-                      >
-                        {item.custo}
-                      </span>
-                    )}
                   </div>
                   <FontAwesomeIcon
                     icon={faTrash}
                     className={stylesCalc.iconeLixeira}
-                    onClick={() => removerItem(catIndex, itemIndex)}
+                    onClick={() => removerItem(itemIndex)}
                   />
                 </div>
               </div>
@@ -225,7 +191,7 @@ function CategoriaCalc({
 
           <div
             className={stylesCalc.adicionarItem}
-            onClick={() => adicionarItem(catIndex)}
+            onClick={() => adicionarItem()}
           >
             <img src={add} alt="Adicionar item" />
             <span>Adicionar item</span>
@@ -234,7 +200,7 @@ function CategoriaCalc({
       )}
 
 
-{categoria.aberta && ( 
+{category.aberta && ( 
       <div className={stylesCalc.salvar}>
         {(isModified || isCategoriaModified) && (
           <button

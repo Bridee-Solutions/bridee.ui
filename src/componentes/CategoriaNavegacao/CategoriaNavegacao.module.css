@@ -7,7 +7,7 @@
   
   
 .containerTitulo {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,6 +19,16 @@
     font-family: "Playfair";
     font-size: 1.9rem;
     font-weight: 700;
+    display: flex;
+    width: 75%;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .titulo_seta{
+    display: flex;
+    justify-content: start;
+    width: 35%;
   }
 
   
@@ -31,17 +41,37 @@
 
   
 .containerCards {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 3rem;
-  }
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
 
-  .cadaCardLocal { 
-    grid-template-columns: repeat(4, 1fr);
-    display: grid;
-    width: 95%;
-    gap: 1rem;
-    justify-items: center;
+.cadaCardLocal { 
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  width: 95%;
+  gap: 1rem;
+  justify-items: center;
 
-  }
+}
+
+.setaVolta { 
+  cursor: pointer;
+  color: #DD7B78;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: start;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  align-items: center;
+
+}
+
+.voltar {
+  font-family: "Montserrat";
+  color: black;
+  font-size: 1.1rem;
+  padding-left: 0.6rem;
+
+}

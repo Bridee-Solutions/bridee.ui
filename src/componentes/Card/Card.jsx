@@ -17,11 +17,13 @@ const Card = ({
   };
 
   const capitalizarPrimeirasLetras = (texto) => {
-    return texto
-      .toLowerCase()
-      .split(" ")
-      .map((palavra) => palavra.charAt(0).toUpperCase() + palavra.slice(1))
-      .join(" ");
+    if(texto != undefined){
+      return texto
+        .toLowerCase()
+        .split(" ")
+        .map((palavra) => palavra.charAt(0).toUpperCase() + palavra.slice(1))
+        .join(" ");
+    }
   };
 
   const tituloFormatado =
