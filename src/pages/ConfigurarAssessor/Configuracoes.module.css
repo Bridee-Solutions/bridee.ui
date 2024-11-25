@@ -3,6 +3,9 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
 }
 
 .centro {
@@ -71,8 +74,9 @@
   }
   
   .icone {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #eb9b9a;
+    padding-left: 1.5rem;
   }
 
   .titulo { 

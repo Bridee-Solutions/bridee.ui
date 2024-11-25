@@ -4,7 +4,8 @@ import Navbar from "../../componentes/Navbar/Navbar";
 import Footer from "../../componentes/LandingPage/Footer/Footer";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import SobreNegocio from "../../componentes/SobreNegocio/SobreNegocio";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandshake, faUser } from '@fortawesome/free-solid-svg-icons';
 const Configuracoes = () => {
   return (
     <div>
@@ -17,12 +18,12 @@ const Configuracoes = () => {
             </div>
             <div className={styles.opcoesConta}>
               <div className={styles.itemConta}>
-                <span className={styles.icone}>🤝</span>
-                <span>Meu negócio</span>
+              <FontAwesomeIcon icon={faHandshake} className={styles.icone} style={{ color: '#EB9B9A' }} />
+              <span>Meu negócio</span>
               </div>
               <div className={styles.itemConta}>
-                <span className={styles.icone}>👤</span>
-                <span>Contato</span>
+              <FontAwesomeIcon icon={faUser} className={styles.icone} style={{ color: '#EB9B9A' }} />
+              <span>Contato</span>
               </div>
             </div>
           </div>

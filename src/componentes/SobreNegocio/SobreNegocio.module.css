@@ -8,6 +8,8 @@
 .containerOpcao {
   display: flex;
   justify-content: center;
+  font-size: 0.9rem;
+
 }
 
 .containerOpcao input {
@@ -28,16 +30,20 @@
 .containerNc {
   display: flex;
   width: 90%;
+
 }
 
 .vs {
   display: flex;
   width: 90%;
+
 }
 
 .vs span {
   padding-right: 1.5rem;
   width: 22%;
+  font-size: 0.9rem;
+
 }
 
 .inputvs {
@@ -47,6 +53,8 @@
   border-radius: 5px;
   width: 60%;
   font-family: "Montserrat";
+  font-size: 0.9rem;
+
 }
 
 .containerBotao {
@@ -54,17 +62,22 @@
   justify-content: center;
   align-items: center;
   height: 10vh;
+
 }
 
 .opcoes {
   display: flex;
   flex-direction: column;
+  font-size: 0.9rem;
+
 }
 .opcoeswrap {
   display: flex;
   flex-wrap: wrap;
   width: 90%;
   gap: 0.5rem;
+  font-size: 0.9rem;
+
 }
 
 .opcoeswrap label {
@@ -74,6 +87,7 @@
 .opcoesRadio {
   display: flex;
   gap: 1rem;
+  font-size: 0.9rem;
 
   width: 90%;
 }
