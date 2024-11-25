@@ -1,0 +1,92 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Montserrat";
+}
+
+.containerOpcao {
+  display: flex;
+  justify-content: center;
+}
+
+.containerOpcao input {
+  border: #999999 1px solid;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  height: 5vh;
+  width: 70%;
+}
+
+.containerOpcao span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1.5rem;
+}
+
+.containerNc {
+  display: flex;
+  width: 90%;
+}
+
+.vs {
+  display: flex;
+  width: 90%;
+}
+
+.vs span {
+  padding-right: 1.5rem;
+  width: 22%;
+}
+
+.inputvs {
+  resize: none;
+  outline: none;
+  border: #999999 1px solid;
+  border-radius: 5px;
+  width: 60%;
+  font-family: "Montserrat";
+}
+
+.containerBotao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: column;
+}
+.opcoeswrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  gap: 0.5rem;
+}
+
+.opcoeswrap label {
+  width: 18vw;
+}
+
+.opcoesRadio {
+  display: flex;
+  gap: 1rem;
+
+  width: 90%;
+}
+
+.containerRadio {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.linha {
+    height: 2px;
+    background-color: #da2424; 
+    width: 80%; 
+  }
