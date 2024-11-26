@@ -18,6 +18,7 @@
   import SimpleBar from 'simplebar-react';
   import 'simplebar-react/dist/simplebar.min.css';
   import Fornecedores from './pages/Fornecedores/Fornecedores';
+  import Configuracoes from './pages/ConfiguraçõesDashboard/configuracoes';
   function App() {
 
     return (
@@ -38,6 +39,7 @@
           <Route path='/assessores' element={<Assessores />} />
           <Route path='/locais' element={<Locais />} />
           <Route path='/fornecedores' element={<Fornecedores />} />
+          <Route path='/configuracoes' element={<Configuracoes />} />
         </Routes>
       </SimpleBar>
       <ToastContainer autoClose={2000}/>
