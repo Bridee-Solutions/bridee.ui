@@ -3,34 +3,35 @@ import styles from "./SobreNegocio.module.css";
 import LinkButton from "../LinkButton/LinkButton";
 
 const SobreNegocio = () => {
-  const [formData, setFormData] = useState({
-    nomeComercial: "",
-    visaoGeral: "",
-    servicos: "",
-    descricao: "",
-    tamanhosTrabalhados: [],
-    organizaReligiosos: "",
-    listaFornecedores: "",
-    casamentosEspeciais: "",
-    formasPagamento: [],
-  });
+    const [formData, setFormData] = useState({
+        nomeComercial: "",
+        visaoGeral: "",
+        servicos: "",
+        descricao: "",
+        tamanhosTrabalhados: [],
+        organizaReligiosos: "",
+        estilosCasamento: [],
+        formasPagamento: [],
+      });
 
+ 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === "checkbox") {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: checked
-          ? [...(prev[name] || []), value]
-          : prev[name].filter((item) => item !== value),
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
+    setFormData((prev) => {
+      if (type === "checkbox") {
+        return {
+          ...prev,
+          [name]: checked
+            ? [...(prev[name] || []), value]
+            : prev[name].filter((item) => item !== value),
+        };
+      } else if (type === "radio") {
+        return { ...prev, [name]: value };
+      } else {
+        return { ...prev, [name]: value };
+      }
+    });
   };
 
   const handleSubmit = (e) => {
@@ -38,7 +39,7 @@ const SobreNegocio = () => {
     console.log("Dados do formulário:", formData);
   };
 
-  return (
+   return (
     <div className={styles.colunaDireita}>
       <form onSubmit={handleSubmit} className={styles.formulario}>
         {/* Nome Comercial */}
@@ -71,7 +72,7 @@ const SobreNegocio = () => {
             <span>Serviços oferecidos:</span>
             <textarea
               type="text"
-              name="visaoGeral"
+              name="servicos"
               value={formData.servicos}
               onChange={handleChange}
               className={styles.inputvs}
@@ -83,7 +84,7 @@ const SobreNegocio = () => {
             <span>Descreva resumidamente a sua forma de trabalho:</span>
             <textarea
               type="text"
-              name="visaoGeral"
+              name="descricao"
               value={formData.descricao}
               onChange={handleChange}
               className={styles.inputvs}
