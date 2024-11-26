@@ -1,0 +1,103 @@
+.uploaderContainer {
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .containerOpcao {
+    padding-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+  }
+  .containerNc { 
+    width: 35%;
+    height: 10vh;
+  }
+
+  .containerImages4 {
+    width: 35%;
+    height: 10vh;
+  } 
+
+  .regula {
+    width: 90%;
+    display: flex;
+    font-size: 0.9rem;
+
+  }
+
+  .titulogrnd { 
+    font-weight: 700;
+    font-size: 1rem;
+    width: 60%;
+    font-family: "Montserrat";
+    
+  }
+.legendagrnd {
+    font-size: 0.8rem;
+    font-family: "Montserrat";
+ color: #939393;
+}
+.sub {
+    color: #939393;
+} 
+
+.containerimage {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+} 
+ .uploadBox, .uploadBoxSmall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #dcdcdc;
+    border-radius: 8px;
+    background-color: #fefcf9;
+    cursor: pointer;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .uploadBox {
+    width: 20vw;
+    height: 30vh;
+
+  }
+  
+  .uploadBoxSmall {
+    width: 13vw;
+    height: 20vh;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+  
+  .previewImage, .previewImageSmall {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .additionalImagesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 65%;
+  }
+  
+  .arquivo { 
+    font-weight: 700;
+    font-size: 0.8rem;
+    width: 60%;
+    font-family: "Montserrat";
+  }
+
+  .legenda { 
+    font-size: 0.6rem;
+    font-family: "Montserrat";
+ color: #939393;
+  }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Contato.module.css";
 import LinkButton from "../LinkButton/LinkButton";
+import ImageUploader from "../ImageUploader/ImageUploader";
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -78,6 +79,10 @@ const Contato = () => {
           />
         </div>
       </div>
+
+      
+          <ImageUploader />
+      
 
       <div className={styles.containerBotao}>
         <LinkButton label="Salvar" />
