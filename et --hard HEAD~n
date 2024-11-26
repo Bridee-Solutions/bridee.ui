@@ -1,0 +1,225 @@
+[33mcommit 7ce3232cc8f68c9129e6c3b157d73a1e849400d9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdesenvolvimento[m[33m, [m[1;31morigin/desenvolvimento[m[33m)[m
+Author: Giovanna França <giovi.g@outlook.com>
+Date:   Mon Nov 25 22:29:54 2024 -0300
+
+    criando layout para seções
+
+[33mcommit 58719ba784184f318eb8392eb1cfaed10d20dd7f[m
+Merge: a73dd79 f37da53
+Author: Ian Silva Santos <126678453+ian15963@users.noreply.github.com>
+Date:   Sun Nov 24 09:21:56 2024 -0300
+
+    Merge pull request #29 from Bridee-Solutions/merge/dev-integracao-calc
+    
+    Merge/dev integracao calc
+
+[33mcommit f37da53cb30efd4f48276f5efb5171969fb84769[m[33m ([m[1;31morigin/merge/dev-integracao-calc[m[33m)[m
+Merge: a73dd79 b1da0eb
+Author: Ian Silva Santos <ian.santos@sptech.school>
+Date:   Sun Nov 24 09:21:21 2024 -0300
+
+    Merge branch 'feature/integracao-calculadora' into merge/dev-integracao-calc
+
+[33mcommit a73dd791a46696e818407538ce69bfe5c6a1fde0[m
+Merge: a75fd76 30a761c
+Author: Ian Silva Santos <126678453+ian15963@users.noreply.github.com>
+Date:   Sat Nov 23 21:46:15 2024 -0300
+
+    Merge pull request #27 from Bridee-Solutions/merge/dev-lista-tarefas
+    
+    Merge/dev lista tarefas
+
+[33mcommit 30a761c0142ea8870076ac1490638f705af0b928[m[33m ([m[1;31morigin/merge/dev-lista-tarefas[m[33m)[m
+Merge: f41d6db a75fd76
+Author: Ian Silva Santos <126678453+ian15963@users.noreply.github.com>
+Date:   Sat Nov 23 21:46:07 2024 -0300
+
+    Merge branch 'desenvolvimento' into merge/dev-lista-tarefas
+
+[33mcommit f41d6db97044b717cbb81d1fa21313d08c227ecd[m
+Author: Ian Silva Santos <ian.santos@sptech.school>
+Date:   Sat Nov 23 21:32:29 2024 -0300
+
+    rebase: lista de tarefas.
+
+[33mcommit dfef4b4b7c111595e77e0eb89e748b72a528e5ef[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 11 21:20:36 2024 -0300
+
+    Refactor Card component to display location information properly
+
+[33mcommit 3ec4bb31939a7e2670fef78e719bbc3d61b5f983[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 11 20:15:14 2024 -0300
+
+    Refactor handleBack and handleSolicitarOrcamento functions in Fornecedores.jsx and Locais.jsx
+
+[33mcommit c071dd5c3575e3d7aff4b705096cf9f7c55f42d0[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 11 20:12:07 2024 -0300
+
+    refatorando todo código
+
+[33mcommit 7422ad11a9c897b56d2a97a17a3f84f1b8f4fb56[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Sun Nov 10 23:26:15 2024 -0300
+
+    Refactor CSS styles in ImageGallery and InputIcon components
+
+[33mcommit 03be73160913f4be3a46456c0f357c75c6fd73ff[m
+Author: Ian Silva Santos <ian.santos@sptech.school>
+Date:   Tue Nov 5 17:43:27 2024 -0300
+
+    fix: Imports de alguns arquivos
+
+[33mcommit e3a678c3001d531034033f41264b7f7f13bcf53a[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Tue Nov 5 19:36:35 2024 -0300
+
+    Refactor CSS styles in ImageGallery and Assessores components
+
+[33mcommit 31ffd533dbbcbd1957f3f049e448636479c42666[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Tue Nov 5 16:01:09 2024 -0300
+
+    criando parte de portfolio
+
+[33mcommit afe11bfd4f9c722a26fdb351782741e9816e2ba7[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 4 20:48:18 2024 -0300
+
+    Refactor CSS styles in CardNavegacao module
+
+[33mcommit 66cadcbeb901b77ece8ed189fad6a084583cc417[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 4 20:48:02 2024 -0300
+
+    Refactor CSS styles in CardNavegacao module
+
+[33mcommit 85fc38e4eca8c843e3d2a9c18a13c1b1cddf570d[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 4 20:29:50 2024 -0300
+
+    Refactor CSS styles in Locais and Card components
+
+[33mcommit 4d76fe78932cec9d0361bf884954dc846061e172[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 4 15:55:13 2024 -0300
+
+    interação na tela de fornecedores
+
+[33mcommit 9524efdb3a453df90345037f94abdbc4d7162d7b[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 4 12:41:16 2024 -0300
+
+    página de locais interativa
+
+[33mcommit 29997ee824c7c1d9b698645678c495a97b4b189e[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 4 00:57:02 2024 -0300
+
+    adicionado paginação, alterei os icons da nav de locais e fornecedores
+
+[33mcommit 53016f2956faf780c5e12228ed8102f25d9a219a[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Sun Nov 3 22:53:16 2024 -0300
+
+    Refactor image paths in LandingPage components
+
+[33mcommit 4ea36428a4d56176bd0c9e1e9fe245b9cbea5714[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Sun Nov 3 01:28:51 2024 -0300
+
+    Refactor image paths in LandingPage components
+
+[33mcommit b1da0eb7001969f3747b6a4606f40e4e226fe451[m[33m ([m[1;31morigin/feature/integracao-calculadora[m[33m)[m
+Author: Ian Silva Santos <ian.santos@sptech.school>
+Date:   Sat Nov 23 20:17:30 2024 -0300
+
+    Finalizando integração da dashboard, calculadora e telas de assessores, fornecedores e locais
+
+[33mcommit f4d87d56285e40fa1b6d0993aaac3560536ce248[m
+Author: Ian Silva Santos <ian.santos@sptech.school>
+Date:   Sun Nov 17 22:52:18 2024 -0300
+
+    Iniciando integração da Dashboard
+
+[33mcommit 12b160a376c353fca8ead0b34ae90c05aa14e9d7[m
+Author: Ian Silva Santos <ian.santos@sptech.school>
+Date:   Sat Nov 16 18:16:35 2024 -0300
+
+    feat: Integrando a tela inicial de fornecedores, subcategoria e tela específica.
+
+[33mcommit bf4b123105480f8eb8eab72a80400a20ed46de03[m
+Author: Ian Silva Santos <ian.santos@sptech.school>
+Date:   Sat Nov 16 10:43:30 2024 -0300
+
+    feat: Finalizando integração da tela de calculadora.
+
+[33mcommit 0ecf3253f7f6b541183b81f535169a90ea493a76[m[33m ([m[1;31morigin/lista-de-tarefas[m[33m)[m
+Author: ElizeuVicente <elizeu.vicentefo@sptech.school>
+Date:   Thu Nov 14 18:25:08 2024 -0300
+
+    Modificando alerta toast
+
+[33mcommit cdbabbab8febdbea55873e2ac73aba4aa174bbae[m
+Author: ElizeuVicente <elizeu.vicentefo@sptech.school>
+Date:   Thu Nov 14 18:15:43 2024 -0300
+
+    Adicionando menssagens de erro
+
+[33mcommit e3c2f37d1ef70f61860e5ecea68e1a4e20cfbdd7[m
+Author: ElizeuVicente <elizeu.vicentefo@sptech.school>
+Date:   Thu Nov 14 13:04:08 2024 -0300
+
+    Adicionando modal de criação, atualização e exclusão (integração completa)
+
+[33mcommit a75fd765dd858d769580d3005a66406f40850049[m
+Merge: a5cfdef e4ab75e
+Author: Ian Silva Santos <126678453+ian15963@users.noreply.github.com>
+Date:   Tue Nov 12 11:58:44 2024 -0300
+
+    Merge pull request #26 from Bridee-Solutions/merge/dev-feature-locais
+    
+    Merge/dev feature locais
+
+[33mcommit e4ab75e094b31c768f1451fa905035498bba8a57[m[33m ([m[1;31morigin/merge/dev-feature-locais[m[33m)[m
+Merge: a5cfdef b1fd260
+Author: Ian Silva Santos <ian.santos@sptech.school>
+Date:   Tue Nov 12 11:57:15 2024 -0300
+
+    Merge branch 'feature/locais' into merge/dev-feature-locais
+
+[33mcommit b1fd26068e3d6ba10fcdb9aaf58a4351f1a07a98[m[33m ([m[1;31morigin/feature/locais[m[33m)[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 11 21:20:36 2024 -0300
+
+    Refactor Card component to display location information properly
+
+[33mcommit f8e620a8fd79f9a536810c1b6ca36d04f2203e86[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 11 20:15:14 2024 -0300
+
+    Refactor handleBack and handleSolicitarOrcamento functions in Fornecedores.jsx and Locais.jsx
+
+[33mcommit 92606b8f06abb78a4022a99164d0e8348f6f7c40[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Mon Nov 11 20:12:07 2024 -0300
+
+    refatorando todo código
+
+[33mcommit 31df1f375a28f8e32f4c8bfeeb9dd8fa475bfc9a[m
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Sun Nov 10 23:26:15 2024 -0300
+
+    Refactor CSS styles in ImageGallery and InputIcon components
+
+[33mcommit 92da2c55ec62b26ed05799e136eac4c94acb7e1d[m
+Merge: 380eaca 1d5b0be
+Author: Amanda Geovanna <amanda.sousa@sptech.school>
+Date:   Tue Nov 5 19:36:45 2024 -0300
+
+    Merge branch 'feature/locais' of https://github.com/Bridee-Solutions/bridee.ui into feature/locais
+
+[33mcommit 380eaca22b17c9135dbe9340ecc68c1c9caa7816[m
+Author: Amanda Geovann

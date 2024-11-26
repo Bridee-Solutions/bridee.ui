@@ -22,6 +22,7 @@ import FornecedoresCategorias from './pages/FornecedoresCategorias/FornecedoresC
 import ConfirmarPresenca from './pages/ConfirmarPresença/ConfirmarPresenca';
 import QuemVai from './pages/ConfirmarPresença/QuemVai/QuemVai';
 import Agradecimento from './pages/ConfirmarPresença/Agradecimento/Agradecimento';
+import Configuracoes from './pages/ConfiguraçõesDashboard/configuracoes';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
       <Route path='/confirmarPresenca' element={<ConfirmarPresenca/>}></Route>
       <Route path='/QuemVai' element={<QuemVai/>}></Route>
       <Route path='/Agradecimentos' element={<Agradecimento/>}></Route>
+      <Route path='/configuracoes' element={<Configuracoes/>}></Route>
      
 
     </Routes>
