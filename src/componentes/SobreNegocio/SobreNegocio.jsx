@@ -44,14 +44,14 @@ const SobreNegocio = () => {
       <form onSubmit={handleSubmit} className={styles.formulario}>
         {/* Nome Comercial */}
         <div className={styles.containerOpcao}>
-          <div className={styles.containerNc}>
+          <div className={styles.vs}>
             <span>Nome comercial:</span>
             <input
               type="text"
               name="nomeComercial"
               value={formData.nomeComercial}
               onChange={handleChange}
-              className={styles.input}
+              className={styles.inputvs}
             />
           </div>
         </div>

@@ -43,8 +43,7 @@ const Contato = () => {
     <form onSubmit={handleSubmit} className={styles.formulario}>
       <div className={styles.containerOpcao}>
         <div className={styles.containerNc}>
-          <span>Qual é o seu e-mail comercial?</span>
-         
+          <span>Qual é o seu e-mail comercial?</span>         
             <input
               type="text"
               name="emailComercial"
