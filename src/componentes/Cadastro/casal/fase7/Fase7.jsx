@@ -60,7 +60,7 @@ const Fase7 = (props) => {
     return(
         <div className={styles.fase7}>
             <div className={styles.fase7_title}>
-                <h2>Termo de uso e política de privacidade</h2>
+                <span>Termo de uso e política de privacidade</span>
             </div>
             <div className={styles.fase7_body}>
             A sua privacidade é importante para nós. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você utiliza nossos serviços. Ao utilizar nosso site/aplicativo, você concorda com as práticas descritas nesta política.
