@@ -1,6 +1,5 @@
 .Footer {
   width: 100%;
-  min-height: 70vh;
   background-color: #fff6f6;
   display: flex;
   flex-direction: column;
@@ -8,8 +7,7 @@
 }
 
 .footer_sections {  
-  height: 43vh;
-  display: flex;
+  min-height: 44vh;
   justify-content: center;
   align-items: center;
 }
@@ -19,6 +17,10 @@
   display: flex;
   width: 90%;
   align-items: flex-start;
+}
+
+.footer_sections .containerDireita .containerColuna {
+  align-items: center;
 }
 
 .containerDireita {
@@ -32,6 +34,7 @@
 .containerEsquerda {
   width: 30%;
   display: flex;
+  margin-top: 1%;
 }
 
 .containerColuna {
@@ -54,12 +57,14 @@
   justify-content: center;
   height: 90%;
   width: 10vw;
+  margin-top: 1%;
 }
 
 .linha {
   border-left: 1px solid #AE6261; 
   height: 100%;                 
 }
+
 .containerTitulo > span {
   font-family: "Montserrat";
   font-size: 1.2rem;
@@ -68,7 +73,7 @@
 }
 
 .containerOpcoes {
-  display: flex;
+  display: flex; 
   flex-direction: column;
   justify-content: space-between;
   height: 15vh;
@@ -124,6 +129,7 @@
 .container_subtitulo {
   width: 100%;
 }
+
 .container_subtitulo > span {
   font-family: "Montserrat";
   font-size: 0.8rem;
@@ -140,38 +146,5 @@
   .mobileFooter .faq {
     width: 100%;
     margin-bottom: 16px;
-  }
-
-  .mobileFooter .containerBox {
-    display: flex;
-    flex-direction: column;
-    padding: 12px 0;
-  }
-
-  .mobileFooter .containerTitulo {
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-
-  .mobileFooter .containerOpcoes span {
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: #333;
-  }
-
-  .mobileFooter .containerItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
-  .mobileFooter .containerIcon {
-    margin-right: 8px;
-  }
-
-  .mobileFooter .item span {
-    font-size: 14px;
-    color: #555;
   }
 }

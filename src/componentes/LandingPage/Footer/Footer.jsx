@@ -60,7 +60,7 @@ const data = {
           </p>
           <p>
             <FontAwesomeIcon icon={faPhone} style={{ color: "#ae6261" }} />
-            Telefone: +55 (11) 999999-9999
+            Telefone: +55 (11) 999999-9999 
           </p>
           <p>
             <FontAwesomeIcon icon={faEnvelope} style={{ color: "#ae6261" }} />
@@ -91,16 +91,15 @@ const config = {
 };
 
 function Footer() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 360);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 360);
     };
 
-    handleResize(); 
+    // handleResize(); 
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   
