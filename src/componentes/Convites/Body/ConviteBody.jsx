@@ -2,9 +2,10 @@ import styles from "./ConviteBody.module.css"
 import filterImage from "../../../assets/filter-image.png"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { adicionarConviteModal, conviteModal, defineConvidadoStatusColor } from "../../../pages/Convites/ConvitesService";
 
 const ConviteBody = (props) => {
-    
+
     return(
         <div className={styles.convite_body}>
             <div className={styles.body_header}>
@@ -21,122 +22,60 @@ const ConviteBody = (props) => {
                     <div className={styles.body_filter_button}>
                         <img src={filterImage} alt="" />
                         <span>Filtro</span>
+                        {/* <div className={styles.body_filter_options}>
+                            <div className={styles.body_filter_option}>
+                                <span>Status</span>
+                                <div className={styles.status_option}>
+                                    <div className={styles.yellow_circle}></div>
+                                    <span>Sem resposta</span>
+                                </div>
+                                <div className={styles.status_option}>
+                                    <div className={styles.green_circle}></div>
+                                    <span>Irá comparecer</span>
+                                </div>
+                                <div className={styles.status_option}>
+                                    <div className={styles.red_circle}></div>
+                                    <span>Não irá comparecer</span>
+                                </div>
+                            </div>
+                            <div className={styles.body_filter_option}>
+                                <span>Faixa etária</span>
+                                <span>Adulto</span>
+                                <span>Criança</span>
+                            </div>
+                            <div className={styles.body_filter_option}>
+                                <span>Categorias</span>
+                                <span>Amigos</span>
+                                <span>Colegas de trabalho</span>
+                                <span>Familia Amanda</span>
+                            </div>
+                        </div> */}
                     </div>
-                    <button onClick={() => props.setActualModal("Adicionar Convite")}>+ Adicionar Convite</button>
+                    <button onClick={() => adicionarConviteModal(props.closeModal, props.setActualModal)}>+ Adicionar Convite</button>
                 </div>
             </div>
             <div className={styles.body_content}>
-                <div className={styles.body_content_itens}>
-                    <div className={styles.body_content_item}>
-                        <h3>Família Forbes</h3>
-                        <button onClick={() => props.setActualModal("Convite")}>Ver Convite -</button>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <div className={styles.circle_item}>
-                            <div className={styles.green_circle}></div>
-                            <p>Convidado 1</p>
+                {props.convites?.map((convite) => {
+                return <div className={styles.body_content_itens}>
+                        <div className={styles.body_content_item}>
+                            <h3>{convite.nome}</h3>
+                            <button onClick={() => conviteModal(convite, props.closeModal, 
+                                props.setActualModal, props.convites, props.setConvites)}>Ver Convite -</button>
                         </div>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
+                        {convite.convidados?.map((convidado) => {
+                            return <div className={styles.body_content_item}>
+                                <div className={styles.circle_item}>
+                                    <div className={defineConvidadoStatusColor(convidado?.status, styles)}></div>
+                                    <p>{convidado?.nome}</p>
+                                </div>
+                                <div className={styles.body_content_item_specific}>
+                                    <span>{convidado?.categoria}</span>
+                                    <span>{convidado?.faixaEtaria}</span>
+                                </div>
+                            </div>
+                        })}
                     </div>
-                    <div className={styles.body_content_item}>
-                        <div className={styles.circle_item}>
-                            <div className={styles.yellow_circle}></div>
-                            <p>Convidado 2</p>
-                        </div>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <div className={styles.circle_item}>
-                            <div className={styles.red_circle}></div>
-                            <p>Convidado 3</p>
-                        </div>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 4</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.body_content_itens}>
-                    <div className={styles.body_content_item}>
-                        <h3>Família Forbes</h3>
-                        <button>Ver Convite -</button>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 1</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 2</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 3</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 4</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.body_content_itens}>
-                    <div className={styles.body_content_item}>
-                        <h3>Família Forbes</h3>
-                        <button>Ver Convite -</button>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 1</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 2</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 3</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                    <div className={styles.body_content_item}>
-                        <p>Convidado 4</p>
-                        <div className={styles.body_content_item_specific}>
-                            <span>Família Amanda</span>
-                            <span>Adulto</span>
-                        </div>
-                    </div>
-                </div>
+                })}
             </div>
         </div>
     );

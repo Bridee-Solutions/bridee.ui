@@ -8,8 +8,8 @@ import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import styles from "./Convites.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import rightArrow from "../../assets/right-arrow.svg"
-import { toast } from "react-toastify";
-import { useState } from "react";
+// import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 import RelatorioModal from "../../componentes/Convites/Modal/Relatorio/RelatorioModal";
 import GerenciarInformacoesModal from "../../componentes/Convites/Modal/GerenciarInformacoes/GerenciarInformacoesModal";
 import ConviteModal from "../../componentes/Convites/Modal/Convite/ConviteModal";
@@ -17,12 +17,16 @@ import AdicionarConvidadoModal from "../../componentes/Convites/Modal/AdicionarC
 import EditarConviteModal from "../../componentes/Convites/Modal/EditarConvite/EditarConviteModal";
 import AdicionarConviteModal from "../../componentes/Convites/Modal/AdicionarConvite/AdicionarConviteModal";
 import DeletarModal from "../../componentes/Convites/Modal/Deletar/DeletarModal";
+import WhatsappMensagemModal from "../../componentes/Convites/Modal/WhatsappMensagem/WhatsappMensagemModal";
+import { request } from "../../config/axios/axios";
+import { gerenciarInformacoesModal, relatorioModal, whatsappMessageModal } from "./ConvitesService.jsx";
 
 
 const Convites = () => {
  
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modal, setModal] = useState();
+    const [convites, setConvites] = useState();
 
     const copyTextToClipBoard = () => {
         window.navigator.clipboard.writeText(window.location.href);
@@ -38,35 +42,16 @@ const Convites = () => {
     }
 
     const setActualModal = (modal) => {
-        setModal(defineActualModel(modal))
+        setModal(modal)
         openModal();
     }
 
-    const defineActualModel = (modal) => {
-        if(modal == "Relatorio"){
-            return <RelatorioModal total={250} confirmado={55} recusado={25} semResposta={160} closeModal={closeModal}/>
-        }else if(modal == "Gerenciar Informacoes"){
-            return <GerenciarInformacoesModal closeModal={closeModal} setActualModal={setActualModal}/>
-        }else if(modal == "Começar do zero"){
-            return <DeletarModal closeModal={closeModal} title={`Começar do zero`} 
-            subtitle={`Gostaria de reiniciar sua lista de convidados?`} 
-            description={`Tenha em mente que todas as informações dos 10 convites atuais serão removidas permanentemente.`}/>
-        }else if(modal == "Remover Convidado"){
-            return <DeletarModal closeModal={closeModal} title={`Remover Convidado`}
-            subtitle={`Deseja remover “nome do usuário’’?`}
-            description={`Todas as informações deste convidado serão excluídas permanentemente`}/>
-        }else if(modal == "Convite"){
-            return <ConviteModal closeModal={closeModal} setActualModal={setActualModal}/>
-        }else if(modal == "Adicionar Convidado"){
-            return <AdicionarConvidadoModal closeModal={closeModal}/>
-        }else if(modal == "Editar Convidado"){
-            return <AdicionarConvidadoModal closeModal={closeModal} idConvidado={1}/>
-        }else if(modal == "Editar Convite"){
-            return <EditarConviteModal closeModal={closeModal}/>
-        }else if(modal == "Adicionar Convite"){
-            return <AdicionarConviteModal closeModal={closeModal} setActualModal={setActualModal}/>
-        }
-    }
+    useEffect(() => {
+        request.getConvitesFromCasamento(2).then((response) => {
+            setConvites(response.data.content)
+        })
+    }, [])
+
 
     return(
         <div className={styles.convites_page}>
@@ -74,7 +59,7 @@ const Convites = () => {
             <div className={styles.convites_content}>
                 <div className={styles.convites_container}>
                     <div className={styles.convites_container_left}>
-                        <div className={styles.convites_container_left_header} onClick={() => setActualModal("Relatorio")}>
+                        <div className={styles.convites_container_left_header} onClick={() => relatorioModal(undefined, closeModal, setActualModal)}>
                             <div className={styles.relatorio_circle_div}>
                                 <div className={styles.relatorio_circle_div_content}>
                                     <h3>Relatório de convidados</h3>
@@ -87,11 +72,11 @@ const Convites = () => {
                             <img src={rightArrow}/>
                         </div>
                         <div className={styles.convites_container_left_body}>
-                            <div className={styles.convites_container_left_body_item}>
+                            <div className={styles.convites_container_left_body_item} onClick={() => whatsappMessageModal(closeModal, setActualModal)}>
                                 <FontAwesomeIcon icon={faWhatsapp}/>
                                 <p>Divulgar por whatsapp</p>
                             </div>
-                            <div className={styles.convites_container_left_body_item} onClick={() => setActualModal("Gerenciar Informacoes")}>
+                            <div className={styles.convites_container_left_body_item} onClick={() => gerenciarInformacoesModal(closeModal, setActualModal)}>
                                 <FontAwesomeIcon icon={faGear}/>
                                 <p>Gerenciar confirmações</p>
                             </div>
@@ -107,7 +92,7 @@ const Convites = () => {
                     </div>
                     <div className={styles.convites_container_right}>
                         <ConviteHeader/>
-                        <ConviteBody setActualModal={setActualModal}/>
+                        <ConviteBody setActualModal={setActualModal} convites={convites} closeModal={closeModal} setConvites={setConvites}/>
                     </div>
                 </div>
             </div>

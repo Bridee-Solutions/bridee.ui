@@ -53,6 +53,54 @@
     align-items: center;
     border-radius: 10px;
     cursor: pointer;
+    position: relative;
+}
+
+.body_filter_options{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    right: 20%;
+    background-color: white;
+    width: 150px;
+}
+
+.body_filter_option{
+    padding: 2% 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body_filter_option span{
+    padding: 3% 0;
+    font-size: 14px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.status_option{
+    display: flex;
+    align-items: center;
+    padding: 2% 0;
+    border-bottom: 1px solid black;
+}
+
+.body_filter_options div span:first-child{
+    font-weight: bold;
+}
+
+.body_filter_options div span:last-child{
+    border-bottom: none;
+}
+
+.body_filter_option{
+    width: 100%;
+}
+
+.body_filter_status{
+    display: flex;
+    width: 100%;
 }
 
 .body_filter_button img{
@@ -122,9 +170,9 @@
 
 .body_content_item_specific{
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
-    width: 30%;
+    width: 70%;
 }
 
 .body_content_item_specific span{
@@ -137,12 +185,13 @@
 .body_content_item_specific span:last-child{
     padding: 2.5% 5%;
     border-radius: 15px;
+    margin-left: 2%;
     background-color: #EFEAEA;
 }
 
 .circle_item{
     display: flex;
-    width: 60%;
+    width: 40%;
 }
 
 .green_circle{
