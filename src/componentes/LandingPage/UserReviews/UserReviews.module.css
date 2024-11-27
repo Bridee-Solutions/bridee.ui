@@ -33,7 +33,6 @@
   display: flex;
   width: 100%;
   height: 75%;
-  
   align-items: center;
   justify-content: space-evenly;
 }
@@ -152,82 +151,55 @@ width: 80%;
     width: 4vw;
   } 
 
+  .containerReg {
+    display: none;
+  }
+
   .contimg > img { 
     width: 14vw;
   }
 
-  .container {
-    display: none;
+  .containerDesc {
+    text-align: center;
   }
 
   .carouselContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    padding: 2%;
+    box-sizing: border-box;
   }
 
   .backgroundAvaliacao {
-    width: 80vw;
-    height: 80vw;
-    display: flex;
-    margin: 10% 0;
-    flex-direction: column;
-  }
-
-  .navigationButtons {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
-    max-width: 320px;
-    margin-top: 10px;
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  button {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+  .aspas {
+    width: 10vw;
+  }
+
+  .conteudoAvaliacao {
+    height: auto;
+    width: 90%;
   }
 
   .containerMeio {
-    font-size: 0.7rem;
-    width: 85%;
-  }
-
-  .contMei {
-    height: 60%;
-  } 
-
-  .containerAvaliacao {
-    height: 80%;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .containerAvaliacao {
-    align-items: center;
-    height: 50%;
-    position: relative; 
-  }
-  
-  .conteinerUsuario {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-    margin-top: 1.2rem; 
+    height: auto;
   }
 
-  .containerSuperior .aspas {
-    position: absolute;
-    top: 4%; 
-    left: 8%; 
-    width: 5vw; 
-  }
-
-  .containerInferior .aspas {
-    position: absolute;
-    top: 85%; 
-    right: 8%; 
-    width: 5vw; 
-  }
 }

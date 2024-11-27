@@ -205,15 +205,21 @@
     display: flex;
     width: 70%;
     height: 12vh;
-    padding: 1.5vh 2vw; 
     gap: 10px; 
   }
 
   .containerBotaoMobile button {
     display: flex; 
     align-items: center; 
-    justify-content: space-between; 
-    padding: 1.5vh 2vw; 
+    justify-content: space-between;
+    padding: 2vh 4vw; 
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #5c5656;
+    background-color: #fbf9f7;
+    border: 1px solid #d6d6d6;
+    border-radius: 10px;
   }
 
   .containerBotaoMobile .icon {

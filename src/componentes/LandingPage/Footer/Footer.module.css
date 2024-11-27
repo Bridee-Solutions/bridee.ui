@@ -47,6 +47,7 @@
   height: 85%;
   justify-content: space-around;
 }
+
 .container {
   display: flex;
   align-items: center;
@@ -126,4 +127,51 @@
 .container_subtitulo > span {
   font-family: "Montserrat";
   font-size: 0.8rem;
+}
+
+@media (max-width: 360px){
+  .mobileFooter {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: #fdf6e3; /* cor de fundo suave */
+  }
+
+  .mobileFooter .faq {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .mobileFooter .containerBox {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+  }
+
+  .mobileFooter .containerTitulo {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .mobileFooter .containerOpcoes span {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  .mobileFooter .containerItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .mobileFooter .containerIcon {
+    margin-right: 8px;
+  }
+
+  .mobileFooter .item span {
+    font-size: 14px;
+    color: #555;
+  }
 }

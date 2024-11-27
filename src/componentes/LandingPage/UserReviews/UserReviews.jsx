@@ -6,7 +6,11 @@ import star from "../../../assets/star.svg";
 import user_bride from "../../../assets/Isabela_cambui_photo.svg";
 import user_advisor from "../../../assets/Aghata_paula_photo.svg";
 import user_groom from "../../../assets/Enzo_martins_photo.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 function UserReviews() {
   const testimonials = [
@@ -33,19 +37,17 @@ function UserReviews() {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobileView, setIsMobileView] = useState(false);
 
-  const prevReview = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
+  const handleResize = () => {
+    setIsMobileView(window.innerWidth <= 360);
   };
-  
-  const nextReview = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className={styles.user_reviews}>
@@ -55,83 +57,117 @@ function UserReviews() {
         </div>
 
         <div className={styles.container}>
-           <div className={styles.containerReg}>
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className={styles.backgroundAvaliacao}>
-                <div className={styles.containerAvaliacao}>
-                  <div className={styles.conteudoAvaliacao}>
-                    <div className={styles.containerSuperior}>
-                      <img src={abreAspas} className={styles.aspas} />
-                    </div>
-                    <div className={styles.containerMeio}>
-                      <div className={styles.contMei}>
-                        <span>{testimonial.text}</span>
+          {isMobileView ? (
+            // Exibição MOBILE (Swiper)
+            <div className={styles.carouselContainer}>
+              <Swiper
+                modules={[Navigation]}
+                slidesPerView={1}
+                loop={true}
+                grabCursor={true}
+                navigation
+                pagination={{clickable:true}}
+              >
+                {testimonials.map((testimonial) => (
+                  <SwiperSlide key={testimonial.id}>
+                    <div className={styles.backgroundAvaliacao}>
+                      <div className={styles.containerAvaliacao}>
+                        <div className={styles.containerSuperior}>
+                          <img
+                            src={abreAspas}
+                            className={styles.aspas}
+                            alt="Aspas Abertas"
+                          />
+                        </div>
+                        <div className={styles.containerMeio}>
+                          <div className={styles.contMei}>
+                            <span>{testimonial.text}</span>
+                          </div>
+                        </div>
+                        <div className={styles.containerInferior}>
+                          <img
+                            src={fechaAspas}
+                            className={styles.aspas}
+                            alt="Aspas Fechadas"
+                          />
+                        </div>
+                      </div>
+                      <div className={styles.conteinerUsuario}>
+                        <div className={styles.contimg}>
+                          <img src={testimonial.image} alt={testimonial.name} />
+                        </div>
+                        <div className={styles.containerInfos}>
+                          <div className={styles.containerDesc}>
+                            <span className={styles.nome}>
+                              {testimonial.name}
+                            </span>
+                            <span>{testimonial.role}</span>
+                          </div>
+                          <div className={styles.stars}>
+                            {[...Array(5)].map((_, index) => (
+                              <img key={index} src={star} alt="Estrela" />
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className={styles.containerInferior}>
-                      <img src={fechaAspas} className={styles.aspas} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          ) : (
+            // Exibição DESKTOP (lista estática)
+            <div className={styles.containerReg}>
+              {testimonials.map((testimonial) => (
+                <div
+                  key={testimonial.id}
+                  className={styles.backgroundAvaliacao}
+                >
+                  <div className={styles.containerAvaliacao}>
+                    <div className={styles.conteudoAvaliacao}>
+                      <div className={styles.containerSuperior}>
+                        <img
+                          src={abreAspas}
+                          className={styles.aspas}
+                          alt="Aspas Abertas"
+                        />
+                      </div>
+                      <div className={styles.containerMeio}>
+                        <div className={styles.contMei}>
+                          <span>{testimonial.text}</span>
+                        </div>
+                      </div>
+                      <div className={styles.containerInferior}>
+                        <img
+                          src={fechaAspas}
+                          className={styles.aspas}
+                          alt="Aspas Fechadas"
+                        />
+                      </div>
+                    </div>
+                    <div className={styles.conteinerUsuario}>
+                      <div className={styles.contimg}>
+                        <img src={testimonial.image} alt={testimonial.name} />
+                      </div>
+                      <div className={styles.containerInfos}>
+                        <div className={styles.containerDesc}>
+                          <span className={styles.nome}>
+                            {testimonial.name}
+                          </span>
+                          <span>{testimonial.role}</span>
+                        </div>
+                        <div className={styles.stars}>
+                          {[...Array(5)].map((_, index) => (
+                            <img key={index} src={star} alt="Estrela" />
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className={styles.conteinerUsuario}>
-                    <div className={styles.contimg}>
-                      <img src={testimonial.image} alt={testimonial.name} />
-                    </div>
-                    <div className={styles.containerInfos}>
-                      <div className={styles.containerDesc}>
-                        <span className={styles.nome}>{testimonial.name}</span>
-                        <span>{testimonial.role}</span>
-                      </div>
-                      <div className={styles.stars}>
-                        {[...Array(5)].map((_, index) => (
-                          <img key={index} src={star} alt="star" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className={styles.carouselContainer}>
-          <div className={styles.backgroundAvaliacao}>
-            <div className={styles.containerAvaliacao}>
-              <div className={styles.containerSuperior}>
-                <img src={abreAspas} className={styles.aspas} />
-              </div>
-              <div className={styles.containerMeio}>
-                <div className={styles.contMei}>
-                  <span>{testimonials[currentIndex].text}</span>
-                </div>
-              </div>
-              <div className={styles.containerInferior}>
-                <img src={fechaAspas} className={styles.aspas} />
-              </div>
+              ))}
             </div>
-            <div className={styles.conteinerUsuario}>
-              <div className={styles.contimg}>
-                <img
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
-                />
-              </div>
-              <div className={styles.containerInfos}>
-                <div className={styles.containerDesc}>
-                  <span className={styles.nome}>{testimonials[currentIndex].name}</span>
-                  <span>{testimonials[currentIndex].role}</span>
-                </div>
-                <div className={styles.stars}>
-                  {[...Array(5)].map((_, index) => (
-                    <img key={index} src={star} alt="star" />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.navigationButtons}>
-            <button onClick={prevReview}>Anterior</button>
-            <button onClick={nextReview}>Próximo</button>
-          </div>
+          )}
         </div>
       </div>
     </section>

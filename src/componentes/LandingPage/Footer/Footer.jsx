@@ -1,6 +1,8 @@
 import styles from "./Footer.module.css";
 import Baseboard from "../BaseBoard/Baseboard";
 import Faq from "react-faq-component";
+import { useState, useEffect } from 'react';
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -69,6 +71,7 @@ const data = {
     },
     {
       title: "Voltar ao topo",
+      content: <p></p>,
     },
   ],
 };
@@ -88,8 +91,26 @@ const config = {
 };
 
 function Footer() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 360);
+    };
+
+    handleResize(); 
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
   return (
     <section className={styles.Footer}>
+      {isMobile ? (
+        <div className={styles.mobileFooter}>
+          <Faq data={data} styles={styles} config={config} />
+        </div> 
+      ) : (
       <div className={styles.footer_sections}>
         <div className={styles.footer_reg}>
           <div className={styles.containerDireita}>
@@ -160,8 +181,8 @@ function Footer() {
             </div>
           </div>
 
-          <div class={styles.container}>
-            <div class={styles.linha}></div>
+          <div className={styles.container}>
+            <div className={styles.linha}></div>
           </div>
 
           <div className={styles.containerEsquerda}>
@@ -177,8 +198,9 @@ function Footer() {
             </div>
           </div>
         </div>
+        <Baseboard />
       </div>
-      <Baseboard />
+     )}
     </section>
   );
 }
