@@ -36,5 +36,21 @@ export const request = {
     },
     verifyAssessorEmpresaEmailAndCnpj: async(assessorFields) => {
         return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
-    }
+    },
+
+    PostWhatsappConvites(WhatsappConvites) {
+        return Api.post('/messages/whatsapp/convites', WhatsappConvites).then(response)
+        
+    },
+
+   
+
+
+
+
+
+
+
+
+
 }

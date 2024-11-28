@@ -39,8 +39,9 @@
 
 .dropdownTitle {
   cursor: pointer;
-  font-size: 1rem;
-  font-family: "ProductSans";
+    width: 100%;
+    font-size: 0.9rem;
+    font-family: "ProductSans";
 }
 
 .dropdownContainer {
