@@ -12,8 +12,8 @@ const Configuracoes = () => {
 
       <div className={styles.container}>
         <div className={styles.configuracoesContainer}>
-          <span className={styles.tituloPagina}>Configurações da conta</span>
           <div className={styles.colunas}>
+          <span className={styles.tituloPagina}>Configurações da conta</span>
           <div className={styles.secoesConfiguracoes}>
 
             <div className={styles.card}>
