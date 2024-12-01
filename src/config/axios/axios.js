@@ -16,14 +16,35 @@ export const request = {
         return await Api.put(`/casamentos/${casamentoId}`, {message: messageValue})
     },
     getConvitesFromCasamento: async (casamentoId, status = "", faixaEtaria = "", 
-        categoria = "", convidado = "", convite = "") => {
+        convidado = "", convite = "") => {
             return await Api.get(`/convites/casamento/${casamentoId}?status=${status}
-                &faixaEtaria=${faixaEtaria}&categoria=${categoria}&convidado=${convidado}&convite=${convite}`)
+                &faixaEtaria=${faixaEtaria}&convidado=${convidado}&convite=${convite}`)
+    },
+    getCategoriasConvidados: async () => {
+        return await Api.get(`/categorias-convidados`);
     },
     updateInvite: async (conviteId, convite) => {
         return await Api.put(`/convites/${conviteId}`, convite)
     },
+    createConvidado: async (conviteId, convidado) => {
+        return await Api.post(`/convidados/convite/${conviteId}`, convidado)
+    },
+    updateConvidado: async (convidadoId, convidado) => {
+        return await Api.put(`/convidados/${convidadoId}`, convidado)
+    },
+    saveConvite: async (convite) => {
+        return await Api.post(`/convites`, convite);
+    },
     deleteInvite: async (conviteId) => {
         return await Api.delete(`/convites/${conviteId}`)
+    },
+    deleteConvidado: async (convidadoId) => {
+        return await Api.delete(`/convidados/${convidadoId}`);
+    },
+    getRelatorio: async(casamentoId) => {
+        return await Api.get(`/convites/casamento/${casamentoId}/relatorio`)
+    },
+    deleteAllInvites: async(casamentoId) => {
+        return await Api.delete(`/convites/casamento/${casamentoId}`)
     }
 }

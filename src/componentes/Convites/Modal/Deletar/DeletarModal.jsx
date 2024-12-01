@@ -6,8 +6,34 @@ import ModalFooter from "../../../Modal/ModalFooter/ModalFooter"
 import styles from "./DeletarModal.module.css"
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { request } from "../../../../config/axios/axios";
+import { useRef } from "react";
 
 const DeletarModal = (props) => {
+
+    const deletarConvidado = () =>{
+        request.deleteConvidado(props.convidado?.id)
+        
+        const convidados = props.convite?.convidados?.filter(convidado => convidado.id != props.convidado?.id)
+        const convite = props.convite;
+        convite.convidados = convidados
+        props.setConvites([...props.convites])
+        props.closeModal()
+    }
+
+    const limparConvites = () => {
+        request.deleteAllInvites(2);
+        props.setConvites([])
+        props.closeModal()
+    }
+
+    const buttonOperation = () => {
+        if(props.title == `Começar do zero`){
+            limparConvites()
+            return;
+        }
+        deletarConvidado()
+    }
 
     return(
         <Modal>
@@ -30,7 +56,7 @@ const DeletarModal = (props) => {
             </ModalBody>
             <ModalFooter>
                 <button className={styles.cancelar_button}>Cancelar</button>
-                <button className={styles.deletar_button}>Deletar</button>
+                <button className={styles.deletar_button} onClick={buttonOperation}>Deletar</button>
             </ModalFooter>
         </Modal>
     );

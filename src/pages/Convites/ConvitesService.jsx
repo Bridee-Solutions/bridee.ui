@@ -25,27 +25,30 @@ export const defineConvidadoStatus = (status) => {
     return "Sem Resposta"
 }
 
-export const relatorioModal = (relatorio, closeModal, setActualModal) => {
-    const relatorioModal = <RelatorioModal total={250} confirmado={55} recusado={25} semResposta={160} closeModal={closeModal}/>
+export const relatorioModal = (closeModal, setActualModal) => {
+    const relatorioModal = <RelatorioModal closeModal={closeModal}/>
     setActualModal(relatorioModal);
 }
 
-export const gerenciarInformacoesModal = (closeModal, setActualModal) => {
-    const gerenciarModal = <GerenciarInformacoesModal closeModal={closeModal} setActualModal={setActualModal}/>
+export const gerenciarInformacoesModal = (closeModal, setActualModal, convites, setConvites) => {
+    const gerenciarModal = <GerenciarInformacoesModal closeModal={closeModal} setActualModal={setActualModal}
+        convites={convites} setConvites={setConvites}/>
     setActualModal(gerenciarModal)
 }
 
-export const comecarDoZeroModal = (closeModal, setActualModal) => {
+export const comecarDoZeroModal = (closeModal, setActualModal, convites, setConvites) => {
     const comecarDoZeroModal = <DeletarModal closeModal={closeModal} title={`Começar do zero`} 
         subtitle={`Gostaria de reiniciar sua lista de convidados?`} 
-        description={`Tenha em mente que todas as informações dos 10 convites atuais serão removidas permanentemente.`}/>
+        description={`Tenha em mente que todas as informações do(s) ${convites?.length} convites atuais serão removidas permanentemente.`}
+        setConvites={setConvites}/>
     setActualModal(comecarDoZeroModal)
 }
 
-export const removerConvidadosModal = (closeModal, setActualModal) => {
+export const removerConvidadosModal = (closeModal, setActualModal, convidado, convite, convites, setConvites) => {
     const removerConvidadosModal = <DeletarModal closeModal={closeModal} title={`Remover Convidado`}
-        subtitle={`Deseja remover “nome do usuário"?`}
-        description={`Todas as informações deste convidado serão excluídas permanentemente`}/>
+        subtitle={`Deseja remover ${convidado?.nome}?`}
+        description={`Todas as informações deste convidado serão excluídas permanentemente`}
+        convite={convite} convites={convites} setConvites={setConvites} convidado={convidado}/>
     setActualModal(removerConvidadosModal)
 }
 
@@ -54,13 +57,15 @@ export const conviteModal = (convite, closeModal, setActualModal, convites, setC
     setActualModal(conviteModal)
 }
 
-export const adicionarConvidadoModal = (closeModal, setActualModal) => {
-    const adicionarConvidado = <AdicionarConvidadoModal closeModal={closeModal}/>
+export const adicionarConvidadoModal = (closeModal, setActualModal, convites, setConvites, convite) => {
+    const adicionarConvidado = <AdicionarConvidadoModal closeModal={closeModal} convites={convites} setConvites={setConvites}
+        convite ={convite}/>
     setActualModal(adicionarConvidado)
 }
 
-export const editarConvidadoModal = (closeModal, idConvidado, setActualModal) => {
-    const editarConvidado = <AdicionarConvidadoModal closeModal={closeModal} idConvidado={1}/>
+export const editarConvidadoModal = (closeModal, convidado, setActualModal, convites, setConvites, convite) => {
+    const editarConvidado = <AdicionarConvidadoModal closeModal={closeModal} convidado={convidado} 
+        setActualModal={setActualModal} convites={convites} setConvites={setConvites} convite={convite}/>
     setActualModal(editarConvidado)
 }
 
@@ -69,8 +74,9 @@ export const editarConviteModal = (convite, closeModal, setActualModal, convites
     setActualModal(editarConvite)
 }
 
-export const adicionarConviteModal = (closeModal, setActualModal) => {
-    const adicionarConvite = <AdicionarConviteModal closeModal={closeModal} setActualModal={setActualModal}/>
+export const adicionarConviteModal = (closeModal, setActualModal, convites, setConvites) => {
+    const adicionarConvite = <AdicionarConviteModal closeModal={closeModal} setActualModal={setActualModal}
+        convites={convites} setConvites={setConvites}/>
     setActualModal(adicionarConvite)
 }
 

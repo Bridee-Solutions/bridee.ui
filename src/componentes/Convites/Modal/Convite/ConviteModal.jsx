@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { useEffect } from "react";
-import { defineConvidadoStatus, defineConvidadoStatusColor, editarConviteModal, findTitular } from "../../../../pages/Convites/ConvitesService";
+import { adicionarConvidadoModal, defineConvidadoStatus, defineConvidadoStatusColor, editarConvidadoModal, editarConviteModal, findTitular, removerConvidadosModal } from "../../../../pages/Convites/ConvitesService";
 
 const ConviteModal = (props) => {
 
@@ -47,12 +47,14 @@ const ConviteModal = (props) => {
                     <div className={styles.convidados_content}>
                         <span className={styles.convidados}>Convidados neste convite ({props.convite?.convidados?.length})</span>
                         {props.convite?.convidados?.map(convidado => {
-                            return <div className={styles.convite_convidado_modal}>
+                            return <div key={convidado.telefone} className={styles.convite_convidado_modal}>
                                 <span>{convidado?.nome}</span>
                                 <span className={styles.convidado_info}>Status: <div className={defineConvidadoStatusColor(convidado?.status, styles)}></div>{defineConvidadoStatus(convidado?.status)}</span>
                                 <span className={styles.convidado_icons}>
-                                    <span><FontAwesomeIcon icon={faX} onClick={() => props.setActualModal("Remover Convidado", convidado)}/></span> 
-                                    <span><FontAwesomeIcon icon={faPen} onClick={() => props.setActualModal("Editar Convidado", convidado)}/></span>
+                                    <span><FontAwesomeIcon icon={faX} onClick={() => removerConvidadosModal(props.closeModal, props.setActualModal, convidado, props.convite,
+                                        props.convites, props.setConvites)}/></span> 
+                                    <span><FontAwesomeIcon icon={faPen} onClick={() => editarConvidadoModal(props.closeModal, convidado, props.setActualModal, 
+                                        props.convites, props.setConvites, props.convite)}/></span>
                                 </span>
                             </div>
                         })}
@@ -61,7 +63,8 @@ const ConviteModal = (props) => {
             </ModalBody>
             <ModalFooter>
                 <div className={styles.modal_button}>
-                    <button className={styles.add_button} onClick={() => props.setActualModal("Adicionar Convidado")}>+ Adicionar novo convidado</button>
+                    <button className={styles.add_button} onClick={() => adicionarConvidadoModal(props.closeModal, props.setActualModal, props.convites, 
+                        props.setConvites, props.convite)}>+ Adicionar novo convidado</button>
                     <button className={styles.whatsapp_button}>Chamar no WhatsApp <FontAwesomeIcon icon={faWhatsapp}/></button>
                 </div>
             </ModalFooter>

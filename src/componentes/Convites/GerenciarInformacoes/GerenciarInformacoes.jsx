@@ -14,7 +14,7 @@ const GerenciarInformacoes = (props) => {
                 <span>{props.description}</span>
             </div>
             <div className={styles.gerenciar_informacoes_right_icon}>
-                <FontAwesomeIcon style={{cursor: "pointer"}} icon={props.rightIcon} onClick={() => comecarDoZeroModal(props.closeModal, props.setActualModal)}/>
+                <FontAwesomeIcon style={{cursor: "pointer"}} icon={props.rightIcon} onClick={() => comecarDoZeroModal(props.closeModal, props.setActualModal, props.convites, props.setConvites)}/>
             </div>
         </div>
     );

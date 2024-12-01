@@ -24,7 +24,7 @@ const GerenciarInformacoesModal = (props) => {
             </ModalHeader>
             <ModalBody>
                 <GerenciarInformacoes title={`Começar do zero`} description={`Sem problemas se você mudou de ideia e quer solicitar as confirmações de presença novamente!`}
-                    rightIcon={faChevronRight} leftIcon={faUsers} setActualModal={props.setActualModal} closeModal={props.closeModal}
+                    rightIcon={faChevronRight} leftIcon={faUsers} setActualModal={props.setActualModal} closeModal={props.closeModal} convites={props.convites} setConvites={props.setConvites}
                 />
             </ModalBody>
         </Modal>

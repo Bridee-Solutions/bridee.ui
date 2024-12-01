@@ -48,6 +48,7 @@ const Convites = () => {
 
     useEffect(() => {
         request.getConvitesFromCasamento(2).then((response) => {
+            console.log(response.data.content);
             setConvites(response.data.content)
         })
     }, [])
@@ -59,7 +60,7 @@ const Convites = () => {
             <div className={styles.convites_content}>
                 <div className={styles.convites_container}>
                     <div className={styles.convites_container_left}>
-                        <div className={styles.convites_container_left_header} onClick={() => relatorioModal(undefined, closeModal, setActualModal)}>
+                        <div className={styles.convites_container_left_header} onClick={() => relatorioModal(closeModal, setActualModal)}>
                             <div className={styles.relatorio_circle_div}>
                                 <div className={styles.relatorio_circle_div_content}>
                                     <h3>Relatório de convidados</h3>
@@ -76,7 +77,7 @@ const Convites = () => {
                                 <FontAwesomeIcon icon={faWhatsapp}/>
                                 <p>Divulgar por whatsapp</p>
                             </div>
-                            <div className={styles.convites_container_left_body_item} onClick={() => gerenciarInformacoesModal(closeModal, setActualModal)}>
+                            <div className={styles.convites_container_left_body_item} onClick={() => gerenciarInformacoesModal(closeModal, setActualModal, convites, setConvites)}>
                                 <FontAwesomeIcon icon={faGear}/>
                                 <p>Gerenciar confirmações</p>
                             </div>

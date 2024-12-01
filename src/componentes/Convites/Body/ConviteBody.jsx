@@ -3,8 +3,19 @@ import filterImage from "../../../assets/filter-image.png"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { adicionarConviteModal, conviteModal, defineConvidadoStatusColor } from "../../../pages/Convites/ConvitesService";
+import { useEffect } from "react";
 
 const ConviteBody = (props) => {
+
+
+    useEffect(() => {
+        
+    },[props.convites])
+
+    function capitalizeFirstLetter(text) {
+        const stringCapitalized = String(text).charAt(0).toUpperCase() + String(text).toLowerCase().slice(1);
+        return stringCapitalized.replaceAll("_", " ");
+    }
 
     return(
         <div className={styles.convite_body}>
@@ -51,25 +62,25 @@ const ConviteBody = (props) => {
                             </div>
                         </div> */}
                     </div>
-                    <button onClick={() => adicionarConviteModal(props.closeModal, props.setActualModal)}>+ Adicionar Convite</button>
+                    <button onClick={() => adicionarConviteModal(props.closeModal, props.setActualModal, props.convites, props.setConvites)}>+ Adicionar Convite</button>
                 </div>
             </div>
             <div className={styles.body_content}>
                 {props.convites?.map((convite) => {
-                return <div className={styles.body_content_itens}>
+                return <div key={convite.nome} className={styles.body_content_itens}>
                         <div className={styles.body_content_item}>
                             <h3>{convite.nome}</h3>
                             <button onClick={() => conviteModal(convite, props.closeModal, 
                                 props.setActualModal, props.convites, props.setConvites)}>Ver Convite -</button>
                         </div>
                         {convite.convidados?.map((convidado) => {
-                            return <div className={styles.body_content_item}>
+                            return <div key={convidado?.telefone} className={styles.body_content_item}>
                                 <div className={styles.circle_item}>
                                     <div className={defineConvidadoStatusColor(convidado?.status, styles)}></div>
                                     <p>{convidado?.nome}</p>
                                 </div>
                                 <div className={styles.body_content_item_specific}>
-                                    <span>{convidado?.categoria}</span>
+                                    <span>{capitalizeFirstLetter(convidado?.categoriaConvidado?.nome)}</span>
                                     <span>{convidado?.faixaEtaria}</span>
                                 </div>
                             </div>
