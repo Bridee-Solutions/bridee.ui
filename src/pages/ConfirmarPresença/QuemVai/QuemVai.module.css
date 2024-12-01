@@ -35,7 +35,7 @@
 }
 
 .heading {
-  font-size: 34px;
+  font-size: 2.4rem;
   color: #333;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
@@ -44,8 +44,9 @@
 
 .description {
   font-size: 1rem;
-  color: #514d4d;
-  
+  color: #000000;
+  font-family: 'Poppis';
+  width: 89%;
 
 }
 
@@ -68,7 +69,7 @@
 
 .containerQuemVai {
 
-  height: 10vh;
+  height: 12vh;
 }
 
 .containerBotao {
@@ -82,12 +83,12 @@
 
 .conteudoBotao {
   
-  height: 10vh;
+  height: 7vh;
 }
 
 .containerSubtitulo {
   height: 11vh;
-  width: 35vw;
+  width: 37vw;
   font-family: "Montserrat", sans-serif;
 
 }
@@ -120,9 +121,8 @@
 .convidadoNome {
   flex: 1;
   color: #333;
-  
   font-size: 0.9rem;
-  width: 10vw;
+  width: 12vw;
 }
 
 .containerBotaoPresenca {
@@ -178,7 +178,7 @@ border: 1px solid #D1CBCB;
 }
 
 .continuarButton {
-  width: 100%;
+  width: 34vh;
   font-size: 1rem;
   padding: 9px;
   background-color: #d67a66;
@@ -198,7 +198,7 @@ border: 1px solid #D1CBCB;
 
 @media (max-width: 600px) {
   .heading {
-    font-size: 1.5rem;
+    font-size:  2.4rem;
   }
 
   .description,

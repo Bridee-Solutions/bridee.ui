@@ -49,6 +49,7 @@
   .amandaEnzo{
     /* border: 3px solid crimson; */
     display: flex;
+    height: 34vh;
     flex-direction: column;
     align-content: center;
     justify-content: center;
