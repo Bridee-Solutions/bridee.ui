@@ -57,8 +57,8 @@ const Configuracoes = () => {
             <div className={styles.card}>
               <div className={styles.textosCard}>
               <div className={styles.cardHeader}>
-                <span className={styles.tituloCard}>Detalhes da conta</span>
-                <div className={styles.pencil}>
+                <span className={styles.tituloCard2}>Detalhes da conta</span>
+                <div className={styles.pencil2}>
                 <div><FaPen className={styles.iconEdit} /></div></div>
               
               </div>

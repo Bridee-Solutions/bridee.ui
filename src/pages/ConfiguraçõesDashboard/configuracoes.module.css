@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 72vh;
+  height: 73vh;
   /* min-height: 46vh; */
   background-color: #F3EED9;
   /* align-content: center; */
@@ -12,7 +12,7 @@
 }
 
 .textosCard{
-  border: 3px solid blue;
+  /* border: 3px solid blue; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -23,56 +23,86 @@
 }
 
 .tituloCard{
-  border: 3px solid green;
-  width: 58vh;
+  /* border: 3px solid green; */
+  width: 60vh;
   font-size: 1.5rem;
   height: 9vh;
-  font-family: 'Montserrat';
+  font-family: 'Product Sans';
+}
+
+.tituloCard2{
+  /* border: 3px solid green; */
+  width: 56vh;
+  font-size: 1.5rem;
+  height: 9vh;
+  font-family: 'Product Sans';
 }
 
 .pencil{
-  border: 3px solid orange;
-  height: 15vh;
+  /* border: 3px solid orange; */
+  height: 9vh;
+    width: 5%;
 }
+
+.pencil2{
+  /* border: 3px solid orange; */
+  height: 7vh;
+  width: 1%;
+}
+
 .containerText{
-  border: 3px solid purple;
+  /* border: 3px solid purple; */
   width: 95%;
+  height: 43vh;
 }
 
 .tituloPagina {
-  font-size: 3.5vh;
-  color: #333;
-  height: 6vh;
-  text-align: center;
+  font-size: 4.5vh;
+  display: flex;
+  font-weight: 400;
+    font-family: 'PlayFair Display';
+    color: #333;
+    height: 6vh;
+    padding: 1% 3% 1%;
+    text-align: center;
 
 }
 
+/* .ConfiguracoesDaConta{
+  height: 3vh;
+
+} */
 
 .secoesConfiguracoes {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 5%;
+  /* border: 3px solid black; */
+  height: 91%;
   width: 100%;
+  align-content: center;
+  align-items: center;
 }
 
 .container{
-  border: 3px solid green;
-  background-color: #cdac2c;
+  /* border: 3px solid green; */
     height: 73vh;
     width: 100%;
 }
 
 .colunas{
-  border: 3px solid red;
+  /* border: 3px solid red; */
   background-color: white;
-  width: 70%;
+  width: 72%;
+  height: 97%;
+  border-radius: 5%;
 
 }
 .card {
   display: flex;
   flex-direction: column;
   width: 44%;
-  height: 61vh;
+  height: 57vh;
   background-color: #fff;
   border: 0.3vh solid #8f8484;
   border-radius: 3vh;
@@ -82,7 +112,7 @@
 
 .cardHeader {
   display: flex;
-    height: 12vh;
+    height: 6vh;
     justify-content: space-between;
     align-items: center;
 
@@ -93,7 +123,7 @@
   color: #333;
 }
 
-/* Ícone de Edição */
+
 .iconEdit {
   font-size: 2.5vh;
   color: #d17c78;
@@ -105,14 +135,17 @@
   color: #b96464;
 }
 
-/* Conteúdo do Cartão */
+
 .cardContent {
   display: flex;
-  flex-direction: column;
-  gap: 1.5vh;
+    flex-direction: column;
+    height: 77%;
+    width: 88%;
+    gap: 1.5vh;
+    align-content: center;
+    justify-content: flex-start;
 }
 
-/* Linhas de Detalhes */
 .detailRow {
   display: flex;
   flex-direction: column;
@@ -121,12 +154,12 @@
 
 .label {
   font-size: 2.8vh;
-  font-weight: bold;
-  color: #333;
+  font-weight: 700;
+  color: #000;
 }
 
 .value {
-  font-size: 1.8vh;
-  color: #555;
-
+  font-size: 2.3vh;
+  color: #757272;
+  font-family: 'Product Sans';
 }
