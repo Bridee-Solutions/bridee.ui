@@ -15,10 +15,10 @@ export const request = {
     updateCasamentoMessage: async (casamentoId, messageValue) => {
         return await Api.put(`/casamentos/${casamentoId}`, {message: messageValue})
     },
-    getConvitesFromCasamento: async (casamentoId, status = "", faixaEtaria = "", 
+    getConvitesFromCasamento: async (casamentoId, status = "", faixaEtaria = "", categoria="",
         convidado = "", convite = "") => {
             return await Api.get(`/convites/casamento/${casamentoId}?status=${status}
-                &faixaEtaria=${faixaEtaria}&convidado=${convidado}&convite=${convite}`)
+                &faixaEtaria=${faixaEtaria}&categoria=${categoria}&convidado=${convidado}&convite=${convite}`)
     },
     getCategoriasConvidados: async () => {
         return await Api.get(`/categorias-convidados`);
@@ -46,5 +46,8 @@ export const request = {
     },
     deleteAllInvites: async(casamentoId) => {
         return await Api.delete(`/convites/casamento/${casamentoId}`)
+    },
+    getConvitesResumo: async(casamentoId) => {
+        return await Api.get(`/convites/casamento/${casamentoId}/resumo`)
     }
 }

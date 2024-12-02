@@ -58,8 +58,11 @@ const AdicionarConvidado = (props) =>{
                     <input type="text" placeholder="Whatsapp" id="Whatsapp" ref={telefone} defaultValue={props.convidado?.telefone} onChange={addConvidadoConvite}/>
                 </div>
                 <div className={styles.convidado_modal_body_input}>
-                    <label htmlFor="Faixa Etaria">Faixa Etária *</label>
-                    <input type="text" placeholder="Faixa Etaria" id="Faixa Etaria" ref={faixaEtaria} defaultValue={props.convidado?.faixaEtaria} onChange={addConvidadoConvite}/>
+                    <label htmlFor="faixaEtaria">Status:</label>
+                    <select name="faixaEtaria" id="faixaEtaria" ref={faixaEtaria}>
+                        <option value="ADULTO">Adulto</option>
+                        <option value="CRIANCA">Criança</option>
+                    </select>
                 </div>
             </div>
             <div className={styles.convidado_modal_body_input}>

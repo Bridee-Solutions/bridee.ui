@@ -10,14 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import rightArrow from "../../assets/right-arrow.svg"
 // import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
-import RelatorioModal from "../../componentes/Convites/Modal/Relatorio/RelatorioModal";
-import GerenciarInformacoesModal from "../../componentes/Convites/Modal/GerenciarInformacoes/GerenciarInformacoesModal";
-import ConviteModal from "../../componentes/Convites/Modal/Convite/ConviteModal";
-import AdicionarConvidadoModal from "../../componentes/Convites/Modal/AdicionarConvidado/AdicionarConvidadoModal";
-import EditarConviteModal from "../../componentes/Convites/Modal/EditarConvite/EditarConviteModal";
-import AdicionarConviteModal from "../../componentes/Convites/Modal/AdicionarConvite/AdicionarConviteModal";
-import DeletarModal from "../../componentes/Convites/Modal/Deletar/DeletarModal";
-import WhatsappMensagemModal from "../../componentes/Convites/Modal/WhatsappMensagem/WhatsappMensagemModal";
 import { request } from "../../config/axios/axios";
 import { gerenciarInformacoesModal, relatorioModal, whatsappMessageModal } from "./ConvitesService.jsx";
 
@@ -27,6 +19,7 @@ const Convites = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modal, setModal] = useState();
     const [convites, setConvites] = useState();
+    const [confirmados, setConfirmados] = useState(0);
 
     const copyTextToClipBoard = () => {
         window.navigator.clipboard.writeText(window.location.href);
@@ -51,6 +44,7 @@ const Convites = () => {
             console.log(response.data.content);
             setConvites(response.data.content)
         })
+        
     }, [])
 
 
@@ -68,7 +62,7 @@ const Convites = () => {
                                     <div className={styles.yellow_circle}></div>
                                     <div className={styles.red_circle}></div>
                                 </div>
-                                <span>5 convidados irão comparecer</span>
+                                <span>{confirmados ? confirmados: 0} convidados irão comparecer</span>
                             </div>
                             <img src={rightArrow}/>
                         </div>
@@ -92,7 +86,7 @@ const Convites = () => {
                         </div>
                     </div>
                     <div className={styles.convites_container_right}>
-                        <ConviteHeader/>
+                        <ConviteHeader setConfirmados={setConfirmados}/>
                         <ConviteBody setActualModal={setActualModal} convites={convites} closeModal={closeModal} setConvites={setConvites}/>
                     </div>
                 </div>
