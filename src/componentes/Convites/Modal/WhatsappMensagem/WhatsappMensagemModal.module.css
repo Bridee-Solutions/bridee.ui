@@ -1,0 +1,57 @@
+.whatsapp_modal_header{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+span{
+    font-size: 20px;
+}
+
+.whatsapp_modal_header_title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.whatsapp_modal_header_close{
+    width: 7%;   
+}
+
+.whatsapp_modal_body{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+.whatsapp_icon{
+    font-size: 8rem;
+    color: green;
+}
+
+.whatsapp_modal_body_message{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3% 5%;
+}
+
+.whatsapp_modal_body_message textarea{
+    height: 130px;
+    margin-top: 1%;
+}
+
+.enviar_button{
+    padding: 2% 10%;
+    border-radius: 10px;
+    background-color: #dd7b78;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

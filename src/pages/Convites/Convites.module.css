@@ -1,0 +1,140 @@
+.convites_page{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.convites_content{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3eed9;
+}
+
+.convites_container{
+    display: flex;
+    height: 80%;
+    width: 100%;
+    align-items: start;
+    justify-content: space-around;
+}
+
+.convites_container_left{
+    background-color: white;
+    width: 35%;
+    padding-top: 1%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+    border-radius: 15px;
+}
+
+.convites_container_left_header{
+    width: 90%;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.308);
+    align-items: center;
+    justify-content: space-between;
+    padding: 2% 3%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.convites_container_left_header img{
+    cursor: pointer;
+}
+
+.convites_container_left_body{
+    display: flex;
+    align-items: center;
+    height: 50%;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.convites_container_left_body_item{
+    border: 1px solid rgba(0, 0, 0, 0.329);
+    width: 30.5%;
+    padding: 2% 3%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.convites_container_left_footer{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    position: relative;
+}
+
+.convites_container_left_footer div{
+    width: 100%;
+    border: none;
+    background-color: #F4F4F4;
+    padding-left: 3%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.convites_container_left_footer input{
+    border: none;
+}
+
+.convites_container_left_footer_icon{
+    position: absolute;
+    left: 92%;
+    height: 60%;
+    top: 20%;
+    cursor: pointer;
+}
+
+.convites_container_right{
+    height: 100%;
+    width: 55%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.relatorio_circle_div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.relatorio_circle_div_content{
+    display: flex;
+}
+
+.relatorio_circle_div h3{
+    margin-right: 3%;
+}
+
+.green_circle{
+    width: 18px;
+    height: 18px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.yellow_circle{
+    width: 18px;
+    height: 18px;
+    background-color: yellow;
+    border-radius: 50%;
+}
+
+.red_circle{
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    border-radius: 50%;
+}
+

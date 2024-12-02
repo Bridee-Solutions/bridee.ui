@@ -57,36 +57,17 @@ input:focus {
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    border-bottom: 1px solid #C3C3C3;
-    font-family: 'Playfair Display';       
-    font-size: 1.6rem;
-    font-weight: 600;
+    border-bottom: 1px solid #979797;
+    margin-bottom: 2%;
 }
 
-
-
-.containerSuperior { 
-    width: 100%;
-    height: 2vh;
-}
-
-.containerInferior{
-    width: 100%;
-    height: 05vh;
-    padding-bottom: 30px;
-    display: flex;
-    font-size: 2.3rem;
-    font-weight: 500;
-    font-family: 'Playfair';
-    justify-content: center;
-    align-items: center;
-}
-
-
-.modal_body {
-    padding: 10px;
-    font-family: 'Montserrat';
-    font-size: 15px;
+.modal_header h1 {
+    font-family: 'PlayFair';
+    font-size: 40px;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px 5px;
+    margin: 0px;
 }
 
 .modal_body input {
@@ -136,12 +117,7 @@ input:focus {
 
 .modal_body span {
     font-family: "ProductSans";
-    font-size: 20px;
-    text-align: center;
-    color: #6B6565;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    color: black;
 }
 
 .modal_footer {
@@ -227,9 +203,3 @@ input:focus {
     border: 0px;
     transition: 0.5s;
 }
-
-.modal_footer .add_button:hover {
-    background-color: #d85b4c;
-}
-
-

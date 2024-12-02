@@ -1,0 +1,99 @@
+.convidado_modal_header{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.convidado_modal_header_title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.convidado_modal_header_close{
+    width: 7%;
+}
+
+.convidado_modal_body{
+    height: 400px;
+}
+
+.convidado_modal_body_content{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #979797;
+    padding-bottom: 4%;
+}
+
+.convidado_modal_body_inputs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.convidado_modal_body_input{
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+}
+
+.convidado_modal_body_input label{
+    font-size: 18px;
+}
+
+.convidado_modal_body_input input{
+    font-size: 14px;
+    height: 35px;
+    padding-left: 2%;
+}
+
+.convidado_modal_body_input select{
+    font-size: 14px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.convidado_modal_body_presenca{
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #979797;
+}
+
+.convidado_modal_body_select{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 80%;
+}
+
+.convidado_modal_body_select label{
+    margin-bottom: 1%;
+}
+
+.convidado_modal_body_select select{
+    border-radius: 10px;
+    height: 35px;
+}
+
+.convidado_modal_footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.convidado_modal_footer button{
+    padding: 2% 10%;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    background-color: #d86b67;
+    color: white;
+    border-radius: 15px;
+}
