@@ -29,10 +29,10 @@ export const request = {
         return await Api.get(`/categorias-servicos`).then(response.data)
     },
     getSubcategorias: async (categoriaId) => {
-        return await Api.get(`subcategorias/categoria/${categoriaId}`).then(response.data)
+        return await Api.get(`/subcategorias/categoria/${categoriaId}`).then(response.data)
     },
     getSubcategoriasByNome: async (nome) => {
-        return await Api.get(`subcategorias/categoria/nome/${nome}`).then(response.data)
+        return await Api.get(`/subcategorias/categoria/nome/${nome}`).then(response.data)
     },
     saveCasal: async (usuario) => {
         return await Api.post(`/casais`, usuario).then(response)
