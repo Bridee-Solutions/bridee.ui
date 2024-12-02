@@ -21,6 +21,8 @@
   import Configuracoes from './pages/ConfiguraçõesDashboard/configuracoes';import Convites from './pages/Convites/Convites';
 import { CasalContextProvider } from './context/CasalContext';
 
+  import Configuracoes from './pages/ConfigurarAssessor/Configuracoes';
+
   function App() {
 
     return (
