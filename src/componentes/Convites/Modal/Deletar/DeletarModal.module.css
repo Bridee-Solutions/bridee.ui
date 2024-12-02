@@ -1,0 +1,62 @@
+.comecar_modal_header{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.comecar_modal_header_title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.comecar_modal_header_close{
+    width: 7%;
+    
+}
+
+.comecar_modal_body{
+    height: 170px;
+    width: 500px;
+    padding: 0 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.comecar_modal_body h2{
+    font-size: 22px;
+}
+
+.comecar_modal_body p{
+    font-size: 18px;
+    text-align: center;
+}
+
+.comecar_modal_body_icon{
+    color: #d86b67;
+    font-size: 3.5rem;
+}
+
+.cancelar_button{
+    padding: 3% 13%;
+    border: none;
+    font-size: 14px;
+    color: #766F6F;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #EAEAEA;
+}
+
+.deletar_button{
+    padding: 3% 13%;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #d86b67;
+}
