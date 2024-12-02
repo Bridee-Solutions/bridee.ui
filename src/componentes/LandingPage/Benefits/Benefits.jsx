@@ -11,7 +11,7 @@ library.add(faChevronRight);
 
 function Benefits() {
   return (
-    <section className={styles.benefits}>
+    <section className={styles.benefits} id="benefits">
       <div className={styles.containerbenefits}>
         <div className={styles.containerReg}>
           <div className={styles.start_label}>

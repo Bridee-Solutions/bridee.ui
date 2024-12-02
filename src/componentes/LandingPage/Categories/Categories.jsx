@@ -21,7 +21,7 @@ const categorias = [
 
 function Categories() {
   return (
-    <section className={styles.categories}>
+    <section className={styles.categories} id="categories">
     <div className={styles.containerCategoria}>
       <div className={styles.containerTitulo}>
         <span>DESCUBRA FORNECEDORES POR CATEGORIA</span>

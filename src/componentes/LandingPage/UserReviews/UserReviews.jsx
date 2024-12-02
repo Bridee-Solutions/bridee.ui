@@ -67,6 +67,7 @@ function UserReviews() {
                 grabCursor={true}
                 navigation
                 pagination={{clickable:true}}
+                style={{width: '100%', overflow: 'hidden'}}
               >
                 {testimonials.map((testimonial) => (
                   <SwiperSlide key={testimonial.id}>

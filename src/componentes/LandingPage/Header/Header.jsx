@@ -24,7 +24,7 @@ function Header() {
   }
 
   return (
-    <header>
+    <header id='header'>
       <div className={`${styles.side_bar} ${menuOpen ? styles.open : styles.closed}`}>
         <ul>
           <li>Entrar</li>

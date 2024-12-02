@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css";
 import Baseboard from "../BaseBoard/Baseboard";
+import LogoFooter from "../LogoFooter/LogoFooter";
 import Faq from "react-faq-component";
 import { useState, useEffect } from 'react';
 
@@ -14,74 +15,103 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
 
-library.add(
-  faPhone,
-  faInstagram,
-  faLinkedin,
-  faXTwitter,
-  faFacebookF,
-  faEnvelope,
-  faLocationDot
-);
+const titleStyle = {
+  fontFamily: 'Montserrat',
+  fontSize: '1rem',
+  fontWeight: '700',
+  color: '#514343',
+  textDecoration: 'none',
+  display: 'flex',
+  alignItems: 'center',
+};
 
 const data = {
   rows: [
     {
-      title: "Explorar",
+      title: <span style={titleStyle}>Explorar</span>,
       content: (
         <div>
-          <p>Assessores</p>
-          <p>Ferramentas de planejamento</p>
+          <a href="#categories">Assessores</a>
+          <a href="#wedding-planner">Ferramentas de planejamento</a>
         </div>
       ),
     },
     {
-      title: "Sobre nós",
+      title: <span style={titleStyle}>Sobre nós</span>,
       content: (
         <div>
           <p>Quem somos</p>
-          <p>Fale conosco</p>
-          <p>Perguntas frequentes</p>
+          <a href="#newsletter">Fale conosco</a>
+          <a href="#faq">Perguntas frequentes</a>
         </div>
       ),
     },
     {
-      title: "Contato",
+      title: <span style={titleStyle}>Contato</span>,
       content: (
         <div>
           <p>
             <FontAwesomeIcon
               icon={faLocationDot}
-              style={{ color: "#ae6261" }}
+              style={{ color: "#ae6261", marginRight: '0.6rem'}}
             />
             Rua Haddock Lobo, 595 - São Paulo
           </p>
           <p>
-            <FontAwesomeIcon icon={faPhone} style={{ color: "#ae6261" }} />
+            <FontAwesomeIcon icon={faPhone} style={{ color: "#ae6261", marginRight: '0.5rem'}} />
             Telefone: +55 (11) 999999-9999 
           </p>
           <p>
-            <FontAwesomeIcon icon={faEnvelope} style={{ color: "#ae6261" }} />
+            <FontAwesomeIcon icon={faEnvelope} style={{ color: "#ae6261", marginRight: '0.5rem'}} />
             E-mail: concate@bridee.com
           </p>
         </div>
       ),
     },
     {
-      title: "Voltar ao topo",
-      content: <p></p>,
-    },
+      title: (
+        <a href="#header" style={titleStyle}>
+          Voltar ao topo
+        </a>
+      ),
+      content: null,
+    }
   ],
 };
 
+const RedesSociais = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem' }}>
+    <div style={circleStyle}>
+      <FontAwesomeIcon icon={faLinkedin} style={{ color: 'white' }} />
+    </div>
+    <div style={circleStyle}>
+      <FontAwesomeIcon icon={faInstagram} style={{ color: 'white' }} />
+    </div>
+    <div style={circleStyle}>
+      <FontAwesomeIcon icon={faFacebookF} style={{ color: 'white' }} />
+    </div>
+    <div style={circleStyle}>
+      <FontAwesomeIcon icon={faXTwitter} style={{ color: 'white' }} />
+    </div>
+  </div>
+);
+
+const circleStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '40px',
+  height: '40px',
+  borderRadius: '50%',
+  backgroundColor: '#e39595',
+};
+
 const style = {
-  bgColor: "#F5F1DF",
+  bgColor: "#fff6f6",
   rowTitleColor: "#000000",
-  // rowContentColor: 'grey',
-  arrowColor: "#CE8A89",
-  rowTitleTextSize: "24px",
+  // rowContentColor: 'red',
+  arrowColor: "#ED9C9B",
 };
 
 const config = {
@@ -93,21 +123,52 @@ const config = {
 function Footer() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 360);
 
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth <= 360);
+  //   };
+ 
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 360);
     };
-
-    // handleResize(); 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+  
+    const arrow = document.querySelector('.faq .row:last-child .arrow');
+    const row = document.querySelector('.faq .row:last-child');
+  
+    if (arrow && row) {
+      row.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation(); 
+        window.location.href = '#header'; 
+      });
+    }
+  
+    window.addEventListener('resize', handleResize);
+  
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (row) {
+        row.removeEventListener('click', () => {});
+      }
+    };
   }, []);
+  
   
   return (
     <section className={styles.Footer}>
       {isMobile ? (
         <div className={styles.mobileFooter}>
-          <Faq data={data} styles={styles} config={config} />
+          <Faq data={data} styles={style} config={config} />
+          <div className={styles.iconsRedesSociais}>
+            <RedesSociais />
+          </div>
+          <LogoFooter />
+          <Baseboard />
         </div> 
       ) : (
       <div className={styles.footer_sections}>
@@ -119,9 +180,9 @@ function Footer() {
                   <span>Explorar</span>
                 </div>
                 <div className={styles.containerOpcoes}>
-                  <span>Quem Assessores</span>
-                  <span>Ferramentas de planejamento</span>
-                  <span>Fornecedores</span>
+                  <a href="#wedding-planner">Quem Assessores</a>
+                  <a href="#benefits">Ferramentas de planejamento</a>
+                  <a href="#categories">Fornecedores</a>
                 </div>
               </div>
             </div>
@@ -132,9 +193,9 @@ function Footer() {
                   <span>Sobre</span>
                 </div>
                 <div className={styles.containerOpcoes}>
-                  <span>Quem somos</span>
-                  <span>Fale conosco</span>
-                  <span>Perguntas Frequentes</span>
+                  <span className="opcoesPadroes">Quem somos</span>
+                  <a href="#newsletter">Fale conosco</a>
+                  <a href="#faq">Perguntas Frequentes</a>
                 </div>
               </div>
             </div>
@@ -142,7 +203,7 @@ function Footer() {
             <div className={styles.containerColuna}>
               <div className={styles.containerBox}>
                 <div className={styles.containerTitulo}>
-                  <span>Explorar</span>
+                  <span>Contato</span>
                 </div>
                 <div className={styles.containerOpcoes}>
                   <div className={styles.containerItem}>
@@ -181,21 +242,9 @@ function Footer() {
           </div>
 
           <div className={styles.container}>
-            <div className={styles.linha}></div>
+          <div className={styles.linha}></div>
           </div>
-
-          <div className={styles.containerEsquerda}>
-            <div className={styles.footer_logo}>
-              <div className={styles.container_logo}>
-                <span>
-                  bridee<b>.</b>
-                </span>
-              </div>
-              <div className={styles.container_subtitulo}>
-                <span>O match perfeito para o dia dos seus sonhos</span>
-              </div>
-            </div>
-          </div>
+          <LogoFooter />
         </div>
         <Baseboard />
       </div>

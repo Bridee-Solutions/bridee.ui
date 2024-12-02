@@ -169,19 +169,21 @@ width: 80%;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 340px;
+    max-width: none;
     height: auto;
     padding: 2%;
     box-sizing: border-box;
   }
 
   .backgroundAvaliacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     border-radius: 20px;
     padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
   }
 
   .aspas {
@@ -200,6 +202,12 @@ width: 80%;
 
   .containerAvaliacao {
     height: auto;
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    color: #000; /* Ajuste a cor */
+    top: 50%;
+    transform: translateY(-50%);
   }
 
 }

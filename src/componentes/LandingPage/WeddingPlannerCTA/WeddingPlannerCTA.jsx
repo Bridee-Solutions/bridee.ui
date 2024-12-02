@@ -2,7 +2,7 @@ import styles from "./WeddingPlanner.module.css";
 
 function WeddingPlannerCTA() {
   return (
-    <section className={styles.wedding_planner}>
+    <section className={styles.wedding_planner} id="wedding-planner">
       <div className={styles.container}>
         <div className={styles.containerConteudo}>
           <div className={styles.containerTitulo}>

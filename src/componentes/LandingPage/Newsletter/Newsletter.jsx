@@ -7,7 +7,7 @@ library.add(faEnvelope);
 
 function Newsletter() {
   return (
-    <section className={styles.newsletter}>
+    <section className={styles.newsletter} id="newsletter">
       <div className={styles.container}>
         <div className={styles.containerTitulo}>
           <span>A maneira fácil de planejar</span>

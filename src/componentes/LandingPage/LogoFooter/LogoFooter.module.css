@@ -1,0 +1,57 @@
+.containerEsquerda {
+    width: 30%;
+    display: flex;
+    margin-top: 1%;
+}
+
+.footer_logo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.container_logo > span {
+    font-family: "Qlassy";
+    color: #3c3c3c;
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.container_logo > span {
+    font-family: "Qlassy";
+    color: #3c3c3c;
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.container_logo > span b {
+    color: #ae6261;
+}
+
+.container_subtitulo {
+    width: 100%;
+}
+
+.container_subtitulo > span {
+    font-family: "Montserrat";
+    font-size: 0.8rem;
+}
+
+@media (max-width: 360px) {
+    .containerEsquerda {
+        margin: 8% 0;
+        width: 100%; 
+        justify-content: center; 
+        align-items: center;
+    }
+
+    .footer_logo {
+        align-items: center; 
+    }
+
+    .container_subtitulo {
+        display: none;
+    }
+}
+

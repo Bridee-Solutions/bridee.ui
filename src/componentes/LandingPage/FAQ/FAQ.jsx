@@ -46,7 +46,7 @@ const config = {
 
 function FAQ() {
   return (
-    <section className={styles.faq}>
+    <section className={styles.faq} id="faq">
     <div className={styles.container}>
     <div className={styles.title}>
     <h1>Perguntas frequentes</h1>

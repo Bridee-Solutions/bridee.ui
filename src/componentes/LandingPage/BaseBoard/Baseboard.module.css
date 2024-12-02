@@ -25,3 +25,12 @@
     font-weight: 400;
   } 
 }
+
+@media (max-width: 360px) {
+  .bridee_rights {
+    font-size: 1rem; 
+    padding: 0 5px; 
+    background-color: #FFF6F6;
+    color: #373737;
+  }
+}
