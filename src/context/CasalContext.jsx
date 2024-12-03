@@ -1,40 +1,34 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { decrypt, encrypt } from "../utils/criptografia";
+import { rotasComuns } from "./Context";
 
 const CasalContext = createContext()
 
-export const CasalContextProvider = ({children}) => {
+export const CasalContextProvider = ({children, ...props}) => {
     
-    const [casamentoId, setCasamentoId] = useState(() => {
-        const sessionCasamentoIdValue = localStorage.getItem("casamentoId");
-        if(sessionCasamentoIdValue != undefined){
-            return decrypt(sessionCasamentoIdValue);
-        }
-    });
-    const [tipoUsuario, setTipoUsuario] = useState(() => {
-        const sessionTipoUsuarioValue = localStorage.getItem("tipoUsuario");
-        if(sessionTipoUsuarioValue != undefined) {
-            return decrypt(sessionTipoUsuarioValue)
-        }
-    });
-    const [authenticated, setAuthenticated] = useState(() => {
-        const sessionIsAuthenticated = localStorage.getItem("isAuthenticated");
-        if(sessionIsAuthenticated != undefined){
-            return decrypt(sessionIsAuthenticated)
-        }
-    });
     const [convites, setConvites] = useState();
     const navigate = useNavigate()
-    
-    useEffect(() => {        
-        if(tipoUsuario != "CASAL" || !authenticated){
+    const location = useLocation();
+
+    useEffect(() => {
+        const pathname = location.pathname;
+        const rotasPaths = rotasComuns.map(rota => rota.path)
+        
+        if(pathname == "/login" && props.authenticated){
+            navigate("/painel")
+        }
+
+        if(rotasPaths.includes(pathname)){
+            return;
+        }
+        
+        if(props.tipoUsuario != "CASAL" || !props.authenticated){
             navigate("/login")
         }
     },[])
 
-    return <CasalContext.Provider value={{casamentoId, setCasamentoId, 
-        tipoUsuario, setTipoUsuario, authenticated, setAuthenticated}}>
+    return <CasalContext.Provider casamentoId={props.casamentoId} convites={convites} setConvites={setConvites}>
         {children}
     </CasalContext.Provider>
 

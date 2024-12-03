@@ -6,7 +6,7 @@ import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import SobreNegocio from "../../componentes/SobreNegocio/SobreNegocio";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandshake, faUser } from '@fortawesome/free-solid-svg-icons';
-const Configuracoes = () => {
+const ConfiguracoesAssessor = () => {
   return (
     <div>
       <Navbar />
@@ -50,4 +50,4 @@ const Configuracoes = () => {
   );
 };
 
-export default Configuracoes;
+export default ConfiguracoesAssessor;
