@@ -10,11 +10,18 @@ const Fase3 = (props) => {
   const firstName = useRef();
   const firstNameLover = useRef();
 
+ const formatarNome = (nome) => { 
+  return nome
+  .trim()
+  .toLowerCase()
+  .replace(/^\w/, (c) => c.toUpperCase()); // Maiúscula na primeira letra
+ }
+
   const proximaFase = () => {
     if (
       firstName.current.value.trim() == "" ||
       firstName.current.value.length < 3 ||
-      firstNameLover.current.value == "" ||
+      firstNameLover.current.value.trim() == "" ||
       firstNameLover.current.value.length < 3
     ) {
       if (
@@ -36,8 +43,13 @@ const Fase3 = (props) => {
       toast.error("Os nomes devem ter no mínimo 3 caracteres");
       return;
     }
-    props.usuario.nome = firstName.current.value;
-    props.usuario.nomeParceiro = firstNameLover.current.value;
+
+    const nomeFormatado = formatarNome(firstName.current.value);
+    const nomeParceiroFormatado = formatarNome(firstNameLover.current.value);
+
+    props.usuario.nome =  nomeFormatado;
+    props.usuario.nomeParceiro = nomeParceiroFormatado;
+    
     const proximaFase = definirProximaFase(props.fases);
     const componenteProximaFase = componenteFase(
       proximaFase,

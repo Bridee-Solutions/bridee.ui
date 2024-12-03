@@ -10,6 +10,16 @@
   max-width: 100%;
 }
 
+.containerHeaderModal {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3%;
+}
+
 .grid {
   display: flex;
   gap: calc(1rem - 1px);
@@ -85,9 +95,10 @@
 
 .containerModal { 
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  height: 100%;
-  overflow-y: scroll;
+  height: 30vh;
+  padding-top: 3% ;
 }
 
 .search_input_container{
@@ -105,8 +116,8 @@
 
 .search_input {
   border: none;
-  padding: 10px;
-  font-size: 16px;
+  padding: 4%;
+  font-size: 1rem;
   flex: 1;  
   outline: none;
 }
@@ -136,8 +147,8 @@
 }
 
 .form_group{
-    padding-bottom: 0.4rem;
-}
+  padding-bottom: 0.4rem;
+  font-family: 'Montserrat'}
 
 .fornecedor_modal{
   width: 100%;

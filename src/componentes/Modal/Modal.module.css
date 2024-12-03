@@ -128,15 +128,18 @@ input:focus {
     gap: 15px;
 }
 
+.footermodal { 
+    border: 2px solid blue;
+}
 .save_button,
 .delete_button,
 .cancel_button,
 .add_button,
 .whatsapp_button {
-    width: 206px;
-    height: 43px;
+    width: 15vw;
+    height: 7vh;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 0.9rem;
     border: 0px;
     cursor: pointer;
 }

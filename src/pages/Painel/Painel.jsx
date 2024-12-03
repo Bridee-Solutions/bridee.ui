@@ -170,7 +170,7 @@ function Painel() {
               <div className={styles.caixa}>
                 <span className={styles.titulo_clnesq}>Meus fornecedores</span>
                 <span className={styles.descricao}>
-                  Lorem ipsum lorem ipsum lorem ipsum
+                Encontre e adicione os fornecedores ideais para o seu evento.
                 </span>
               </div>
             </div>
@@ -200,7 +200,7 @@ function Painel() {
                     Meu assessor de casamento
                   </span>
                   <span className={styles.descricao}>
-                    Lorem ipsum lorem ipsum lorem ipsum
+                  Encontre o profissional que vai transformar seus sonhos em realidade.
                   </span>
                 </div>
 

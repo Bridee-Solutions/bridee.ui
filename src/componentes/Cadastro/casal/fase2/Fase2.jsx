@@ -20,7 +20,7 @@ const Fase2 = (props) => {
       <div className={styles.fase2_image}>
         <img
           className={styles.imagem}
-          src={"/src/assets/streamline_champagne-party-alcohol.svg"}
+          src={"/src/assets/login/streamline_champagne-party-alcohol.svg"}
           alt=""
         />
         <div className={styles.vamosCont}>
