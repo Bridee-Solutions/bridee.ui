@@ -15,13 +15,10 @@
 }
 
 .containerTitulo {
-  
   justify-content: center;
   display: flex;
   align-items: center;
   height: 15vh;
-
-
 }
 
 .containerTitulo > span {
@@ -148,7 +145,7 @@ width: 80%;
 
 @media (max-width: 360px) {
   .stars > img { 
-    width: 4vw;
+    width: 6vw;
   } 
 
   .containerReg {
@@ -156,11 +153,15 @@ width: 80%;
   }
 
   .contimg > img { 
-    width: 14vw;
+    width: 12vw;
+    height: auto;
+    border-radius: 50%;
   }
 
   .containerDesc {
     text-align: center;
+    font-size: 0.8rem;
+    width: 100%;
   }
 
   .carouselContainer {
@@ -169,10 +170,7 @@ width: 80%;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: none;
-    height: auto;
     padding: 2%;
-    box-sizing: border-box;
   }
 
   .backgroundAvaliacao {
@@ -180,34 +178,43 @@ width: 80%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    border-radius: 20px;
+    width: 90%;
+    border-radius: 30px 90px;
     padding: 1rem;
-    overflow: hidden;
+    margin: 0 auto;
   }
 
-  .aspas {
-    width: 10vw;
+  .containerSuperior .aspas {
+    position: absolute;
+    top: 10%;
+    left: 12%;
+    width: 1.4rem; 
+  }
+
+  .containerInferior .aspas {
+    position: absolute;
+    bottom: 30%;
+    right: 12%;
+    width: 1.4rem; 
   }
 
   .conteudoAvaliacao {
-    height: auto;
-    width: 90%;
+    position: relative;
+    height: 80%;
+    width: 98%;
+    padding: 20px;
   }
 
   .containerMeio {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    text-align: center;
+    padding: 0.5rem !important;
+    width: 100% !important;
   }
 
-  .containerAvaliacao {
-    height: auto;
+  .contMei span {
+    margin-top: 40px; 
+    margin-bottom: 40px; 
   }
-
-  .swiper-button-prev, .swiper-button-next {
-    color: #000; /* Ajuste a cor */
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
 }

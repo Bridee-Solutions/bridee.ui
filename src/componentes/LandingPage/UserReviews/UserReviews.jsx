@@ -38,16 +38,31 @@ function UserReviews() {
   ];
 
   const [isMobileView, setIsMobileView] = useState(false);
+  const [swiperKey, setSwiperKey] = useState(0); 
 
   const handleResize = () => {
     setIsMobileView(window.innerWidth <= 360);
   };
 
   useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const updateView = () => {
+      setIsMobileView(window.innerWidth <= 360);
+      setSwiperKey((prevKey) => prevKey + 1); 
+    };
+
+    updateView(); 
+
+    const resizeListener = () => {
+      setIsMobileView(window.innerWidth <= 768);
+      setSwiperKey((prevKey) => prevKey + 1); 
+    };
+
+    window.addEventListener("resize", resizeListener);
+    return () => {
+      window.removeEventListener("resize", resizeListener);
+    };
   }, []);
+
 
   return (
     <section className={styles.user_reviews}>
