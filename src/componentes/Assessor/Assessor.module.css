@@ -16,6 +16,10 @@
     height: 28vh;
   }
 
+  .assessorCard:hover {
+    box-shadow: 0 6px 12px rgba(175, 175, 175, 0.1);
+  }
+
   .textos { 
     padding-top: 4%;
     display: flex;

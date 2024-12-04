@@ -4,19 +4,23 @@
 
 .checkbox-group h2 {
     font-family: "Montserrat";
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
 .checkbox-option {
-    margin: 5px 0;
     display: flex;
-    align-items: center;
+    width: 100%;
 }
-  
+
 .checkbox-option label {
     font-family: 'ProductSans';
-    font-size: 20px; 
-    margin-left: 20px;
+    font-size: 1rem; 
+    padding-left: 5%
 }
+
+.caixaopcao { 
+    width: 40vh;
+}
+
