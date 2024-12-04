@@ -7,6 +7,8 @@ import Navbar from "../../componentes/Navbar/Navbar";
 import OpcaoFiltro from "../../componentes/OpcoesFiltro/OpcaoFiltro";
 import TaskList from "../../componentes/Tasks/TaskList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+
 import {
   faMagnifyingGlass,
   faTriangleExclamation,
@@ -496,13 +498,18 @@ function ListaTarefas() {
       {modalAddTask && (
         <Modal>
           <ModalHeader onClose={fecharModalAdd}>
-            <div className={styles.visutarefa}>
-              <span>Criar tarefa</span>
+          <div className={styles.visutarefa}>
+              <div className={styles.titulo}>
+                <span>Criar tarefa</span>
+              </div>
+              <div className={styles.modal_header_close}>
+                <FontAwesomeIcon icon={faX} style={{ cursor: "pointer" }} />
+              </div>
             </div>
           </ModalHeader>
           <ModalBody>
             <div className={styles.containerModalCreate}>
-              <div>
+              <div className={styles.contregs}>
                 <p>Nome da tarefa</p>
                 <input type="text" ref={nameTaskSave} />
               </div>
@@ -576,7 +583,14 @@ function ListaTarefas() {
       {modalDelete && (
         <Modal>
           <ModalHeader onClose={fecharModalDelete}>
-            <span>Remover tarefa</span>
+          <div className={styles.visutarefa}>
+              <div className={styles.titulo}>
+                <span>Remover tarefa</span>
+              </div>
+              <div className={styles.modal_header_close}>
+                <FontAwesomeIcon icon={faX} style={{ cursor: "pointer" }} />
+              </div>
+            </div>
           </ModalHeader>
           <ModalBody>
             <div className={styles.containerModalDelete}>
@@ -611,7 +625,14 @@ function ListaTarefas() {
       {modalViewTask && (
         <Modal>
           <ModalHeader onClose={fecharModalView}>
-            <span>Visualizar tarefa</span>
+            <div className={styles.visutarefa}>
+              <div className={styles.titulo}>
+                <span>Visualizar tarefa</span>
+              </div>
+              <div className={styles.modal_header_close}>
+                <FontAwesomeIcon icon={faX} style={{ cursor: "pointer" }} />
+              </div>
+            </div>
           </ModalHeader>
           <ModalBody>
             <div className={styles.containerModalCreate}>
@@ -644,9 +665,11 @@ function ListaTarefas() {
                 </label>
               </div>
               <div className={styles.containerDateTag}>
-                <div>
-                  <p>Data</p>
-                  <div onClick={handleLabelClick}>
+                <div className={styles.containerModal}>
+                  <div className={styles.containerData}>
+                    <p>Data</p>
+                  </div>
+                  <div className={styles.calendario} onClick={handleLabelClick}>
                     <input
                       type="date"
                       ref={dateTaskView}
@@ -661,28 +684,39 @@ function ListaTarefas() {
                   </div>
                 </div>
                 <div>
-                  <p>Categoria</p>
-                  <div>
-                    <FontAwesomeIcon icon={faTag} />
-                    <select
-                      ref={categoryTaskView}
-                      defaultValue={task.categoria}
-                    >
-                      <option value="FOTOGRAFIA">Fotografia</option>
-                      <option value="CABELO_E_MAQUIAGEM">
-                        Cabelo e Maquiagem
-                      </option>
-                      <option value="VESTIDOS">Vestidos</option>
-                      <option value="LOCAIS">Locais</option>
-                      <option value="MUSICA">Musica</option>
-                      <option value="PLANEJADOR">Planejador</option>
-                    </select>
+                  <div className={styles.containerModalSelect}>
+                    <div className={styles.containerData}>
+                      <p>Categoria</p>
+                      <div>
+                        <div className={styles.aquiii}>
+                          <FontAwesomeIcon icon={faTag} />
+                          <select
+                            ref={categoryTaskView}
+                            defaultValue={task.categoria}
+                          >
+                            <option value="FOTOGRAFIA">Fotografia</option>
+                            <option value="CABELO_E_MAQUIAGEM">
+                              Cabelo e Maquiagem
+                            </option>
+                            <option value="VESTIDOS">Vestidos</option>
+                            <option value="LOCAIS">Locais</option>
+                            <option value="MUSICA">Musica</option>
+                            <option value="PLANEJADOR">Planejador</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </ModalBody>
           <ModalFooter>
+            <ModalFooterButton
+              button="cancel_button"
+              text="Cancelar"
+              onClick={fecharModalAdd}
+            />
             <ModalFooterButton
               button="add_button"
               text="Salvar"
