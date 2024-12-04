@@ -137,7 +137,9 @@ function Calculadora() {
     <div className={styles.background}>
       <Navbar />
       <div className={styles.planejamento}>
-        <span>Ferramentas de planejamento - Calculadora Financeira</span>
+        <span>Ferramentas de planejamento {">"}  Calculadora Financeira</span>
+      
+
       </div>
 
       <div className={styles.conteudo}>
