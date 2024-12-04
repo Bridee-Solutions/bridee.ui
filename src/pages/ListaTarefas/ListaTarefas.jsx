@@ -392,7 +392,7 @@ function ListaTarefas() {
       <div className={styles.conteudo}>
         <div className={styles.tituloPage}>
           <p>
-            Ferramentas de planejamento {">"} <b>Lista de tarefas</b>
+          Painel {">"} Ferramentas de planejamento {">"} <b>Lista de tarefas</b>
           </p>
         </div>
         <div className={styles["card-fundo"]}>
