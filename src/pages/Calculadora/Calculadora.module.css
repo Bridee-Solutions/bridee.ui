@@ -92,10 +92,17 @@
 }
 
 .planejamento {
-  font-size: 13px;
-  font-family: "Montserrat";
-  height: 3rem;
-  display: flex;
+    align-self: flex-start;
+    padding-left: 3.5%;
+    padding-top: 25px;
+    padding-bottom: 1.5rem;
+    font-family: "Montserrat";
+    text-align: left;
+    font-size: 0.89rem;
+}
+
+.planejamento span b { 
+  padding-left: 1%;
 }
 
 .planejamento > span {
