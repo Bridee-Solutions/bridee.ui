@@ -75,7 +75,6 @@ input:focus {
     background-color: #FFFFFF;
     height: 40px;
     font-family: "ProductSans";
-    width: 35vw;
 }
 
 .modal_body select {

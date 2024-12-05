@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Calculadora.module.css";
+import stylesModal from "../ListaTarefas/ListaTarefas.module.css";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+
 import "../../index.css";
 
 import { faFileExport, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
@@ -29,8 +32,7 @@ import FornecedorCalc from "../../componentes/FornecedorCalculadora/FornecedorCa
 import { buildItemOrcamentos } from "./CalculadoraService";
 
 function Calculadora() {
-
-  const [orcamento, setOrcamento] = useState({})
+  const [orcamento, setOrcamento] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false); // controle do modal// valor inicial de gasto
   const [totalAtual, setTotalAtual] = useState(0);
 
@@ -56,33 +58,32 @@ function Calculadora() {
 
   const salvarOrcamento = () => {
     const valorOrcamento = atualizarOrcamento.current.value;
-    updateOrcamento(valorOrcamento)
+    updateOrcamento(valorOrcamento);
     request.updateOrcamentoTotal(Number(valorOrcamento), 2);
     fecharModal();
-  }
+  };
 
   // Função para abrir e fechar a categoria
   const toggleCategoria = (item) => {
-    item.aberta = !item.aberta
-    setOrcamento({...orcamento})
+    item.aberta = !item.aberta;
+    setOrcamento({ ...orcamento });
   };
 
   const updateOrcamento = (valor) => {
     orcamento.orcamentoTotal = Number(valor);
-    setOrcamento({...orcamento})
+    setOrcamento({ ...orcamento });
   };
 
   const updateItensOrcamento = (itens) => {
-    orcamento.itemOrcamentos = itens
-    setOrcamento({...orcamento})
-  }
-  
+    orcamento.itemOrcamentos = itens;
+    setOrcamento({ ...orcamento });
+  };
 
   const handleTituloChange = (e, catIndex, itemIndex) => {
     const { value } = e.target;
     const novasCategorias = [...orcamento.itemOrcamentos];
     novasCategorias[catIndex].custos[itemIndex].nome = value;
-    updateItensOrcamento(novasCategorias)
+    updateItensOrcamento(novasCategorias);
   };
 
   const adicionarCategoria = () => {
@@ -93,53 +94,55 @@ function Calculadora() {
       id: null,
       tipo: "Digite o nome da nova categoria",
       icon: etiqueta,
-      custos: [{id: null, nome: "Novo item", precoAtual: 0 }],
+      custos: [{ id: null, nome: "Novo item", precoAtual: 0 }],
       aberta: true,
     };
     categoriasAnteriores.push(novaCategoria);
-    updateItensOrcamento(categoriasAnteriores)
+    updateItensOrcamento(categoriasAnteriores);
   };
 
   const downloadOrcamentoCsv = () => {
     request.downloadOrcamentoCsv(2).then((response) => {
       const blob = response.data;
-      const file = new File([...blob], "orcamento", {type: "text/plain"})
-     
-      const url = window.URL.createObjectURL(file)
+      const file = new File([...blob], "orcamento", { type: "text/plain" });
+
+      const url = window.URL.createObjectURL(file);
       const link = document.createElement("a");
       link.href = url;
-     
-      link.setAttribute("download", "orcamento.csv")
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    })
-  }
+
+      link.setAttribute("download", "orcamento.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
 
   useEffect(() => {
-    request.getOrcamentoCasal(2)
-    .then(response => {
-    
-      response.data.itemOrcamentos = buildItemOrcamentos(response.data);
-      const fornecedoresOrcamento = response.data.orcamentoFornecedores.map(fornecedor => {
-        return {...fornecedor, aberta: true, icon: decoracao};
+    request
+      .getOrcamentoCasal(2)
+      .then((response) => {
+        response.data.itemOrcamentos = buildItemOrcamentos(response.data);
+        const fornecedoresOrcamento = response.data.orcamentoFornecedores.map(
+          (fornecedor) => {
+            return { ...fornecedor, aberta: true, icon: decoracao };
+          }
+        );
+        response.data.orcamentoFornecedores = fornecedoresOrcamento;
+
+        setOrcamento(response.data);
+        setTotalAtual(response.data.orcamentoGasto);
       })
-      response.data.orcamentoFornecedores = fornecedoresOrcamento;
-
-      setOrcamento(response.data)
-      setTotalAtual(response.data.orcamentoGasto)
-    })
-    .catch(err => console.log(err))
-
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className={styles.background}>
       <Navbar />
       <div className={styles.planejamento}>
-        <span>Painel {">"}  Ferramentas de planejamento {">"}  <b> Calculadora Financeira</b></span>
-      
-
+        <span>
+          Painel {">"} Ferramentas de planejamento {">"}{" "}
+          <b> Calculadora Financeira</b>
+        </span>
       </div>
 
       <div className={styles.conteudo}>
@@ -155,7 +158,10 @@ function Calculadora() {
               </span>
             </div>
             <div>
-              <button className={styles.buttonExport} onClick={downloadOrcamentoCsv}>
+              <button
+                className={styles.buttonExport}
+                onClick={downloadOrcamentoCsv}
+              >
                 <div className={styles.containerButton}>
                   <div>
                     <FontAwesomeIcon
@@ -184,19 +190,21 @@ function Calculadora() {
                 />
               </div>
             ))}
-              {/* {orcamento.orcamentoFornecedores[1].preco} */}
-            {orcamento.orcamentoFornecedores &&
-                <div className={styles.categoriaBox}>
-                  <FornecedorCalc
-                    categoria={orcamento.orcamentoFornecedores}
-                    toggleCategoria={toggleCategoria}
-                    handleTituloChange={handleTituloChange}
-                    categorias={orcamento}
-                    setCategorias={setOrcamento}
-                    orcamentoFornecedorRequest={orcamentoFornecedorRequest.current}
-                  />
-                </div>
-            }
+            {/* {orcamento.orcamentoFornecedores[1].preco} */}
+            {orcamento.orcamentoFornecedores && (
+              <div className={styles.categoriaBox}>
+                <FornecedorCalc
+                  categoria={orcamento.orcamentoFornecedores}
+                  toggleCategoria={toggleCategoria}
+                  handleTituloChange={handleTituloChange}
+                  categorias={orcamento}
+                  setCategorias={setOrcamento}
+                  orcamentoFornecedorRequest={
+                    orcamentoFornecedorRequest.current
+                  }
+                />
+              </div>
+            )}
 
             <div className={styles.containerInferior}>
               <div className={styles.box}>
@@ -219,7 +227,9 @@ function Calculadora() {
                     </div>
                     <div className={styles.orcamentoContainer}>
                       <span className={styles.orcamento}>Orçamento:</span>
-                      <span className={styles.totalorcamento}>R${orcamento.orcamentoTotal}</span>
+                      <span className={styles.totalorcamento}>
+                        R${orcamento.orcamentoTotal}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -253,7 +263,10 @@ function Calculadora() {
 
             <div className={styles.containerOrcamento}>
               <div className={styles.orcamento}>
-                <ArcoFinanceiro gasto={orcamento.orcamentoGasto} total={orcamento.orcamentoTotal} />
+                <ArcoFinanceiro
+                  gasto={orcamento.orcamentoGasto}
+                  total={orcamento.orcamentoTotal}
+                />
               </div>
             </div>
 
@@ -261,8 +274,19 @@ function Calculadora() {
             {isModalOpen && (
               <Modal>
                 <ModalHeader onClose={fecharModal}>
-                  <div className={styles.containerHeaderModal}>
-                    <span>Editar Orçamento</span>
+                  <div className={stylesModal.visutarefa}>
+                    <div className={stylesModal.titulo}>
+                      <span>Editar orçamento</span>
+                    </div>
+                    <div
+                      className={stylesModal.modal_header_close}
+                      onClick={fecharModal}
+                    >
+                      <FontAwesomeIcon
+                        icon={faX}
+                        style={{ cursor: "pointer" }}
+                      />
+                    </div>
                   </div>
                 </ModalHeader>
 
@@ -278,9 +302,14 @@ function Calculadora() {
                       />
                     </div>
                     <div className={styles.form_group}>
+                      
                       <label htmlFor="gastoInput">
-                        Orçamento atual: R$ {(orcamento.orcamentoTotal - orcamento.orcamentoGasto).toFixed(2)}
+                        Orçamento atual: R${" "}
+                        {(
+                          orcamento.orcamentoTotal - orcamento.orcamentoGasto
+                        ).toFixed(2)}
                       </label>
+                     
                     </div>
                   </div>
                 </ModalBody>
