@@ -50,12 +50,20 @@
 .filter button{
     width: 25%;
     height: 60%;
-    background-color: #d86b67;
+    background-color: #DF6F60;
     border: none;
     color: white;
     border-radius: 10px;
     cursor: pointer;
     font-family: 'Montserrat';
+    transition: 0.6s ease;
+
+}
+
+.filter button:hover,
+.body_content_item button:hover { 
+    background-color: #d85b4c;
+    transition: 0.6s ease;
 
 }
 
@@ -176,11 +184,13 @@
     font-size: 0.9rem;
     align-items: center;
     justify-content: space-between;
+    transition: 0.3s ease;
+
 }
 
 .body_content_item button{
     width: 25%;
-    background-color: #d86b67;
+    background-color: #DF6F60;
     font-family: 'Montserrat';
 
     border: none;

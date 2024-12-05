@@ -74,7 +74,7 @@ function NavComp() {
       descricao:
         "Uma lista de convidados prática e intuitiva para ajudar você a gerenciar facilmente quem irá convidar e acompanhar as confirmações.",
       icon: faClipboardList,
-      rota: "/lista-convidados",
+      rota: "/lista-convidados/:casamentoId",
     },
     {
       nome: "Lista de tarefas",
