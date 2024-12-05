@@ -36,12 +36,11 @@ import { CasalContextProvider } from './context/CasalContext';
             <Route path='*' element={<Error />} />
             <Route path='/painel' element={<Painel />} />
             <Route path='/calculadora-financeira' element={<Calculadora />} />
-            <Route path='/lista-convidados' element={<ListaConvidados />} />
             <Route path='/planejador-assentos' element={<PlanejadorAssentos />} />
             <Route path='/lista-tarefas' element={<ListaTarefas />} />
             <Route path='/assessores' element={<Assessores />} />
             <Route path='/locais' element={<Locais />} />
-            <Route path='/convites/:casamentoId' element={<Convites/>}></Route>
+            <Route path='/lista-convidados/:casamentoId' element={<Convites/>}></Route>
             <Route path='/fornecedores' element={<Fornecedores />} />
             <Route path='/configuracoes' element={<Configuracoes />} />
           </Routes>
