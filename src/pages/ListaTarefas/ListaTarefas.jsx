@@ -636,7 +636,7 @@ function ListaTarefas() {
           </ModalHeader>
           <ModalBody>
             <div className={styles.containerModalCreate}>
-              <div>
+            <div className={styles.contregs}>
                 <p>Nome da tarefa</p>
                 <label htmlFor="nameTaskView" className={styles.labelTaskView}>
                   <input
