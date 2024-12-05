@@ -502,7 +502,7 @@ function ListaTarefas() {
               <div className={styles.titulo}>
                 <span>Criar tarefa</span>
               </div>
-              <div className={styles.modal_header_close}>
+              <div className={styles.modal_header_close} onClick={fecharModalAdd}>
                 <FontAwesomeIcon icon={faX} style={{ cursor: "pointer" }} />
               </div>
             </div>
@@ -587,7 +587,7 @@ function ListaTarefas() {
               <div className={styles.titulo}>
                 <span>Remover tarefa</span>
               </div>
-              <div className={styles.modal_header_close}>
+              <div className={styles.modal_header_close}   onClick={fecharModalDelete}>
                 <FontAwesomeIcon icon={faX} style={{ cursor: "pointer" }} />
               </div>
             </div>
@@ -629,8 +629,8 @@ function ListaTarefas() {
               <div className={styles.titulo}>
                 <span>Visualizar tarefa</span>
               </div>
-              <div className={styles.modal_header_close}>
-                <FontAwesomeIcon icon={faX} style={{ cursor: "pointer" }} />
+              <div className={styles.modal_header_close} onClick={fecharModalView}>
+                <FontAwesomeIcon icon={faX} style={{ cursor: "pointer" }}  />
               </div>
             </div>
           </ModalHeader>
@@ -715,7 +715,7 @@ function ListaTarefas() {
             <ModalFooterButton
               button="cancel_button"
               text="Cancelar"
-              onClick={fecharModalAdd}
+              onClick={fecharModalView}
             />
             <ModalFooterButton
               button="add_button"
