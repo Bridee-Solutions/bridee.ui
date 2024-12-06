@@ -17,7 +17,7 @@ const ConviteModal = (props) => {
             <ModalHeader>
                 <div className={styles.convite_modal_header}>
                     <div className={styles.convite_modal_header_title}>
-                        <h2>Convite de {props.convite?.nome}</h2>
+                        <span>Convite de {props.convite?.nome}</span>
                     </div>
                     <div className={styles.convite_modal_header_close}>
                         <FontAwesomeIcon icon={faX} onClick={() => props.closeModal()} style={{cursor: "pointer"}}/>
@@ -26,7 +26,7 @@ const ConviteModal = (props) => {
             </ModalHeader>
             <ModalBody>
                 <div className={styles.convite_modal_body}>
-                    <p>Dados do convite</p>
+                    <p className={styles.dados}>Dados do convite</p>
                     <div className={styles.convite_modal_body_content}>
                         <div>
                             <div className={styles.convite_modal_body_content_nome}>

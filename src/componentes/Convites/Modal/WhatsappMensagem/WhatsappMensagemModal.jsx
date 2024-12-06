@@ -24,7 +24,7 @@ const WhatsappMensagemModal = (props) => {
             <ModalHeader>
             <div className={styles.whatsapp_modal_header}>
                 <div className={styles.whatsapp_modal_header_title}>
-                    <h2>Divulgar pelo WhatsApp</h2>
+                    <span>Divulgar pelo WhatsApp</span>
                 </div>
                 <div className={styles.whatsapp_modal_header_close}>
                     <FontAwesomeIcon icon={faX} onClick={() => props.closeModal()} style={{cursor: "pointer"}}/>

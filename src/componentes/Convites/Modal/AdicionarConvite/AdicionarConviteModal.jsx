@@ -47,7 +47,7 @@ const AdicionarConviteModal = (props) => {
             <ModalHeader>
                 <div className={styles.convite_modal_header}>
                     <div className={styles.convite_modal_header_title}>
-                        <h2>Adicionar Convite</h2>
+                        <span>Adicionar Convite</span>
                     </div>
                     <div className={styles.convite_modal_header_close}>
                         <FontAwesomeIcon icon={faX} onClick={() => props.closeModal()} style={{cursor: "pointer"}}/>

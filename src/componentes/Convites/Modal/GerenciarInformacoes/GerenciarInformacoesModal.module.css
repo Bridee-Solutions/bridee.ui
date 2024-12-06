@@ -1,5 +1,4 @@
 .gerenciar_modal_header{
-    width: 500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,12 +10,20 @@
     display: flex;
     justify-content: center;
 }
+.gerenciar_modal_header_title  > span { 
+    font-family: "Playfair Display";
+    font-weight: 500;
+    font-size: 1.5rem;
+}
 
 .gerenciar_modal_header_close{
     width: 7%;
     
 }
 
+.modais { 
+    border: 2px solid red;
+}
 .gerenciar_modal_body{
     height: 350px;
     display: flex;
