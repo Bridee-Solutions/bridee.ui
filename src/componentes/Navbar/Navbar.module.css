@@ -2,6 +2,7 @@
   font-size: 34px;
   font-family: "Qlassy";
   color: #131313;
+  cursor: pointer;
 }
 
 .logo > span {

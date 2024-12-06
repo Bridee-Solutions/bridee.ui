@@ -1,8 +1,9 @@
 .arco_financeiro{
     display: flex;
     flex-direction: column;
-    height: 120px;
-    justify-content: space-between;
+    height: 25vh;
+    justify-content: space-evenly;
+   
 }
 
 .arco_financeiro_gasto{

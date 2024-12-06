@@ -10,7 +10,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useNavigate, useLocation  } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 import {
@@ -21,7 +21,7 @@ import {
   faCalculator,
   faHandshake,
   faLocationDot,
-  faUserTie 
+  faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 import MenuLink from "../MenuLink/MenuLink";
 import DropdownItem from "../DropdownItem/DropdownItem";
@@ -34,7 +34,7 @@ function NavComp() {
 
   const handleDropdownClick = () => {
     setDropdownAberto((prev) => !prev);
-    if (dropdownLocaisAberto) setDropdownLocaisAberto(false); 
+    if (dropdownLocaisAberto) setDropdownLocaisAberto(false);
   };
 
   const handleDropdownLocaisClick = () => {
@@ -53,13 +53,16 @@ function NavComp() {
 
   useEffect(() => {
     const path = location.pathname;
-    if (path === "/locais" || path === "/assessores" || path === "/fornecedores") {
+    if (
+      path === "/locais" ||
+      path === "/assessores" ||
+      path === "/fornecedores"
+    ) {
       setPaginaAtiva("locaisFornecedores");
     } else {
       setPaginaAtiva("ferramentas");
     }
   }, [location]);
-
 
   const ferramentasDePlanejamento = [
     {
@@ -67,7 +70,7 @@ function NavComp() {
       descricao:
         "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
       icon: <GiBigDiamondRing />,
-       rota: "/painel",
+      rota: "/painel",
     },
     {
       nome: "Lista de convidados",
@@ -110,17 +113,16 @@ function NavComp() {
     {
       nome: "Fornecedores",
       descricao:
-        "Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável."
-,
+        "Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável.",
       icon: faHandshake,
-       rota: "/fornecedores"
+      rota: "/fornecedores",
     },
     {
       nome: "Locais",
       descricao:
         "Descubra e selecione espaços deslumbrantes que atendem ao seu estilo e orçamento, garantindo o cenário perfeito para o seu grande dia.",
       icon: faLocationDot,
-       rota: "/locais"
+      rota: "/locais",
     },
   ];
 
@@ -137,7 +139,10 @@ function NavComp() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.superior}>
-        <div className={styles.logo}>
+        <div
+          className={styles.logo}
+          onClick={() => (window.location.href = "http://localhost:5173/")}
+        >
           bridee<span>.</span>
         </div>
 
@@ -164,7 +169,13 @@ function NavComp() {
                       <DropdownItem
                         key={ferramentasDePlanejamento[0].nome}
                         item={ferramentasDePlanejamento[0]}
-                        onClick={() => handleClick(ferramentasDePlanejamento[0].nome, ferramentasDePlanejamento[0].rota)}                      />
+                        onClick={() =>
+                          handleClick(
+                            ferramentasDePlanejamento[0].nome,
+                            ferramentasDePlanejamento[0].rota
+                          )
+                        }
+                      />
                     </div>
 
                     <div className={styles.coluna}>
