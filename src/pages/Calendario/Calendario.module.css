@@ -109,6 +109,7 @@
   display: flex;
   align-items: center;
   gap: 3%;
+  cursor: pointer;
 }
 
 .proposal span {
@@ -123,6 +124,16 @@
   background-color: #ED9C9B;
 }
 
+.buttonModalContainer{
+  display: flex;
+  justify-content: right;
+}
+
+.buttonModalContainer button{
+  background-color: transparent;
+  border: 0;
+}
+
 .containerModalViewModal {
   display: flex;
   padding: 5% 0%;
@@ -130,10 +141,33 @@
   font-family: "ProductSans";
 }
 
+.containerModalViewAcceptedModal{
+  display: flex;
+  padding: 5% 0%;
+  flex-direction: column;
+  font-family: "ProductSans";
+}
+
+.containerModalViewAcceptedModal p{
+  display: flex;
+  gap: 2%;
+  align-items: center;
+}
+
+
+.containerModalAccept {
+  display: flex;
+  padding: 5% 0%;
+  flex-direction: column;
+  align-items: center;
+  font-family: "ProductSans";
+  text-align: center;
+}
+
 .containerModalViewModal h2 {
   margin: 2% 0;
   padding: 0;
-  font-weight: normal; /* Remove o peso de fonte extra */
+  font-weight: normal;
   line-height: normal;
   text-decoration: none;
 }

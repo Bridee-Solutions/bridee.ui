@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // TODO: Usar variável de ambiente.
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `http://localhost:8080/api`;
 export const Api = axios.create({
-    baseURL: baseUrl,
-    withCredentials: true
+    baseURL: baseUrl
+    // withCredentials: true
 });
 
 const response = (response) => response
@@ -36,5 +36,20 @@ export const request = {
     },
     verifyAssessorEmpresaEmailAndCnpj: async(assessorFields) => {
         return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
+    },
+    getProposals: async(idAssessor) => {
+        return await Api.get(`/assessores/${idAssessor}/casais/pendentes`).then(response.data)
+    },
+    getAcceptedProposals: async(assessorId) => {
+        return await Api.get(`assessores/${assessorId}/casamentos/assessorados?ano=2024&mes=12`)
+    },
+    getOrcamento: async(casamentoId) => {
+        return await Api.get(`/casamentos/${casamentoId}/orcamento`).then(response.data)
+    },
+    acceptProposal: async(casamentoId, assessorId) => {
+        return await Api.put(`casamentos/${casamentoId}/assessor/${assessorId}/aceitar-proposta`)
+    },
+    denyProposal: async(casamentoId, assessorId) => {
+        return await Api.put(`casamentos/${casamentoId}/assessor/${assessorId}/recusar-proposta`)
     }
 }

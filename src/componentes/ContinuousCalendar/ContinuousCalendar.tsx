@@ -11,38 +11,59 @@ const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 
 
 interface ContinuousCalendarProps {
   onClick?: (_day:number, _month: number, _year: number) => void;
+  acceptedProposals: {
+    id: number;
+    nome: string;
+    dataFim: string;
+    tamanhoCasamento: number;
+    local: string;
+    localReservado: boolean;
+  }[];
 }
 
-export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick }) => {
+export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick, acceptedProposals = []}) => {
   const today = new Date();
   const dayRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const calendarRef = useRef<HTMLDivElement | null>(null);
   const [year, setYear] = useState<number>(new Date().getFullYear());
   const [selectedMonth, setSelectedMonth] = useState<number>(0);
   const monthOptions = monthNames.map((month, index) => ({ name: month, value: `${index}` }));
+  useEffect(() => {handleTodayClick()}, []);
 
   const scrollToDay = (monthIndex: number, dayIndex: number) => {
     const targetDayIndex = dayRefs.current.findIndex(
-      (ref) => ref && ref.getAttribute('data-month') === `${monthIndex}` && ref.getAttribute('data-day') === `${dayIndex}`,
+      (ref) =>
+        ref &&
+        ref.getAttribute('data-month') === `${monthIndex}` &&
+        ref.getAttribute('data-day') === `${dayIndex}`,
     );
-
+  
     const targetElement = dayRefs.current[targetDayIndex];
-
+  
     if (targetDayIndex !== -1 && targetElement) {
-      const container = document.querySelector('.calendar-container');
+      console.log(calendarRef.current); // Verifica se o valor está correto
       const elementRect = targetElement.getBoundingClientRect();
       const is2xl = window.matchMedia('(min-width: 1536px)').matches;
       const offsetFactor = is2xl ? 3 : 2.5;
-
-      if (container) {
-        const containerRect = container.getBoundingClientRect();
-        const offset = elementRect.top - containerRect.top - (containerRect.height / offsetFactor) + (elementRect.height / 2);
-
-        container.scrollTo({
-          top: container.scrollTop + offset,
+  
+      if (calendarRef.current) { // Corrigido para acessar `current`
+        const containerRect = calendarRef.current.getBoundingClientRect();
+        const offset =
+          elementRect.top -
+          containerRect.top -
+          containerRect.height / offsetFactor +
+          elementRect.height / 2;
+  
+        calendarRef.current.scrollTo({
+          top: calendarRef.current.scrollTop + offset,
           behavior: 'smooth',
         });
       } else {
-        const offset = window.scrollY + elementRect.top - (window.innerHeight / offsetFactor) + (elementRect.height / 2);
+        const offset =
+          window.scrollY +
+          elementRect.top -
+          window.innerHeight / offsetFactor +
+          elementRect.height / 2;
   
         window.scrollTo({
           top: offset,
@@ -115,7 +136,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
     }
 
     const calendar = calendarWeeks.map((week, weekIndex) => (
-      <div className={styles.week} key={`week-${weekIndex}`}>
+      <div className={`${styles.week}`} key={`week-${weekIndex}`}>
         {week.map(({ month, day }, dayIndex) => {
           const index = weekIndex * 7 + dayIndex;
           const isNewMonth = index === 0 || calendarDays[index - 1].month !== month;
@@ -144,11 +165,13 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
                   {monthNames[month]}
                 </span>
               )}
-              {/* <button type="button" className={styles.buttonAddEventContainer}>
-                <svg className={styles.buttonAddEvent} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z" clipRule="evenodd"/>
-                </svg>
-              </button> */}
+              <div>
+              {acceptedProposals.map((proposal) => (
+                <div key={proposal.id}>
+                  {proposal.nome}
+                </div>
+              ))}
+              </div>
             </div>
           );
         })}
@@ -159,7 +182,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
   }, [year]);
 
   useEffect(() => {
-    const calendarContainer = document.querySelector('.calendar-container');
+    const calendarContainer = calendarRef.current;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -189,8 +212,8 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick 
   }, []);
 
   return (
-    <div className={styles.customCalendar}>
-<div className={styles.headerContainerCalendar}>
+    <div className={styles.customCalendar} ref={calendarRef}>
+  <div className={styles.headerContainerCalendar}>
     <div className={styles.containerHUD}>
         <div className={styles.containerMounth}>
             <Select name="selectMonth" value={`${selectedMonth}`} className={styles.selectMounth} options={monthOptions} onChange={handleMonthChange} />

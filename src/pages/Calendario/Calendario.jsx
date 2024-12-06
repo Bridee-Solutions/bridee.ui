@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Calendario.module.css"
+import { request } from '../../config/axios/axios';
 
 import Navbar from "../../componentes/Navbar/Navbar";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
@@ -9,23 +10,69 @@ import ModalHeader from "../../componentes/Modal/ModalHeader/ModalHeader";
 import ModalBody from "../../componentes/Modal/ModalBody/ModalBody";
 import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faLocationDot, faX } from "@fortawesome/free-solid-svg-icons";
 
 function Calendario() { 
     const [proposal, setProposal] = useState({});
+    const [listAcceptedProposals, setListAcceptedProposals] = useState([]);
+    const [listProposals, setListProposals] = useState([]);
     const [modalAcceptProposal, setModalAcceptProposal] = useState(false);
     const [modalViewProposal, setModalViewProposal] = useState(false);
+    const [modalViewAcceptedProposal, setModalViewAcceptedProposal] = useState(true);
+    useEffect(() => {loadProposals()}, []);
 
-    const onClick = () => {
+    const loadProposals = () => {
+        request.getProposals(9)
+        .then((data) => {
+            setListProposals(data.data.content);
+        });
+    
+        request.getAcceptedProposals(9)
+        .then((data) => {
+            setListAcceptedProposals(data.data);
+        });
+    }
+
+    const inspectProposalAccepted = (proposal) => {
         console.log("aAAAAAAAA");
     }
 
     const openModalViewProposal = (proposal) => {
+        request.getOrcamento(proposal.id)
+        .then((data) => {
+            let newProposal = proposal;
+            newProposal.orcamento = Number.isInteger(data.data) ? `${data.data},00` : `${data.data}`;
+            setProposal(newProposal);
+        })
         setModalViewProposal(true);
-        setProposal(proposal);
     }
 
     const closeModalViewProposal = () => {
-        setModalViewProposal(false)
+        setModalViewProposal(false);
+    }
+
+    const acceptProposalFunc = () => {
+        console.log("PENIS")
+        request.acceptProposal(proposal.id, 9)
+        .then(() => {
+            console.log("aceitamos proposta")
+            setModalViewProposal(false);
+            setModalAcceptProposal(true);
+            loadProposals();
+        })
+    }
+
+    const denyProposalFunc = () => {
+        request.denyProposal(proposal.id, 9)
+        .then(() => {
+            setModalViewProposal(false);
+            loadProposals();
+        })
+    }
+
+    const closeAcceptProposal = () => {
+        setModalAcceptProposal(false);
     }
 
     const formatDate = (dateString) => {
@@ -43,37 +90,6 @@ function Calendario() {
     
         return `${day}/${month}/${year}`
     };
-
-    const proposals = [
-        {
-            id: 0,
-            nome1: "Amanda",
-            nome2: "Enzo",
-            data: "2028-04-27",
-            localReservado: true,
-            orcamento: 90000.00,
-            qtdConvidado: "101-150"
-        },
-        {
-            id: 1,
-            nome1: "PepoMaid",
-            nome2: "Ez",
-            data: "2028-04-27",
-            localReservado: true,
-            orcamento: 90000.00,
-            qtdConvidado: "101-150"
-        },
-        {
-            id: 2,
-            nome1: "Ian",
-            nome2: "SPTECH",
-            data: "2028-04-27",
-            localReservado: true,
-            orcamento: 90000.00,
-            qtdConvidado: "101-150"
-        }
-    ];
-
     
     return (
         <div>
@@ -81,18 +97,18 @@ function Calendario() {
             <div className={styles.body}>
                 <div className={styles.container_body}>
                     <div className={styles.calendar_panel}>
-                        <ContinuousCalendar onClick={onClick}/>
+                        <ContinuousCalendar onClick={inspectProposalAccepted} acceptedProposals={listAcceptedProposals}/>
                     </div>
                     <div className={styles.proposal_panel}>
                         <div className={styles.title}>
-                            {proposals.length > 0 ? <img src={"/src/assets/proposal/notification.svg"} alt="" /> : ""}
+                            {listProposals.length > 0 ? <img src={"/src/assets/proposal/notification.svg"} alt="" /> : ""}
                             <h1>Novas propostas</h1>
                         </div>
                         <div className={styles.proposals_container}>
-                        {proposals.length > 0 ? proposals.map((proposal, index) => (
+                        {listProposals.length > 0 ? listProposals.map((proposal, index) => (
                             <div key={index} onClick={() => openModalViewProposal(proposal)} className={styles.proposal}>
                                 <div></div>
-                                <span>Proposta de {proposal.nome1} & {proposal.nome2}</span>
+                                    <span>Proposta de {proposal.nome}</span>
                             </div>
                         )) : <span>Hmm... por enquanto não há nada por aqui.</span>}
                         </div>
@@ -103,7 +119,7 @@ function Calendario() {
         
             {modalViewProposal && (
             <Modal>
-                <ModalHeader onClose={closeModalViewProposal}>
+                <ModalHeader onClose={() => closeModalViewProposal()}>
                     <span>Nova proposta</span>
                 </ModalHeader>
                 <ModalBody>
@@ -111,20 +127,20 @@ function Calendario() {
                         <span>
                             <img src={"/src/assets/proposal/accept_proposal.svg"}/>
                         </span>
-                        <h2>Você recebeu uma proposta do <br /> casamento de  <b>{proposal.nome1} & {proposal.nome2}</b>!</h2>
+                        <h2>Você recebeu uma proposta do <br /> casamento de  <b>{proposal.nome}</b>!</h2>
                         <span>Revise os detalhes e confirme seu interesse em fazer parte da organização deste casamento.</span>
                         <div className={styles.proposal_info}>
                             <div >
                                 <p>Nome do casal:</p>
-                                <span>{proposal.nome1} & {proposal.nome2}</span>
+                                <span>{proposal.nome}</span>
                             </div>
                             <div >
                                 <p>Data: </p>
-                                <span>{formatDate(proposal.data)}</span>
+                                <span>{formatDate(proposal.dataFim)}</span>
                             </div>
                             <div >
                                 <p>Já reservou um local?: </p>
-                                <span>{proposal.localReservado ? "Sim" : "Não"}</span>
+                                <span>{proposal.local ? "Sim" : "Não"}</span>
                             </div>
                             <div >
                                 <p>Orçamento previsto: R$</p>
@@ -142,50 +158,60 @@ function Calendario() {
                     <ModalFooterButton
                         button="cancel_button"
                         text="Recusar"
-                        onClick={closeModalViewProposal}
+                        onClick={() => denyProposalFunc()}
                     />
                     <ModalFooterButton
                         button="save_button" 
                         text="Aceitar proposta" 
-                        onClick={closeModalViewProposal}
+                        onClick={() => acceptProposalFunc()}
                     />
                 </ModalFooter>
             </Modal>
             )}
-
-            {modalAcceptProposal && (
+            
+            {modalViewAcceptedProposal && (
             <Modal>
-                <ModalHeader onClose={closeModalViewProposal}>
-                    <span>Nova proposta</span>
-                </ModalHeader>
                 <ModalBody>
-                    <div className={styles.containerModalViewModal}>
-                        <div>
-                            <img src={"/src/assets/proposal/accept_proposal.svg"}/>
-                            <h2>Você recebeu uma proposta do casamento de {proposal.nome1} & {proposal.nome2}!</h2>
-                            <span>Revise os detalhes e confirme seu interesse em fazer parte da organização deste casamento.</span>
-                            <div>
-                                <div>
-                                    <p>Nome do casal:</p>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
+                    <div className={styles.buttonModalContainer}>
+                        <button onClick={() => setModalViewAcceptedProposal(false)}><FontAwesomeIcon icon={faX} size="xl"/></button>
+                    </div>
+                    <div className={styles.containerModalViewAcceptedModal}>               
+                        <h1>{proposal.nome}</h1>
+                        <p>
+                            <FontAwesomeIcon icon={faClock}/>
+                            {formatDate(proposal.dataFim)}
+                        </p>
+                        <p>
+                            <FontAwesomeIcon icon={faLocationDot}/>
+                            {proposal.local ? "Sim" : "Não"}
+                        </p>
                     </div>
                 </ModalBody>
-                <ModalFooter>
-                    <ModalFooterButton
-                        button="cancel_button"
-                        text="Recusar"
-                        onClick={closeModalViewProposal}
-                    />
-                    <ModalFooterButton
-                        button="save_button" 
-                        text="Aceitar proposta" 
-                        onClick={closeModalViewProposal}
-                    />
-                </ModalFooter>
             </Modal>
+            )}
+
+            {modalAcceptProposal && (
+                <Modal>
+                    <ModalHeader onClose={() => closeAcceptProposal()}>
+                        <span>Nova proposta</span>
+                    </ModalHeader>
+                    <ModalBody>
+                        <div className={styles.containerModalAccept}>
+                            <div>
+                                <img src={"/src/assets/proposal/confetti.svg"} />
+                                <h2>Você foi adicionado ao casamento de <br /> <b>{proposal.nome}!</b></h2>
+                                <span>A nova data já está adicionada ao seu calendário.</span>
+                            </div>
+                        </div>
+                    </ModalBody>
+                    <ModalFooter>
+                        <ModalFooterButton
+                            button="cancel_button"
+                            text="Concluir"
+                            onClick={() => closeAcceptProposal()}
+                        />
+                    </ModalFooter>
+                </Modal>
             )}
         </div>
     );
