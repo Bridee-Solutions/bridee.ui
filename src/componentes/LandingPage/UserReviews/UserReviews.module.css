@@ -140,37 +140,88 @@ width: 80%;
 }
 
 .carouselContainer {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2%;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 360px) {  
+  .carouselContainer {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    padding-bottom: 4%;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    background-color: #D9D9D9; 
+    width: 16px; 
+    height: 16px;
+    border-radius: 50%;
+    opacity: 0.5; 
+    margin: 0 2%; 
+    transition: opacity 0.3s ease;
+  }
+  
+  :global(.swiper-pagination-bullet-active) {
+    opacity: 1; 
+    background-color: #FFAFAC;
+  }
+  
+  :global(.swiper-pagination) {
+    position: absolute;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .conteinerUsuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10%;
+    width: 100%;
+    justify-content: flex-end;
+    top: 10%
+  }
+
+  .contimg > img { 
+    width: 16vw;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .containerInfos {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10%;
+  }
+
+  .containerDesc {
+    text-align: left;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-bottom: 2%;
+  }
+
+  .stars {
+    display: flex;
+    gap: 3px; 
+  }
+
   .stars > img { 
-    width: 6vw;
+    width: 4vw;
   } 
 
   .containerReg {
     display: none;
-  }
-
-  .contimg > img { 
-    width: 12vw;
-    height: auto;
-    border-radius: 50%;
-  }
-
-  .containerDesc {
-    text-align: center;
-    font-size: 0.8rem;
-    width: 100%;
-  }
-
-  .carouselContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 2%;
   }
 
   .backgroundAvaliacao {
@@ -180,21 +231,21 @@ width: 80%;
     align-items: center;
     width: 90%;
     border-radius: 30px 90px;
-    padding: 1rem;
+    padding: 2rem;
     margin: 0 auto;
   }
 
   .containerSuperior .aspas {
     position: absolute;
-    top: 10%;
-    left: 12%;
+    top: 8%;
+    left: 15%;
     width: 1.4rem; 
   }
 
   .containerInferior .aspas {
     position: absolute;
     bottom: 30%;
-    right: 12%;
+    right: 15%;
     width: 1.4rem; 
   }
 
@@ -206,15 +257,7 @@ width: 80%;
   }
 
   .containerMeio {
-    font-size: 0.8rem;
-    line-height: 1rem;
     text-align: center;
-    padding: 0.5rem !important;
-    width: 100% !important;
-  }
-
-  .contMei span {
-    margin-top: 40px; 
-    margin-bottom: 40px; 
+    padding: 0.2rem !important;
   }
 }

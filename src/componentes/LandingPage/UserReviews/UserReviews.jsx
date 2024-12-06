@@ -7,10 +7,12 @@ import user_bride from "../../../assets/Isabela_cambui_photo.svg";
 import user_advisor from "../../../assets/Aghata_paula_photo.svg";
 import user_groom from "../../../assets/Enzo_martins_photo.svg";
 import { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 function UserReviews() {
   const testimonials = [
@@ -37,31 +39,35 @@ function UserReviews() {
     },
   ];
 
-  const [isMobileView, setIsMobileView] = useState(false);
-  const [swiperKey, setSwiperKey] = useState(0); 
+  const [isMobileView, setIsMobileView] = useState(false); 
+  const [isClient, setIsClient] = useState(false);
 
-  const handleResize = () => {
-    setIsMobileView(window.innerWidth <= 360);
-  };
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useEffect(() => {
     const updateView = () => {
       setIsMobileView(window.innerWidth <= 360);
-      setSwiperKey((prevKey) => prevKey + 1); 
     };
-
+  
     updateView(); 
-
-    const resizeListener = () => {
-      setIsMobileView(window.innerWidth <= 768);
-      setSwiperKey((prevKey) => prevKey + 1); 
-    };
-
-    window.addEventListener("resize", resizeListener);
+  
+    window.addEventListener("resize", updateView);
     return () => {
-      window.removeEventListener("resize", resizeListener);
+      window.removeEventListener("resize", updateView);
     };
   }, []);
+
+  useEffect(() => {
+    if (isClient && isMobileView) {
+      setTimeout(() => {
+        const swiperContainer = document.querySelector(".swiper");
+        swiperContainer?.swiper?.update();
+        console.log("Swiper atualizado:", swiperContainer?.swiper);
+      }, 100);
+    }
+  }, [isClient, isMobileView]);
 
 
   return (
@@ -72,16 +78,15 @@ function UserReviews() {
         </div>
 
         <div className={styles.container}>
-          {isMobileView ? (
+          {isClient && isMobileView ? (
             // Exibição MOBILE (Swiper)
             <div className={styles.carouselContainer}>
               <Swiper
-                modules={[Navigation]}
+                modules={[Navigation, Pagination]}
                 slidesPerView={1}
                 loop={true}
                 grabCursor={true}
-                navigation
-                pagination={{clickable:true}}
+                pagination={{clickable: true}}
                 style={{width: '100%', overflow: 'hidden'}}
               >
                 {testimonials.map((testimonial) => (
@@ -130,6 +135,7 @@ function UserReviews() {
                   </SwiperSlide>
                 ))}
               </Swiper>
+              <div className="swiper-pagination"></div>
             </div>
           ) : (
             // Exibição DESKTOP (lista estática)
