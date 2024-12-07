@@ -19,12 +19,14 @@ import SimpleBar from "simplebar-react";
 import ConfiguracoesAssessor from "../pages/ConfigurarAssessor/Configuracoes";
 import { AssessorContextProvider } from "./AssessorContext";
 import { decrypt } from "../utils/criptografia";
+import Error from "../pages/Error/Error";
 
 
 export const defineContext = () => {
-    const tipoUsuario = decrypt(localStorage.getItem("tipoUsuario"));
-    const authenticated = decrypt(localStorage.getItem("isAuthenticated"))
-    const casamentoId = decrypt(localStorage.getItem("casamentoId"));
+    const tipoUsuario = decrypt(localStorage.getItem("tipoUsuario") ? localStorage.getItem("tipoUsuario") : "");
+    const authenticated = decrypt(localStorage.getItem("isAuthenticated") ? localStorage.getItem("isAuthenticated") : "");
+    const casamentoId = decrypt(localStorage.getItem("casamentoId") ? localStorage.getItem("casamentoId") : "");
+    
     if(tipoUsuario == "ASSESSOR"){
         return assessorContext(tipoUsuario, authenticated, casamentoId);
     }
@@ -73,10 +75,14 @@ export const rotasComuns = [{
 {
     path: "/reenviar-email",
     element: <ReenviarEmail/>
-}]
+},
+{
+    path: "*",
+    element: <Error/>
+}
+]
 
 const casalRotas = [
-    ...rotasComuns,
 {
     path: "/painel",
     element: <Painel/>
@@ -113,16 +119,13 @@ const casalRotas = [
     path: "/configuracoes-casal",
     element: <Configuracoes/>
 },
-{
-    path: "*",
-    element: <Error/>
-}
+    ...rotasComuns
 ]
 
 const assessorRotas = [
-    ...rotasComuns,
     {
-        path: "/configuracoes-assesssor",
+        path: "/configuracoes-assessor",
         element: <ConfiguracoesAssessor/>
-    }
+    },
+    ...rotasComuns
 ]

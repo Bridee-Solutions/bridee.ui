@@ -1,6 +1,6 @@
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -24,16 +24,15 @@ import Assessor from "../../componentes/Assessor/Assessor";
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import { request } from "../../config/axios/axios";
+import { CasalContext } from "../../context/CasalContext";
 
 
 function Painel() {
   const inputRef = useRef(null);
   const [imageUrl, setImageUrl] = useState(null);
-  const [checkedTarefa1, setCheckedTarefa1] = useState(true);
-  const [checkedTarefa2, setCheckedTarefa2] = useState(false);
-  const [checkedTarefa3, setCheckedTarefa3] = useState(false);
   const [dashboardInfo, setDashboardInfo] = useState({});
   const [orcamento, setOrcamento] = useState({})
+  const {casamentoId} = useContext(CasalContext);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -76,7 +75,7 @@ function Painel() {
   }
 
   useEffect(() => {
-    request.getDashboard(2).then(response => {
+    request.getDashboard(casamentoId).then(response => {
       console.log(response.data)
       setDashboardInfo(response.data)
       setOrcamento(response.data.orcamento)

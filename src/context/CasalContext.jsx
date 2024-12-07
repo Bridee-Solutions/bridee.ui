@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { decrypt, encrypt } from "../utils/criptografia";
 import { rotasComuns } from "./Context";
 
-const CasalContext = createContext()
+export const CasalContext = createContext()
 
 export const CasalContextProvider = ({children, ...props}) => {
     
@@ -23,12 +23,12 @@ export const CasalContextProvider = ({children, ...props}) => {
             return;
         }
         
-        if(props.tipoUsuario != "CASAL" || !props.authenticated){
+        if(!props.tipoUsuario || props.tipoUsuario != "CASAL" || !props.authenticated){
             navigate("/login")
         }
     },[])
 
-    return <CasalContext.Provider casamentoId={props.casamentoId} convites={convites} setConvites={setConvites}>
+    return <CasalContext.Provider value={{casamentoId: props.casamentoId, convites: convites, setConvites: setConvites}}>
         {children}
     </CasalContext.Provider>
 

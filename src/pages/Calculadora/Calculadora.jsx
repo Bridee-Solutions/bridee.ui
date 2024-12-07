@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Calculadora.module.css";
 import "../../index.css";
@@ -27,6 +27,7 @@ import { v4 as uuidv4 } from "uuid";
 import { request } from "../../config/axios/axios";
 import FornecedorCalc from "../../componentes/FornecedorCalculadora/FornecedorCalculadora";
 import { buildItemOrcamentos } from "./CalculadoraService";
+import { CasalContext } from "../../context/CasalContext";
 
 function Calculadora() {
 
@@ -43,6 +44,7 @@ function Calculadora() {
   const atualizarOrcamento = useRef();
   const orcamentoFornecedorRequest = useRef([]);
   const itensOrcamentoRequest = useRef([]);
+  const {casamentoId} = useContext(CasalContext);
 
   // função para abrir o modal
   const handleEditClick = () => {
@@ -101,7 +103,7 @@ function Calculadora() {
   };
 
   const downloadOrcamentoCsv = () => {
-    request.downloadOrcamentoCsv(2).then((response) => {
+    request.downloadOrcamentoCsv(casamentoId).then((response) => {
       const blob = response.data;
       const file = new File([...blob], "orcamento", {type: "text/plain"})
      
@@ -117,7 +119,7 @@ function Calculadora() {
   }
 
   useEffect(() => {
-    request.getOrcamentoCasal(2)
+    request.getOrcamentoCasal(casamentoId)
     .then(response => {
     
       response.data.itemOrcamentos = buildItemOrcamentos(response.data);

@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useContext} from 'react';
 import { toast } from "react-toastify";
 import styles from './ListaTarefas.module.css';
 import "../../index.css";
@@ -14,9 +14,9 @@ import ModalHeader from '../../componentes/Modal/ModalHeader/ModalHeader';
 import ModalBody from '../../componentes/Modal/ModalBody/ModalBody'
 import ModalFooter from '../../componentes/Modal/ModalFooter/ModalFooter'
 import ModalFooterButton from '../../componentes/Modal/ModalFooterButton/ModalFooterButton'
+import { CasalContext } from '../../context/CasalContext';
 
 function ListaTarefas() {
-    useEffect(() => {loadTasks()}, []);
     const [checkedCount, setCheckedCount] = useState(0);
     const [modalDelete, setModalDelete] = useState(false);
     const [modalAddTask, setModalAddTask] = useState(false);
@@ -34,8 +34,12 @@ function ListaTarefas() {
     const descriptionTaskView = useRef(null);
     const dateTaskView = useRef(null);
     const categoryTaskView = useRef(null);
+    const {casamentoId} = useContext(CasalContext);
+    
+    useEffect(() => {loadTasks()}, []);
+    
     useEffect(() => {loadTasks()}, [filters]);
-
+    
     const abrirModalDelete = (task) => {
         setTask(task);
         setModalDelete(true);
@@ -141,7 +145,7 @@ function ListaTarefas() {
             dataLimite: dateTaskSave.current.value
         }
 
-        request.saveTask(3, newTask)
+        request.saveTask(casamentoId, newTask)
         .then(() => {
             fecharModalAdd();
             loadTasks();
@@ -168,7 +172,7 @@ function ListaTarefas() {
         };
 
         console.log(updatedTask)
-        request.updateTask(3, updatedTask)
+        request.updateTask(casamentoId, updatedTask)
         .then(() => {
             loadTasks();
             fecharModalView();
@@ -187,8 +191,7 @@ function ListaTarefas() {
         const isEmpty = Object.keys(filters).length === 0 && filters.constructor === Object;
         
         if (isEmpty){
-
-            request.getTasks(3)
+            request.getTasks(casamentoId)
             .then((data) => {
                 const tarefas = data.data;
                 const totalChecked = tarefas.reduce((count, group) => {
@@ -233,7 +236,7 @@ function ListaTarefas() {
                 uri = uri.slice(0, -1);
             }
             console.log(uri)
-            request.getTasks(3, uri)
+            request.getTasks(casamentoId, uri)
             .then((data) => {
                 const tarefas = data.data;
                 const totalChecked = tarefas.reduce((count, group) => {
@@ -309,7 +312,7 @@ function ListaTarefas() {
         if (task.status == "EM_ANDAMENTO") task.status = "CONCLUIDO";
         else task.status = "EM_ANDAMENTO";
 
-        request.updateTask(3, task)
+        request.updateTask(casamentoId, task)
         .then(() => {
             loadTasks();
         }).catch(() => {

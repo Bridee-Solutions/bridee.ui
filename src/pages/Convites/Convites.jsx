@@ -9,9 +9,10 @@ import styles from "./Convites.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import rightArrow from "../../assets/right-arrow.svg"
 // import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { request } from "../../config/axios/axios";
 import { gerenciarInformacoesModal, relatorioModal, whatsappMessageModal } from "./ConvitesService.jsx";
+import { CasalContext } from "../../context/CasalContext.jsx";
 
 
 const Convites = () => {
@@ -20,6 +21,7 @@ const Convites = () => {
     const [modal, setModal] = useState();
     const [convites, setConvites] = useState();
     const [confirmados, setConfirmados] = useState(0);
+    const {casamentoId} = useContext(CasalContext)
 
     const copyTextToClipBoard = () => {
         window.navigator.clipboard.writeText(window.location.href);
@@ -40,7 +42,7 @@ const Convites = () => {
     }
 
     useEffect(() => {
-        request.getConvitesFromCasamento(2).then((response) => {
+        request.getConvitesFromCasamento(casamentoId).then((response) => {
             console.log(response.data.content);
             setConvites(response.data.content)
         })

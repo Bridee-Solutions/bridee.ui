@@ -3,8 +3,9 @@ import filterImage from "../../../assets/filter-image.png"
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { adicionarConviteModal, conviteModal, defineConvidadoStatusColor } from "../../../pages/Convites/ConvitesService";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { request } from "../../../config/axios/axios";
+import { CasalContext } from "../../../context/CasalContext";
 
 const ConviteBody = (props) => {
 
@@ -13,6 +14,7 @@ const ConviteBody = (props) => {
     const categoria = useRef("");
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const filter = useRef();
+    const {casamentoId} = useContext(CasalContext)
 
     function capitalizeFirstLetter(text) {
         const stringCapitalized = String(text).charAt(0).toUpperCase() + String(text).toLowerCase().slice(1);
@@ -59,7 +61,7 @@ const ConviteBody = (props) => {
     const fetchConvitesFiltered = () => {
         const nomeConvidado = filter.current.value
         
-        request.getConvitesFromCasamento(2, status.current, faixaEtaria.current, 
+        request.getConvitesFromCasamento(casamentoId, status.current, faixaEtaria.current, 
             categoria.current, nomeConvidado).then(response => {
                 console.log(response.data.content);
                 props.setConvites(response.data.content)

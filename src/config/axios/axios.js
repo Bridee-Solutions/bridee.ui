@@ -1,11 +1,13 @@
 import axios from 'axios';
+import { interceptorsConfiguration } from './interceptor';
 
-// TODO: Usar variável de ambiente.
-const baseUrl = `http://localhost:8080/api`;
+const baseUrl = import.meta.env.VITE_BACKEND_URL;
 export const Api = axios.create({
     baseURL: baseUrl,
     withCredentials: true
 });
+
+interceptorsConfiguration()
 
 const response = (response) => response
 
@@ -59,7 +61,7 @@ export const request = {
         return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
     },
     getOrcamentoCasal: async (casalId) => {
-        return await Api.get(`/orcamentos/casal/${casalId}`).then(response)
+        return await Api.get(`/orcamentos/casamento/${casalId}`).then(response)
     },
     saveOrcamentoFornecedores: async (orcamentoFornecedorRequest) =>{
         return await Api.post(`/orcamento-fornecedor`, orcamentoFornecedorRequest)
@@ -80,7 +82,7 @@ export const request = {
         return await Api.put(`/casais/orcamento-total/${casalId}`, {orcamentoTotal: orcamento})
     },
     downloadOrcamentoCsv: async(casalId) => {
-        return await Api.get(`/orcamentos/csv/casal/${casalId}`)
+        return await Api.get(`/orcamentos/csv/casamento/${casalId}`)
     },
     getDashboard: async(casamentoId) => {
         return await Api.get(`/dashboards/casamento/${casamentoId}`)

@@ -5,10 +5,11 @@ import ModalHeader from "../../../Modal/ModalHeader/ModalHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import styles from "./AdicionarConviteModal.module.css"
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import AdicionarConvidado from "./AdicionarConvidado";
 import { useParams } from "react-router-dom";
 import { request } from "../../../../config/axios/axios";
+import { CasalContext } from "../../../../context/CasalContext";
 
 const AdicionarConviteModal = (props) => {
 
@@ -16,7 +17,7 @@ const AdicionarConviteModal = (props) => {
     const [convidadoData, setConvidadoData] = useState([])
     const nomeConvite = useRef();
     const telefoneTitular = useRef();
-    const params = useParams();
+    const {casamentoId} = useContext(CasalContext)
 
     useEffect(() => {
         createGuest()
@@ -31,7 +32,7 @@ const AdicionarConviteModal = (props) => {
         return {
             nome: nomeConvite.current.value,
             telefoneTitular: telefoneTitular.current.value,
-            casamentoId: params.casamentoId,
+            casamentoId: casamentoId,
             convidados: convidadoData
         }
     }

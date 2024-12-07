@@ -35,7 +35,11 @@ const Login = () => {
         if (response.status == 200) {
           if (response.data.enabled) {
             setUserLocalStorage(response.data);
-            navigate("/painel");
+            if(response.data.tipoUsuario == "CASAL"){
+              navigate("/painel");
+              return;
+            }
+            navigate("/configuracoes-assessor")
           } else {
             toast.error("Ative a conta antes de conseguir logar");
           }
@@ -48,7 +52,9 @@ const Login = () => {
   const setUserLocalStorage = (data) => {
     localStorage.setItem("tipoUsuario", encrypt(data.tipoUsuario));
     localStorage.setItem("isAuthenticated", encrypt(true))
-    localStorage.setItem("casamentoId", encrypt(data.casamentoId))
+    if(data.casamentoId){
+      localStorage.setItem("casamentoId", encrypt(data.casamentoId))
+    }
   }
 
   const googleSuccessLogin = (response) => {
@@ -90,7 +96,6 @@ const Login = () => {
     if (tipo.current == undefined) {
       const queryParamObject = buildObjectFromQueryParam(window);
       tipo.current = queryParamObject.tipo;
-      console.log(tipo.current);
       marginTopAssessor();
       setTipo("");
     }
