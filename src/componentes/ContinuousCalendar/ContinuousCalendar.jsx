@@ -4,33 +4,25 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import styles from "./ContinuousCalendar.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from '@fortawesome/free-regular-svg-icons';
 
 const daysOfWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabádo'];
 const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
-interface ContinuousCalendarProps {
-  onClick?: (_day:number, _month: number, _year: number) => void;
-  acceptedProposals: {
-    id: number;
-    nome: string;
-    dataFim: string;
-    tamanhoCasamento: number;
-    local: string;
-    localReservado: boolean;
-  }[];
-}
 
-export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick, acceptedProposals = []}) => {
+export const ContinuousCalendar = ({ onClick, acceptedProposals, year, setYear}) => {
   const today = new Date();
-  const dayRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const calendarRef = useRef<HTMLDivElement | null>(null);
-  const [year, setYear] = useState<number>(new Date().getFullYear());
-  const [selectedMonth, setSelectedMonth] = useState<number>(0);
+  const dayRefs = useRef([]);
+  const calendarRef = useRef(null);
+  const eventPopUp = useRef();
+  const [calendar, setCalendar] = useState();
+
+  const [selectedMonth, setSelectedMonth] = useState(0);
   const monthOptions = monthNames.map((month, index) => ({ name: month, value: `${index}` }));
   useEffect(() => {handleTodayClick()}, []);
 
-  const scrollToDay = (monthIndex: number, dayIndex: number) => {
+  const scrollToDay = (monthIndex, dayIndex) => {
     const targetDayIndex = dayRefs.current.findIndex(
       (ref) =>
         ref &&
@@ -73,10 +65,14 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick,
     }
   };
 
-  const handlePrevYear = () => setYear((prevYear) => prevYear - 1);
-  const handleNextYear = () => setYear((prevYear) => prevYear + 1);
+  const handlePrevYear = () => {
+    setYear((prevYear) => prevYear - 1)
+  };
+  const handleNextYear = () => {
+    setYear((prevYear) => prevYear + 1)
+  };
 
-  const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleMonthChange = (event) => {
     const monthIndex = parseInt(event.target.value, 10);
     setSelectedMonth(monthIndex);
     scrollToDay(monthIndex, 1);
@@ -87,7 +83,7 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick,
     scrollToDay(today.getMonth(), today.getDate());
   };
 
-  const handleDayClick = (day: number, month: number, year: number) => {
+  const handleDayClick = (day, month, year) => {
     if (!onClick) { return; }
     if (month < 0) {
       onClick(day, 11, year - 1);
@@ -96,10 +92,10 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick,
     }
   }
 
-  const generateCalendar = useMemo(() => {
+  useEffect(() => {
     const today = new Date();
 
-    const daysInYear = (): { month: number; day: number }[] => {
+    const daysInYear = () => {
       const daysInYear = [];
       const startDayOfWeek = new Date(year, 0, 1).getDay();
 
@@ -128,11 +124,32 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick,
       return daysInYear;
     };
 
+    const openPopUp = () => {
+      eventPopUp.current.style.display = "block"
+    }
+
+    const closePopUp = () => {
+      eventPopUp.current.style.display = "none";
+    }
+
     const calendarDays = daysInYear();
 
     const calendarWeeks = [];
     for (let i = 0; i < calendarDays.length; i += 7) {
       calendarWeeks.push(calendarDays.slice(i, i + 7));
+    }
+
+    const isEventPresent = (month, day, proposal) => {
+      const proposalDate = new Date(proposal?.dataFim)
+      const proposalMonth = proposalDate.getMonth();
+      const proposalDay = proposalDate.getDate();
+      const proposalYear = proposalDate.getFullYear()
+      
+      if(month == proposalMonth && day == proposalDay + 1 && proposalYear == year){
+        return true;
+      }
+      
+      return false;
     }
 
     const calendar = calendarWeeks.map((week, weekIndex) => (
@@ -165,10 +182,31 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick,
                   {monthNames[month]}
                 </span>
               )}
-              <div>
-              {acceptedProposals.map((proposal) => (
-                <div key={proposal.id}>
-                  {proposal.nome}
+              <div> 
+              {acceptedProposals?.map((proposal) => (
+                isEventPresent(month, day, proposal) && 
+                <div>
+                    <div key={proposal.id} className={styles.wedding} onMouseEnter={openPopUp} onMouseOut={closePopUp}>
+                      {proposal.nome}
+                    </div>
+                    <div className={styles.eventModal} ref={eventPopUp}>
+                      <div className={styles.eventoModalHeader}>Casamento</div>
+                      <div className={styles.eventoModalName}>
+                        {proposal?.nome}
+                      </div>
+                      <div className={styles.eventoModalDate}>
+                         <FontAwesomeIcon icon={faClock} className={styles.eventoModalDateIcon}/>
+                         <span>
+                          {daysOfWeek[new Date(proposal?.dataFim).getDay() + 1]}, {new Date(proposal?.dataFim).toLocaleString("pt-br").split(",")[0]}
+                          </span>
+                      </div>
+                      <div className={styles.eventoModalDate}>
+                        <FontAwesomeIcon icon={faLocationDot} className={styles.eventoModalDateIcon}/>
+                        <span>
+                          {proposal?.local}
+                        </span>
+                      </div>
+                    </div>
                 </div>
               ))}
               </div>
@@ -178,17 +216,16 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick,
       </div>
     ));
 
-    return calendar;
-  }, [year]);
+    setCalendar(calendar);
+  }, [acceptedProposals]);
 
   useEffect(() => {
     const calendarContainer = calendarRef.current;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const month = parseInt(entry.target.getAttribute('data-month')!, 10);
+            const month = parseInt(entry.target.getAttribute('data-month'), 10);
             setSelectedMonth(month);
           }
         });
@@ -247,25 +284,16 @@ export const ContinuousCalendar: React.FC<ContinuousCalendarProps> = ({ onClick,
         </div>
       </div>
       <div className={styles.generateCalendar}>
-        {generateCalendar}
+        {calendar}
       </div>
     </div>
   );
 };
 
-export interface SelectProps {
-  name: string;
-  value: string;
-  label?: string;
-  options: { 'name': string, 'value': string }[];
-  onChange: (_event: React.ChangeEvent<HTMLSelectElement>) => void;
-  className?: string;
-}
-
-export const Select = ({ name, value, options = [], onChange, className }: SelectProps) => {
-  const handleSelectClick = (e: React.MouseEvent<HTMLLabelElement>) => {
+export const Select = ({ name, value, options = [], onChange, className }) => {
+  const handleSelectClick = (e) => {
     e.preventDefault(); // Previne o comportamento padrão do label
-    const selectElement = e.currentTarget.querySelector('select') as HTMLSelectElement;
+    const selectElement = e.currentTarget.querySelector('select');
     if (selectElement) {
       selectElement.click(); // Simula o clique no select
     }

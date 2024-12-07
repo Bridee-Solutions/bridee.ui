@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { rotasComuns } from "./Context";
 
 
-const AssessorContext = createContext()
+export const AssessorContext = createContext()
 
 export const AssessorContextProvider = ({children, ...props}) => {
 
-    const [convites, setConvites] = useState([]);
     const navigate = useNavigate()
     
     useEffect(() => {        
@@ -28,7 +27,7 @@ export const AssessorContextProvider = ({children, ...props}) => {
     },[])
 
     return(
-        <AssessorContext.Provider value={{casamentoId: props.casamentoId, convites: convites, setConvites: setConvites}}>
+        <AssessorContext.Provider value={{assessorId: props.assessorId}}>
             {children}
         </AssessorContext.Provider>
     )

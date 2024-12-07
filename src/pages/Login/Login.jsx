@@ -39,7 +39,7 @@ const Login = () => {
               navigate("/painel");
               return;
             }
-            navigate("/configuracoes-assessor")
+            navigate("/assessores/calendario")
           } else {
             toast.error("Ative a conta antes de conseguir logar");
           }
@@ -54,6 +54,9 @@ const Login = () => {
     localStorage.setItem("isAuthenticated", encrypt(true))
     if(data.casamentoId){
       localStorage.setItem("casamentoId", encrypt(data.casamentoId))
+    }
+    if(data.assessorId){
+      localStorage.setItem("assessorId", encrypt(data.assessorId))
     }
   }
 

@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "./Calendario.module.css"
 import { request } from '../../config/axios/axios';
 
 import Navbar from "../../componentes/Navbar/Navbar";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
-import { ContinuousCalendar } from "../../componentes/ContinuousCalendar/ContinuousCalendar";
+import { ContinuousCalendar } from "../../componentes/ContinuousCalendar/ContinuousCalendar.jsx";
 import Modal from "../../componentes/Modal/Modal";
 import ModalHeader from "../../componentes/Modal/ModalHeader/ModalHeader";
 import ModalBody from "../../componentes/Modal/ModalBody/ModalBody";
@@ -12,6 +12,7 @@ import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faLocationDot, faX } from "@fortawesome/free-solid-svg-icons";
+import { AssessorContext } from "../../context/AssessorContext.jsx";
 
 function Calendario() { 
     const [proposal, setProposal] = useState({});
@@ -19,23 +20,21 @@ function Calendario() {
     const [listProposals, setListProposals] = useState([]);
     const [modalAcceptProposal, setModalAcceptProposal] = useState(false);
     const [modalViewProposal, setModalViewProposal] = useState(false);
-    const [modalViewAcceptedProposal, setModalViewAcceptedProposal] = useState(true);
-    useEffect(() => {loadProposals()}, []);
+    const [year, setYear] = useState();
+    const {assessorId} = useContext(AssessorContext);
+
+    useEffect(() => {loadProposals()}, [year]);
 
     const loadProposals = () => {
-        request.getProposals(9)
+        request.getProposals(10)
         .then((data) => {
             setListProposals(data.data.content);
         });
     
-        request.getAcceptedProposals(9)
+        request.getAcceptedProposals(10, year)
         .then((data) => {
             setListAcceptedProposals(data.data);
         });
-    }
-
-    const inspectProposalAccepted = (proposal) => {
-        console.log("aAAAAAAAA");
     }
 
     const openModalViewProposal = (proposal) => {
@@ -53,8 +52,7 @@ function Calendario() {
     }
 
     const acceptProposalFunc = () => {
-        console.log("PENIS")
-        request.acceptProposal(proposal.id, 9)
+        request.acceptProposal(proposal.id, 10)
         .then(() => {
             console.log("aceitamos proposta")
             setModalViewProposal(false);
@@ -64,7 +62,7 @@ function Calendario() {
     }
 
     const denyProposalFunc = () => {
-        request.denyProposal(proposal.id, 9)
+        request.denyProposal(proposal.id, 10)
         .then(() => {
             setModalViewProposal(false);
             loadProposals();
@@ -97,7 +95,7 @@ function Calendario() {
             <div className={styles.body}>
                 <div className={styles.container_body}>
                     <div className={styles.calendar_panel}>
-                        <ContinuousCalendar onClick={inspectProposalAccepted} acceptedProposals={listAcceptedProposals}/>
+                        <ContinuousCalendar acceptedProposals={listAcceptedProposals} year={year} setYear={setYear}/>
                     </div>
                     <div className={styles.proposal_panel}>
                         <div className={styles.title}>
@@ -163,32 +161,12 @@ function Calendario() {
                     <ModalFooterButton
                         button="save_button" 
                         text="Aceitar proposta" 
-                        onClick={() => acceptProposalFunc()}
+                        onClick={acceptProposalFunc}
                     />
                 </ModalFooter>
             </Modal>
             )}
             
-            {modalViewAcceptedProposal && (
-            <Modal>
-                <ModalBody>
-                    <div className={styles.buttonModalContainer}>
-                        <button onClick={() => setModalViewAcceptedProposal(false)}><FontAwesomeIcon icon={faX} size="xl"/></button>
-                    </div>
-                    <div className={styles.containerModalViewAcceptedModal}>               
-                        <h1>{proposal.nome}</h1>
-                        <p>
-                            <FontAwesomeIcon icon={faClock}/>
-                            {formatDate(proposal.dataFim)}
-                        </p>
-                        <p>
-                            <FontAwesomeIcon icon={faLocationDot}/>
-                            {proposal.local ? "Sim" : "Não"}
-                        </p>
-                    </div>
-                </ModalBody>
-            </Modal>
-            )}
 
             {modalAcceptProposal && (
                 <Modal>

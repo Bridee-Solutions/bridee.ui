@@ -1,12 +1,12 @@
 .week {
     width: 100%;
     display: flex;
+    position: relative;
 }
 
 .daySquare {
     position: relative;
     z-index: 10;
-    cursor: pointer;
     width: 100%;
     border: #D7D7D7 1px solid;
     display: inline-block;
@@ -243,4 +243,45 @@
 .arrowsSelect svg {
     font-size: 1.25rem; /* size5 (geralmente é 1.25rem ou 20px dependendo da configuração do Tailwind) */
     color: #4b5563;
+}
+
+.wedding{
+    position: absolute;
+    top: 35%;
+    padding: 2% 0 2% 4%;
+    width: 100%;
+    color: white;
+    background-color: #DD7B78;
+    cursor: pointer;
+}
+
+.eventModal{
+    position: absolute;
+    bottom: 50%;
+    left: 40%;
+    width: 170px;
+    height: fit-content;
+    background-color: white;
+    line-height: 1.3rem;
+    display: none;
+}
+
+.eventoModalHeader{
+    background-color: #DD7B78;
+    color: white;
+    padding-left: 2%;
+}
+
+.eventoModalName{
+    line-height: 2rem;
+    padding-left: 2%;
+}
+
+.eventoModalDate span{
+    font-size: 16px;
+}
+
+.eventoModalDateIcon{
+    color: #DD7B78;
+    padding: 0% 2%;
 }

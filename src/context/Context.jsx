@@ -1,7 +1,6 @@
 import { element } from "prop-types";
 import LandingPage from "../pages/LandingPage/LandingPage";
 import Login from "../pages/Login/Login";
-import { patch } from "@mui/material";
 import Cadastro from "../pages/Cadastro/Cadastro";
 import ReenviarEmail from "../pages/ReenviarEmail/ReenviarEmail";
 import Painel from "../pages/Painel/Painel";
@@ -20,15 +19,16 @@ import ConfiguracoesAssessor from "../pages/ConfigurarAssessor/Configuracoes";
 import { AssessorContextProvider } from "./AssessorContext";
 import { decrypt } from "../utils/criptografia";
 import Error from "../pages/Error/Error";
+import Calendario from "../pages/Calendario/Calendario";
 
 
 export const defineContext = () => {
     const tipoUsuario = decrypt(localStorage.getItem("tipoUsuario") ? localStorage.getItem("tipoUsuario") : "");
     const authenticated = decrypt(localStorage.getItem("isAuthenticated") ? localStorage.getItem("isAuthenticated") : "");
     const casamentoId = decrypt(localStorage.getItem("casamentoId") ? localStorage.getItem("casamentoId") : "");
-    
+    const assessorId = decrypt(localStorage.getItem("assessorId") ? localStorage.getItem("assessorId") : "");
     if(tipoUsuario == "ASSESSOR"){
-        return assessorContext(tipoUsuario, authenticated, casamentoId);
+        return assessorContext(tipoUsuario, authenticated, assessorId);
     }
     return casalContext(tipoUsuario, authenticated, casamentoId)
 }
@@ -48,8 +48,8 @@ const casalContext = (type, authenticated, casamentoId) => {
     </CasalContextProvider>
 }
 
-const assessorContext = (type, authenticated, casamentoId) => {
-    return <AssessorContextProvider tipoUsuario={type} authenticated={authenticated} casamentoId={casamentoId}>
+const assessorContext = (type, authenticated, assessorId) => {
+    return <AssessorContextProvider tipoUsuario={type} authenticated={authenticated} assessorId={assessorId}>
         <SimpleBar style={{ maxHeight: '100vh' }}>
             <Routes>
                 {assessorRotas?.map((rota) => {
@@ -126,6 +126,10 @@ const assessorRotas = [
     {
         path: "/configuracoes-assessor",
         element: <ConfiguracoesAssessor/>
+    },
+    {
+        path: "/assessores/calendario",
+        element: <Calendario/>
     },
     ...rotasComuns
 ]
