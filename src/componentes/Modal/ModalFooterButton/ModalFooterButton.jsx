@@ -14,7 +14,7 @@ function ModalFooterButton({ button, text, onClick }) {
     switch (button) {
         case "save_button":
             return (
-                <button className={styles.save_button}>{text}</button>
+                <button className={styles.save_button} onClick={onClick}>{text}</button>
             );
         case "delete_button":
             return (

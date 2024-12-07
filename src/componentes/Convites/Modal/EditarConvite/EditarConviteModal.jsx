@@ -6,13 +6,15 @@ import ModalBody from "../../../Modal/ModalBody/ModalBody";
 import ModalFooter from "../../../Modal/ModalFooter/ModalFooter";
 import styles from "./EditarConviteModal.module.css";
 import { findTitular } from "../../../../pages/Convites/ConvitesService";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { request } from "../../../../config/axios/axios";
+import { CasalContext } from "../../../../context/CasalContext";
 
 const EditarConviteModal = (props) => {
 
     const nomeConvite = useRef(props.convite?.nome)
     const telefoneTitular = useRef(findTitular(props.convite?.convidados).telefone)
+    const {casamentoId} = useContext(CasalContext)
 
     const editarConvite = async () => {
         const titular = findTitular(props.convite?.convidados)
@@ -20,10 +22,9 @@ const EditarConviteModal = (props) => {
             nome: nomeConvite.current.value,
             telefoneTitular: telefoneTitular.current.value,
             pin: props.convite?.pin,
-            casamentoId: 2,
+            casamentoId: casamentoId,
             convidados: props.convite?.convidados
         }
-        // console.log(updateConviteRequest);
         
         const conviteUpdatedResponse = await request.updateInvite(props.convite?.id, updateConviteRequest)
         const conviteUpdated = conviteUpdatedResponse.data;

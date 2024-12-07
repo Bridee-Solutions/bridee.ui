@@ -1,6 +1,6 @@
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -24,16 +24,15 @@ import Assessor from "../../componentes/Assessor/Assessor";
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import { request } from "../../config/axios/axios";
+import { CasalContext } from "../../context/CasalContext";
 
 
 function Painel() {
   const inputRef = useRef(null);
   const [imageUrl, setImageUrl] = useState(null);
-  const [checkedTarefa1, setCheckedTarefa1] = useState(true);
-  const [checkedTarefa2, setCheckedTarefa2] = useState(false);
-  const [checkedTarefa3, setCheckedTarefa3] = useState(false);
   const [dashboardInfo, setDashboardInfo] = useState({});
   const [orcamento, setOrcamento] = useState({})
+  const {casamentoId} = useContext(CasalContext);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -53,7 +52,7 @@ function Painel() {
         extensao: `${file.name.split(".")[file.name.split(".").length-1]}`
       }
       formData.append("metadata", JSON.stringify(imageMetadata))
-      request.uploadProfilePicture(2,formData);
+      request.uploadProfilePicture(casamentoId,formData);
       
     }
   };
@@ -76,8 +75,7 @@ function Painel() {
   }
 
   useEffect(() => {
-    request.getDashboard(2).then(response => {
-      console.log(response.data)
+    request.getDashboard(casamentoId).then(response => {
       setDashboardInfo(response.data)
       setOrcamento(response.data.orcamento)
       const url = `data:image/**;base64,${response.data.casamentoInfo.image}`
@@ -138,7 +136,9 @@ function Painel() {
                 <div className={styles.iconsContainer}>
                   <div className={styles.icon}>
                     <FontAwesomeIcon icon={faCalendarAlt} />
-                    <span>{dashboardInfo.casamentoInfo?.dataCasamento}</span>
+                    <span>{new Date(dashboardInfo.casamentoInfo?.dataCasamento).toLocaleString("pt-br").split(",")[0] ? 
+                        new Date(dashboardInfo.casamentoInfo?.dataCasamento).toLocaleString("pt-br").split(",")[0] : "---"
+                    }</span>
                   </div>
 
                   <div className={styles.icon}>

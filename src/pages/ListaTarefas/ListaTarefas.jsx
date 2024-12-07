@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, {useState, useRef, useEffect, useContext} from 'react';
 import { toast } from "react-toastify";
 import styles from "./ListaTarefas.module.css";
 import "../../index.css";
@@ -23,36 +23,36 @@ import ModalBody from "../../componentes/Modal/ModalBody/ModalBody";
 import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
+import { CasalContext } from '../../context/CasalContext';
 
 function ListaTarefas() {
-  useEffect(() => {
-    loadTasks();
-  }, []);
-  const [checkedCount, setCheckedCount] = useState(0);
-  const [modalDelete, setModalDelete] = useState(false);
-  const [modalAddTask, setModalAddTask] = useState(false);
-  const [modalViewTask, setModalViewTask] = useState(false);
-  const [taskDate, setTaskDate] = useState("Selecione uma data");
-  const [task, setTask] = useState("");
-  const [gruposDeTarefas, setGruposDeTarefas] = useState([]);
-  const [filters, setFilters] = useState({});
-  const searchTaskInputRef = useRef(null);
-  const nameTaskSave = useRef(null);
-  const descriptionTaskSave = useRef(null);
-  const dateTaskSave = useRef(null);
-  const categoryTaskSave = useRef(null);
-  const nameTaskView = useRef(null);
-  const descriptionTaskView = useRef(null);
-  const dateTaskView = useRef(null);
-  const categoryTaskView = useRef(null);
-  useEffect(() => {
-    loadTasks();
-  }, [filters]);
-
-  const abrirModalDelete = (task) => {
-    setTask(task);
-    setModalDelete(true);
-  };
+    const [checkedCount, setCheckedCount] = useState(0);
+    const [modalDelete, setModalDelete] = useState(false);
+    const [modalAddTask, setModalAddTask] = useState(false);
+    const [modalViewTask, setModalViewTask] = useState(false);
+    const [taskDate, setTaskDate] = useState('Selecione uma data');
+    const [task, setTask] = useState("");
+    const [gruposDeTarefas, setGruposDeTarefas] = useState([]);
+    const [filters, setFilters] = useState({});
+    const searchTaskInputRef = useRef(null);
+    const nameTaskSave = useRef(null);
+    const descriptionTaskSave = useRef(null);
+    const dateTaskSave = useRef(null);
+    const categoryTaskSave = useRef(null);
+    const nameTaskView = useRef(null);
+    const descriptionTaskView = useRef(null);
+    const dateTaskView = useRef(null);
+    const categoryTaskView = useRef(null);
+    const {casamentoId} = useContext(CasalContext);
+    
+    useEffect(() => {loadTasks()}, []);
+    
+    useEffect(() => {loadTasks()}, [filters]);
+    
+    const abrirModalDelete = (task) => {
+        setTask(task);
+        setModalDelete(true);
+    };
 
   const abrirModalAdd = () => {
     const today = new Date();
@@ -183,21 +183,20 @@ function ListaTarefas() {
       dataLimite: dateTaskSave.current.value,
     };
 
-    request
-      .saveTask(3, newTask)
-      .then(() => {
-        fecharModalAdd();
-        loadTasks();
-        toast.success("Tarefa criada com sucesso!");
-      })
-      .catch(() => {
-        if (!newTask.nome || !newTask.dataLimite || !newTask.status) {
-          toast.error("Preencha todos os campos");
-        } else {
-          toast.error("Houve um erro ao criar a tarefa");
-        }
-      });
-  };
+        request.saveTask(casamentoId, newTask)
+        .then(() => {
+            fecharModalAdd();
+            loadTasks();
+            toast.success("Tarefa criada com sucesso!");
+        })
+        .catch(() => {
+            if ( !newTask.nome || !newTask.dataLimite || !newTask.status){
+                toast.error("Preencha todos os campos");   
+            } else {
+                toast.error("Houve um erro ao criar a tarefa");
+            }
+        });
+    }
 
   const atualizarTask = () => {
     const updatedTask = {
@@ -210,103 +209,91 @@ function ListaTarefas() {
       mesesAnteriores: task.mesesAnteriores,
     };
 
-    console.log(updatedTask);
-    request
-      .updateTask(3, updatedTask)
-      .then(() => {
-        loadTasks();
-        fecharModalView();
-        toast.success("Tarefa atualizada com sucesso!");
-      })
-      .catch(() => {
-        if (
-          !updatedTask.nome ||
-          !updatedTask.dataLimite ||
-          !updatedTask.status
-        ) {
-          toast.error("Preencha todos os campos");
+        console.log(updatedTask)
+        request.updateTask(casamentoId, updatedTask)
+        .then(() => {
+            loadTasks();
+            fecharModalView();
+            toast.success("Tarefa atualizada com sucesso!");
+        })
+        .catch(() => {
+            if ( !updatedTask.nome || !updatedTask.dataLimite || !updatedTask.status){
+                toast.error("Preencha todos os campos");   
+            } else {
+                toast.error("Houve um erro ao criar a tarefa");
+            }
+        })
+    };
+    
+    const loadTasks = () => {
+        const isEmpty = Object.keys(filters).length === 0 && filters.constructor === Object;
+        
+        if (isEmpty){
+            request.getTasks(casamentoId)
+            .then((data) => {
+                const tarefas = data.data;
+                const totalChecked = tarefas.reduce((count, group) => {
+                    return (
+                        count +
+                        Object.values(group.tarefas).reduce((monthCount, tasks) => {
+                            return monthCount + tasks.filter(task => task.status === "CONCLUIDO").length;
+                        }, 0)
+                    );
+                }, 0);
+                
+                setGruposDeTarefas(tarefas);
+                setCheckedCount(totalChecked);
+    
+            })
+            .catch(() => {
+                toast.error("Houve um erro ao carregar as tarefas");
+            });
+
         } else {
-          toast.error("Houve um erro ao criar a tarefa");
+            let uri = "?";
+            if (filters.nome) uri += `nome=${filters.nome}&`;
+            if (filters.status) uri += `status=${filters.status}&`;
+            if (filters.categoria && filters.categoria.length > 0) {
+                uri += "categoria=";
+                for (let i = 0; i < filters.categoria.length; i++) {
+                    uri += filters.categoria[i];
+                    if (i < filters.categoria.length - 1) uri += ",";
+                }
+                uri += "&";
+            }
+            if (filters.mes && filters.mes.length > 0) {
+                uri += "mes=";
+                for (let i = 0; i < filters.mes.length; i++) {
+                    uri += filters.mes[i];
+                    if (i < filters.mes.length - 1) uri += ",";
+                }
+                uri += "&";
+            }
+            
+            if (uri.endsWith("&")) {
+                uri = uri.slice(0, -1);
+            }
+            console.log(uri)
+            request.getTasks(casamentoId, uri)
+            .then((data) => {
+                const tarefas = data.data;
+                const totalChecked = tarefas.reduce((count, group) => {
+                    return (
+                        count +
+                        Object.values(group.tarefas).reduce((monthCount, tasks) => {
+                            return monthCount + tasks.filter(task => task.status === "CONCLUIDO").length;
+                        }, 0)
+                    );
+                }, 0);
+                
+                setGruposDeTarefas(tarefas);
+                setCheckedCount(totalChecked);
+    
+            }).catch(() => {
+                toast.error("Houve um erro ao carregar as tarefas");
+            });
         }
-      });
-  };
-
-  const loadTasks = () => {
-    const isEmpty =
-      Object.keys(filters).length === 0 && filters.constructor === Object;
-
-    if (isEmpty) {
-      request
-        .getTasks(3)
-        .then((data) => {
-          const tarefas = data.data;
-          const totalChecked = tarefas.reduce((count, group) => {
-            return (
-              count +
-              Object.values(group.tarefas).reduce((monthCount, tasks) => {
-                return (
-                  monthCount +
-                  tasks.filter((task) => task.status === "CONCLUIDO").length
-                );
-              }, 0)
-            );
-          }, 0);
-
-          setGruposDeTarefas(tarefas);
-          setCheckedCount(totalChecked);
-        })
-        .catch(() => {
-          toast.error("Houve um erro ao carregar as tarefas");
-        });
-    } else {
-      let uri = "?";
-      if (filters.nome) uri += `nome=${filters.nome}&`;
-      if (filters.status) uri += `status=${filters.status}&`;
-      if (filters.categoria && filters.categoria.length > 0) {
-        uri += "categoria=";
-        for (let i = 0; i < filters.categoria.length; i++) {
-          uri += filters.categoria[i];
-          if (i < filters.categoria.length - 1) uri += ",";
-        }
-        uri += "&";
-      }
-      if (filters.mes && filters.mes.length > 0) {
-        uri += "mes=";
-        for (let i = 0; i < filters.mes.length; i++) {
-          uri += filters.mes[i];
-          if (i < filters.mes.length - 1) uri += ",";
-        }
-        uri += "&";
-      }
-
-      if (uri.endsWith("&")) {
-        uri = uri.slice(0, -1);
-      }
-      console.log(uri);
-      request
-        .getTasks(3, uri)
-        .then((data) => {
-          const tarefas = data.data;
-          const totalChecked = tarefas.reduce((count, group) => {
-            return (
-              count +
-              Object.values(group.tarefas).reduce((monthCount, tasks) => {
-                return (
-                  monthCount +
-                  tasks.filter((task) => task.status === "CONCLUIDO").length
-                );
-              }, 0)
-            );
-          }, 0);
-
-          setGruposDeTarefas(tarefas);
-          setCheckedCount(totalChecked);
-        })
-        .catch(() => {
-          toast.error("Houve um erro ao carregar as tarefas");
-        });
-    }
-  };
+    };
 
   const getAllOverdueTasks = (grupos) => {
     return grupos.flatMap((grupo) => grupo.tarefas.atrasadas);
@@ -363,15 +350,13 @@ function ListaTarefas() {
     if (task.status == "EM_ANDAMENTO") task.status = "CONCLUIDO";
     else task.status = "EM_ANDAMENTO";
 
-    request
-      .updateTask(3, task)
-      .then(() => {
-        loadTasks();
-      })
-      .catch(() => {
-        toast.error("Houve um erro ao atualizar a tarefa");
-      });
-  };
+        request.updateTask(casamentoId, task)
+        .then(() => {
+            loadTasks();
+        }).catch(() => {
+            toast.error("Houve um erro ao atualizar a tarefa");
+        });
+    };
 
   const deleteTask = (id) => {
     request
