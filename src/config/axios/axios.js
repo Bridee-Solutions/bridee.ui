@@ -3,8 +3,8 @@ import { interceptorsConfiguration } from './interceptor';
 
 const baseUrl = import.meta.env.VITE_BACKEND_URL;
 export const Api = axios.create({
-    baseURL: baseUrl,
-    withCredentials: true
+    baseURL: baseUrl
+    // withCredentials: true
 });
 
 interceptorsConfiguration()
@@ -151,5 +151,20 @@ export const request = {
     },
     getConvitesResumo: async(casamentoId) => {
         return await Api.get(`/convites/casamento/${casamentoId}/resumo`)
+    },
+    getProposals: async(idAssessor) => {
+        return await Api.get(`/assessores/${idAssessor}/casais/pendentes`).then(response.data)
+    },
+    getAcceptedProposals: async(assessorId) => {
+        return await Api.get(`assessores/${assessorId}/casamentos/assessorados?ano=2024&mes=12`)
+    },
+    getOrcamento: async(casamentoId) => {
+        return await Api.get(`/casamentos/${casamentoId}/orcamento`).then(response.data)
+    },
+    acceptProposal: async(casamentoId, assessorId) => {
+        return await Api.put(`casamentos/${casamentoId}/assessor/${assessorId}/aceitar-proposta`)
+    },
+    denyProposal: async(casamentoId, assessorId) => {
+        return await Api.put(`casamentos/${casamentoId}/assessor/${assessorId}/recusar-proposta`)
     } 
 }
