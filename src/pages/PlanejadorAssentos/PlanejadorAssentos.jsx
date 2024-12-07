@@ -1,8 +1,8 @@
-import Navbar from "../../componentes/Navbar/Navbar";
+import NavbarAssessor from "../../componentes/NavbarAssessor/NavbarAssessor";
 
 function PlanejadorAssentos() { 
     return (
-       <Navbar/>
+       <NavbarAssessor />
     );
 }
 

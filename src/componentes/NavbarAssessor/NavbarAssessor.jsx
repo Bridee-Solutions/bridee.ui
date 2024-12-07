@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-import styles from "./Navbar.module.css";
+import styles from "../Navbar/Navbar.module.css";
 import "../../index.css";
 
-import { GiBigDiamondRing } from "react-icons/gi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -18,16 +17,13 @@ import {
   faListCheck,
   faClipboardList,
   faChair,
-  faCalculator,
-  faHandshake,
-  faLocationDot,
-  faUserTie,
-  faRightFromBracket,
+   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import MenuLink from "../MenuLink/MenuLink";
 import DropdownItem from "../DropdownItem/DropdownItem";
 
-function NavComp() {
+function NavAssessor() {
   const navigate = useNavigate();
   const location = useLocation();
   const [dropdownAberto, setDropdownAberto] = useState(false);
@@ -67,69 +63,32 @@ function NavComp() {
 
   const ferramentasDePlanejamento = [
     {
-      nome: "Painel",
+      nome: "Calendário",
       descricao:
-        "Gerencie cada detalhe do seu casamento com facilidade, com todas as ferramentas que você precisa em um só lugar.",
-      icon: <GiBigDiamondRing />,
+        "Visualize os casamentos confirmados no calendário e confira novas propostas de clientes.",
+      icon: faCalendarAlt,
       rota: "/painel",
     },
     {
-      nome: "Lista de convidados",
+      nome: "Painel",
       descricao:
-        "Uma lista de convidados prática e intuitiva para ajudar você a gerenciar facilmente quem irá convidar e acompanhar as confirmações.",
+        "Em breve",
       icon: faClipboardList,
       rota: "/lista-convidados/:casamentoId",
     },
+    
     {
-      nome: "Lista de tarefas",
-      descricao:
-        "Nossa lista de verificação de planejamento de casamento é a maneira mais fácil de gerenciar o cronograma do planejamento do seu casamento sem estresse",
-      icon: faListCheck,
-      rota: "/lista-tarefas",
+        nome: "Cronograma do Evento",
+        descricao:
+          "Em breve",
+        icon: faListCheck,
+        rota: "/lista-tarefas",
     },
-    {
-      nome: "Planejador de assentos",
-      descricao:
-        "Um planejador de assentos intuitivo para organizar sua recepção de forma fácil e eficaz.",
-      icon: faChair,
-      rota: "/planejador-assentos",
-    },
-    {
-      nome: "Calculadora Financeira",
-      descricao:
-        "Uma calculadora financeira prática para ajudá-la a planejar o orçamento do seu grande dia.",
-      icon: faCalculator,
-      rota: "/calculadora-financeira",
-    },
-  ];
+     ];
 
-  const LocaisEFornecedores = [
-    {
-      nome: "Assessores",
-      descricao:
-        "Explore nossos profissionais e encontre o assessor ideal para planejar cada detalhe do seu dia perfeito.",
-      icon: faUserTie,
-      rota: "/assessores",
-    },
-    {
-      nome: "Fornecedores",
-      descricao:
-        "Descubra e compare fornecedores para vestuário, decoração, gastronomia e muito mais, tudo para um dia verdadeiramente memorável.",
-      icon: faHandshake,
-      rota: "/fornecedores",
-    },
-    {
-      nome: "Locais",
-      descricao:
-        "Descubra e selecione espaços deslumbrantes que atendem ao seu estilo e orçamento, garantindo o cenário perfeito para o seu grande dia.",
-      icon: faLocationDot,
-      rota: "/locais",
-    },
-  ];
-
+ 
   const submenuOpcoes = {
-    ferramentas: ferramentasDePlanejamento,
-    locaisFornecedores: LocaisEFornecedores,
+    ferramentas: ferramentasDePlanejamento
   };
 
   const handleLogoff = () => {
@@ -185,7 +144,7 @@ function NavComp() {
 
                     <div className={styles.coluna}>
                       {/* Renderizando o segundo e terceiro item */}
-                      {ferramentasDePlanejamento.slice(1, 3).map((item) => (
+                      {ferramentasDePlanejamento.slice(1, 2).map((item) => (
                         <DropdownItem
                           key={item.nome}
                           item={item}
@@ -196,7 +155,7 @@ function NavComp() {
 
                     <div className={styles.coluna}>
                       {/* Renderizando o quarto e o quinto item*/}
-                      {ferramentasDePlanejamento.slice(3, 5).map((item) => (
+                      {ferramentasDePlanejamento.slice(2,3).map((item) => (
                         <DropdownItem
                           key={item.nome}
                           item={item}
@@ -209,37 +168,7 @@ function NavComp() {
               )}
             </div>
           </div>
-          <div className={styles.containerMenu}>
-            <div
-              className={styles.dropdownTitle}
-              onClick={handleDropdownLocaisClick}
-              aria-expanded={dropdownLocaisAberto}
-            >
-              Locais e Fornecedores{" "}
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                onClick={handleDropdownLocaisClick}
-                aria-expanded={dropdownLocaisAberto}
-                className={styles.icon_arrow}
-              />
-            </div>
-
-            {dropdownLocaisAberto && (
-              <div className={styles.dropdown}>
-                <div className={styles.dropdownContainer}>
-                  <div className={styles.dropdownContent}>
-                    {LocaisEFornecedores.map((item) => (
-                      <DropdownItem
-                        key={item.nome}
-                        item={item}
-                        onClick={() => handleClick(item.nome, item.rota)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+          
 
           <div className={styles.userIcon}>
             <FontAwesomeIcon icon={faUser} style={{ color: "#FFFFFF" }} />
@@ -281,4 +210,4 @@ function NavComp() {
     </nav>
   );
 }
-export default NavComp;
+export default NavAssessor;
