@@ -1,0 +1,21 @@
+.arco_financeiro{
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    justify-content: space-evenly;
+   
+}
+
+.arco_financeiro_gasto{
+    padding: 2%;
+    background-color: #c6524e;
+}
+
+.arco_financeiro_texto{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    padding-bottom: 1%;
+}

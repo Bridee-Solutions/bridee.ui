@@ -1,0 +1,55 @@
+.convite_header{
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 2%;
+}
+
+.convite_header_title{
+    display: flex;
+    font-family: "Playfair Display";
+    font-weight: 400;
+    padding: 2% 3% 0 3%;
+}
+
+.convite_header_title > span { 
+font-size: 1.7rem;
+}
+
+.convite_header_title img{
+    margin-right: 1%;
+}
+
+.convite_header_content{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    justify-content: start;
+    padding: 3% 5% 0 5%;
+    flex-wrap: wrap;
+    font-family: "Montserrat";
+}
+
+.convite_header_content_item{
+    width: 25%;
+    
+}
+
+.convites {
+    font-size: 0.8rem;
+}
+
+.convite_header_content_item span:first-child{
+    background-color: #d86b67;
+    padding: 3%;
+    color: white;
+    margin-right: 2.5%;
+    border-radius: 7px;
+}
+
+.convite_header_content_item span{
+    font-size: 1rem;
+}

@@ -1,0 +1,38 @@
+.gerenciar_informacoes{
+    display: flex;
+    height: 35vh;
+    padding: 0 3%;
+    
+    
+}
+
+.gerenciar_informacoes_left_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d86b67;
+    font-size: 1.8rem;
+    font-family: "Montserrat";
+    height: 30%;
+}
+
+.gerenciar_informacoes_content{
+    width: 100%;
+    font-family: "Montserrat";
+    padding-left: 4%;
+}
+
+.gerenciar_informacoes_content span{
+    font-size: 1rem;
+    font-family: "Montserrat";
+
+}
+
+.gerenciar_informacoes_right_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d86b67;
+    font-size: 20px;
+    height: 30%;
+}

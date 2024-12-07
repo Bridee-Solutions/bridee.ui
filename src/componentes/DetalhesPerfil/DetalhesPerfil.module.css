@@ -1,0 +1,107 @@
+.containerAssessor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3eed9;
+  padding-bottom: 4rem;
+  padding-top: 3rem;
+}
+
+.containerConteudo {
+  width: 85%;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerVoltar {
+  width: 100%;
+  height: 10vh;
+  padding-top: 2em;
+  cursor: pointer;
+}
+
+.voltar {
+  display: flex;
+  align-items: center;
+}
+
+.iconvolt {
+  color: #b55557;
+  font-size: 1.2em;
+  padding-left: 1em;
+}
+
+.voltar > span {
+  font-size: 1em;
+  font-weight: 500;
+  font-family: "Montserrat";
+  padding-left: 0.4em;
+}
+
+.containerImagens {
+  width: 90%;
+  height: 30%;
+}
+
+.todoconteudo {
+  display: flex;
+  width: 94%;
+  font-family: "Montserrat";
+}
+
+
+.esquerda {
+    height: 100%;
+  width: 60%;
+  }
+
+  .direita {
+    width: 40%;
+   }
+
+   .containerApresent {
+    width: 100%;
+  }
+  
+  .containerApresent span {
+    color: black;
+    font-family: "Montserrat";
+  }
+  
+  
+.regOrc { 
+    height: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+  
+  .containerAssessor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3eed9;
+    padding-bottom: 4rem;
+    padding-top: 3rem;
+  }
+  
+  
+.containerConteudo {
+    width: 85%;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  

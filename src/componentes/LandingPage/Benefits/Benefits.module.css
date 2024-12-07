@@ -1,19 +1,72 @@
 .benefits {
   display: flex;
   font-weight: 500;
+  width: 100%;
+  justify-content: center;
+  height: 10%;
+}
+.containerbenefits {
+  display: flex;
+  width: 90%;
   justify-content: space-around;
-  padding: 0px 6vw;
+  align-items: center;
+height: 100%;
 }
 
-.start_label,
-.benefits_labels{
-  padding: 1vh 2vw;
-  border-radius: 15px;
+.containerReg {
+  display: flex;
+  height: 65%;
+  width: 95%;
+  justify-content: space-between;
+
+}
+
+.conteudo {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+    justify-content: space-around;
 }
 
 .start_label {
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerBeneficios { 
+  display: flex;
+  justify-content: space-between;
+  width: 67%;
+    height: 100%;
+  
+
+}
+.benefits_container_labels{
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+}
+
+
+
+.benefits_labels {
+  border-radius: 15px;
+  
+}
+
+.containerCima {
+  width: 100%;
+} 
+
+
+.start_label {
   background-color: #DD7B78;
-  width: 16vw;
+  width: 25vw;
+  height: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -21,14 +74,20 @@
 
 .start_label p{
   font-family: 'Playfair';
-  font-size: 20px;
+  font-size: 18px;
   color: #FFFFFF;
   font-weight: 600;
   font-style: normal;
   
 }
 
-.start_label button {
+.containerBaixo {
+  width: 100%;
+
+} 
+
+
+.comece {
   background-color: #DD7B78;
   border: 0px;
   font-size: 18px;
@@ -38,41 +97,115 @@
   display: flex;
   align-items: center;
   gap: 10px;
+
 }
 
 .benefits_labels {
-  width: 10vw;
-  font-size: 16px;
+  width: 23%;
+  font-size: 13px;
   color: #404040;
-  border: 1px solid #AAAAAA;
+  border: 1px solid #dddddd;
   font-family: 'Montserrat';
   text-align: center;
 }
 
-.icon_benefits_loupe,
-.icon_benefits_networking,
-.icon_benefits_tasklist,
-.icon_benefits_pinterest {
+.icon_benefits {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 13vh;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 50%;}
+
+.icon_benefits > img { 
+  width: 60px;
 }
 
-.icon_benefits_loupe {
-  background-image: url('../../../assets/loupe_icon.svg');
+.textocontainer  {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
 }
 
-.icon_benefits_networking {
-  background-image: url('../../../assets/networking_icon.svg');
+.textodesc { 
+  display: flex;
+  width: 90%;
 }
 
-.icon_benefits_tasklist {
-  background-image: url('../../../assets/tasklist_icon.svg');
-}
-
-.icon_benefits_pinterest {
-  background-image: url('../../../assets/pinterest_icon.svg');
-}
+/* @media(max-width: 768px) {
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    padding: 0px;
+    width: 100%;
+    gap: 5vh;
+  }
+  
+  .benefits_container_labels{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+  }
+  
+  .start_label,
+  .benefits_labels{
+    padding: 1vh 2vw;
+    border-radius: 15px;
+  }
+  
+  .start_label {
+    background-color: #DD7B78;
+    width: 200px;
+    height: 24vh;
+    padding: 1vh 5vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  
+  .start_label p{
+    font-family: 'Playfair';
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-style: normal;
+    
+  }
+  
+  .comece {
+    background-color: #DD7B78;
+    border: 0px;
+    font-size: 18px;
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .benefits_labels {
+    width: 45%;
+    font-size: 16px;
+    color: #404040;
+    border: 1px solid #AAAAAA;
+    font-family: 'Montserrat';
+    text-align: center;
+  }
+  
+  .icon_benefits_loupe,
+  .icon_benefits_networking,
+  .icon_benefits_tasklist,
+  .icon_benefits_pinterest {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 13vh;
+    background-repeat: no-repeat;
+    background-position: center;
+  } 
+} */

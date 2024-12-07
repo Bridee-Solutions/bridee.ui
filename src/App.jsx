@@ -1,33 +1,19 @@
 import './App.css'
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import LandingPage from './pages/LandingPage/LandingPage'
-import Login from './pages/Login/Login';
-import TelaInicial from './pages/TelaInicial/TelaInicial';
-import Error from "./pages/Error/Error"
-import Painel from './pages/Painel/Painel';
-import Calculadora from './pages/Calculadora/Calculadora';
-import ListaConvidados from './pages/ListaConvidados/ListaConvidados';
-import PlanejadorAssentos from './pages/PlanejadorAssentos/PlanejadorAssentos';
-import ListaTarefas from './pages/ListaTarefas/ListaTarefas';
+import {BrowserRouter as Router} from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { ToastContainer } from 'react-toastify';
+import 'simplebar-react/dist/simplebar.min.css';
+import { defineContext, rotasComuns } from './context/Context';
 
 function App() {
+  // const [loading, setLoading] = useState(false);
 
-  return (
-   <Router>
-    <Routes>
-      <Route path='/' element={<LandingPage/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/tela-inicial' element={<TelaInicial/>}></Route>
-      <Route path='*' element={<Error/>}></Route>      
-      <Route path='/painel' element={<Painel/>}></Route>
-      <Route path='/calculadora-financeira' element={<Calculadora/>}></Route>
-      <Route path='/lista-convidados' element={<ListaConvidados/>}></Route>
-      <Route path='/planejador-assentos' element={<PlanejadorAssentos/>}></Route>
-      <Route path='/lista-tarefas' element={<ListaTarefas/>}></Route>
+    return (
+      <Router>
+        {defineContext()}
+        <ToastContainer autoClose={2000}/>
+      </Router>
+    )
+  }
 
-    </Routes>
-   </Router>
-  )
-}
-
-export default App
+  export default App

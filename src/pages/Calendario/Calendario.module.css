@@ -1,0 +1,193 @@
+.body {
+  background-color: #F3EED9;
+  height: 100vh;
+}
+
+.container_body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.calendar_panel,
+.proposal_panel {
+  background-color: #FFFFFF;
+  height: 90%;
+  border-radius: 22px;
+}
+.calendar_panel {
+  width: 60%;
+}
+
+.proposal_panel {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.proposal_panel .title {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  justify-content: start;
+  padding: 2% 5%;
+  border-bottom: #BFB9B9 1px solid;
+}
+
+.proposal_panel .title h1{
+  margin: 0;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.proposal_panel .title img{
+  animation: ring 3s infinite;
+}
+
+@keyframes ring {
+  5%{
+    transform: scale(80%);
+  }
+  55%{
+    transform: scale(80%);
+  }
+  60%{
+    transform: scale(100%);
+  }
+  65%{
+    transform: scale(80%);
+  }
+  70%{
+    transform: scale(100%);
+  }
+  75%{
+    transform: scale(80%);
+  }
+  80%{
+    transform: scale(100%);
+  }
+  85%{
+    transform: scale(80%);
+  }
+  90%{
+    transform: scale(100%);
+  }
+  95%{
+    transform: scale(80%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+  
+}
+
+.proposals_container {
+  overflow: auto;
+  height: 100%;
+  border-radius: 22px;
+  padding: 8% 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+}
+
+.proposals_container span {
+  font-size: 20px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  line-height: 24.38px;
+  color: #989898;
+}
+
+.proposal {
+  height: 9%;
+  display: flex;
+  align-items: center;
+  gap: 3%;
+  cursor: pointer;
+}
+
+.proposal span {
+  font-weight: 400;
+  font-family: "ProductSans";
+  font-size: 20px;
+}
+
+.proposal div{
+  height: 100%;
+  width: 4%;
+  background-color: #ED9C9B;
+}
+
+.buttonModalContainer{
+  display: flex;
+  justify-content: right;
+}
+
+.buttonModalContainer button{
+  background-color: transparent;
+  border: 0;
+}
+
+.containerModalViewModal {
+  display: flex;
+  padding: 5% 0%;
+  flex-direction: column;
+  font-family: "ProductSans";
+}
+
+.containerModalViewAcceptedModal{
+  display: flex;
+  padding: 5% 0%;
+  flex-direction: column;
+  font-family: "ProductSans";
+}
+
+.containerModalViewAcceptedModal p{
+  display: flex;
+  gap: 2%;
+  align-items: center;
+}
+
+
+.containerModalAccept {
+  display: flex;
+  padding: 5% 0%;
+  flex-direction: column;
+  align-items: center;
+  font-family: "ProductSans";
+  text-align: center;
+}
+
+.containerModalViewModal h2 {
+  margin: 2% 0;
+  padding: 0;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.containerModalViewModal h2,
+.containerModalViewModal span {
+  text-align: center;
+}
+
+.proposal_info {
+  border-left: 30px solid #DD7B78;
+  background-color: #F9F9F9;
+  padding: 3% 5%;
+}
+
+.proposal_info div{
+  display: flex;
+  gap: 1%;
+}
+
+.proposal_info p{
+  margin: 0;
+}

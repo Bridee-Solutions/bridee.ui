@@ -1,85 +1,179 @@
 .newsletter {
-    background-image: url('../../../assets/newsletter_banner.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 81vh;
+  background-image: url("../../../assets/landingpage/Newsletter/newsletter_banner.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 81vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+}
+
+.containerTitulo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.container span {
+  font-family: "Qlassy";
+  font-size: 2.1rem;
+  font-weight: 400;
+}
+.containerBoxInput {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_input_email {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  border-radius: 12px;
+  background-color: #fbf9f7;
+}
+
+.container_input {
+  width: 40vw;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  background-color: #fbf9f7;
+  box-shadow: 0px 4px 4px 0px rgba(91, 88, 88, 0.25);
+}
+
+.container_input input {
+  width: 90%;
+  border-radius: 5px;
+  border: 0px;
+  background-color: #fbf9f7;
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  outline: none;
+}
+
+.containerConvites {
+  display: flex;
+  align-items: center;
+  height: 14vh;
+  width: 100%;
+  justify-content: center;
+}
+
+.containerConvites span {
+  color: #272727;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.contReg {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  height: 10vh;
+  justify-content: space-evenly;
+}
+
+.containerConvites a {
+  font-weight: 700;
+  text-decoration: none;
+  color: #272727;
+}
+
+.containerbotao {
+  width: 29%;
+  height: 80%;
+}
+
+.botao {
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 500;
+  background-color: #dd7b78;
+  transition: 0.5s;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.botao > span {
+  color: #fbf9f7;
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.botao:hover {
+  background-color: #d26966;
+}
+
+.containerConvites {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .newsletter .container {
     display: flex;
-    justify-content: center;
-}
+    flex-direction: column;
+    align-items: center;
+  }
 
-.newsletter .container {
-    position: relative;
-    top: 14vh;
-    text-align: center;
-}
+  .newsletter .container .container_input {
+    flex-direction: column;
+    width: 80vw;
+    height: 12vh;
+    padding: 1vh 2vw;
+    gap: 2vh;
+  }
 
-.newsletter .container h1 {
-    font-family: 'Qlassy';
-    font-size: 54px;
-    font-weight: 400;
-    margin: 0vh 0vw;
-}
+  .newsletter .container .container_input div input {
+    font-size: 20px;
+  }
 
-.newsletter .container p {
-    color: #272727;
-    font-family: 'Montserrat';
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin: 1vh 0vw;
-}
-
-.newsletter .container p a {
-    font-weight: 700;
-    text-decoration: none;
-    color: #272727;
-}
-
-.newsletter .container .container_input {
-    width: 40vw;
-    height: 8vh;
+  .newsletter .container .container_input div {
+    width: 100%;
+    height: 50%;
     display: flex;
     align-items: center;
-    padding: 1vh 0.5vw 1vh 2vw;
-    border-radius: 12px;
-    margin: 2vh 0vw 3.5vh 0vw;
-    background-color: #FBF9F7;
-    box-shadow: 0px 4px 4px 0px rgba(91, 88, 88, 0.25);
-}
+  }
 
-.newsletter .container .container_input input{
-    width: 60%;
-    border-radius: 5px;
-    border: 0px;
-    height: 100%;
-    background-color: #FBF9F7;
-    padding: 0px 0.2vw;
-    font-family: 'Montserrat';
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
+  .newsletter .container .container_input button {
+    width: 100%;
+    height: 50%;
+    font-size: 20px;
+  }
 
-.newsletter .container .container_input button{
-    width: 40%;
-    height: 100%;
-    border-radius: 7px;
-    border: 0px;
-    color: #FBF9F7;
-    font-family: 'Montserrat';
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    background-color: #DD7B78;
-    transition: 0.5s;
-    cursor: pointer;
-}
+  .newsletter .container h1 {
+    font-size: 46px;
+  }
 
-.newsletter .container .container_input button:hover{
-    background-color: #D26966;
+  .newsletter .container p {
+    font-size: 20px;
+  }
 }

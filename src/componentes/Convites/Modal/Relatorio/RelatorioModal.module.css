@@ -1,0 +1,27 @@
+.relatorio_modal_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.relatorio_modal_header_title{
+    width: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+    justify-content: center;
+}
+
+.relatorio_modal_header_close{
+    width: 7%;
+    
+}
+
+.relatorio_modal_body{
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}

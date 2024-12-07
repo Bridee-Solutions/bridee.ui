@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../css/Modal.module.css';
+import styles from '../Modal.module.css';
 
-function ModalFooter({ children }) {
+function ModalFooter({ children}) {
 
     return (
         <div className={styles.modal_footer}>
