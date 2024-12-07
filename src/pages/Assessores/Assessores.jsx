@@ -20,7 +20,7 @@ function Assessores() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [showAssessor, setShowAssessor] = useState(false);
 
-  // const [totalCards, setTotalCards] = useState(0);
+  const [totalCards, setTotalCards] = useState(0);
   // const totalPages = Math.ceil(totalCards / cardsPerPage);
 
   // função para mudar a página
@@ -28,18 +28,18 @@ function Assessores() {
     setPage(value);
   };
 
-  // função para quando o card for clicado
-  const handleCardClick = (card) => {
-    console.log("Cartão clicado:", card.id);
-    setSelectedCard(card); // armazena o card selecionado
-    setShowAssessor(true); // exibeee o componente de DetalhesPerfil
-  };
-
   // Função de voltar
   const handleBack = () => {
     setShowAssessor(false); // volta para a visualização de cards
     setSelectedCard(null); // limpa o card selecionado
   };
+
+  const fetchAssessorDetails = async (card) => {
+    const assessorDetails = await request.getFornecedoresInformation(card.id)
+    setShowAssessor(true)
+    setSelectedCard(assessorDetails.data)
+    
+  }
 
   useEffect(() => {
       request.getAssessoresDetails().then(response => {
@@ -69,7 +69,7 @@ function Assessores() {
             <div className={styles.navegar}>
               <CategoriaCards
                 cards={cardsData} // mostra os cards da página atual
-                onCardClick={handleCardClick} // passa a função para selecionar o card
+                onCardClick={fetchAssessorDetails} // passa a função para selecionar o card
                 totalPages={cardsData.totalPages} // total de páginas para a navegação (paginacao)
                 onPageChange={handleChange} // função de mudança de página
               />

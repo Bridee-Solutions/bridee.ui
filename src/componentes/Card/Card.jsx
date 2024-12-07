@@ -34,7 +34,7 @@ const Card = ({
   return (
     <div className={styles.card}>
       {imageUrl && (
-        <img src={imageUrl} className={styles.image} />
+        <img src={`data:image/**;base64,${imageUrl}`} className={styles.image} />
       )}
       <div className={styles.titleContainer}>
         <span className={styles.title}>{tituloFormatado}</span>

@@ -5,15 +5,17 @@ import Relatorio from "../../Relatorio/Relatorio"
 import styles from "./RelatorioModal.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faX } from "@fortawesome/free-solid-svg-icons"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { request } from "../../../../config/axios/axios"
+import { CasalContext } from "../../../../context/CasalContext"
 
 const RelatorioModal = (props) => {
 
     const [relatorio, setRelatorio] = useState();
+    const {casamentoId} = useContext(CasalContext)
 
     useEffect(() => {
-        request.getRelatorio(2).then(response => {
+        request.getRelatorio(casamentoId).then(response => {
             setRelatorio(response.data)
         })
     }, [])

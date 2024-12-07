@@ -1,11 +1,13 @@
 import axios from 'axios';
+import { interceptorsConfiguration } from './interceptor';
 
-// TODO: Usar variável de ambiente.
-const baseUrl = `http://localhost:8080/api`;
+const baseUrl = import.meta.env.VITE_BACKEND_URL;
 export const Api = axios.create({
     baseURL: baseUrl,
     withCredentials: true
 });
+
+interceptorsConfiguration()
 
 const response = (response) => response
 
@@ -15,6 +17,9 @@ export const request = {
     },
     getAssessoresDetails: async () => {
         return await Api.get(`/assessores/details`).then(response.data);
+    },
+    getAssessorInformation: async (assessorId) => {
+        return await Api.get(`/assessores/information/${assessorId}`).then(response.data);
     },
     getFornecedoresByCategoria: async (categoriaId, nome = "") => {
         return await Api.get(`/fornecedores/details/categoria/${categoriaId}?nome=${nome}`)
@@ -29,10 +34,10 @@ export const request = {
         return await Api.get(`/categorias-servicos`).then(response.data)
     },
     getSubcategorias: async (categoriaId) => {
-        return await Api.get(`subcategorias/categoria/${categoriaId}`).then(response.data)
+        return await Api.get(`/subcategorias/categoria/${categoriaId}`).then(response.data)
     },
     getSubcategoriasByNome: async (nome) => {
-        return await Api.get(`subcategorias/categoria/nome/${nome}`).then(response.data)
+        return await Api.get(`/subcategorias/categoria/nome/${nome}`).then(response.data)
     },
     saveCasal: async (usuario) => {
         return await Api.post(`/casais`, usuario).then(response)
@@ -59,7 +64,7 @@ export const request = {
         return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
     },
     getOrcamentoCasal: async (casalId) => {
-        return await Api.get(`/orcamentos/casal/${casalId}`).then(response)
+        return await Api.get(`/orcamentos/casamento/${casalId}`).then(response)
     },
     saveOrcamentoFornecedores: async (orcamentoFornecedorRequest) =>{
         return await Api.post(`/orcamento-fornecedor`, orcamentoFornecedorRequest)
@@ -80,7 +85,7 @@ export const request = {
         return await Api.put(`/casais/orcamento-total/${casalId}`, {orcamentoTotal: orcamento})
     },
     downloadOrcamentoCsv: async(casalId) => {
-        return await Api.get(`/orcamentos/csv/casal/${casalId}`)
+        return await Api.get(`/orcamentos/csv/casamento/${casalId}`)
     },
     getDashboard: async(casamentoId) => {
         return await Api.get(`/dashboards/casamento/${casamentoId}`)
@@ -149,5 +154,20 @@ export const request = {
     },
     getConvitesResumo: async(casamentoId) => {
         return await Api.get(`/convites/casamento/${casamentoId}/resumo`)
+    },
+    getProposals: async(idAssessor) => {
+        return await Api.get(`/assessores/${idAssessor}/casais/pendentes`).then(response.data)
+    },
+    getAcceptedProposals: async(assessorId, year) => {
+        return await Api.get(`assessores/${assessorId}/casamentos/assessorados?ano=${year}`)
+    },
+    getOrcamento: async(casamentoId) => {
+        return await Api.get(`/casamentos/${casamentoId}/orcamento`).then(response.data)
+    },
+    acceptProposal: async(casamentoId, assessorId) => {
+        return await Api.put(`casamentos/${casamentoId}/assessor/${assessorId}/aceitar-proposta`)
+    },
+    denyProposal: async(casamentoId, assessorId) => {
+        return await Api.put(`casamentos/${casamentoId}/assessor/${assessorId}/recusar-proposta`)
     } 
 }

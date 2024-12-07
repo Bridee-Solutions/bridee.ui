@@ -7,9 +7,12 @@ import styles from "./DeletarModal.module.css"
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { request } from "../../../../config/axios/axios";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { CasalContext } from "../../../../context/CasalContext";
 
 const DeletarModal = (props) => {
+
+    const {casamentoId} = useContext(CasalContext)
 
     const deletarConvidado = () =>{
         request.deleteConvidado(props.convidado?.id)
@@ -22,7 +25,7 @@ const DeletarModal = (props) => {
     }
 
     const limparConvites = () => {
-        request.deleteAllInvites(2);
+        request.deleteAllInvites(casamentoId);
         props.setConvites([])
         props.closeModal()
     }

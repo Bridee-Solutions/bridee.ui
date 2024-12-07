@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import mageFilter from "../../../assets/mage_filter.svg"
 import styles from "./ConviteHeader.module.css"
 import { request } from "../../../config/axios/axios";
+import { CasalContext } from "../../../context/CasalContext";
 
 const ConviteHeader = (props) => {
 
     const [resumo, setResumo] = useState()
+    const {casamentoId} = useContext(CasalContext)
 
     useEffect(() => {
-        request.getConvitesResumo(2).then((response) => {
+        request.getConvitesResumo(casamentoId).then((response) => {
             console.log(response.data);
             
             props.setConfirmados(response.data.totalConfirmado)

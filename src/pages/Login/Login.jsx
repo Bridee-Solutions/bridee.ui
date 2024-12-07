@@ -9,6 +9,7 @@ import { request } from "../../config/axios/axios";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { buildObjectFromQueryParam } from "../Cadastro/fases";
+import { encrypt } from "../../utils/criptografia";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,16 +34,31 @@ const Login = () => {
       .then((response) => {
         if (response.status == 200) {
           if (response.data.enabled) {
-            navigate("/dashboard");
+            setUserLocalStorage(response.data);
+            if(response.data.tipoUsuario == "CASAL"){
+              navigate("/painel");
+              return;
+            }
+            navigate("/assessores/calendario")
           } else {
             toast.error("Ative a conta antes de conseguir logar");
           }
+        }else{
+          toast.error("Usuário ou senha inválidos");
         }
       })
-      .catch((error) => {
-        toast.error("Usuário ou senha inválidos");
-      });
   };
+
+  const setUserLocalStorage = (data) => {
+    localStorage.setItem("tipoUsuario", encrypt(data.tipoUsuario));
+    localStorage.setItem("isAuthenticated", encrypt(true))
+    if(data.casamentoId){
+      localStorage.setItem("casamentoId", encrypt(data.casamentoId))
+    }
+    if(data.assessorId){
+      localStorage.setItem("assessorId", encrypt(data.assessorId))
+    }
+  }
 
   const googleSuccessLogin = (response) => {
     const tokenDetails = jwtDecode(response.credential);
@@ -52,7 +68,7 @@ const Login = () => {
       .verifyUserEmail(userEmail)
       .then((res) => {
         localStorage.setItem("access_token", response.credential);
-        navigate(`/dashboard`);
+        navigate(`/painel`);
       })
       .catch((erro) => {
         if (tipo.current == "assessor") {
@@ -83,7 +99,6 @@ const Login = () => {
     if (tipo.current == undefined) {
       const queryParamObject = buildObjectFromQueryParam(window);
       tipo.current = queryParamObject.tipo;
-      console.log(tipo.current);
       marginTopAssessor();
       setTipo("");
     }
