@@ -40,7 +40,7 @@ const DeletarModal = (props) => {
             <ModalHeader>
                 <div className={styles.comecar_modal_header}>
                     <div className={styles.comecar_modal_header_title}>
-                        <h2>{props.title}</h2>
+                        <span>{props.title}</span>
                     </div>
                     <div className={styles.comecar_modal_header_close}>
                         <FontAwesomeIcon icon={faX} onClick={() => props.closeModal()} style={{cursor: "pointer"}}/>

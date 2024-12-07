@@ -16,12 +16,16 @@
     justify-content: center;
 }
 
+.whatsapp_modal_header_title > span { 
+    font-family: "Playfair Display";
+    font-weight: 500;
+    font-size: 1.5rem;
+}
 .whatsapp_modal_header_close{
     width: 7%;   
 }
 
 .whatsapp_modal_body{
-    width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,6 +34,11 @@
     padding: 0 10%;
 }
 
+.whatsapp_modal_body p {
+    font-family: "Montserrat";
+    font-size: 1rem;
+    font-weight: 500;
+ }
 .whatsapp_icon{
     font-size: 8rem;
     color: green;
@@ -42,16 +51,26 @@
     padding: 3% 5%;
 }
 
-.whatsapp_modal_body_message textarea{
-    height: 130px;
-    margin-top: 1%;
+.whatsapp_modal_body_message label { 
+    font-family: "Montserrat";
+    padding-bottom: 1%;
+    outline: none;
 }
 
+.whatsapp_modal_body_message textarea{
+    height: 130px;
+    outline: none;
+    margin-top: 1%;
+    font-family: "Montserrat";
+    padding-left: 1%;
+    padding-top: 1%;
+}
 .enviar_button{
     padding: 2% 10%;
     border-radius: 10px;
     background-color: #dd7b78;
     color: white;
     border: none;
+    font-family: "Montserrat";
     cursor: pointer;
 }

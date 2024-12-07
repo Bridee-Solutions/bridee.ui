@@ -12,6 +12,16 @@
     height: 100vh;
     
   }
+
+  .headerModalTitulo { 
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding-bottom: 3%;
+}
+  
   
   .colunaEsquerda {
     width: 55vw;
@@ -255,6 +265,10 @@
   padding-left: 0.9rem;
 }
 
+.containerModal { 
+  height: 30vh;
+ 
+}
 
 
 
@@ -265,7 +279,10 @@
   border-radius: 5px;
   overflow: hidden;
   padding-left: 1rem;
+  width: 100%;
+
 }
+
 
 .form_group { 
   width: 50%;
@@ -274,6 +291,7 @@
   justify-content: flex-start;
   align-items: center;
 font-size: 0.9rem;
+font-family: 'Montserrat', sans-serif;
 }
 
 .search_input[type="number"]::-webkit-outer-spin-button,

@@ -15,7 +15,7 @@ const GerenciarInformacoesModal = (props) => {
             <ModalHeader>
                 <div className={styles.gerenciar_modal_header}>
                     <div className={styles.gerenciar_modal_header_title}>
-                        <h2>Gerenciar Informações</h2>
+                        <span>Gerenciar Informações</span>
                     </div>
                     <div className={styles.gerenciar_modal_header_close}>
                         <FontAwesomeIcon icon={faX} onClick={() => props.closeModal()} style={{cursor: "pointer"}}/>

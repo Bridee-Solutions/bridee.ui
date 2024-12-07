@@ -1,5 +1,4 @@
 .convidado_modal_header{
-    width: 600px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,6 +9,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    font-family: "Playfair Display";
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 .convidado_modal_header_close{
@@ -33,6 +35,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: "Montserrat";
 }
 
 .convidado_modal_body_input{
@@ -42,19 +45,25 @@
 }
 
 .convidado_modal_body_input label{
-    font-size: 18px;
+    font-size: 0.9rem;
+    font-family: "Montserrat";
 }
 
 .convidado_modal_body_input input{
     font-size: 14px;
     height: 35px;
     padding-left: 2%;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    font-family: "Montserrat";
 }
 
 .convidado_modal_body_input select{
-    font-size: 14px;
+    font-size: 0.8rem;
     height: 35px;
     border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    font-family: "Montserrat";
     background-color: white;
 }
 
@@ -70,16 +79,22 @@
     display: flex;
     flex-direction: column;
     background-color: white;
+    font-family: "Montserrat";
+
     width: 80%;
 }
 
 .convidado_modal_body_select label{
     margin-bottom: 1%;
+    font-family: "Montserrat";
+    font-size: 0.9rem;
 }
 
 .convidado_modal_body_select select{
     border-radius: 10px;
     height: 35px;
+    font-family: "Montserrat";
+    font-size: 0.8rem;
 }
 
 .convidado_modal_footer{
@@ -95,5 +110,6 @@
     cursor: pointer;
     background-color: #d86b67;
     color: white;
-    border-radius: 15px;
+    border-radius: 10px;
+    font-family: "Montserrat";
 }

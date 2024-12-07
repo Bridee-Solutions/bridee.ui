@@ -26,7 +26,7 @@ const ConviteHeader = (props) => {
         <div className={styles.convite_header}>
             <div className={styles.convite_header_title}>
                 <img src={mageFilter} alt="" />
-                <h1>Total de convidados</h1>
+                <span>Total de convidados</span>
             </div>
             <div className={styles.convite_header_content}>
                 <div className={styles.convite_header_content_item}>

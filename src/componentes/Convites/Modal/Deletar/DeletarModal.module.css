@@ -1,5 +1,4 @@
 .comecar_modal_header{
-    width: 500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,29 +10,36 @@
     display: flex;
     justify-content: center;
 }
-
+.comecar_modal_header_title span { 
+    font-family: "Playfair Display";
+    font-weight: 500;
+    font-size: 1.5rem;
+}
 .comecar_modal_header_close{
     width: 7%;
     
 }
 
 .comecar_modal_body{
-    height: 170px;
-    width: 500px;
+    height: 30vh;    
     padding: 0 4%;
     display: flex;
+    padding-bottom: 4%;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
 
 .comecar_modal_body h2{
-    font-size: 22px;
+    font-size: 1.2rem;
+    font-family: "Montserrat";
 }
 
 .comecar_modal_body p{
-    font-size: 18px;
+    font-size: 1rem;
     text-align: center;
+    font-family: "Montserrat";
+
 }
 
 .comecar_modal_body_icon{
@@ -42,21 +48,24 @@
 }
 
 .cancelar_button{
-    padding: 3% 13%;
+    padding: 2% 13%;
     border: none;
     font-size: 14px;
     color: #766F6F;
     cursor: pointer;
+    font-size: 1rem;
+    font-family: "Montserrat";
     border-radius: 10px;
     background-color: #EAEAEA;
 }
 
 .deletar_button{
-    padding: 3% 13%;
+    padding: 2% 13%;
     color: white;
     border: none;
-    font-size: 14px;
     cursor: pointer;
+    font-size: 1rem;
+    font-family: "Montserrat";
     border-radius: 10px;
     background-color: #d86b67;
 }

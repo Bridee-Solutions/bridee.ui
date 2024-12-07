@@ -23,7 +23,7 @@ const RelatorioModal = (props) => {
             <ModalHeader>
                 <div className={styles.relatorio_modal_header}>
                     <div className={styles.relatorio_modal_header_title}>
-                        <h2>Relatório de convidados</h2>
+                        <span>Relatório de convidados</span>
                     </div>
                     <div className={styles.relatorio_modal_header_close}>
                         <FontAwesomeIcon icon={faX} onClick={() => props.closeModal()} style={{cursor: "pointer"}}/>

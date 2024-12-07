@@ -59,10 +59,12 @@ input:focus {
     gap: 10px;
     border-bottom: 1px solid #979797;
     margin-bottom: 2%;
+    font-family: 'PlayFair Display';
+
 }
 
 .modal_header h1 {
-    font-family: 'PlayFair';
+    font-family: 'PlayFair Display';
     font-size: 40px;
     font-weight: 400;
     text-align: center;
@@ -75,7 +77,6 @@ input:focus {
     background-color: #FFFFFF;
     height: 40px;
     font-family: "ProductSans";
-    width: 35vw;
 }
 
 .modal_body select {
@@ -84,7 +85,6 @@ input:focus {
     height: 100%;
     font-family: "ProductSans";
     font-size: 15px;
-    width: 35vw;
     outline: none;
 }
 
@@ -107,11 +107,12 @@ input:focus {
 }
 
 .modal_body p {
-    font-family: "ProductSans";
+    font-family: "Montserrat";
     color: #333333;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
 }
 
 .modal_body span {
