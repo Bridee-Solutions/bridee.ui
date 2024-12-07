@@ -52,7 +52,7 @@ function Painel() {
         extensao: `${file.name.split(".")[file.name.split(".").length-1]}`
       }
       formData.append("metadata", JSON.stringify(imageMetadata))
-      request.uploadProfilePicture(2,formData);
+      request.uploadProfilePicture(casamentoId,formData);
       
     }
   };
@@ -76,7 +76,6 @@ function Painel() {
 
   useEffect(() => {
     request.getDashboard(casamentoId).then(response => {
-      console.log(response.data)
       setDashboardInfo(response.data)
       setOrcamento(response.data.orcamento)
       const url = `data:image/**;base64,${response.data.casamentoInfo.image}`
@@ -137,7 +136,9 @@ function Painel() {
                 <div className={styles.iconsContainer}>
                   <div className={styles.icon}>
                     <FontAwesomeIcon icon={faCalendarAlt} />
-                    <span>{dashboardInfo.casamentoInfo?.dataCasamento}</span>
+                    <span>{new Date(dashboardInfo.casamentoInfo?.dataCasamento).toLocaleString("pt-br").split(",")[0] ? 
+                        new Date(dashboardInfo.casamentoInfo?.dataCasamento).toLocaleString("pt-br").split(",")[0] : "---"
+                    }</span>
                   </div>
 
                   <div className={styles.icon}>

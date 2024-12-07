@@ -5,7 +5,6 @@ import { FaMapMarkerAlt, FaGlobe } from "react-icons/fa";
 import { useEffect } from "react";
 
 function FAQSection({ assessor, selectedCard, perfilGeral }) {
-  console.log("faq foi renderizadaaaaaaaaaaaaaaaaaaaaaa");
   const navigate = useNavigate();
 
   const perfil = assessor || perfilGeral;

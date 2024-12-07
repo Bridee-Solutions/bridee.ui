@@ -18,6 +18,9 @@ export const request = {
     getAssessoresDetails: async () => {
         return await Api.get(`/assessores/details`).then(response.data);
     },
+    getAssessorInformation: async (assessorId) => {
+        return await Api.get(`/assessores/information/${assessorId}`).then(response.data);
+    },
     getFornecedoresByCategoria: async (categoriaId, nome = "") => {
         return await Api.get(`/fornecedores/details/categoria/${categoriaId}?nome=${nome}`)
     },
