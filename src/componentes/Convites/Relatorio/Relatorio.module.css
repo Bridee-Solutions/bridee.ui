@@ -1,0 +1,8 @@
+.relatorio{
+    width: 100%;
+    height: 70%;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

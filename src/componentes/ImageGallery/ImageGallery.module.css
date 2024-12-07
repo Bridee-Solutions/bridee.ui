@@ -1,0 +1,56 @@
+.container { 
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.container > img { 
+    width: 20vw;    
+    height: 100%;
+    object-fit: cover;
+    object-position: top; 
+}
+
+.imageOne { 
+  width: 90%;
+      height: 100%;
+    object-fit: cover; 
+    border-radius: 8px; 
+}
+
+  
+  .twoImages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+    object-fit: cover; 
+    gap: 0.8rem;
+
+
+  }
+  
+  .imageTwo {
+    width: 100%; 
+    object-fit: cover; 
+    border-radius: 8px; 
+  }
+
+  .imageThree { 
+    width: 90%; 
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 8px; 
+  }
+
+  .singleImage { 
+    width: 35%; 
+    display: flex;
+    justify-content: center;
+  }
+
+  .singleImageTwo {
+width: 40%;
+  }

@@ -1,0 +1,42 @@
+.containerPai {
+  width: 100%;
+  height: 100%;
+  
+}
+.searchbar {
+  width: 90%;
+  max-width: 90%;
+}
+
+.navegar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  background-color: #f3eed9;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+.paginacaoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  background-color: #f3eed9;
+  border: 3px solid red;
+}
+
+
+
+
+.hidden {
+  display: none;
+}

@@ -1,85 +1,165 @@
 .wedding_planner {
-    background-image: linear-gradient(rgba(48, 48, 48, 0.60), rgba(48, 48, 48, 0.60)),  url('../../../assets/wedding_planner.svg');
+    background-image: linear-gradient(rgba(48, 48, 48, 0.60), rgba(48, 48, 48, 0.60)),  url('../../../assets/landingpage/WeddingPlanner/wedding_planner.svg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
-    margin: 10vh 0px;
+    background-size: cover;
     height: 86vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.wedding_planner .container {
-    height: 100%;
-    width: 45%;
+.container {
+    height: 80%;
+    width: 90%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: left;
-    padding: 15vh 6vw;
-    gap: 35px;
+    justify-content: space-between;
+
 }
 
-.wedding_planner .container h1{
+.containerTitulo { 
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+
+}
+
+.containerTitulo span {
     color: #FBF9F7;
-    margin: 0px;
-    font-family: "ProductSansB";
-    font-size: 68px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.4rem;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: normal;
-    letter-spacing: 0.68px;
+    letter-spacing: 2px;
+    
 }
 
-.wedding_planner .container h4{
+.containerDescricao {
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.texto {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.ultima { 
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.texto, .ultima {
     color: #FBF9F7;
-    margin: 0;
-    font-family: 'Montserrat';
-    font-size: 22px;
+    font-family: 'Poppins';
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: 125%;
     letter-spacing: 1.3px;
 }
 
-.wedding_planner .container button{
+.containerBotao { 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 15vh;
+}
+
+
+.containerConvite { 
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    
+    align-items: center;
+}
+.containerBotao button{
     font-family: 'Montserrat';
     border: 0px;
     border-radius: 3px;
-    font-weight: 600;
-    height: 6vh;
-    font-size: 20px;
+    font-weight: 500;
+    height: 7.5vh;
+    font-size: 1rem;
     padding: 0px 25px;
     cursor: pointer;
     background-color: #DD7B78;
     color: #FFFFFF;
     transition: 0.5s;
+    letter-spacing: 1px;
 }
 
 .wedding_planner .container button:hover{
     background-color: #D26966;
 }
 
-.wedding_planner .container div{
-    width: 100%;
-}
 
-.wedding_planner .container p{
+
+.containerConvite span {
     margin: 0;
     color: #FBF9F7;
-    font-family: 'Montserrat';
-    font-size: 24px;
+    font-family: 'Poppins';
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 
-.wedding_planner .container a{
+.containerConvite span a{
     color: #FBF9F7;
-    font-family: Montserrat;
-    font-size: 24px;
+    font-family: Poppins;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
+    line-height: 1px;
     text-decoration-line: underline;
+    letter-spacing: 1.3px;
 }
 
+@media(max-width:768px) {
+
+    .wedding_planner {
+        height: 65vh;
+    }
+
+    .wedding_planner .container{
+        width: 100%;
+        align-items: start;
+    }
+    
+    .wedding_planner .container h1{
+        font-size: 42px;
+    }
+    
+    .wedding_planner .container h4{
+        font-size: 15px;
+    }
+    
+    .wedding_planner .container button{
+        font-size: 18px;
+        border-radius: 7px;
+        padding: 2vh 8vw;
+    }
+
+    .wedding_planner .container p{
+        font-size: 15px;
+        
+    }
+    
+    .wedding_planner .container a{
+        font-size: 15px;
+    }
+}

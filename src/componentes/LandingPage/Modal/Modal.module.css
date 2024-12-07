@@ -46,12 +46,13 @@
     width: 100%;
     gap: 10px;
     border-bottom: 1px solid #979797;
+       
 }
 
 .modal_header h1 {
     font-family: 'PlayFair';
     font-size: 40px;
-    font-weight: 400;
+    font-weight: 600;
     text-align: center;
     padding: 10px 5px;
     margin: 0px;
@@ -188,6 +189,3 @@
     transition: 0.5s;
 }
 
-.modal_footer button:hover {
-    background-color: #943431;
-}

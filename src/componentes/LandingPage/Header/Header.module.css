@@ -4,82 +4,185 @@ header {
   background-color: #FFFFFF;
 }
 
-.header_logo {
-  text-align: center;
-  position: relative;
-  top: 7vh;
-  left: 50%;
-  transform: translate(-50%, -40%); 
-}
-
-.header_logo h1 {
-  font-family: 'Qlassy';
-  font-size: 80px;
-  font-weight: 400;
-  margin: 0;
-}
-
 .header_logo h1 b{
   color: #DD7B78;
 }
 
-.header_logo p {
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 18px;
-  margin: 0;
-}
-
-.header_body {
-  padding: 0px 30px;
-  height: 16vh;
-  display: flex;
-  justify-content: space-between;
-}
-
-.header_boarder {
-  height: 4vh;
-  width: 100%;
-  background-color: #ED9C9B;
-}
-
-.header_buttons {
-  display: flex;
-  width: 19vw;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.login_button,
-.register_button {
-  font-family: 'Montserrat';
-  border: 0px;
-  border-radius: 3px;
-  font-weight: 600;
-  height: 6vh;
-  font-size: 20px;
-  padding: 0px 25px;
-  cursor: pointer;
+@media (min-width: 768px) { 
+  .embranco { 
+    width: 20%;
+  }
   
+  .header_logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header_logo h1 {
+    font-family: 'Qlassy';
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  .header_logo h1 b{
+    color: #DD7B78;
+  }
+  
+  .header_logo p {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  
+  .header_body {
+    height: 16vh;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .header_boarder {
+    height: 4vh;
+    width: 100%;
+    background-color: #ED9C9B;
+  }
+  
+  .header_buttons {
+    display: flex;
+    width: 19vw;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu_button {
+    display: none;
+  }
+  
+  .login_button,
+  .register_button {
+    font-family: 'Montserrat';
+    border: 0px;
+    border-radius: 3px;
+    font-weight: 600;
+    height: 40px;
+    font-size: 0.9rem;
+    padding: 0px 25px;
+    cursor: pointer;
+    
+  }
+  
+  .login_button {
+    color:#656565;
+    background-color: transparent;
+    padding: 0px 20px;
+    transition: 0.5s;
+  }
+  
+  /* .login_button:hover {
+    background-color: #f3f3f3;
+  } */
+  
+  .register_button{
+    background-color: #DD7B78;
+    color: #FFFFFF;
+    transition: 0.5s;
+  }
+  
+  .register_button:hover{
+    background-color: #D26966;
+  }
+  
+  .side_bar {
+    display: none;
+  }
 }
 
-.login_button {
-  color:#656565;
-  background-color: transparent;
-  padding: 0px 20px;
-  transition: 0.5s;
-}
-
-.login_button:hover {
-  background-color: #f3f3f3;
-}
-
-.register_button{
-  background-color: #DD7B78;
-  color: #FFFFFF;
-  transition: 0.5s;
-}
-
-.register_button:hover{
-  background-color: #D26966;
+@media (max-width: 768px) {
+  
+  .header_logo h1 {
+    font-family: 'Qlassy';
+    font-size: 64px;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  .header_logo p {
+    display: none;
+  }
+  
+  .header_body {
+    padding: 0px 30px;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header_boarder {
+    height: 2.5vh;
+    width: 100%;
+    background-color: #ED9C9B;
+  }
+  
+  .menu_button {
+    color: #D26966;
+    border: 0;
+    background-color: transparent;
+  }
+  
+  .login_button,
+  .register_button {
+    display: none;
+  }
+  
+  .side_bar {
+    background-color: #f3f3f3;
+    height: 100vh;
+    width: 70vw;
+    position: fixed;
+    z-index: 100;
+    transition: 0.5s;
+    padding: 6vh 0vw;
+  }
+  
+  .side_bar  .header_logo{
+    width: 100%;
+    text-align: center;
+  }
+  
+  .side_bar ul {
+    height: 80%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .side_bar ul div {
+    background-color: #D26966;
+    width: 90%;
+    height: 1px;
+  }
+  
+  .side_bar ul li {
+    list-style-type: none;
+    margin: 5vh 0px;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .closed {
+    opacity: 0%;
+    width: 0%;
+    transition: 0.5s;
+  }
+  
+  .open {
+    display: block;
+  }
 }

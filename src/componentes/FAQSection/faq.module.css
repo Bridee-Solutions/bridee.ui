@@ -1,0 +1,122 @@
+.containerApresent {
+  height: 100%;
+}
+.containerTitulo {
+  width: 90%;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 7%;
+  justify-content: center;
+}
+
+
+.nome span {
+  font-weight: 700;
+  font-family: "Playfair";
+  font-size: 1.7rem;
+}
+
+
+.containerDescricao {
+  width: 100%;
+}
+
+.tituloApr {
+  font-size: 1.3em;
+  height: 7vh;
+  align-items: center;
+  display: flex;
+
+  font-weight: 600;
+  font-family: "Montserrat";
+}
+
+.descricao {
+  font-size: 0.85rem;
+}
+
+.containerQuestions {
+  height: 90vh;
+}
+.containerQuestions {
+}
+
+.question {
+}
+
+.titulo { 
+  font-family: "Montserrat";
+  font-weight: 600;
+  height: 6vh;
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+}
+
+
+.answers {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+
+.answer {
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+}
+
+.checkIcon {
+  color: green;
+}
+
+
+
+.lugar a { 
+text-decoration: none;
+color: black;
+border-bottom: solid 1px black;
+}
+
+
+.subtitulo span {
+  color: #454545;
+  font-weight: 600;
+}
+
+.website {
+  display: flex;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+.website > span { 
+  border-bottom: 1px solid;
+}
+.subtitulo {
+  display: flex;
+ 
+}
+.containerSubt {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Montserrat";
+  font-size: 0.9rem;
+  width: 73%;
+  align-items: center;
+  height: 6vh;
+
+}
+
+
+.icon {
+  color: #B55557; 
+  font-size: 1.1em; 
+  padding-left: 2px;
+}
+
+.iconContainer {
+  width: 1rem;
+  padding-right: 1.5rem;
+}

@@ -1,0 +1,68 @@
+.fase3_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 54vh;
+    width: 100%;
+}
+
+.fase3_content_field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 60%;
+    height: 20vh;
+
+}
+
+.fase3_content_field span{
+    font-size: 1.3rem;
+    font-family: "Playfair Display", serif;
+
+}
+
+.fase3_content_field_input{
+    display: flex    ;
+        flex-direction: column;
+        height: 9vh;
+        width: 96%;
+      
+
+}
+
+.fase3_content_field_input input{
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.39);
+    padding-left: 0.6rem;
+    font-family: "Montserrat", sans-serif;
+
+
+}
+
+.fase3_content_field_input label{
+    font-size: 0.9rem;
+    font-family: "Montserrat", sans-serif;
+
+
+}
+
+.fase3_content_titulo { 
+    
+}
+
+.fase3_button{
+    border-radius: 8px;
+    border: none;
+    background-color: #c6524e;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    padding: 0.7rem 4.5rem;
+}
+
+.containerBotao { 
+}

@@ -1,26 +1,26 @@
 .error_base {
   background-color: #F3EED9;
-  display: flex;
-  width: 100vw;
-  height: 110vh;
-  flex-direction: column;
+  width: 100%;
+  height: 100vh;
 }
+
+
 
 .error_message {
   position: relative;
-  top: 44vh;
-  right: 18vw;
+  top: 53vh;
+  right: 21vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .error_image {
-  background: url('../../assets/penguimError.svg');
+  background: url('../../assets/404/penguimError.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 90vh;
+  height: 92%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,7 @@
 .error_message h1 {
   font-family: 'Playfair';
   margin: 0;
-  font-size: 48px;
+  font-size: 2.396vw;
   font-weight: 800;
   color: #545454;
 }
@@ -37,28 +37,75 @@
 .error_message p {
   font-family: 'Montserrat';
   color: #7E7E7E;
-  font-size: 25px;
+  font-size: 1.146vw;
   font-weight: 600;
   text-align: center;
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
 .error_message button {
-  width: 320px;
-  height: 62px;
+  padding: 2vh 2vw;
   background-color: #DD7B78;
   color: #FFFFFF;
-  border-radius: 30px;
+  border-radius: 1.563vw;
   border: 0px;
   font-family: 'Montserrat';
-  font-size: 19px;
+  font-size: 0.989vw;
   font-weight: 600;
   transition: 0.5s;
 }
 
 .error_message button:hover {
-  width: 350px;
-  height: 65px;
-  background-color: #b96764;
+  background-color: #d67370;
   cursor: pointer;
+}
 
+@media (max-width: 768px) {
+  .error_image {
+    background: url('../../assets/404/penguim_error_mobile.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error_message {
+    position: relative;
+    top: 28vh;
+    right: 0vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error_message h1 {
+    font-family: 'Playfair';
+    margin: 0;
+    font-size: 5vw;
+    font-weight: 800;
+    color: #545454;
+  }
+  
+  .error_message p {
+    font-family: 'Montserrat';
+    color: #7E7E7E;
+    font-size: 2.8vw;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .error_message button {
+    padding: 2vh 5vw;
+    background-color: #DD7B78;
+    color: #FFFFFF;
+    border-radius: 10vw;
+    border: 0px;
+    font-family: 'Montserrat';
+    font-size: 2.5vw;
+    font-weight: 600;
+  }
 }

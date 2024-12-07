@@ -1,0 +1,212 @@
+
+.convite_modal_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+   
+
+}
+
+
+.convite_modal_header_title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: "Playfair Display";
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.convite_modal_header_close{
+    width: 7%;
+    
+}
+
+.convite_modal_body{
+    height: 400px;
+
+    overflow-y: scroll;
+    padding: 0 2%;
+
+
+}
+
+.dados{ 
+    font-size: 1.1rem;
+    font-weight: 500 !important;
+    padding-bottom: 1%;
+
+}
+
+.convite_modal_body_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 45%;
+    padding: 0 3%;
+    color: black;
+    background-color: #F4F4F4;
+
+    margin-bottom: 3%;
+}
+
+.convite_modal_body_content_nome{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+   
+}
+
+.convite_modal_body_content_nome span { 
+    font-family: "Montserrat";
+    font-size: 0.9rem;
+
+}
+.convite_modal_body_content_nome button{
+    padding: 1% 5%;
+    background-color: white;
+    font-family: "Montserrat";
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.convite_modal_body_content_family{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.convite_modal_body_content_telefone{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.convite_modal_body_content_telefone span { 
+    font-family: "Montserrat";
+    font-size: 0.9rem;
+}
+
+
+.pin_invite{
+    font-family: "Montserrat";
+    font-size: 1rem;
+}
+
+.pin_invite span{
+    font-weight: 600;
+    font-family: "Montserrat";
+    font-size: 0.9rem;
+}
+
+.convite_convidado_modal{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F4F4F4;
+    padding: 2%;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.295);
+    margin-bottom: 2%;
+}
+
+.convite_convidado_modal span{
+    font-size: 18px;
+}
+
+.convidados_content{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.convidados_content span {
+    font-family: "Montserrat";
+    font-size: 0.90rem;
+    font-weight: 500;
+}
+
+.convidados{
+    margin: 2% 0;
+
+}
+
+.convidado_info{
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.convidado_icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10%;
+}
+
+.convidado_icons span{
+    background-color: white;
+    padding: 5% 10%;
+    font-size: 16px;
+    color: #d86b67;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.green_circle{
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    border-radius: 50%;
+    margin: 0 3%;
+}
+
+.yellow_circle{
+    width: 15px;
+    height: 15px;
+    background-color: yellow;
+    border-radius: 50%;
+    margin: 0 3%;
+}
+
+.red_circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 3%;
+}
+
+.modal_button{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add_button{
+    padding: 2.5% 5%;
+    border: none;
+    background-color: #656766;
+    color: white;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: "Montserrat";
+
+    cursor: pointer;
+}
+
+.whatsapp_button{
+    padding: 2.5% 5%;
+    border: none;
+    background-color: #6DC856;
+    color: white;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: "Montserrat";
+}
