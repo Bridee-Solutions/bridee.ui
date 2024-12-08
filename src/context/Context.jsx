@@ -25,17 +25,15 @@ import Calendario from "../pages/Calendario/Calendario";
 export const defineContext = () => {
     const tipoUsuario = decrypt(localStorage.getItem("tipoUsuario") ? localStorage.getItem("tipoUsuario") : "");
     const authenticated = decrypt(localStorage.getItem("isAuthenticated") ? localStorage.getItem("isAuthenticated") : "");
-    const casamentoId = decrypt(localStorage.getItem("casamentoId") ? localStorage.getItem("casamentoId") : "");
-    const assessorId = decrypt(localStorage.getItem("assessorId") ? localStorage.getItem("assessorId") : "");
     if(tipoUsuario == "ASSESSOR"){
-        return assessorContext(tipoUsuario, authenticated, assessorId);
+        return assessorContext(tipoUsuario, authenticated);
     }
-    return casalContext(tipoUsuario, authenticated, casamentoId)
+    return casalContext(tipoUsuario, authenticated)
 }
 
-const casalContext = (type, authenticated, casamentoId) => {
+const casalContext = (type, authenticated) => {
     
-    return <CasalContextProvider tipoUsuario={type} authenticated={authenticated} casamentoId={casamentoId}>
+    return <CasalContextProvider tipoUsuario={type} authenticated={authenticated}>
         <SimpleBar style={{ maxHeight: '100vh' }}>
         <Routes>
             <Route>
@@ -48,8 +46,8 @@ const casalContext = (type, authenticated, casamentoId) => {
     </CasalContextProvider>
 }
 
-const assessorContext = (type, authenticated, assessorId) => {
-    return <AssessorContextProvider tipoUsuario={type} authenticated={authenticated} assessorId={assessorId}>
+const assessorContext = (type, authenticated) => {
+    return <AssessorContextProvider tipoUsuario={type} authenticated={authenticated}>
         <SimpleBar style={{ maxHeight: '100vh' }}>
             <Routes>
                 {assessorRotas?.map((rota) => {

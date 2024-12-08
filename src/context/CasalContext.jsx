@@ -8,6 +8,10 @@ export const CasalContext = createContext()
 export const CasalContextProvider = ({children, ...props}) => {
     
     const [convites, setConvites] = useState();
+    const [casamentoId, setCasamentoId] = useState(() => {
+        return decrypt(localStorage.getItem("casamentoId") ? 
+            localStorage.getItem("casamentoId") : "");
+    })
     const navigate = useNavigate()
     const location = useLocation();
 
@@ -28,7 +32,7 @@ export const CasalContextProvider = ({children, ...props}) => {
         }
     },[])
 
-    return <CasalContext.Provider value={{casamentoId: props.casamentoId, convites: convites, setConvites: setConvites}}>
+    return <CasalContext.Provider value={{casamentoId: casamentoId, setCasamentoId: setCasamentoId, convites: convites, setConvites: setConvites}}>
         {children}
     </CasalContext.Provider>
 

@@ -6,10 +6,12 @@ import { GoogleLogin } from "@react-oauth/google";
 import LateralImage from "../../componentes/LoginLateralImage";
 import { jwtDecode } from "jwt-decode";
 import { request } from "../../config/axios/axios";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { buildObjectFromQueryParam } from "../Cadastro/fases";
 import { encrypt } from "../../utils/criptografia";
+import { CasalContext } from "../../context/CasalContext";
+import { AssessorContext } from "../../context/AssessorContext";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,6 +21,8 @@ const Login = () => {
   const tipo = useRef();
   const [oldTipo, setTipo] = useState();
   const esqueceuSenhaElement = useRef();
+  const casalContext = useContext(CasalContext)
+  const assessorContext = useContext(AssessorContext)
 
   const authenticate = () => {
     const usuario = {
@@ -54,9 +58,11 @@ const Login = () => {
     localStorage.setItem("isAuthenticated", encrypt(true))
     if(data.casamentoId){
       localStorage.setItem("casamentoId", encrypt(data.casamentoId))
+      casalContext.setCasamentoId(data.casamentoId)
     }
     if(data.assessorId){
       localStorage.setItem("assessorId", encrypt(data.assessorId))
+      assessorContext.setAssessorId(data.assessorId)
     }
   }
 

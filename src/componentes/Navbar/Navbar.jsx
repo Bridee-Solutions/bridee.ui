@@ -133,6 +133,7 @@ function NavComp() {
   };
 
   const handleLogoff = () => {
+    localStorage.clear()
     navigate("/login");
   };
 

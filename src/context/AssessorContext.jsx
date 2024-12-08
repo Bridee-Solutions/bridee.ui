@@ -8,6 +8,10 @@ export const AssessorContext = createContext()
 export const AssessorContextProvider = ({children, ...props}) => {
 
     const navigate = useNavigate()
+    const [assessorId, setAssessorId] = useState(() => {
+        return decrypt(localStorage.getItem("assessorId") ? 
+            localStorage.getItem("assessorId") : "");
+    })
     
     useEffect(() => {        
         const pathname = location.pathname;
@@ -27,7 +31,7 @@ export const AssessorContextProvider = ({children, ...props}) => {
     },[])
 
     return(
-        <AssessorContext.Provider value={{assessorId: props.assessorId}}>
+        <AssessorContext.Provider value={{assessorId: assessorId, setAssessor: setAssessorId}}>
             {children}
         </AssessorContext.Provider>
     )
