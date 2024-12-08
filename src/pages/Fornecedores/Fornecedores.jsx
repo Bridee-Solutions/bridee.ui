@@ -10,6 +10,7 @@ import DetalhesPerfil from "../../componentes/DetalhesPerfil/DetalhesPerfil.jsx"
 import CategoriaNavegacao from "../../componentes/CategoriaNavegacao/CategoriaNavegacao.jsx";
 import CategoriaCards from "../../componentes/CategoriaCards/CategoriaCards.jsx";
 import { request } from "../../config/axios/axios.js";
+import { defineLocalImage, fornecedorImage } from "./FornecedorService.jsx";
 
 function Fornecedores() {
   const [page, setPage] = useState(1);
@@ -22,7 +23,12 @@ function Fornecedores() {
 
   useEffect(() => {
     request.getCategorias().then(response => {
+      response.data.content.forEach((content) => {
+        content.imageUrl = fornecedorImage(content)
+      })
       setCardsData(response.data);
+      console.log(response.data.content);
+      
     })
   }, []);
 
@@ -33,6 +39,11 @@ function Fornecedores() {
     }finally{
 
         if(!isSubcategoria && subcategorias.data.content.length > 1){
+          subcategorias.data.content?.forEach(response => {
+            response.imagemUrl = defineLocalImage(response.nome)
+          })
+          console.log(subcategorias);
+          
           setCardsData(subcategorias.data)
           setIsSubcategoria(true)
           return;
@@ -51,6 +62,9 @@ function Fornecedores() {
   const returnToCategories = () => {
     setIsSubcategoria(false)
     request.getCategorias().then(response => {
+      response.data.content?.forEach((content) => {
+        content.imageUrl = fornecedorImage(content)
+      })
       setCardsData(response.data);
       
     })

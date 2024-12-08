@@ -3,7 +3,7 @@ import { Api } from "./axios";
 
 export const interceptorsConfiguration = () => {
     const rotasExcluidasBackEnd = ["/authentication", "/casais","/casais/externo", "/assessores",
-        "/assessores/externo", "/assessores/validate-fields", "/usuarios/**"]
+        "/assessores/externo", "/assessores/validate-fields", "/usuarios/**", "/refresh-token"]
     
     Api.interceptors.request.use(config => {
         if (rotasExcluidasBackEnd.includes(config.url)) {
@@ -20,7 +20,6 @@ export const interceptorsConfiguration = () => {
         return response
         }, (error) => {
             const config = error.config
-            console.log(config.url);
             
             if(!rotasExcluidasBackEnd.includes(config.url) && error.response){
                 if(error.response.status == 401 && !config._retry){
