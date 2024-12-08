@@ -13,7 +13,7 @@ import { request } from "../../config/axios/axios.js";
 import { defineLocalImage, fornecedorImage } from "./FornecedorService.jsx";
 
 function Fornecedores() {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState();
   const cardsPerPage = 6;
   const [cardsData, setCardsData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -27,7 +27,7 @@ function Fornecedores() {
         content.imageUrl = fornecedorImage(content)
       })
       setCardsData(response.data);
-      console.log(response.data.content);
+      console.log(response.data);
       
     })
   }, []);
@@ -52,9 +52,10 @@ function Fornecedores() {
         setSelectedCategory(categoria);
         
         request.getFornecedores(categoria.id).then(response => {
+          setPage(response.data.page)
           setFilteredCards(response.data);
+          console.log(page);
         })
-        setPage(1);
     }
     
   };
@@ -78,6 +79,11 @@ function Fornecedores() {
   }
 
   const handleChange = (event, value) => {
+      request.getFornecedores(selectedCategory.id, Number(value) -1).then(response => {
+        setPage(response.data.page)
+        setFilteredCards(response.data);
+        console.log(page);
+      })
     setPage(value);
   };
 
@@ -110,7 +116,7 @@ function Fornecedores() {
               cards={filteredCards}
               onCardClick={fetchFornecedorDetails}
               onBack={() => setSelectedCategory(null)}
-              totalPages={cardsData.page.totalPages}
+              totalPages={page?.totalPages}
               onPageChange={handleChange}
             />
           )
