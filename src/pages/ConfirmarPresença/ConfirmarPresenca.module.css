@@ -67,13 +67,13 @@
   font-weight: 700;
   height: 23vh;
   /* border: 3px solid green; */
-  font-family: 'Product Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #333;
 }
 
 .description {
-  font-size: 1.5rem;
-  height: 15%;
+  font-size: 1.2rem;
+  height: 10%;
   width: 62%;
   color: #000000;
   font-family: 'Montserrat';
@@ -88,7 +88,7 @@
   flex-direction: column;
   align-items: center;
   width: 98%;
-  height: 24%;
+  height: 35%;
   /* border: 3px solid purple; */
   justify-content: space-around;
   /* border: 3px solid purple; */
@@ -97,10 +97,11 @@
 .input {
   width: 73%;
   height: 22%;
-  padding: 2%;
+  padding: 2.9%;
   font-size: 1rem;
   border: none;
-  border-radius: 2px;
+  font-size: 0.9rem;
+  border-radius: 10px;
    /* border: 3px solid orange; */
 }
 
@@ -108,7 +109,7 @@
   width: 100%;
   height: 7vh;
   /* max-width: 200px; */
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   background-color: #d67a66;
   color: white;
@@ -119,6 +120,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-family: "Montserrat" ;
   /* border: 3px solid violet;*/
 }
 
