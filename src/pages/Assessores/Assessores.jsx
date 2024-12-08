@@ -35,7 +35,7 @@ function Assessores() {
   };
 
   const fetchAssessorDetails = async (card) => {
-    const assessorDetails = await request.getFornecedoresInformation(card.id)
+    const assessorDetails = await request.getAssessorInformation(card.id)
     setShowAssessor(true)
     setSelectedCard(assessorDetails.data)
     
