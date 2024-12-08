@@ -20,7 +20,7 @@ import { AssessorContextProvider } from "./AssessorContext";
 import { decrypt } from "../utils/criptografia";
 import Error from "../pages/Error/Error";
 import Calendario from "../pages/Calendario/Calendario";
-
+import ConfirmarPresenca from "../pages/ConfirmarPresenca/ConfirmarPresenca";
 
 export const defineContext = () => {
     const tipoUsuario = decrypt(localStorage.getItem("tipoUsuario") ? localStorage.getItem("tipoUsuario") : "");
@@ -77,7 +77,11 @@ export const rotasComuns = [{
 {
     path: "*",
     element: <Error/>
-}
+},
+{
+    path: "/confirmar-presenca",
+    element: <ConfirmarPresenca/>
+},
 ]
 
 const casalRotas = [

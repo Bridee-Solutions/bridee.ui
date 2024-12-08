@@ -1,0 +1,235 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F3EED9;
+    width: 100%;
+  
+  }
+  
+  .page {
+    height: 100%;
+    max-width: 50%;
+    /* border: 4px solid red; */
+    background-image: url(/src/assets/confirmarpresenca/Ellipse68.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .containerBotaoConvidados {
+    height: 55vh;  }
+  
+  .formContainer {
+    text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+
+  
+  }
+  
+  .heading {
+    
+    color: #333;
+    font-weight: 600;
+    font-size:  "Montserrat", sans-serif;
+  
+  }
+
+.containerQ { 
+    display: flex;
+    width: 90%;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+
+
+  .subtitulo { 
+    font-family: "Montserrat", sans-serif;
+    width: 90%;
+    font-size: 0.9rem;
+
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: #000000;
+    font-family: 'Montserrat';
+    width: 100%;
+    text-align: center;
+    /* border: 2px solid red; */
+  }
+  
+  .containerConvidados {
+    
+    height: 100vh;
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .containerTitulo {
+  
+    height: 30%;
+    width: 100%;
+  
+  }
+  
+  .containerQuemVai {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  
+  .containerBotao {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 13vh;
+  }
+  
+  .conteudoBotao {
+    
+    height: 7vh;
+  }
+  
+  .containerSubtitulo {
+    height: 11vh;
+    width: 37vw;
+    font-family: "Montserrat", sans-serif;
+  
+  }
+  
+  .containerSubtitulo p {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .convidadosList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 243px;
+    overflow-y: auto;
+  }
+  
+  .convidadoItem {
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 7px;
+    /* height: 42%; */
+    gap: 4%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .convidadoNome {
+    flex: 1;
+    color: #333;
+    font-size: 0.9rem;
+    width: 12vw;
+  }
+  
+  .containerBotaoPresenca {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border: none;
+    color: #333; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+   .containerNaoIra {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .button {
+    border: none;
+    background: none;
+  }
+  
+  .voltarIcon {
+    color: black;
+    width: 8%;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .containerQ span { 
+    width: 93%;
+}
+  
+  .containerPresenca{
+  display: flex;
+  
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  border: 1px solid #D1CBCB;
+  }
+  
+  .naocomparece { 
+    color: white;
+  }
+  .selectedButton {
+    background-color: #d67a66;
+    color: #FFF;
+  }
+  
+  .continuarButton {
+    width: 34vh;
+    font-size: 1rem;
+    padding: 9px;
+    background-color: #d67a66;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .arrowIcon {
+    font-size: 1.2rem;
+  }
+  
+  @media (max-width: 600px) {
+    .heading {
+      font-size:  2.4rem;
+    }
+  
+    .description,
+    .button,
+    .continuarButton {
+      font-size: 0.9rem;
+    }
+  
+    .convidadoNome {
+      font-size: 0.9rem;
+    }
+  }
+  
