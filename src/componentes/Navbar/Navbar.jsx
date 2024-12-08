@@ -147,7 +147,7 @@ function NavComp() {
       <div className={styles.superior}>
         <div
           className={styles.logo}
-          onClick={() => (window.location.href = "http://localhost:5173/")}
+          onClick={() => navigate("/")}
         >
           bridee<span>.</span>
         </div>
@@ -249,7 +249,8 @@ function NavComp() {
 
         <div className={styles.circle}>
           <div className={styles.prala}>
-            <div className={styles.configs}>
+            <div className={styles.configs} onClick={() => navigate("/configuracoes-casal")}>
+            
               <FontAwesomeIcon icon={faUser} className={styles.icon_nav} />
             </div>
             <div className={styles.configs} onClick={handleLogoff}>

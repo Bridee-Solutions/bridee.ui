@@ -24,20 +24,20 @@ function Locais() {
 
   useEffect(() => {
     request.getSubcategoriasByNome("locais").then((response) => {
-      response.data.content.forEach(content => {
-        content.imagemUrl = defineLocalImage(content.nome)
-      })
-      setCardsData(response.data)
+      response.data.content.forEach((content) => {
+        content.imagemUrl = defineLocalImage(content.nome);
+        console.log(content.nome, content.imagemUrl);
+      });
+      setCardsData(response.data);
       console.log(response.data);
-      
-    })
+    });
   }, []);
 
   const handleCategoryClick = async (categoria) => {
     console.log("Categoria selecionada:", categoria);
-    const fornecedores = await request.getFornecedores(`${categoria.id}`)
+    const fornecedores = await request.getFornecedores(`${categoria.id}`);
     console.log(fornecedores);
-    
+
     setSelectedCategory(fornecedores.data);
     setPage(1);
   };
@@ -69,7 +69,7 @@ function Locais() {
             <CategoriaNavegacao
               categorias={cardsData}
               onSelectCategory={handleCategoryClick}
-              tipo="locais" 
+              tipo="locais"
             />
           ) : (
             <CategoriaCards
@@ -81,11 +81,11 @@ function Locais() {
             />
           )
         ) : (
-         <DetalhesPerfil
-          selectedCard={selectedCard}
-          handleBack={() => setSelectedCard(null)}
-          cardsData={cardsData}
-        />
+          <DetalhesPerfil
+            selectedCard={selectedCard}
+            handleBack={() => setSelectedCard(null)}
+            cardsData={cardsData}
+          />
         )}
       </div>
 
