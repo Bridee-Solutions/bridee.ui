@@ -22,17 +22,14 @@ export const interceptorsConfiguration = () => {
     
             if(!rotasExcluidas.includes(config.url) && error.response){
                 if(error.response.status == 401 && !config._retry){
+                    config._retry = true;
                     return refreshToken().then(response => {
                         if(response.status == 204){
                             return Api(config)
                         }
                     }).catch((error) => {
-                        if(error.status == 401){
-                            localStorage.clear();
-                            return Promise.reject(error)
-                        }
-                    }).finally(() => {
-                        config._retry = true;
+                        localStorage.clear()
+                        window.location.href = "/login"
                     })
                 }
             }
