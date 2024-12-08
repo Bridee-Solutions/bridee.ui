@@ -1,47 +1,40 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import styles from "./QuemVai.module.css";
-import MensagemAgradecimento from "../../componentes/MensagemAgradecimento/MensagemAgradecimento";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-
-const convidados = [
-  "Giovanna França",
-  "Victor França",
-  "Samuel França",
-  "Daniele França",
-  "Rhuan França",
-  "João França",
-];
+import styles from "./QuemVai.module.css";
 
 const QuemVai = ({ convidados, onResposta, onFinalizar, onVoltar }) => {
-  const { state } = useLocation();
-  const nomeConvidado = state?.nomeConvidado || "";
   const [presencas, setPresencas] = useState({});
-  const [showAgradecimento, setShowAgradecimento] = useState(false);
 
   useEffect(() => {
-    const inicialPresencas = convidados.reduce((acc, nome) => {
-      acc[nome] = "nao_comparecer";
-      return acc;
-    }, {});
-    setPresencas(inicialPresencas);
-  }, []);
-
+    if (Object.keys(presencas).length === 0) {
+      const inicialPresencas = convidados.reduce((acc, convidado) => {
+        acc[convidado.nome] = "nao_comparecer"; 
+        return acc;
+      }, {});
+      setPresencas(inicialPresencas);
+    }
+  }, [convidados, presencas]);
   const handlePresencaChange = (nome, status) => {
-    setPresencas((prevPresencas) => ({
-      ...prevPresencas,
-      [nome]: status,
-    }));
-  };
+    console.log(`Alterando presença de ${nome} para: ${status}`); 
+  
+    setPresencas((prevPresencas) => {
+      console.log("Estado atual antes de atualizar:", prevPresencas);
+  
 
+      if (prevPresencas[nome] === status) return prevPresencas;
+  
+      const updatedPresencas = { ...prevPresencas, [nome]: status };
+  
+      console.log("Estado atualizado:", updatedPresencas); 
+      return updatedPresencas;
+    });
+  
+    onResposta(nome, status);
+  };
   const handleContinuar = () => {
-    setShowAgradecimento(true);
+    onFinalizar();
   };
-
-  if (showAgradecimento) {
-    return <MensagemAgradecimento />;
-  }
 
   return (
     <div className={styles.container}>
@@ -66,31 +59,21 @@ const QuemVai = ({ convidados, onResposta, onFinalizar, onVoltar }) => {
           <div className={styles.convidadosList}>
             {convidados.map((convidado, index) => (
               <div key={index} className={styles.convidadoItem}>
-                <span className={styles.convidadoNome}>
-                  {convidado.nome} {/* Acesse a propriedade nome do objeto */}
-                </span>
+                <span className={styles.convidadoNome}>{convidado.nome}</span>
                 <div className={styles.containerPresenca}>
                   <div
                     className={`${styles.containerBotaoPresenca} ${
-                      presencas[convidado.nome] === "confirmar"
-                        ? styles.selectedButton
-                        : ""
+                      presencas[convidado.nome] === "confirmar" ? styles.selectedButton : ""
                     }`}
-                    onClick={() =>
-                      handlePresencaChange(convidado.nome, "confirmar")
-                    }
+                    onClick={() => handlePresencaChange(convidado.nome, "confirmar")}
                   >
                     Confirmar presença
                   </div>
                   <div
                     className={`${styles.containerNaoIra} ${
-                      presencas[convidado.nome] === "nao_comparecer"
-                        ? styles.selectedButton
-                        : ""
+                      presencas[convidado.nome] === "nao_comparecer" ? styles.selectedButton : ""
                     }`}
-                    onClick={() =>
-                      handlePresencaChange(convidado.nome, "nao_comparecer")
-                    }
+                    onClick={() => handlePresencaChange(convidado.nome, "nao_comparecer")}
                   >
                     Não irá comparecer
                   </div>
@@ -99,15 +82,9 @@ const QuemVai = ({ convidados, onResposta, onFinalizar, onVoltar }) => {
             ))}
           </div>
           <div className={styles.containerBotao}>
-            <div className={styles.conteudoBotao}>
-              <button
-                className={styles.continuarButton}
-                onClick={handleContinuar}
-              >
-                Continuar
-                <span className={styles.arrowIcon}>→</span>
-              </button>
-            </div>
+            <button className={styles.continuarButton} onClick={handleContinuar}>
+              Continuar <span className={styles.arrowIcon}>→</span>
+            </button>
           </div>
         </div>
       </div>

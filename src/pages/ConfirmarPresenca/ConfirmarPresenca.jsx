@@ -6,6 +6,7 @@ import MensagemAgradecimento from "../../componentes/MensagemAgradecimento/Mensa
 function ConfirmarPresenca() {
   const [etapa, setEtapa] = useState("inserirPin");
   const [pin, setPin] = useState("");
+  const [erro, setErro] = useState('');
   const [convidados, setConvidados] = useState([
     { nome: "Elizeu Duarte", status: "" },
     { nome: "Amanda Geovanna", status: "" },
@@ -15,15 +16,16 @@ function ConfirmarPresenca() {
   ]);
 
   const handleReiniciarEtapas = () => {
-    console.log("Reiniciando");
     setEtapa("inserirPin");
+    setPin(""); 
+    setErro("");
   };
 
   const handleVerificarPin = (valor) => {
     if (valor === "1234") {
       setEtapa("quemVai");
     } else {
-      alert("Convite não encontrado. Verifique o PIN informado.");
+      setErro("Convite não encontrado. Verifique o PIN informado.");
     }
   };
 
@@ -45,6 +47,7 @@ function ConfirmarPresenca() {
           onVerificarPin={handleVerificarPin}
           pin={pin}
           setPin={setPin}
+          erro={erro}
         />
       )}
 
@@ -58,8 +61,7 @@ function ConfirmarPresenca() {
       )}
 
       {etapa === "agradecimento" && (
-       <MensagemAgradecimento onFinalizar={handleReiniciarEtapas} />
-
+        <MensagemAgradecimento onFinalizar={handleReiniciarEtapas} />
       )}
     </div>
   );

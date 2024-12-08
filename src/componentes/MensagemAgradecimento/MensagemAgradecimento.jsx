@@ -3,8 +3,15 @@ import styles from "./MensagemAgradecimento.module.css";
 import stylesQ from "../QuemVai/QuemVai.module.css";
 
 function MensagemAgradecimento({ onFinalizar }) {
-  console.log("onFinalizar recebido:", onFinalizar);
 
+  const handleClick = () => {
+    console.log('Clicou no botão');
+    if (onFinalizar) {
+      onFinalizar(); 
+    } else {
+      console.log('onFinalizar não foi passado');
+    }
+  };
   return (
     <div className={styles.page}>
       <div className={styles.container}>
@@ -16,20 +23,15 @@ function MensagemAgradecimento({ onFinalizar }) {
           <span className={styles.description}>
             Você pode mudar sua resposta sempre que precisar.
           </span>
+          
           <div className={stylesQ.containerBotao}>
-            {/* Atribuindo o onClick diretamente ao botão */}
-            <button
-              className={stylesQ.continuarButton}
-              onClick={onFinalizar}
-            >
-              Finalizar
-              <span className={stylesQ.arrowIcon}>→</span>
+            <button className={stylesQ.continuarButton} onClick={handleClick}>
+              Finalizar <span className={styles.arrowIcon}>→</span>
             </button>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
+}
 export default MensagemAgradecimento;

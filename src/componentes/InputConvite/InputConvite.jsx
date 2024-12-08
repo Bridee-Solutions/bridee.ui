@@ -10,11 +10,9 @@ const InputConvite = ({ onVerificarPin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setCarregando(true);
-    setErro('');
+    setErro(''); 
 
-    // Simula a verificação do PIN enviado pelo usuário
     if (presencaCodigo === '1234') {
-      // Se PIN estiver correto, chama a função do componente pai
       onVerificarPin(presencaCodigo);
     } else {
       setErro('Convite não encontrado. Verifique se o PIN está correto.');
@@ -29,10 +27,12 @@ const InputConvite = ({ onVerificarPin }) => {
         <div className={`${styles.formContainer} ${erro ? styles.errorBackground : styles.defaultBackground}`}>
           <div className={styles.formulario}>
             <div className={styles.insira}>
-              <span>Insira o PIN para confirmar</span>
+              <span>Insira o pin ou
+              nome do convite</span>
             </div>
             <div className={styles.description}>
-              <span>Você pode informar o PIN enviado por Amanda & Enzo.</span>
+              <span>Você pode informar o nome do convite ou o PIN enviado por Amanda & Enzo.
+              </span>
             </div>
             <form onSubmit={handleSubmit} className={styles.form}>
               <input
@@ -49,7 +49,7 @@ const InputConvite = ({ onVerificarPin }) => {
                   {carregando ? 'Verificando...' : 'Continuar'}
                 </button>
               </div>
-              {erro && <p className={styles.errorMessage}>{erro}</p>}
+              {erro && <span className={styles.errorMessage}>{erro}</span>} 
             </form>
           </div>
         </div>
