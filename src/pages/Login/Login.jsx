@@ -47,9 +47,9 @@ const Login = () => {
           } else {
             toast.error("Ative a conta antes de conseguir logar");
           }
-        }else{
-          toast.error("Usuário ou senha inválidos");
         }
+      }).catch(err => {
+        toast.error("Usuário ou senha inválidos");
       })
   };
 

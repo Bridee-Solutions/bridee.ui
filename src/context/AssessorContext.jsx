@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { rotasComuns } from "./Context";
+import { decrypt } from "../utils/criptografia";
 
 
 export const AssessorContext = createContext()

@@ -16,6 +16,10 @@ function Header() {
     navigate("/login");
   }
 
+  const navigateCadastro = () => {
+    navigate("/cadastrar")
+  }
+
   function toggleMenu() {
     setMenuOpen((prev) => !prev); 
     if(menuOpen) {
@@ -40,7 +44,6 @@ function Header() {
       <div className={styles.header_body}>
 
         <div className={styles.embranco}>
- {/* essa div eh pra alinhamentoo da nav, nao retirar */}
         </div>
         <div className={styles.header_logo}>
           <h1>bridee<b>.</b></h1>
@@ -60,7 +63,7 @@ function Header() {
           )}
         </div>
         <button onClick={navigateLogin} className={styles.login_button}>Login</button>
-        <button className={styles.register_button}>Cadastre-se</button>
+        <button className={styles.register_button} onClick={navigateCadastro}>Cadastre-se</button>
         </div>
       </div>
     </header>

@@ -61,7 +61,7 @@ function Calculadora() {
   const salvarOrcamento = () => {
     const valorOrcamento = atualizarOrcamento.current.value;
     updateOrcamento(valorOrcamento);
-    request.updateOrcamentoTotal(Number(valorOrcamento), 2);
+    request.updateOrcamentoTotal(Number(valorOrcamento), casamentoId);
     fecharModal();
   };
 
