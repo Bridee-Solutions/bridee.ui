@@ -21,8 +21,7 @@ const Login = () => {
   const tipo = useRef();
   const [oldTipo, setTipo] = useState();
   const esqueceuSenhaElement = useRef();
-  const casalContext = useContext(CasalContext)
-  const assessorContext = useContext(AssessorContext)
+  const {setCasamentoId, setAssessorId} = useContext(CasalContext);
 
   const authenticate = () => {
     const usuario = {
@@ -58,11 +57,11 @@ const Login = () => {
     localStorage.setItem("isAuthenticated", encrypt(true))
     if(data.casamentoId){
       localStorage.setItem("casamentoId", encrypt(data.casamentoId))
-      casalContext.setCasamentoId(data.casamentoId)
+      setCasamentoId(data.casamentoId)
     }
     if(data.assessorId){
       localStorage.setItem("assessorId", encrypt(data.assessorId))
-      assessorContext.setAssessorId(data.assessorId)
+      setAssessorId(data.assessorId)
     }
   }
 

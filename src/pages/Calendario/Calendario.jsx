@@ -13,6 +13,7 @@ import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFo
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faLocationDot, faX } from "@fortawesome/free-solid-svg-icons";
 import { AssessorContext } from "../../context/AssessorContext.jsx";
+import { CasalContext } from "../../context/CasalContext.jsx";
 
 function Calendario() { 
     const [proposal, setProposal] = useState({});
@@ -21,17 +22,17 @@ function Calendario() {
     const [modalAcceptProposal, setModalAcceptProposal] = useState(false);
     const [modalViewProposal, setModalViewProposal] = useState(false);
     const [year, setYear] = useState();
-    const {assessorId} = useContext(AssessorContext);
+    const {assessorId} = useContext(CasalContext);
 
     useEffect(() => {loadProposals()}, [year]);
 
     const loadProposals = () => {
-        request.getProposals(10)
+        request.getProposals(assessorId)
         .then((data) => {
             setListProposals(data.data.content);
         });
     
-        request.getAcceptedProposals(10, year)
+        request.getAcceptedProposals(assessorId, year)
         .then((data) => {
             setListAcceptedProposals(data.data);
         });
@@ -52,7 +53,7 @@ function Calendario() {
     }
 
     const acceptProposalFunc = () => {
-        request.acceptProposal(proposal.id, 10)
+        request.acceptProposal(proposal.id, assessorId)
         .then(() => {
             console.log("aceitamos proposta")
             setModalViewProposal(false);
@@ -62,7 +63,7 @@ function Calendario() {
     }
 
     const denyProposalFunc = () => {
-        request.denyProposal(proposal.id, 10)
+        request.denyProposal(proposal.id, assessorId)
         .then(() => {
             setModalViewProposal(false);
             loadProposals();

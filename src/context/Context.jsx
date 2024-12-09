@@ -22,41 +22,6 @@ import Error from "../pages/Error/Error";
 import Calendario from "../pages/Calendario/Calendario";
 import ConfirmarPresenca from "../pages/ConfirmarPresenca/ConfirmarPresenca";
 
-export const defineContext = () => {
-    const tipoUsuario = decrypt(localStorage.getItem("tipoUsuario") ? localStorage.getItem("tipoUsuario") : "");
-    const authenticated = decrypt(localStorage.getItem("isAuthenticated") ? localStorage.getItem("isAuthenticated") : "");
-    if(tipoUsuario == "ASSESSOR"){
-        return assessorContext(tipoUsuario, authenticated);
-    }
-    return casalContext(tipoUsuario, authenticated)
-}
-
-const casalContext = (type, authenticated) => {
-    
-    return <CasalContextProvider tipoUsuario={type} authenticated={authenticated}>
-        <SimpleBar style={{ maxHeight: '100vh' }}>
-        <Routes>
-            <Route>
-                {casalRotas?.map(rota => {
-                    return <Route path={rota.path} element={rota.element}></Route>
-                })}
-            </Route>
-        </Routes>
-        </SimpleBar>
-    </CasalContextProvider>
-}
-
-const assessorContext = (type, authenticated) => {
-    return <AssessorContextProvider tipoUsuario={type} authenticated={authenticated}>
-        <SimpleBar style={{ maxHeight: '100vh' }}>
-            <Routes>
-                {assessorRotas?.map((rota) => {
-                    return <Route path={rota.path} element={rota.element}></Route>
-                })}
-            </Routes>
-        </SimpleBar>
-    </AssessorContextProvider>
-}
 
 export const rotasComuns = [{
     path: "/",
@@ -84,7 +49,7 @@ export const rotasComuns = [{
 },
 ]
 
-const casalRotas = [
+export const casalRotas = [
 {
     path: "/painel",
     element: <Painel/>
@@ -121,10 +86,10 @@ const casalRotas = [
     path: "/configuracoes-casal",
     element: <Configuracoes/>
 },
-    ...rotasComuns
+...rotasComuns
 ]
 
-const assessorRotas = [
+export const assessorRotas = [
     {
         path: "/configuracoes-assessor",
         element: <ConfiguracoesAssessor/>
@@ -135,3 +100,5 @@ const assessorRotas = [
     },
     ...rotasComuns
 ]
+
+export const rotas = [...rotasComuns, ...casalRotas, ...assessorRotas]

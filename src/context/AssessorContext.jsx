@@ -32,7 +32,7 @@ export const AssessorContextProvider = ({children, ...props}) => {
     },[])
 
     return(
-        <AssessorContext.Provider value={{assessorId: assessorId, setAssessor: setAssessorId}}>
+        <AssessorContext.Provider value={{assessorId: assessorId, setAssessor: setAssessorId, setContext: props.setContext}}>
             {children}
         </AssessorContext.Provider>
     )
