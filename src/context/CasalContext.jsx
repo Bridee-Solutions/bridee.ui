@@ -33,7 +33,7 @@ export const CasalContextProvider = ({children}) => {
         }
 
         if(pathname == "/login" && authenticated && tipoUsuario == "ASSESSOR"){
-            navigate("/assessor/calendario")
+            navigate("/assessores/calendario")
         }
         
         if(rotasComunsPaths.includes(pathname)){
