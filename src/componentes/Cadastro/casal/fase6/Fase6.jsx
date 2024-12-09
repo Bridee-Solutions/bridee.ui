@@ -39,16 +39,22 @@ const Fase6 = (props) => {
     const numeroDeConvidados = (checkbox) => {
         switch(checkbox){
             case(radio1.current):
+                props.usuario.tamanhoCasamento = "0-50"
                 return 50;
             case(radio2.current):
+                props.usuario.tamanhoCasamento = "51-100"
                 return 100;
             case(radio3.current):
+                props.usuario.tamanhoCasamento = "101-150"
                 return 150;
             case(radio4.current):
+                props.usuario.tamanhoCasamento = "151-200"
                 return 200;
             case(radio5.current):
+                props.usuario.tamanhoCasamento = "201-250"
                 return 300;
             case(radio6.current):
+                props.usuario.tamanhoCasamento = "251-300"
                 return 350
             case(radio7.current):
                 return null
