@@ -4,6 +4,8 @@ import {
 } from "../../../../pages/Cadastro/fases";
 import styles from "./Fase2.module.css";
 
+import champagne from "/src/assets/login/streamline_champagne-party-alcohol.svg";
+
 const Fase2 = (props) => {
   const proximaFase = () => {
     const proximaFase = definirProximaFase(props.fases);
@@ -20,7 +22,7 @@ const Fase2 = (props) => {
       <div className={styles.fase2_image}>
         <img
           className={styles.imagem}
-          src={"/src/assets/login/streamline_champagne-party-alcohol.svg"}
+          src={champagne}
           alt=""
         />
         <div className={styles.vamosCont}>

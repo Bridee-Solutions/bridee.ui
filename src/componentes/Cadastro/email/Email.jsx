@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import { request } from "../../../config/axios/axios";
 import styles from "./Email.module.css";
 import { useEffect, useRef } from "react";
+import email from "/src/assets/login/certo.svg";
 
 export const EmailSent = (props) => {
   const mainDiv = useRef();
@@ -26,7 +27,7 @@ export const EmailSent = (props) => {
         </div>
         <div className={styles.email_body}>
           <div className={styles.contemail}>
-            <img src={`/src/assets/login/${props.tipo}.svg`} alt="" />
+            <img src={email} alt="" />
           </div>
         </div>
         <div className={styles.email_footer}>

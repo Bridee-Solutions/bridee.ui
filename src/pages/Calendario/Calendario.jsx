@@ -23,7 +23,7 @@ function Calendario() {
   const [proposal, setProposal] = useState({});
   const [listAcceptedProposals, setListAcceptedProposals] = useState([]);
   const [listProposals, setListProposals] = useState([]);
-  const [modalAcceptProposal, setModalAcceptProposal] = useState(false);
+  const [modalAcceptProposal, setModalAcceptProposal] = useState(true);
   const [modalViewProposal, setModalViewProposal] = useState(false);
   const [year, setYear] = useState(new Date().getFullYear());
   const { assessorId } = useContext(CasalContext);
@@ -200,7 +200,9 @@ function Calendario() {
       {modalAcceptProposal && (
         <Modal>
           <ModalHeader onClose={() => closeAcceptProposal()}>
+          <div className={styles.proposta}>
             <span>Nova proposta</span>
+          </div>
           </ModalHeader>
           <ModalBody>
             <div className={styles.containerModalAccept}>
