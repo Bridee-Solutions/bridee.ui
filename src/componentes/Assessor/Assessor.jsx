@@ -44,8 +44,8 @@ function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
   };
 
   const selectedAssessorStyle = (e) => {
-    e.target.style.backgroundColor = `#DD7B78`;
-    e.target.style.color = `white`;
+    e.target.style.backgroundColor = `#ebebeb`;
+    e.target.style.color = `black`;
   };
 
   const resetAssessorStyle = (assessor) => {

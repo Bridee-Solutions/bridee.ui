@@ -117,12 +117,13 @@
 }
 
 .proposals_container span {
-  font-size: 20px;
+  font-size: 1rem;
   font-family: "Montserrat";
   font-weight: 500;
   line-height: 24.38px;
   color: #989898;
 }
+
 
 .proposal {
   height: 9%;
