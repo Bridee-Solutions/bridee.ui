@@ -57,10 +57,12 @@ const Login = () => {
     localStorage.setItem("isAuthenticated", encrypt(true))
     if(data.casamentoId){
       localStorage.setItem("casamentoId", encrypt(data.casamentoId))
+      localStorage.removeItem("assessorId");
       setCasamentoId(data.casamentoId)
     }
     if(data.assessorId){
       localStorage.setItem("assessorId", encrypt(data.assessorId))
+      localStorage.removeItem("casalId");
       setAssessorId(data.assessorId)
     }
   }

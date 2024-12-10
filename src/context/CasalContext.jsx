@@ -44,7 +44,7 @@ export const CasalContextProvider = ({children}) => {
             navigate("/assessores/calendario")
         }
 
-        if(rotasAssessorPaths.includes(pathname) && authenticated  ||tipoUsuario == "CASAL"){
+        if(rotasAssessorPaths.includes(pathname) && authenticated  && tipoUsuario == "CASAL"){
             navigate("/painel")
         }
         

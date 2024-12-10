@@ -21,7 +21,7 @@ function Calendario() {
   const [listProposals, setListProposals] = useState([]);
   const [modalAcceptProposal, setModalAcceptProposal] = useState(false);
   const [modalViewProposal, setModalViewProposal] = useState(false);
-  const [year, setYear] = useState();
+  const [year, setYear] = useState(new Date().getFullYear());
   const { assessorId } = useContext(CasalContext);
 
   useEffect(() => {
@@ -74,7 +74,7 @@ function Calendario() {
   };
 
   const formatDate = (dateString) => {
-    if (!dateString) return "Data inválida!";
+    if (!dateString) return "Data não informada!";
 
     const [year, month, day] = String(dateString).split("-");
 
@@ -161,7 +161,7 @@ function Calendario() {
                 </div>
                 <div>
                   <p>Data: </p>
-                  <span>{formatDate(proposal.dataFim)}</span>
+                  <span>{formatDate(proposal?.dataFim)}</span>
                 </div>
                 <div>
                   <p>Já reservou um local?: </p>
