@@ -67,11 +67,11 @@ function Painel() {
     inputRef.current.click();
   };
 
-  const defineTarefaCheckBox = (tarefa) => {
-    if(tarefa.status == "CONCLUIDO"){
-      return true;
+  const defineTarefaCheckBox = (status) => {
+    if(status == "CONCLUIDO"){
+      return true
     }
-    return false;
+    return false
   }
 
   useEffect(() => {
@@ -224,14 +224,13 @@ function Painel() {
                 <div className={styles.listaTarefas}>
                   <div className={styles.listaTarefas}>
                     {dashboardInfo?.tarefas?.ultimasTarefas.map(tarefa => {
-                      <div
+                      return <div
                         className={`${styles.tarefa} ${styles.checkboxWrapper}`}
                       >
                         <div className={styles.round}>
                           <input
                             type="checkbox"
-                            id="tarefa1"
-                            checked={() => defineTarefaCheckBox(tarefa)}
+                            checked={defineTarefaCheckBox(tarefa?.status)}
                           />
                           <label htmlFor="tarefa1"></label>
                         </div>
