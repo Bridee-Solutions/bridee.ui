@@ -278,77 +278,13 @@ function Painel() {
               </div>
             </div>
           </div>
-          <div className={styles.colunaDireita}>
-            <div className={styles.conteudoColuna}>
-              <div className={styles.containerTitulo}>
-                <span>Planejador de assentos</span>
-                <div className={styles.divider}></div>
-              </div>
-              <div className={styles.conteudoPlanejador}>
-                <div className={styles.colunaPlanejador}>
-                  <div className={styles.containerImgDesc}>
-                    <div className={styles.iconePlanejador}>
-                      <img src={grupo}></img>
-                    </div>
-
-                    <div className={styles.descricaoPlanejador}>
-                      <span>Total de convidados</span>
-                    </div>
-                  </div>
-                  <div>
-                    <span>{dashboardInfo.assentosResumo?.totalConvidados}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.conteudoPlanejador}>
-                <div className={styles.colunaPlanejador}>
-                  <div className={styles.containerImgDesc}>
-                    <div className={styles.iconePlanejador}>
-                      <img src={sentados}></img>
-                    </div>
-
-                    <div className={styles.descricaoPlanejador}>
-                      <span>Convidados sentados</span>
-                    </div>
-                  </div>
-                  <div>
-                    <span>{dashboardInfo.assentosResumo?.convidadosSentados}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.conteudoPlanejador}>
-                <div className={styles.colunaPlanejador}>
-                  <div className={styles.containerImgDesc}>
-                    <div className={styles.iconePlanejador}>
-                      <img src={mesas}></img>
-                    </div>
-
-                    <div className={styles.descricaoPlanejador}>
-                      <span>Total de mesas</span>
-                    </div>
-                  </div>
-                  <div>
-                    <span>{dashboardInfo.assentosResumo?.totalMesas}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.containerBotao}>
-                <LinkButton
-                  to="/planejador-assentos"
-                  label="Gerenciar assentos"
-                />
-              </div>
-            </div>
-          </div>
+        
         </div>
       </div>
 
-      <footer>
+      
         <Baseboard />
-      </footer>
+      
     </div>
   );
 }
