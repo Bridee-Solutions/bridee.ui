@@ -2,6 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import styles from "./Calendario.module.css";
 import { request } from "../../config/axios/axios";
 
+import bell from "/src/assets/proposal/notification.svg";
+import acceptProposal from "/src/assets/proposal/accept_proposal.svg";
+import confetti from "/src/assets/proposal/confetti.svg";
+
 import Navbar from "../../componentes/Navbar/Navbar";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import { ContinuousCalendar } from "../../componentes/ContinuousCalendar/ContinuousCalendar.jsx";
@@ -104,7 +108,7 @@ function Calendario() {
           <div className={styles.proposal_panel}>
             <div className={styles.title}>
               {listProposals.length > 0 ? (
-                <img src={"/src/assets/proposal/notification.svg"} alt="" />
+                <img src={bell} alt="" />
               ) : (
                 ""
               )}
@@ -144,7 +148,7 @@ function Calendario() {
           <ModalBody>
             <div className={styles.containerModalViewModal}>
               <span>
-                <img src={"/src/assets/proposal/accept_proposal.svg"} />
+                <img src={acceptProposal} />
               </span>
               <h2>
                 Você recebeu uma proposta do <br /> casamento de{" "}
@@ -201,7 +205,7 @@ function Calendario() {
           <ModalBody>
             <div className={styles.containerModalAccept}>
               <div>
-                <img src={"/src/assets/proposal/confetti.svg"} />
+                <img src={confetti} />
                 <h2>
                   Você foi adicionado ao casamento de <br />{" "}
                   <b>{proposal.nome}!</b>
