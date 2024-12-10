@@ -5,7 +5,6 @@ import Cadastro from "../pages/Cadastro/Cadastro";
 import ReenviarEmail from "../pages/ReenviarEmail/ReenviarEmail";
 import Painel from "../pages/Painel/Painel";
 import Calculadora from "../pages/Calculadora/Calculadora";
-import PlanejadorAssentos from "../pages/PlanejadorAssentos/PlanejadorAssentos";
 import ListaTarefas from "../pages/ListaTarefas/ListaTarefas";
 import Assessores from "../pages/Assessores/Assessores";
 import Locais from "../pages/Locais/Locais";
@@ -57,10 +56,6 @@ export const casalRotas = [
 {
     path: "/calculadora-financeira",
     element: <Calculadora/>
-},
-{
-    path: "/planejador-assentos",
-    element: <PlanejadorAssentos/>
 },
 {
     path: "/lista-tarefas",

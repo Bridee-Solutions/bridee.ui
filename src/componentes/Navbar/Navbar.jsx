@@ -87,13 +87,7 @@ function NavComp() {
       icon: faListCheck,
       rota: "/lista-tarefas",
     },
-    {
-      nome: "Planejador de assentos",
-      descricao:
-        "Um planejador de assentos intuitivo para organizar sua recepção de forma fácil e eficaz.",
-      icon: faChair,
-      rota: "/planejador-assentos",
-    },
+    
     {
       nome: "Calculadora Financeira",
       descricao:
@@ -170,23 +164,11 @@ function NavComp() {
               {dropdownAberto && (
                 <div className={styles.dropdownContainer}>
                   <div className={styles.dropdownContent}>
-                    <div className={styles.coluna}>
-                      {/* Renderizando o primeiro item */}
-                      <DropdownItem
-                        key={ferramentasDePlanejamento[0].nome}
-                        item={ferramentasDePlanejamento[0]}
-                        onClick={() =>
-                          handleClick(
-                            ferramentasDePlanejamento[0].nome,
-                            ferramentasDePlanejamento[0].rota
-                          )
-                        }
-                      />
-                    </div>
+                   
 
                     <div className={styles.coluna}>
                       {/* Renderizando o segundo e terceiro item */}
-                      {ferramentasDePlanejamento.slice(1, 3).map((item) => (
+                      {ferramentasDePlanejamento.slice(0, 2).map((item) => (
                         <DropdownItem
                           key={item.nome}
                           item={item}
@@ -197,7 +179,7 @@ function NavComp() {
 
                     <div className={styles.coluna}>
                       {/* Renderizando o quarto e o quinto item*/}
-                      {ferramentasDePlanejamento.slice(3, 5).map((item) => (
+                      {ferramentasDePlanejamento.slice(2, 4).map((item) => (
                         <DropdownItem
                           key={item.nome}
                           item={item}
