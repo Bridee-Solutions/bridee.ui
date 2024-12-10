@@ -3,40 +3,19 @@ import styles from "./Contato.module.css";
 import LinkButton from "../LinkButton/LinkButton";
 import ImageUploader from "../ImageUploader/ImageUploader";
 
-const Contato = () => {
-  const [formData, setFormData] = useState({
-    nomeComercial: "",
-    visaoGeral: "",
-    servicos: "",
-    descricao: "",
-    tamanhosTrabalhados: [],
-    organizaReligiosos: "",
-    estilosCasamento: [],
-    formasPagamento: [],
-  });
+const Contato = ({ formData, setFormData, mainImage, setMainImage, additionalImages, setAdditionalImages, handleSubmit }) => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormData((prev) => {
-      if (type === "checkbox") {
-        return {
-          ...prev,
-          [name]: checked
-            ? [...(prev[name] || []), value]
-            : prev[name].filter((item) => item !== value),
-        };
-      } else if (type === "radio") {
-        return { ...prev, [name]: value };
-      } else {
-        return { ...prev, [name]: value };
-      }
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Dados do formulário:", formData);
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox"
+        ? checked
+          ? [...(prev[name] || []), value]
+          : prev[name].filter((item) => item !== value)
+        : value,
+    }));
   };
 
   return (
@@ -46,8 +25,8 @@ const Contato = () => {
           <span>Qual é o seu e-mail comercial?</span>         
             <input
               type="text"
-              name="emailComercial"
-              value={formData.emailComercial}
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               className={styles.input}
             />
@@ -80,11 +59,16 @@ const Contato = () => {
       </div>
 
       
-          <ImageUploader />
+          <ImageUploader 
+            mainImage={mainImage} 
+            setMainImage={setMainImage} 
+            additionalImages={additionalImages} 
+            setAdditionalImages={setAdditionalImages}
+          />
       
 
       <div className={styles.containerBotao}>
-        <LinkButton label="Salvar" />
+        <LinkButton label="Salvar" onClick={handleSubmit}/>
       </div>
     </form>
   );

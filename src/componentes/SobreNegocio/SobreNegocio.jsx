@@ -2,42 +2,22 @@ import React, { useState } from "react";
 import styles from "./SobreNegocio.module.css";
 import LinkButton from "../LinkButton/LinkButton";
 
-const SobreNegocio = () => {
-    const [formData, setFormData] = useState({
-        nomeComercial: "",
-        visaoGeral: "",
-        servicos: "",
-        descricao: "",
-        tamanhosTrabalhados: [],
-        organizaReligiosos: "",
-        estilosCasamento: [],
-        formasPagamento: [],
-      });
+const SobreNegocio = ({ formData, setFormData, handleSubmit}) => {
 
- 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    setFormData((prev) => {
-      if (type === "checkbox") {
-        return {
-          ...prev,
-          [name]: checked
-            ? [...(prev[name] || []), value]
-            : prev[name].filter((item) => item !== value),
-        };
-      } else if (type === "radio") {
-        return { ...prev, [name]: value };
-      } else {
-        return { ...prev, [name]: value };
-      }
-    });
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox"
+        ? checked
+          ? [...(prev[name] || []), value]
+          : prev[name].filter((item) => item !== value)
+        : value,
+    }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Dados do formulário:", formData);
-  };
+
 
    return (
     <div className={styles.colunaDireita}>
@@ -47,11 +27,10 @@ const SobreNegocio = () => {
           <div className={styles.vs}>
             <span>Nome comercial:</span>
             <input
-              type="text"
               name="nomeComercial"
               value={formData.nomeComercial}
               onChange={handleChange}
-              className={styles.inputvs}
+              className={styles.input}
             />
           </div>
         </div>
@@ -59,7 +38,6 @@ const SobreNegocio = () => {
           <div className={styles.vs}>
             <span>Visão geral do negócio:</span>
             <textarea
-              type="text"
               name="visaoGeral"
               value={formData.visaoGeral}
               onChange={handleChange}
@@ -72,8 +50,8 @@ const SobreNegocio = () => {
             <span>Serviços oferecidos:</span>
             <textarea
               type="text"
-              name="servicos"
-              value={formData.servicos}
+              name="servicosOferecidos"
+              value={formData.servicosOferecidos}
               onChange={handleChange}
               className={styles.inputvs}
             />
@@ -84,8 +62,8 @@ const SobreNegocio = () => {
             <span>Descreva resumidamente a sua forma de trabalho:</span>
             <textarea
               type="text"
-              name="descricao"
-              value={formData.descricao}
+              name="formaDeTrabalho"
+              value={formData.formaDeTrabalho}
               onChange={handleChange}
               className={styles.inputvs}
             />
@@ -105,7 +83,7 @@ const SobreNegocio = () => {
                 <label key={opcao} className={styles.label}>
                   <input
                     type="checkbox"
-                    name="tamanhosTrabalhados"
+                    name="tamanhoCasamento"
                     value={opcao}
                     onChange={handleChange}
                   />
@@ -120,19 +98,19 @@ const SobreNegocio = () => {
             <span className={styles.pergunta}>Que tipo de cerimônia organiza?</span>
             <div className={styles.opcoeswrap}>
               {[
-                "Religiosa",
-                "Civil",
                 "Ao ar livre",
-                "No exterior",
                 "Simbólica",
-                "Temática",
                 "Ecológica",
-              ].map((opcao) => (
+                "Civil",
+                "No exterior",
+                "Temática",
+                "Religiosa",
+              ].map((opcao, index) => (
                 <label key={opcao} className={styles.label}>
                   <input
                     type="checkbox"
-                    name="formasPagamento"
-                    value={opcao}
+                    name="tipoCerimonia"
+                    value={index + 1}
                     onChange={handleChange}
                   />
                   {opcao}
@@ -148,8 +126,8 @@ const SobreNegocio = () => {
               <label>
                 <input
                   type="radio"
-                  name="organizaReligiosos"
-                  value="Sim"
+                  name="naoReligioso"
+                  value={true}
                   onChange={handleChange}
                 />
                 Sim
@@ -157,8 +135,8 @@ const SobreNegocio = () => {
               <label>
                 <input
                   type="radio"
-                  name="organizaReligiosos"
-                  value="Não"
+                  name="naoReligioso"
+                  value={false}
                   onChange={handleChange}
                 />
                 Não
@@ -172,16 +150,16 @@ const SobreNegocio = () => {
             <span className={styles.pergunta}>Em que estilo de casamentos está especializado?</span>
             <div className={styles.opcoeswrap}>
               {[
-                "Americano",
                 "Católico",
                 "Budista",
-                "Espírita"
-              ].map((opcao) => (
+                "Espírita",
+                "Americano",
+              ].map((opcao, index) => (
                 <label key={opcao} className={styles.label}>
                   <input
                     type="checkbox"
-                    name="formasPagamento"
-                    value={opcao}
+                    name="tipoCasamentos"
+                    value={index + 1}
                     onChange={handleChange}
                   />
                   {opcao}
@@ -201,12 +179,12 @@ const SobreNegocio = () => {
                 "Dinheiro",
                 "Cartão de débito",
                 "Pix",
-              ].map((opcao) => (
+              ].map((opcao, index) => (
                 <label key={opcao} className={styles.label}>
                   <input
                     type="checkbox"
                     name="formasPagamento"
-                    value={opcao}
+                    value={index + 1}
                     onChange={handleChange}
                   />
                   {opcao}
@@ -216,7 +194,7 @@ const SobreNegocio = () => {
           </div>
         </div>
         <div className={styles.containerBotao}>
-          <LinkButton label="Salvar" />
+          <LinkButton label="Salvar" onClick={handleSubmit}/>
         </div>
       </form>
     </div>

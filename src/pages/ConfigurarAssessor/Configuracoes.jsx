@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./Configuracoes.module.css";
 import Navbar from "../../componentes/Navbar/Navbar";
@@ -8,18 +8,94 @@ import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import SobreNegocio from "../../componentes/SobreNegocio/SobreNegocio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake, faUser } from "@fortawesome/free-solid-svg-icons";
+import { request } from "../../config/axios/axios";
 const Configuracoes = () => {
+  useEffect(() => {loadInfo()}, []);
+  
   const [selectedMenu, setSelectedMenu] = useState("sobre");
+  const [formData, setFormData] = useState({
+    id: null,
+    nomeComercial: "",
+    email: "",
+    urlSite: "",
+    visaoGeral: "",
+    servicosOferecidos: "",
+    formaDeTrabalho: "",
+    bairro: "",
+    tamanhoCasamento: [],
+    naoReligioso: false,
+    tipoCerimonia: [],
+    formasPagamento: [],
+  });
+  const [mainImage, setMainImage] = useState(null);
+  const [additionalImages, setAdditionalImages] = useState([null, null, null, null]);
+
+  const loadInfo = () => {
+    request.getInformacaoAssociado(9).then((data) => {
+      console.log(data.data);
+      console.log(formData);
+
+
+
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const informacaoAssociado = new FormData();
+    const nomeArquivos = ["imagemSecundaria", "imagemTerciaria", "imagemQuaternaria", "imagemQuinaria"];
+    const { formasPagamento, tipoCasamentos, tipoCerimonia, id, ...formDataWithoutFields } = formData;
+  
+    const formDataWithTransformedFields = {
+      ...formDataWithoutFields,
+      tamanhoCasamento: formData.tamanhoCasamento.join(','),
+      ...(id ? { id } : {})
+    };
+
+    let dataToSend = {
+      informacaoAssociado: formDataWithTransformedFields,
+      formasPagamento: formData.formasPagamento,
+      tiposCerimonia: formData.tipoCerimonia,
+      tiposCasamento: formData.tipoCasamentos
+    };
+
+    informacaoAssociado.append('json', JSON.stringify(dataToSend));
+    
+    if (mainImage) {
+      informacaoAssociado.append('imagemPrincipal', mainImage);
+    }
+
+    additionalImages.forEach((arquivo, index) => {
+      if (arquivo) {
+        informacaoAssociado.append(nomeArquivos[index], arquivo);
+      }
+    });
+    
+    console.log(dataToSend);
+    request.salvarInformacaoAssociado(9, informacaoAssociado).then((data) => {
+      console.log("Foi");
+    });
+  };
+
   const renderContent = () => {
     switch (selectedMenu) {
       case "sobre":
-        return <SobreNegocio />;
+        return <SobreNegocio setFormData={setFormData} formData={formData} handleSubmit={handleSubmit}/>;
       case "contato":
-        return <Contato />;
+        return <Contato 
+          setFormData={setFormData} 
+          formData={formData} 
+          mainImage={mainImage} 
+          setMainImage={setMainImage}
+          additionalImages={additionalImages}
+          setAdditionalImages={setAdditionalImages}
+          handleSubmit={handleSubmit}
+        />;
       default:
-        return <SobreNegocio />;
+        return <SobreNegocio setFormData={setFormData} formData={formData}/>;
     }
   };
+
   return (
     <div>
       <Navbar />

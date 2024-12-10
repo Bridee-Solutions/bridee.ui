@@ -111,5 +111,11 @@ export const request = {
     },
     deleteTask: async(taskId) => {
         return await Api.delete(`/tarefas/${taskId}`).then(response);
-    } 
+    },
+    getInformacaoAssociado: async (assessorId) => {
+        return  await Api.get(`/informacao-associados/${assessorId}`).then(response.data);
+    },
+    salvarInformacaoAssociado: async(assessorId, infoAssociado) => {
+        return await Api.post(`/informacao-associados/${assessorId}/perfil`, infoAssociado).then(response);
+    }
 }

@@ -2,20 +2,14 @@ import React, { useState } from "react";
 import styles from "./ImageUploader.module.css";
 import contato from "../Contato/Contato.module.css";
 
-const ImageUploader = () => {
-  const [mainImage, setMainImage] = useState(null);
-  const [additionalImages, setAdditionalImages] = useState([
-    null,
-    null,
-    null,
-    null,
-  ]);
+const ImageUploader = ({ mainImage, setMainImage, additionalImages, setAdditionalImages }) => {
+
 
   // Função para carregar a imagem principal
   const handleMainImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setMainImage(URL.createObjectURL(file));
+      setMainImage(file);
     }
   };
 
@@ -24,7 +18,7 @@ const ImageUploader = () => {
     const file = event.target.files[0];
     if (file) {
       const newImages = [...additionalImages];
-      newImages[index] = URL.createObjectURL(file);
+      newImages[index] = file;
       setAdditionalImages(newImages);
     }
   };
