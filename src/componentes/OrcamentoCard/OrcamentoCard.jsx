@@ -47,7 +47,7 @@ const OrcamentoCard = ({assessorId}) => {
     }    
     console.log(solicitarOrcamentoRequest);
     
-    request.sendOrcamentoEmail(9, solicitarOrcamentoRequest)
+    request.sendOrcamentoEmail(assessorId, solicitarOrcamentoRequest)
   }
 
   const removeMask = (value) => {
