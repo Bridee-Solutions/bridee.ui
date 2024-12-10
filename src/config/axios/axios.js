@@ -72,8 +72,8 @@ export const request = {
     saveItensOrcamentos: async(itensOrcamentoRequest) => {
         return await Api.post(`/itens-orcamento`, itensOrcamentoRequest)
     },
-    saveOrcamentoFornecedor: async(orcamentoFornecedorRequest, categoriaId) => {
-        return await Api.post(`/orcamento-fornecedor/categoria/${categoriaId}`, orcamentoFornecedorRequest)
+    saveOrcamentoFornecedor: async(orcamentoFornecedorRequest, categoriaId, casamentoId) => {
+        return await Api.post(`/orcamento-fornecedor/categoria/${categoriaId}/casamento/${casamentoId}`, orcamentoFornecedorRequest)
     },
     deleteItemOrcamento: async(id) => {
         return await Api.delete(`/itens-orcamento/${id}`)

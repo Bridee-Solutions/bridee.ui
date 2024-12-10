@@ -14,7 +14,7 @@ import videografo from "../../assets/painel/videografo.svg";
 import local from "../../assets/painel/local.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faEllipsis } from "@fortawesome/free-solid-svg-icons";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import Modal from "../Modal/Modal";
 import ModalHeader from "../Modal/ModalHeader/ModalHeader";
@@ -22,6 +22,7 @@ import ModalBody from "../Modal/ModalBody/ModalBody";
 import ModalFooter from "../Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../Modal/ModalFooterButton/ModalFooterButton";
 import { request } from "../../config/axios/axios";
+import { CasalContext } from "../../context/CasalContext";
 
 function Categoria({ categoria, orcamentoFornecedores, orcamento, setOrcamento }) {
 
@@ -34,6 +35,7 @@ function Categoria({ categoria, orcamentoFornecedores, orcamento, setOrcamento }
   const [fornecedorSelected, setFornecedorSelected] = useState();
   const fornecedoresModalRef = useRef();
   const orcamentoFornecedorRequest = useRef();
+  const {casamentoId} = useContext(CasalContext)
 
   setTimeout(() => {
     orcamentoFornecedores?.filter(orcamentoFornecedor => {
@@ -106,10 +108,9 @@ function Categoria({ categoria, orcamentoFornecedores, orcamento, setOrcamento }
       id: null,
       preco: 0.0,
       fornecedorId: fornecedorSelected.id,
-      casalId: 2
     }
 
-    const orcamentoFornecedorResponse = await request.saveOrcamentoFornecedor(orcamentoFornecedorRequest.current, categoriaSelecionada.id)
+    const orcamentoFornecedorResponse = await request.saveOrcamentoFornecedor(orcamentoFornecedorRequest.current, categoriaSelecionada.id, casamentoId)
     setIsChosen(true)
     setOrcamentoFornecedor(orcamentoFornecedorResponse.data)
     fecharModal();
