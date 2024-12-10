@@ -23,7 +23,7 @@ function Calendario() {
   const [proposal, setProposal] = useState({});
   const [listAcceptedProposals, setListAcceptedProposals] = useState([]);
   const [listProposals, setListProposals] = useState([]);
-  const [modalAcceptProposal, setModalAcceptProposal] = useState(true);
+  const [modalAcceptProposal, setModalAcceptProposal] = useState(false);
   const [modalViewProposal, setModalViewProposal] = useState(false);
   const [year, setYear] = useState(new Date().getFullYear());
   const { assessorId } = useContext(CasalContext);
