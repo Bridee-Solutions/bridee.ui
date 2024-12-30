@@ -100,6 +100,7 @@ const Convites = () => {
                 </div>
             </div>
             {isModalOpen && modal}
+            <Baseboard/>
         </div>
     );
 

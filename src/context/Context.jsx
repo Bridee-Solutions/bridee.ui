@@ -5,7 +5,6 @@ import Cadastro from "../pages/Cadastro/Cadastro";
 import ReenviarEmail from "../pages/ReenviarEmail/ReenviarEmail";
 import Painel from "../pages/Painel/Painel";
 import Calculadora from "../pages/Calculadora/Calculadora";
-import PlanejadorAssentos from "../pages/PlanejadorAssentos/PlanejadorAssentos";
 import ListaTarefas from "../pages/ListaTarefas/ListaTarefas";
 import Assessores from "../pages/Assessores/Assessores";
 import Locais from "../pages/Locais/Locais";
@@ -20,45 +19,8 @@ import { AssessorContextProvider } from "./AssessorContext";
 import { decrypt } from "../utils/criptografia";
 import Error from "../pages/Error/Error";
 import Calendario from "../pages/Calendario/Calendario";
+import ConfirmarPresenca from "../pages/ConfirmarPresenca/ConfirmarPresenca";
 
-
-export const defineContext = () => {
-    const tipoUsuario = decrypt(localStorage.getItem("tipoUsuario") ? localStorage.getItem("tipoUsuario") : "");
-    const authenticated = decrypt(localStorage.getItem("isAuthenticated") ? localStorage.getItem("isAuthenticated") : "");
-    const casamentoId = decrypt(localStorage.getItem("casamentoId") ? localStorage.getItem("casamentoId") : "");
-    const assessorId = decrypt(localStorage.getItem("assessorId") ? localStorage.getItem("assessorId") : "");
-    if(tipoUsuario == "ASSESSOR"){
-        return assessorContext(tipoUsuario, authenticated, assessorId);
-    }
-    return casalContext(tipoUsuario, authenticated, casamentoId)
-}
-
-const casalContext = (type, authenticated, casamentoId) => {
-    
-    return <CasalContextProvider tipoUsuario={type} authenticated={authenticated} casamentoId={casamentoId}>
-        <SimpleBar style={{ maxHeight: '100vh' }}>
-        <Routes>
-            <Route>
-                {casalRotas?.map(rota => {
-                    return <Route path={rota.path} element={rota.element}></Route>
-                })}
-            </Route>
-        </Routes>
-        </SimpleBar>
-    </CasalContextProvider>
-}
-
-const assessorContext = (type, authenticated, assessorId) => {
-    return <AssessorContextProvider tipoUsuario={type} authenticated={authenticated} assessorId={assessorId}>
-        <SimpleBar style={{ maxHeight: '100vh' }}>
-            <Routes>
-                {assessorRotas?.map((rota) => {
-                    return <Route path={rota.path} element={rota.element}></Route>
-                })}
-            </Routes>
-        </SimpleBar>
-    </AssessorContextProvider>
-}
 
 export const rotasComuns = [{
     path: "/",
@@ -79,10 +41,14 @@ export const rotasComuns = [{
 {
     path: "*",
     element: <Error/>
-}
+},
+{
+    path: "/confirmar-presenca",
+    element: <ConfirmarPresenca/>
+},
 ]
 
-const casalRotas = [
+export const casalRotas = [
 {
     path: "/painel",
     element: <Painel/>
@@ -90,10 +56,6 @@ const casalRotas = [
 {
     path: "/calculadora-financeira",
     element: <Calculadora/>
-},
-{
-    path: "/planejador-assentos",
-    element: <PlanejadorAssentos/>
 },
 {
     path: "/lista-tarefas",
@@ -119,10 +81,10 @@ const casalRotas = [
     path: "/configuracoes-casal",
     element: <Configuracoes/>
 },
-    ...rotasComuns
+...rotasComuns
 ]
 
-const assessorRotas = [
+export const assessorRotas = [
     {
         path: "/configuracoes-assessor",
         element: <ConfiguracoesAssessor/>
@@ -133,3 +95,5 @@ const assessorRotas = [
     },
     ...rotasComuns
 ]
+
+export const rotas = [...rotasComuns, ...casalRotas, ...assessorRotas]

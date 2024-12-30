@@ -331,6 +331,7 @@ padding: 7px;
 .containerModalCreate .containerDateTag div select{
     width: 100%;
     border: 0;
+    height: 100%;
 }
 
 

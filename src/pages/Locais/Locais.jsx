@@ -4,14 +4,6 @@ import imagem from "../../assets/Banner/bannerLocais.svg";
 import SearchBar from "../../componentes/LandingPage/SearchBar/SearchBar";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import Navbar from "../../componentes/Navbar/Navbar";
-import praia from "../../assets/locais/praia.svg";
-import arlivre from "../../assets/locais/arlivre.svg";
-import castelo from "../../assets/locais/castelo.svg";
-import hotel from "../../assets/locais/hotel.svg";
-import industria from "../../assets/locais/industria.svg";
-import igreja from "../../assets/locais/igreja.svg";
-import salao from "../../assets/locais/salaãoDeFestas.svg";
-import sitio from "../../assets/locais/sitio.svg";
 
 import React, { useState, useEffect } from "react";
 
@@ -21,6 +13,7 @@ import CategoriaNavegacao from "../../componentes/CategoriaNavegacao/CategoriaNa
 import { dadosLocais } from "../../componentes/mocks/mockData";
 import CategoriaCards from "../../componentes/CategoriaCards/CategoriaCards.jsx";
 import { request } from "../../config/axios/axios.js";
+import { defineLocalImage } from "../Fornecedores/FornecedorService.jsx";
 
 function Locais() {
   const [page, setPage] = useState(1);
@@ -31,20 +24,20 @@ function Locais() {
 
   useEffect(() => {
     request.getSubcategoriasByNome("locais").then((response) => {
-      response.data.content.forEach(content => {
-        content.imagemUrl = defineLocalImage(content.nome)
-      })
-      setCardsData(response.data)
+      response.data.content.forEach((content) => {
+        content.imagemUrl = defineLocalImage(content.nome);
+        console.log(content.nome, content.imagemUrl);
+      });
+      setCardsData(response.data);
       console.log(response.data);
-      
-    })
+    });
   }, []);
 
   const handleCategoryClick = async (categoria) => {
     console.log("Categoria selecionada:", categoria);
-    const fornecedores = await request.getFornecedores(`${categoria.id}`)
+    const fornecedores = await request.getFornecedores(`${categoria.id}`);
     console.log(fornecedores);
-    
+
     setSelectedCategory(fornecedores.data);
     setPage(1);
   };
@@ -53,26 +46,7 @@ function Locais() {
     setPage(value);
   };
 
-  const categorias = [
-    { nome: "Praia", imagem: praia },
-    { nome: "Espaços Industriais", imagem: industria },
-    { nome: "Espaços de Eventos", imagem: salao },
-    { nome: "Castelos", imagem: castelo },
-    { nome: "Ar Livre", imagem: arlivre },
-    { nome: "Hotéis", imagem: hotel },
-    { nome: "Sítios", imagem: sitio },
-    { nome: "Igrejas", imagem: igreja },
-  ];
-
-  const defineLocalImage = (nomeSubcategoria) => {    
-    const categoria = categorias.filter(categoria => categoria.nome == nomeSubcategoria)[0];
-    if(categoria != undefined){
-      const imagem = categoria.imagem;
-      console.log(imagem);
-      
-      return imagem;
-    }
-  }
+    
 
   return (
     <div className={styles.containerPai}>
@@ -95,7 +69,7 @@ function Locais() {
             <CategoriaNavegacao
               categorias={cardsData}
               onSelectCategory={handleCategoryClick}
-              tipo="locais" 
+              tipo="locais"
             />
           ) : (
             <CategoriaCards
@@ -107,11 +81,11 @@ function Locais() {
             />
           )
         ) : (
-         <DetalhesPerfil
-          selectedCard={selectedCard}
-          handleBack={() => setSelectedCard(null)}
-          cardsData={cardsData}
-        />
+          <DetalhesPerfil
+            selectedCard={selectedCard}
+            handleBack={() => setSelectedCard(null)}
+            cardsData={cardsData}
+          />
         )}
       </div>
 

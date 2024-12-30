@@ -67,7 +67,7 @@ function NavAssessor() {
       descricao:
         "Visualize os casamentos confirmados no calendário e confira novas propostas de clientes.",
       icon: faCalendarAlt,
-      rota: "/painel",
+      rota: "/assessores/calendario",
     },
     {
       nome: "Painel",
@@ -82,7 +82,7 @@ function NavAssessor() {
         descricao:
           "Em breve",
         icon: faListCheck,
-        rota: "/lista-tarefas",
+        rota: "/assessores/cronograma",
     },
      ];
 
