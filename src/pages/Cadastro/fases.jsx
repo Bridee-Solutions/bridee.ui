@@ -155,6 +155,7 @@ const usuarioCasal = () => {
         local: "",
         dataCasamento: "",
         quantidadeConvidados: 0,
+        tamanhoCasamento: "",
         externo: false
     }
 }

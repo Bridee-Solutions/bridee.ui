@@ -163,7 +163,8 @@
 }
 
 .buttonYearControl:hover {
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
+    cursor: pointer;
 }
 
 .arrow {
@@ -177,6 +178,7 @@
     text-align: center; /* text-center */
     font-size: 1.125rem; /* text-lg */
     font-weight: 600;
+    font-family: "Montserrat";
 }
 
 .daysOfTheWeek {
@@ -186,6 +188,7 @@
     justify-content: space-between; /* justify-between */
     color: #FFFFFF;
     background-color: #DD7B78;
+    font-family: "Montserrat";
 }
 
 .dayOfTheWeek {
@@ -253,6 +256,8 @@
     color: white;
     background-color: #DD7B78;
     cursor: pointer;
+    font-family: "Montserrat";
+    font-size: 0.9rem;
 }
 
 .eventModal{
@@ -262,14 +267,21 @@
     width: 170px;
     height: fit-content;
     background-color: white;
-    line-height: 1.3rem;
+    line-height: 1.5rem;
     display: none;
+    font-family: "Montserrat";
+    font-size: 0.9rem;
+    border-radius: 10px 6px 0px 0px;
 }
 
 .eventoModalHeader{
     background-color: #DD7B78;
     color: white;
     padding-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 10px 6px 0px 0px;
+    font-size: 0.9rem;
 }
 
 .eventoModalName{
@@ -278,7 +290,7 @@
 }
 
 .eventoModalDate span{
-    font-size: 16px;
+    font-size: 0.8rem;
 }
 
 .eventoModalDateIcon{

@@ -6,10 +6,12 @@ import { GoogleLogin } from "@react-oauth/google";
 import LateralImage from "../../componentes/LoginLateralImage";
 import { jwtDecode } from "jwt-decode";
 import { request } from "../../config/axios/axios";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { buildObjectFromQueryParam } from "../Cadastro/fases";
 import { encrypt } from "../../utils/criptografia";
+import { CasalContext } from "../../context/CasalContext";
+import { AssessorContext } from "../../context/AssessorContext";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,6 +21,7 @@ const Login = () => {
   const tipo = useRef();
   const [oldTipo, setTipo] = useState();
   const esqueceuSenhaElement = useRef();
+  const {setCasamentoId, setAssessorId} = useContext(CasalContext);
 
   const authenticate = () => {
     const usuario = {
@@ -43,9 +46,9 @@ const Login = () => {
           } else {
             toast.error("Ative a conta antes de conseguir logar");
           }
-        }else{
-          toast.error("Usuário ou senha inválidos");
         }
+      }).catch(err => {
+        toast.error("Usuário ou senha inválidos");
       })
   };
 
@@ -54,9 +57,13 @@ const Login = () => {
     localStorage.setItem("isAuthenticated", encrypt(true))
     if(data.casamentoId){
       localStorage.setItem("casamentoId", encrypt(data.casamentoId))
+      localStorage.removeItem("assessorId");
+      setCasamentoId(data.casamentoId)
     }
     if(data.assessorId){
       localStorage.setItem("assessorId", encrypt(data.assessorId))
+      localStorage.removeItem("casalId");
+      setAssessorId(data.assessorId)
     }
   }
 

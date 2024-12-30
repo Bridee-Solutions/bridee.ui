@@ -271,10 +271,10 @@
   height: 20vw;
 } 
 .containerColunaDireita {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 170vh;
+  display: flex
+  ;
+      flex-direction: column;
+      gap: 43px;
 } 
 .conteudoColuna {
   justify-content: space-between;

@@ -1,81 +1,155 @@
-
 .configuracoesContainer {
-    border: 3px solid blue;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    min-height: 80vh;
-    padding: 5vh 10vw;
-    background-color: #f9f6f4;
-  }
-  
-  
-  .tituloPagina {
-    border: 3px solid green;
-    font-size: 3.5vh;
-    color: #333;
-    text-align: center;
-  
-  }
-  
-  
-  .secoesConfiguracoes {
-    border: 3px solid purple;
-    display: flex;
-    justify-content: space-between;
-    gap: 5%;
-    width: 100%;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #F3EED9;
 
-  .card {
-    border: 3px solid orange;
+}
+
+.textosCard{
+  /* border: 3px solid blue; */
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    width: 45%;
-    padding: 5%;
-    background-color: #fff;
-    border: 0.3vh solid #ddd;
-    border-radius: 1vh;
-    box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  .cardHeader {
-    border: 3px solid chocolate;
-    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloCard{
+  /* border: 3px solid green; */
+  font-size: 1.3rem;
+  font-family: 'Montserrat';
+  padding-bottom: 2%;
+}
+
+.tituloCard2{
+  /* border: 3px solid green; */
+  font-size: 1.3rem;
+
+  font-family: 'Montserrat';
+}
+
+.pencil{
+  /* border: 3px solid orange; */
+ 
+}
+
+
+.containerText{
+  /* border: 3px solid purple; */
+  width: 90%;
+  height:  85%;
+}
+
+.tituloPagina {
+  font-size: 4.5vh;
+  display: flex;
+  font-weight: 400;
+    font-family: 'PlayFair Display';
+    color: #333;
+    height: 12vh;
+    padding: 1% 3% 1%;
+    text-align: center;
+
+}
+
+/* .ConfiguracoesDaConta{
+  height: 3vh;
+
+} */
+
+.secoesConfiguracoes {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  /* border: 3px solid black; */
+
+  width: 100%;
+  align-items: center;
+}
+
+.container{
+  /* border: 3px solid green; */
+    width: 100%;
+}
+
+.colunas{
+  /* border: 3px solid red; */
+  background-color: white;
+  width: 72%;
+  height: 90%;
+  border-radius: 26px;  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 44%;
+  height: 57vh;
+  background-color: #fff;
+  border: 1px solid #cbcbcb;;
+  border-radius: 3vh;
+}
+
+.cardHeader {
+  display: flex;
+    height: 15%;
     justify-content: space-between;
     align-items: center;
-    
-  }
-  
-  .cardHeader h2 {
-    font-size: 3.5vh;
-    color: #333;
-  }
-  
-  
-  .iconEdit {
-    border: 3px solid yellow;
-    font-size: 2vh;
-    color: #d17c78;
-    cursor: pointer;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .iconEdit:hover {
-    border: 3px solid red;
-    color: #b96464;
-  }
-  
- 
-  .card p {
-    border: 3px solid green;
-    font-size: 2vh;
-    line-height: 1.5;
-    color: #555;
-  }
-  
+    /* border: 2px solid red; */
+    width: 90%;
+
+}
+
+.cardHeader h2 {
+  font-size: 2.5vh;
+  color: #333;
+}
+
+.iconEdit {
+  font-size: 2.5vh;
+  color: #d17c78;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.iconEdit:hover {
+  color: #b96464;
+}
+
+.cardContent {
+  display: flex;
+    flex-direction: column;
+    height: 82%;
+    width: 88%;
+    gap: 1.5vh;
+    align-content: center;
+    justify-content: flex-start;
+    font-size: 0.9rem;
+    font-family: 'Montserrat';
+
+}
+
+.detailRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.value {
+  font-size: 2.3vh;
+  color: #757272;
+  font-family: 'Montserrat';
+}
+

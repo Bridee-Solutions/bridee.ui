@@ -1,6 +1,6 @@
 import styles from "./Assessor.module.css";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import iconeAssessor from "../../assets/painel/assessor.svg";
 import Modal from "../Modal/Modal";
 import ModalHeader from "../Modal/ModalHeader/ModalHeader";
@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { request } from "../../config/axios/axios";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { CasalContext } from "../../context/CasalContext";
 
 function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
   const [modalAberto, setModalAberto] = useState(false);
@@ -18,6 +19,7 @@ function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
   const [assessorSelected, setAssessorSelected] = useState();
   const [assessor, setAssessor] = useState();
   const [isChosen, setIsChosen] = useState(false);
+  const {casamentoId} = useContext(CasalContext)
 
   const assessorModalRef = useRef();
 
@@ -42,8 +44,8 @@ function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
   };
 
   const selectedAssessorStyle = (e) => {
-    e.target.style.backgroundColor = `#DD7B78`;
-    e.target.style.color = `white`;
+    e.target.style.backgroundColor = `#ebebeb`;
+    e.target.style.color = `black`;
   };
 
   const resetAssessorStyle = (assessor) => {
@@ -63,16 +65,17 @@ function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
 
   const vinculateAssessorToWedding = async () => {
     const assessor = await request.vinculateAssessorToWedding(
-      2,
+      casamentoId,
       assessorSelected.id
     );
     console.log(assessor);
     setAssessor(assessor.data);
+    setIsChosen(true)
     fecharModal();
   };
 
   const updateAssessorPrice = async (value) => {
-    request.updatePrecoAssessor(assessor.id, 2, Number(value));
+    request.updatePrecoAssessor(assessor.id, casamentoId, Number(value));
     const newPrice = Number(value);
     const assessorPrice = assessorResponseDto.preco;
     orcamento.orcamentoGasto =

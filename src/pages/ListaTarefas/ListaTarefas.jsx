@@ -245,9 +245,6 @@ function ListaTarefas() {
                 setCheckedCount(totalChecked);
     
             })
-            .catch(() => {
-                toast.error("Houve um erro ao carregar as tarefas");
-            });
 
         } else {
             let uri = "?";
@@ -289,9 +286,7 @@ function ListaTarefas() {
                 setGruposDeTarefas(tarefas);
                 setCheckedCount(totalChecked);
     
-            }).catch(() => {
-                toast.error("Houve um erro ao carregar as tarefas");
-            });
+            })
         }
     };
 

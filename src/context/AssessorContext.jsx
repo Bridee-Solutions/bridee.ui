@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { rotasComuns } from "./Context";
+import { decrypt } from "../utils/criptografia";
 
 
 export const AssessorContext = createContext()
@@ -8,6 +9,10 @@ export const AssessorContext = createContext()
 export const AssessorContextProvider = ({children, ...props}) => {
 
     const navigate = useNavigate()
+    const [assessorId, setAssessorId] = useState(() => {
+        return decrypt(localStorage.getItem("assessorId") ? 
+            localStorage.getItem("assessorId") : "");
+    })
     
     useEffect(() => {        
         const pathname = location.pathname;
@@ -27,7 +32,7 @@ export const AssessorContextProvider = ({children, ...props}) => {
     },[])
 
     return(
-        <AssessorContext.Provider value={{assessorId: props.assessorId}}>
+        <AssessorContext.Provider value={{assessorId: assessorId, setAssessor: setAssessorId, setContext: props.setContext}}>
             {children}
         </AssessorContext.Provider>
     )

@@ -203,7 +203,7 @@ export const ContinuousCalendar = ({ onClick, acceptedProposals, year, setYear})
                       <div className={styles.eventoModalDate}>
                         <FontAwesomeIcon icon={faLocationDot} className={styles.eventoModalDateIcon}/>
                         <span>
-                          {proposal?.local}
+                        {proposal?.local ? proposal.local : "A definir"}
                         </span>
                       </div>
                     </div>

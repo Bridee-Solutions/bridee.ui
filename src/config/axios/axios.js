@@ -15,8 +15,8 @@ export const request = {
     getAssessores: async (nome = "") => {
         return await Api.get(`/assessores?nome=${nome}`).then(response.data)
     },
-    getAssessoresDetails: async () => {
-        return await Api.get(`/assessores/details`).then(response.data);
+    getAssessoresDetails: async (page = 0, size = 6) => {
+        return await Api.get(`/assessores/details?page=${page}&size=${size}`).then(response.data);
     },
     getAssessorInformation: async (assessorId) => {
         return await Api.get(`/assessores/information/${assessorId}`).then(response.data);
@@ -24,8 +24,8 @@ export const request = {
     getFornecedoresByCategoria: async (categoriaId, nome = "") => {
         return await Api.get(`/fornecedores/details/categoria/${categoriaId}?nome=${nome}`)
     },
-    getFornecedores: async (subcategoriaId) => {
-        return await Api.get(`/fornecedores/details/subcategoria/${subcategoriaId}`).then(response.data)
+    getFornecedores: async (subcategoriaId, page = 0, size = 6) => {
+        return await Api.get(`/fornecedores/details/subcategoria/${subcategoriaId}?size=${size}&page=${page}`).then(response.data)
     },
     getFornecedoresInformation: async(fornecedorId) => {
         return await Api.get(`/fornecedores/information/${fornecedorId}`).then(response.data)
@@ -72,8 +72,8 @@ export const request = {
     saveItensOrcamentos: async(itensOrcamentoRequest) => {
         return await Api.post(`/itens-orcamento`, itensOrcamentoRequest)
     },
-    saveOrcamentoFornecedor: async(orcamentoFornecedorRequest, categoriaId) => {
-        return await Api.post(`/orcamento-fornecedor/categoria/${categoriaId}`, orcamentoFornecedorRequest)
+    saveOrcamentoFornecedor: async(orcamentoFornecedorRequest, categoriaId, casamentoId) => {
+        return await Api.post(`/orcamento-fornecedor/categoria/${categoriaId}/casamento/${casamentoId}`, orcamentoFornecedorRequest)
     },
     deleteItemOrcamento: async(id) => {
         return await Api.delete(`/itens-orcamento/${id}`)

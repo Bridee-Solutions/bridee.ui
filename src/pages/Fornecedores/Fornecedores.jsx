@@ -10,9 +10,10 @@ import DetalhesPerfil from "../../componentes/DetalhesPerfil/DetalhesPerfil.jsx"
 import CategoriaNavegacao from "../../componentes/CategoriaNavegacao/CategoriaNavegacao.jsx";
 import CategoriaCards from "../../componentes/CategoriaCards/CategoriaCards.jsx";
 import { request } from "../../config/axios/axios.js";
+import { defineLocalImage, fornecedorImage } from "./FornecedorService.jsx";
 
 function Fornecedores() {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState();
   const cardsPerPage = 6;
   const [cardsData, setCardsData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -22,7 +23,12 @@ function Fornecedores() {
 
   useEffect(() => {
     request.getCategorias().then(response => {
+      response.data.content.forEach((content) => {
+        content.imageUrl = fornecedorImage(content)
+      })
       setCardsData(response.data);
+      console.log(response.data);
+      
     })
   }, []);
 
@@ -33,6 +39,11 @@ function Fornecedores() {
     }finally{
 
         if(!isSubcategoria && subcategorias.data.content.length > 1){
+          subcategorias.data.content?.forEach(response => {
+            response.imagemUrl = defineLocalImage(response.nome)
+          })
+          console.log(subcategorias);
+          
           setCardsData(subcategorias.data)
           setIsSubcategoria(true)
           return;
@@ -41,9 +52,10 @@ function Fornecedores() {
         setSelectedCategory(categoria);
         
         request.getFornecedores(categoria.id).then(response => {
+          setPage(response.data.page)
           setFilteredCards(response.data);
+          console.log(page);
         })
-        setPage(1);
     }
     
   };
@@ -51,6 +63,9 @@ function Fornecedores() {
   const returnToCategories = () => {
     setIsSubcategoria(false)
     request.getCategorias().then(response => {
+      response.data.content?.forEach((content) => {
+        content.imageUrl = fornecedorImage(content)
+      })
       setCardsData(response.data);
       
     })
@@ -64,6 +79,11 @@ function Fornecedores() {
   }
 
   const handleChange = (event, value) => {
+      request.getFornecedores(selectedCategory.id, Number(value) -1).then(response => {
+        setPage(response.data.page)
+        setFilteredCards(response.data);
+        console.log(page);
+      })
     setPage(value);
   };
 
@@ -96,7 +116,7 @@ function Fornecedores() {
               cards={filteredCards}
               onCardClick={fetchFornecedorDetails}
               onBack={() => setSelectedCategory(null)}
-              totalPages={cardsData.page.totalPages}
+              totalPages={page?.totalPages}
               onPageChange={handleChange}
             />
           )

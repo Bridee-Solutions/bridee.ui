@@ -2,10 +2,11 @@ import { encrypt } from "../../utils/criptografia";
 import { Api } from "./axios";
 
 export const interceptorsConfiguration = () => {
-    const rotasExcluidas = ["/login", "/", "/cadastrar", "/reenviar-email"]
+    const rotasExcluidasBackEnd = ["/authentication", "/casais","/casais/externo", "/assessores",
+        "/assessores/externo", "/assessores/validate-fields", "/usuarios/**", "/refresh-token"]
     
     Api.interceptors.request.use(config => {
-        if (rotasExcluidas.includes(config.url)) {
+        if (rotasExcluidasBackEnd.includes(config.url)) {
             return config;
         }
         const token = localStorage.getItem("access_token");
@@ -19,20 +20,17 @@ export const interceptorsConfiguration = () => {
         return response
         }, (error) => {
             const config = error.config
-    
-            if(!rotasExcluidas.includes(config.url) && error.response){
+            
+            if(!rotasExcluidasBackEnd.includes(config.url) && error.response){
                 if(error.response.status == 401 && !config._retry){
+                    config._retry = true;
                     return refreshToken().then(response => {
                         if(response.status == 204){
                             return Api(config)
                         }
                     }).catch((error) => {
-                        if(error.status == 401){
-                            localStorage.clear();
-                            return Promise.reject(error)
-                        }
-                    }).finally(() => {
-                        config._retry = true;
+                        localStorage.clear()
+                        window.location.href = "/login"
                     })
                 }
             }

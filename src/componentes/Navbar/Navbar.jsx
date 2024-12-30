@@ -78,7 +78,7 @@ function NavComp() {
       descricao:
         "Uma lista de convidados prática e intuitiva para ajudar você a gerenciar facilmente quem irá convidar e acompanhar as confirmações.",
       icon: faClipboardList,
-      rota: "/lista-convidados/:casamentoId",
+      rota: "/lista-convidados",
     },
     {
       nome: "Lista de tarefas",
@@ -87,13 +87,7 @@ function NavComp() {
       icon: faListCheck,
       rota: "/lista-tarefas",
     },
-    {
-      nome: "Planejador de assentos",
-      descricao:
-        "Um planejador de assentos intuitivo para organizar sua recepção de forma fácil e eficaz.",
-      icon: faChair,
-      rota: "/planejador-assentos",
-    },
+    
     {
       nome: "Calculadora Financeira",
       descricao:
@@ -133,6 +127,7 @@ function NavComp() {
   };
 
   const handleLogoff = () => {
+    localStorage.clear()
     navigate("/login");
   };
 
@@ -146,7 +141,7 @@ function NavComp() {
       <div className={styles.superior}>
         <div
           className={styles.logo}
-          onClick={() => (window.location.href = "http://localhost:5173/")}
+          onClick={() => navigate("/")}
         >
           bridee<span>.</span>
         </div>
@@ -169,23 +164,11 @@ function NavComp() {
               {dropdownAberto && (
                 <div className={styles.dropdownContainer}>
                   <div className={styles.dropdownContent}>
-                    <div className={styles.coluna}>
-                      {/* Renderizando o primeiro item */}
-                      <DropdownItem
-                        key={ferramentasDePlanejamento[0].nome}
-                        item={ferramentasDePlanejamento[0]}
-                        onClick={() =>
-                          handleClick(
-                            ferramentasDePlanejamento[0].nome,
-                            ferramentasDePlanejamento[0].rota
-                          )
-                        }
-                      />
-                    </div>
+                   
 
                     <div className={styles.coluna}>
                       {/* Renderizando o segundo e terceiro item */}
-                      {ferramentasDePlanejamento.slice(1, 3).map((item) => (
+                      {ferramentasDePlanejamento.slice(0, 2).map((item) => (
                         <DropdownItem
                           key={item.nome}
                           item={item}
@@ -196,7 +179,7 @@ function NavComp() {
 
                     <div className={styles.coluna}>
                       {/* Renderizando o quarto e o quinto item*/}
-                      {ferramentasDePlanejamento.slice(3, 5).map((item) => (
+                      {ferramentasDePlanejamento.slice(2, 4).map((item) => (
                         <DropdownItem
                           key={item.nome}
                           item={item}
@@ -248,7 +231,8 @@ function NavComp() {
 
         <div className={styles.circle}>
           <div className={styles.prala}>
-            <div className={styles.configs}>
+            <div className={styles.configs} onClick={() => navigate("/configuracoes-casal")}>
+            
               <FontAwesomeIcon icon={faUser} className={styles.icon_nav} />
             </div>
             <div className={styles.configs} onClick={handleLogoff}>

@@ -126,6 +126,8 @@
     background-color: white;
     border: 1px solid #A9a8a8;
     font-family: "Montserrat";
+        
+    width: 100%;
 }
 
 .add_convidado_button button{

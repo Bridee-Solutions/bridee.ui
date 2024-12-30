@@ -31,7 +31,6 @@ input:focus {
 .container_body { 
     width: 100%;
     height: fit-content;
-    width: 100%;
     height: fit-content;
 }
 
@@ -162,9 +161,9 @@ input:focus {
 .add_button,
 .whatsapp_button {
     width: 206px;
-    height: 43px;
+    height: 38px;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 0.9rem;
     border: 0px;
     cursor: pointer;
 }
@@ -205,6 +204,11 @@ input:focus {
 .modal_footer .cancel_button:hover {
     background-color: #e0e0e0;
 }
+
+.modal_footer .add_button:hover {
+    background-color: #ce625e;
+}
+
 
 
 .modal_footer .add_button {
