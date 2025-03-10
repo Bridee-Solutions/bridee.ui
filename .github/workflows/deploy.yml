@@ -12,19 +12,19 @@ jobs:
       matrix:
         node-version: [22.12.0]
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Use node.js ${{matrix.node-version}}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{matrix.node-version}}
-    - run: npm install
-    - run: npm build
+      - uses: actions/checkout@v4
+      
+      - name: Use node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+      - run: npm install
+      - run: npm build
 
-    - name: Serveless deploy on S3 --no-confirm
-    - uses: serverless/github-action@master
-      with:
-        args: client deploy --no-confirm
-      env:
-        AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY}}
-        AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+      - name: Serveless deploy on S3 --no-confirm
+      - uses: serverless/github-action@master
+        with:
+          args: client deploy --no-confirm
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
