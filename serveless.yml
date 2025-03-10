@@ -1,0 +1,17 @@
+service: serverless-s3
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+
+plugins:
+  - serverless-finch
+
+  
+custom:
+ client:
+   bucketName: bridee-ui-bucket
+   distributionFolder: build
+   indexDocument: index.html
+   errorDocument: index.html
