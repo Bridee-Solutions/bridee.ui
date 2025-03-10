@@ -10,14 +10,13 @@ COPY . .
 
 RUN npm run build
 
-FROM node:22-alpine
+FROM nginx:alpine
 
 WORKDIR /app
 
-COPY --from=build /app/package.json ./package.json
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 5173
+EXPOSE 80/tcp
 
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+CMD ["nginx", "-g", "daemon off;"]
