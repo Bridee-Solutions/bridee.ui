@@ -36,6 +36,7 @@
     "react-router-dom": "^6.26.1",
     "react-spinners": "^0.15.0",
     "react-toastify": "^10.0.5",
+    "serverless": "^4.7.0",
     "simplebar-react": "^3.2.6",
     "swiper": "^11.1.14",
     "uuid": "^11.0.2"
@@ -50,6 +51,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "serverless-finch": "^4.0.4",
     "vite": "^5.4.1"
   }
 }
