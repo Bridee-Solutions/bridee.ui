@@ -2,7 +2,8 @@ name: S3 bucket deploy
 
 on:
   push:
-    branches: [feat/pipeline-ci-cd-s3]
+    branches: 
+      - feat/pipeline-ci-cd-s3
 
 jobs:
   build:
