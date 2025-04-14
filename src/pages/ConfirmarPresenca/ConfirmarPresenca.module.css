@@ -1,197 +1,243 @@
-.page {
-    background-color: #F3EED9;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 3px solid yellow; */
+.container {
+  background-color: #f3eed9;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 100%;
+  background-image: url("../../assets/confirm_invite_bg.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.title_confirm {
+  width: 70%;
+}
+
+.title_confirm_final {
+  width: 100%;
+}
+
+.title_confirm,
+.title_confirm_final {
+  font-weight: 800;
+  font-size: 3rem;
+  font-family: "ProductSans";
+  text-align: center;
+}
+
+.description_confirm {
+  text-align: center;
+  width: 70%;
+  font-size: 1rem;
+  font-family: "Poppins";
+}
+
+.input_container {
+  width: 100%;
+}
+
+.proceed_button {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 1rem;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 20%;
+  height: 5vh;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.proceed_button {
+  background-color: #d86b67;
+}
+
+input {
+  height: 5vh;
+  width: 100%;
+  border: 1px solid #999999;
+  border-radius: 5px;
+  padding: 1px 20px;
+  font-family: "Poppins";
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .defaultBackground {
-    width: 53%;
-    height: 100vh;
-    /* max-width: 48%; */
-    /* border: 4px solid red; */
-    background-image: url(/src/assets/confirmarpresenca/Ellipse68.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  
+  to {
+    transform: rotate(360deg);
   }
-  
-  .formulario{
-    /* border: 2px solid pink; */
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+}
+
+.loading {
+  animation: spin 1s linear infinite;
+}
+
+.error_message {
+  color: #e83737;
+}
+
+.guest_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  height: 30vh;
+  width: 100%;
+  overflow: auto;
+}
+
+.row_guest {
+  padding: 0 20px;
+  background-color: #ffffff;
+  align-items: center;
+  height: 40px;
+  border-radius: 5px;
+  min-height: 6vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 95%;
+  font-family: "Montserrat";
+}
+
+.row_guest span {
+  text-align: center;
+}
+
+.attending_buttons_container {
+  background-color: #f9f9f9;
+  border: 1px solid #d1cbcb;
+  height: 80%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-around;
+}
+
+.attending_buttons_container button {
+  background-color: transparent;
+  height: 80%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  border: 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.selected_attending {
+  background-color: #696969 !important;
+  color: #ffffff;
+}
+
+.title_description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .guest_list {
+    height: 50vh;
+  }
+
+  .title_confirm,
+  .title_confirm_final {
+    font-size: 3.8rem;
     width: 100%;
+    font-weight: bold;
   }
-  
-  .insira{
-        /* border: 3px solid red; */
-        display: flex;
-        font-weight: 700;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        font-size: 3rem;
-        height: 31%;
-        align-items: center;
-        font-family: 'Product Sans';
+
+  .description_confirm {
+    width: 100%;
+    font-size: 1.1rem;
   }
-  
-  .errorBackground {
-    width: 53%;
-    height: 100vh;
-    /* max-width: 48%; */
-    /* border: 4px solid red; */
-    background-image: url(/src/assets/Ellipse.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  
-  }
-  
-  .heading {
-    font-size: 70px;
-    font-weight: 700;
-    height: 23vh;
-    /* border: 3px solid green; */
-    font-family: 'Montserrat', sans-serif;
-    color: #333;
-  }
-  
-  .description {
-    font-size: 1.2rem;
-    height: 10%;
-    width: 62%;
-    color: #000000;
-    font-family: 'Montserrat';
+
+  .title_description {
     text-align: center;
-    font-weight: 400;
-    /* border: 3px solid blue; */
-    
   }
-  
+
+  .form_confirm {
+    gap: 50px;
+    background-image: none;
+  }
+
+  .input_container {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error_message {
+    font-size: 0.85rem;
+  }
   .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 98%;
-    height: 35%;
-    /* border: 3px solid purple; */
-    justify-content: space-around;
-    /* border: 3px solid purple; */
+    gap: 50px;
   }
-  
-  .input {
-    width: 73%;
-    height: 22%;
-    padding: 2.9%;
-    font-size: 1rem;
-    border: none;
-    font-size: 0.9rem;
+  .proceed_button {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .row_guest {
+    width: 100%;
+    display: flex;
     border-radius: 10px;
-     /* border: 3px solid orange; */
-  }
-  
-  .button {
-    width: 100%;
-    height: 7vh;
-    /* max-width: 200px; */
-    font-size: 1rem;
-    font-weight: 500;
-    background-color: #d67a66;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: "Montserrat" ;
-    /* border: 3px solid violet;*/
-  }
-  
-  .botao{
-    width: 32%;
-    height: 7vh;
-    /* max-width: 200px; */
-    font-size: 1.2rem;
-    background-color: #d67a66;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-  
-  .button:disabled {
-    background-color: #e8a89b;
-    /* border: 3px solid black; */
-  }
-  
-  .arrowIcon {
-    width: 1em;
-    height: auto;
-  }
-  
-  .errorContainer {
-    background-color: #ffe6e6;
-    border-radius: 8px;
-    /* border: 3px solid red; */
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  .container{
-    width: 100%;
-    /* border: 3px solid green; */
-    display: flex;
+    gap: 12px;
+    min-height: 12vh;
+    padding: 10px;
     flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
   }
-  
-  .errorMessage {
-    color: #e83737;
-      font-size: 0.9rem;
-      /* border: 3px solid brown; */
-      margin: 0;
-      width: 60%;
-      height: 30%;
-      text-align: center;
+
+  .form_confirm {
+    width: 80%;
   }
-  
-  @media (max-width: 600px) {
-    .heading {
-      font-size: 1.5rem;
-    }
-  
-    .description,
-    .input,
-    .button,
-    .errorMessage {
-      font-size: 0.9rem;
-    }
-  
-    .button {
-      padding: 10px;
-    }
+
+  .attending_buttons_container {
+    width: 95%;
+    border-radius: 15px;
   }
-  
-  
+
+  .row_guest span {
+    width: 95%;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+
+
+.attending_buttons_container button {
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+}
