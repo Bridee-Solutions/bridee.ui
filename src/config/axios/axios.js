@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { interceptorsConfiguration } from './interceptor';
 
-const baseUrl = import.meta.env.VITE_BACKEND_URL;
+const baseUrl = window.ENV?.VITE_API_GATEWAY_URL
 export const Api = axios.create({
     baseURL: baseUrl,
     withCredentials: true
