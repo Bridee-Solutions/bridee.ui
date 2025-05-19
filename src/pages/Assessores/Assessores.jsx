@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../../componentes/Navbar/Navbar";
 import Banner from "../../componentes/Banner/Banner";
 import SearchBar from "../../componentes/LandingPage/SearchBar/SearchBar";
@@ -10,20 +10,16 @@ import imagem from "../../assets/Banner/assessorbanner.svg";
 
 import DetalhesPerfil from "../../componentes/DetalhesPerfil/DetalhesPerfil.jsx";
 import CategoriaCards from "../../componentes/CategoriaCards/CategoriaCards.jsx";
-import { dataAssessor } from "../../componentes/mocks/mockData";
 import { request } from "../../config/axios/axios.js";
 
 function Assessores() {
   const [page, setPage] = useState(1);
-  const cardsPerPage = 6;
   const [cardsData, setCardsData] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [showAssessor, setShowAssessor] = useState(false);
 
   const [totalCards, setTotalCards] = useState(0);
-  // const totalPages = Math.ceil(totalCards / cardsPerPage);
 
-  // função para mudar a página
   const handleChange = (event, value) => {
     request.getAssessoresDetails(Number(value) - 1).then(response => {
       console.log(response);

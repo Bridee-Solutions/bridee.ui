@@ -4,7 +4,7 @@ import "./CategoriaCalculadora.module.css";
 import "../../index.css";
 import add from "../../assets/calculadora/add.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   faChevronDown,
@@ -28,7 +28,6 @@ function CategoriaCalc({
   const [isModified, setIsModified] = useState(false);
   const [category, setCategory] = useState(categoria)
   const [isCategoriaModified, setIsCategoriaModified] = useState(false);
-  const {casamentoId} = useContext(CasalContext);
 
   const adicionarItem = () => {
     category.custos.push({
@@ -88,7 +87,6 @@ function CategoriaCalc({
     itensOrcamentoRequest = [{
       id: category.id,
       tipo: category.tipo,
-      casamentoId: casamentoId,
       custos: category.custos?.map(custo => {
         return {
           id: custo.id,

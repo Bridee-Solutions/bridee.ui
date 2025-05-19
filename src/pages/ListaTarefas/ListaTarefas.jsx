@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect, useContext} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import { toast } from "react-toastify";
 import styles from "./ListaTarefas.module.css";
 import "../../index.css";
@@ -23,7 +23,6 @@ import ModalBody from "../../componentes/Modal/ModalBody/ModalBody";
 import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
-import { CasalContext } from '../../context/CasalContext';
 
 function ListaTarefas() {
     const [checkedCount, setCheckedCount] = useState(0);
@@ -43,7 +42,6 @@ function ListaTarefas() {
     const descriptionTaskView = useRef(null);
     const dateTaskView = useRef(null);
     const categoryTaskView = useRef(null);
-    const {casamentoId} = useContext(CasalContext);
     
     useEffect(() => {loadTasks()}, []);
     
