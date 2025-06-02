@@ -88,7 +88,7 @@ export const request = {
         return await Api.get(`/orcamentos/csv/casamento`)
     },
     getDashboard: async() => {
-        return await Api.get(`/dashboards/casamento`)
+        return await Api.get(`/dashboards`)
     },
     vinculateAssessorToWedding: async(assessorId) => {
         return await Api.put(`/casamentos/assessor/${assessorId}`)
@@ -146,14 +146,14 @@ export const request = {
     deleteConvidado: async (convidadoId) => {
         return await Api.delete(`/convidados/${convidadoId}`);
     },
-    getRelatorio: async(casamentoId) => {
-        return await Api.get(`/convites/casamento/${casamentoId}/relatorio`)
+    getRelatorio: async() => {
+        return await Api.get(`/convites/relatorio`)
     },
     deleteAllInvites: async(casamentoId) => {
         return await Api.delete(`/convites/casamento/${casamentoId}`)
     },
-    getConvitesResumo: async(casamentoId) => {
-        return await Api.get(`/convites/casamento/${casamentoId}/resumo`)
+    getConvitesResumo: async() => {
+        return await Api.get(`/convites/resumo`)
     },
     getProposals: async() => {
         return await Api.get(`/assessores/casais/pendentes`).then(response.data)

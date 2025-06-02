@@ -8,7 +8,6 @@ import { CasalContextProvider } from './context/CasalContext';
 import SimpleBar from 'simplebar-react';
 
 function App() {
-  // const [loading, setLoading] = useState(false);
 
     return (
       <Router>
@@ -17,7 +16,7 @@ function App() {
           <Routes>
               <Route>
                   {rotas?.map(rota => {
-                      return <Route path={rota.path} element={rota.element}></Route>
+                      return <Route key={rota.path} path={rota.path} element={rota.element}></Route>
                   })}
               </Route>
           </Routes>

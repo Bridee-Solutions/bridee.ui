@@ -41,7 +41,7 @@ function Painel() {
       formData.append("file", file)
       const imageMetadata = {
         nome: `${dashboardInfo.casamentoInfo.casal.nome}&${dashboardInfo.casamentoInfo.casal.nomeParceiro}`,
-        tipo: `Perfil`,
+        tipo: `PERFIL`,
         extensao: `${file.name.split(".")[file.name.split(".").length-1]}`
       }
       formData.append("metadata", JSON.stringify(imageMetadata))
@@ -71,7 +71,7 @@ function Painel() {
     request.getDashboard().then(response => {
       setDashboardInfo(response.data)
       setOrcamento(response.data.orcamento)
-      const url = `data:image/**;base64,${response.data.casamentoInfo.image}`
+      const url = `${response.data.casamentoInfo.image}`
       setImageUrl(url)
     })
     

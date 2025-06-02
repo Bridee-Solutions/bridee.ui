@@ -181,7 +181,7 @@ function ListaTarefas() {
       dataLimite: dateTaskSave.current.value,
     };
 
-        request.saveTask(casamentoId, newTask)
+        request.saveTask(newTask)
         .then(() => {
             fecharModalAdd();
             loadTasks();
@@ -208,7 +208,7 @@ function ListaTarefas() {
     };
 
         console.log(updatedTask)
-        request.updateTask(casamentoId, updatedTask)
+        request.updateTask(updatedTask)
         .then(() => {
             loadTasks();
             fecharModalView();
@@ -227,7 +227,7 @@ function ListaTarefas() {
         const isEmpty = Object.keys(filters).length === 0 && filters.constructor === Object;
         
         if (isEmpty){
-            request.getTasks(casamentoId)
+            request.getTasks()
             .then((data) => {
                 const tarefas = data.data;
                 const totalChecked = tarefas.reduce((count, group) => {
@@ -269,7 +269,7 @@ function ListaTarefas() {
                 uri = uri.slice(0, -1);
             }
             console.log(uri)
-            request.getTasks(casamentoId, uri)
+            request.getTasks(uri)
             .then((data) => {
                 const tarefas = data.data;
                 const totalChecked = tarefas.reduce((count, group) => {
@@ -343,7 +343,7 @@ function ListaTarefas() {
     if (task.status == "EM_ANDAMENTO") task.status = "CONCLUIDO";
     else task.status = "EM_ANDAMENTO";
 
-        request.updateTask(casamentoId, task)
+        request.updateTask(task)
         .then(() => {
             loadTasks();
         }).catch(() => {

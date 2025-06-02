@@ -22,7 +22,6 @@ import ModalBody from "../Modal/ModalBody/ModalBody";
 import ModalFooter from "../Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../Modal/ModalFooterButton/ModalFooterButton";
 import { request } from "../../config/axios/axios";
-import { CasalContext } from "../../context/CasalContext";
 
 function Categoria({ categoria, orcamentoFornecedores, orcamento, setOrcamento }) {
 

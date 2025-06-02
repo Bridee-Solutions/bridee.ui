@@ -1,4 +1,3 @@
-import { element } from "prop-types";
 import LandingPage from "../pages/LandingPage/LandingPage";
 import Login from "../pages/Login/Login";
 import Cadastro from "../pages/Cadastro/Cadastro";
@@ -11,12 +10,7 @@ import Locais from "../pages/Locais/Locais";
 import Convites from "../pages/Convites/Convites";
 import Fornecedores from "../pages/Fornecedores/Fornecedores";
 import Configuracoes from "../pages/ConfiguraçõesDashboard/configuracoes";
-import { CasalContextProvider } from "./CasalContext";
-import { Route, Routes } from "react-router-dom";
-import SimpleBar from "simplebar-react";
 import ConfiguracoesAssessor from "../pages/ConfigurarAssessor/Configuracoes";
-import { AssessorContextProvider } from "./AssessorContext";
-import { decrypt } from "../utils/criptografia";
 import Error from "../pages/Error/Error";
 import Calendario from "../pages/Calendario/Calendario";
 import ConfirmarPresenca from "../pages/ConfirmarPresenca/ConfirmarPresenca";
