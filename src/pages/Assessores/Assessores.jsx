@@ -69,10 +69,10 @@ function Assessores() {
           <div className={stylesAll.container}>
             <div className={styles.navegar}>
               <CategoriaCards
-                cards={cardsData} // mostra os cards da página atual
-                onCardClick={fetchAssessorDetails} // passa a função para selecionar o card
-                totalPages={page.totalPages} // total de páginas para a navegação (paginacao)
-                onPageChange={handleChange} // função de mudança de página
+                cards={cardsData}
+                onCardClick={fetchAssessorDetails}
+                totalPages={page?.totalPages}
+                onPageChange={handleChange}
               />
             </div>
           </div>
