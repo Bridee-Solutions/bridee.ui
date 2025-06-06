@@ -63,8 +63,8 @@ export const request = {
     verifyAssessorEmpresaEmailAndCnpj: async(assessorFields) => {
         return await Api.post(`/assessores/validate-fields`, assessorFields).then(response)
     },
-    getOrcamentoCasal: async (casalId) => {
-        return await Api.get(`/orcamentos/casamento/${casalId}`).then(response)
+    getOrcamentoCasal: async () => {
+        return await Api.get(`/orcamentos/casamento`).then(response)
     },
     saveOrcamentoFornecedores: async (orcamentoFornecedorRequest) =>{
         return await Api.post(`/orcamento-fornecedor`, orcamentoFornecedorRequest)
@@ -72,8 +72,8 @@ export const request = {
     saveItensOrcamentos: async(itensOrcamentoRequest) => {
         return await Api.post(`/itens-orcamento`, itensOrcamentoRequest)
     },
-    saveOrcamentoFornecedor: async(orcamentoFornecedorRequest, categoriaId, casamentoId) => {
-        return await Api.post(`/orcamento-fornecedor/categoria/${categoriaId}/casamento/${casamentoId}`, orcamentoFornecedorRequest)
+    saveOrcamentoFornecedor: async(orcamentoFornecedorRequest, categoriaId) => {
+        return await Api.post(`/orcamento-fornecedor/categoria/${categoriaId}`, orcamentoFornecedorRequest)
     },
     deleteItemOrcamento: async(id) => {
         return await Api.delete(`/itens-orcamento/${id}`)
@@ -81,48 +81,48 @@ export const request = {
     deleteCusto: async(id) => {
         return await Api.delete(`/itens-orcamento/custo/${id}`)
     },
-    updateOrcamentoTotal: async(orcamento, casalId) => {
-        return await Api.put(`/casais/orcamento-total/${casalId}`, {orcamentoTotal: orcamento})
+    updateOrcamentoTotal: async(orcamento) => {
+        return await Api.put(`/casais/orcamento-total`, {orcamentoTotal: orcamento})
     },
-    downloadOrcamentoCsv: async(casalId) => {
-        return await Api.get(`/orcamentos/csv/casamento/${casalId}`)
+    downloadOrcamentoCsv: async() => {
+        return await Api.get(`/orcamentos/csv/casamento`)
     },
-    getDashboard: async(casamentoId) => {
-        return await Api.get(`/dashboards/casamento/${casamentoId}`)
+    getDashboard: async() => {
+        return await Api.get(`/dashboards`)
     },
-    vinculateAssessorToWedding: async(casamentoId, assessorId) => {
-        return await Api.put(`/casamentos/${casamentoId}/assessor/${assessorId}`)
+    vinculateAssessorToWedding: async(assessorId) => {
+        return await Api.put(`/casamentos/assessor/${assessorId}`)
     },
-    updatePrecoAssessor: async(assessorId, casamentoId, valor) => {
-        return await Api.put(`/assessores/${assessorId}/casamento/${casamentoId}`, {preco: valor})
+    updatePrecoAssessor: async(assessorId, valor) => {
+        return await Api.put(`/assessores/${assessorId}/preco`, {preco: valor})
     },
     updatePrecoOrcamentoFornecedor: async(orcamentoFornecedorId, valor) => {
         return await Api.put(`/orcamento-fornecedor/preco/${orcamentoFornecedorId}`, {preco: valor})
     },
-    uploadProfilePicture: async (casalId, formData) => {
-        return await Api.post(`/casais/imagem-perfil/${casalId}`, formData)
+    uploadProfilePicture: async (formData) => {
+        return await Api.post(`/casais/imagem-perfil`, formData)
     },
     sendOrcamentoEmail: async(assessorId, solicitarOrcamentoRequest) => {
         return await Api.post(`/assessores/solicitar-orcamento/${assessorId}`, solicitarOrcamentoRequest)
     },
-    getTasks: async (casamentoId, params = "") => {
-        return  await Api.get(`/tarefas/casamento/${casamentoId}${params}`).then(response.data);
+    getTasks: async (params = "") => {
+        return  await Api.get(`/tarefas${params}`).then(response.data);
     },
-    saveTask: async(casamentoId, tarefa) => {
-        return await Api.post(`/tarefas/casamento/${casamentoId}`, tarefa).then(response);
+    saveTask: async(tarefa) => {
+        return await Api.post(`/tarefas`, tarefa).then(response);
     },
-    updateTask: async(casamentoId, taskUpdated) => {
-        return await Api.put(`/tarefas/casamento/${casamentoId}/tarefa/${taskUpdated.id}`, taskUpdated).then(response);
+    updateTask: async(taskUpdated) => {
+        return await Api.put(`/tarefas/${taskUpdated.id}`, taskUpdated).then(response);
     },
     deleteTask: async(taskId) => {
         return await Api.delete(`/tarefas/${taskId}`).then(response);
     },
-    updateCasamentoMessage: async (casamentoId, messageValue) => {
-        return await Api.put(`/casamentos/${casamentoId}`, {message: messageValue})
+    updateCasamentoMessage: async (messageValue) => {
+        return await Api.put(`/casamentos/mensagem`, {message: messageValue})
     },
-    getConvitesFromCasamento: async (casamentoId, status = "", faixaEtaria = "", categoria="",
+    getConvitesFromCasamento: async (status = "", faixaEtaria = "", categoria="",
         convidado = "", convite = "") => {
-            return await Api.get(`/convites/casamento/${casamentoId}?status=${status}
+            return await Api.get(`/convites?status=${status}
                 &faixaEtaria=${faixaEtaria}&categoria=${categoria}&convidado=${convidado}&convite=${convite}`)
     },
     getCategoriasConvidados: async () => {
@@ -146,28 +146,28 @@ export const request = {
     deleteConvidado: async (convidadoId) => {
         return await Api.delete(`/convidados/${convidadoId}`);
     },
-    getRelatorio: async(casamentoId) => {
-        return await Api.get(`/convites/casamento/${casamentoId}/relatorio`)
+    getRelatorio: async() => {
+        return await Api.get(`/convites/relatorio`)
     },
     deleteAllInvites: async(casamentoId) => {
         return await Api.delete(`/convites/casamento/${casamentoId}`)
     },
-    getConvitesResumo: async(casamentoId) => {
-        return await Api.get(`/convites/casamento/${casamentoId}/resumo`)
+    getConvitesResumo: async() => {
+        return await Api.get(`/convites/resumo`)
     },
-    getProposals: async(idAssessor) => {
-        return await Api.get(`/assessores/${idAssessor}/casais/pendentes`).then(response.data)
+    getProposals: async() => {
+        return await Api.get(`/assessores/casais/pendentes`).then(response.data)
     },
-    getAcceptedProposals: async(assessorId, year) => {
-        return await Api.get(`assessores/${assessorId}/casamentos/assessorados?ano=${year}`)
+    getAcceptedProposals: async(year) => {
+        return await Api.get(`assessores/casamentos/assessorados?ano=${year}`)
     },
-    getOrcamento: async(casamentoId) => {
-        return await Api.get(`/casamentos/${casamentoId}/orcamento`).then(response.data)
+    getOrcamento: async() => {
+        return await Api.get(`/casamentos/orcamento`).then(response.data)
     },
-    acceptProposal: async(casamentoId, assessorId) => {
-        return await Api.put(`casamentos/${casamentoId}/assessor/${assessorId}/aceitar-proposta`)
+    acceptProposal: async(casamentoId) => {
+        return await Api.put(`casamentos/${casamentoId}/aceitar-proposta`)
     },
-    denyProposal: async(casamentoId, assessorId) => {
-        return await Api.put(`casamentos/${casamentoId}/assessor/${assessorId}/recusar-proposta`)
+    denyProposal: async(casamentoId) => {
+        return await Api.put(`casamentos/${casamentoId}/recusar-proposta`)
     } 
 }

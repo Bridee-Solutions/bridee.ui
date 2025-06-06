@@ -5,19 +5,17 @@ import styles from "./WhatsappMensagemModal.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import { request } from "../../../../config/axios/axios";
 import ModalFooter from "../../../Modal/ModalFooter/ModalFooter";
-import { CasalContext } from "../../../../context/CasalContext";
 
 const WhatsappMensagemModal = (props) => {
 
     const message = useRef();
-    const {casamentoId} = useContext(CasalContext)
 
     const updateCasalMessage = () => {
         const messageValue = message.current.value;
-        request.updateCasamentoMessage(casamentoId, messageValue)
+        request.updateCasamentoMessage(messageValue)
         props.closeModal()
     }
 

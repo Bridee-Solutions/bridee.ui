@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Calculadora.module.css";
 import stylesModal from "../ListaTarefas/ListaTarefas.module.css";
@@ -10,11 +10,7 @@ import { faFileExport, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import decoracao from "../../assets/calculadora/decoracaocalculadora.svg";
-import moda from "../../assets/calculadora/modabeleza.svg";
-import aliancas from "../../assets/calculadora/aliancas.svg";
-import etiqueta from "../../assets/calculadora/etiqueta.svg";
-import transporte from "../../assets/calculadora/transporteacomodacao.svg";
-import entretenimento from "../../assets/calculadora/entretenimentocalc.svg";
+import etiqueta from "../../assets/calculadora/etiqueta.svg"
 import CategoriaCalc from "../../componentes/CategoriaCalculadora/CategoriaCalculadora";
 
 import LinkButton from "../../componentes/LinkButton/LinkButton";
@@ -26,11 +22,9 @@ import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 
-import { v4 as uuidv4 } from "uuid";
 import { request } from "../../config/axios/axios";
 import FornecedorCalc from "../../componentes/FornecedorCalculadora/FornecedorCalculadora";
 import { buildItemOrcamentos } from "./CalculadoraService";
-import { CasalContext } from "../../context/CasalContext";
 
 function Calculadora() {
   const [orcamento, setOrcamento] = useState({});
@@ -46,7 +40,6 @@ function Calculadora() {
   const atualizarOrcamento = useRef();
   const orcamentoFornecedorRequest = useRef([]);
   const itensOrcamentoRequest = useRef([]);
-  const {casamentoId} = useContext(CasalContext);
 
   // função para abrir o modal
   const handleEditClick = () => {
@@ -61,7 +54,7 @@ function Calculadora() {
   const salvarOrcamento = () => {
     const valorOrcamento = atualizarOrcamento.current.value;
     updateOrcamento(valorOrcamento);
-    request.updateOrcamentoTotal(Number(valorOrcamento), casamentoId);
+    request.updateOrcamentoTotal(Number(valorOrcamento));
     fecharModal();
   };
 
@@ -104,7 +97,7 @@ function Calculadora() {
   };
 
   const downloadOrcamentoCsv = () => {
-    request.downloadOrcamentoCsv(casamentoId).then((response) => {
+    request.downloadOrcamentoCsv().then((response) => {
       const blob = response.data;
       const file = new File([...blob], "orcamento", { type: "text/plain" });
 
@@ -120,7 +113,7 @@ function Calculadora() {
   };
 
   useEffect(() => {
-    request.getOrcamentoCasal(casamentoId)
+    request.getOrcamentoCasal()
     .then(response => {
     
       response.data.itemOrcamentos = buildItemOrcamentos(response.data);

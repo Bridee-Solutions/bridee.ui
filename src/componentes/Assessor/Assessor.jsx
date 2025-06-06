@@ -1,6 +1,6 @@
 import styles from "./Assessor.module.css";
 
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import iconeAssessor from "../../assets/painel/assessor.svg";
 import Modal from "../Modal/Modal";
 import ModalHeader from "../Modal/ModalHeader/ModalHeader";
@@ -8,10 +8,9 @@ import ModalBody from "../Modal/ModalBody/ModalBody";
 import ModalFooter from "../Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../Modal/ModalFooterButton/ModalFooterButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { request } from "../../config/axios/axios";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
-import { CasalContext } from "../../context/CasalContext";
 
 function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
   const [modalAberto, setModalAberto] = useState(false);
@@ -19,7 +18,6 @@ function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
   const [assessorSelected, setAssessorSelected] = useState();
   const [assessor, setAssessor] = useState();
   const [isChosen, setIsChosen] = useState(false);
-  const {casamentoId} = useContext(CasalContext)
 
   const assessorModalRef = useRef();
 
@@ -65,7 +63,6 @@ function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
 
   const vinculateAssessorToWedding = async () => {
     const assessor = await request.vinculateAssessorToWedding(
-      casamentoId,
       assessorSelected.id
     );
     console.log(assessor);
@@ -75,7 +72,7 @@ function Assessor({ assessorResponseDto, orcamento, setOrcamento }) {
   };
 
   const updateAssessorPrice = async (value) => {
-    request.updatePrecoAssessor(assessor.id, casamentoId, Number(value));
+    request.updatePrecoAssessor(assessor.id, Number(value));
     const newPrice = Number(value);
     const assessorPrice = assessorResponseDto.preco;
     orcamento.orcamentoGasto =

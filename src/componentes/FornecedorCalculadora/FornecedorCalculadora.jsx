@@ -2,20 +2,17 @@ import styles from "../../pages/Calculadora/Calculadora.module.css";
 import stylesCalc from "../CategoriaCalculadora/CategoriaCalculadora.module.css";
 import "./FornecedorCalculadora.module.css";
 import "../../index.css";
-import add from "../../assets/calculadora/add.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import aliancas from "../../assets/calculadora/aliancas.svg";
 
 
 import {
   faChevronDown,
   faChevronUp,
-  faTrash,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { request } from "../../config/axios/axios";
-import { CasalContext } from "../../context/CasalContext";
 
 function FornecedorCalc({
   categoria,
@@ -26,7 +23,6 @@ function FornecedorCalc({
 }) {
 
   const [isModified, setIsModified] = useState(false);
-  const {casamentoId} = useContext(CasalContext);
 
   const handleModifiedChange = (item, value) => {
     item.preco = Number(value)
@@ -46,8 +42,7 @@ function FornecedorCalc({
       return {
         id: orcamentoFornecedor.id,
         preco: Number(orcamentoFornecedor.preco),
-        fornecedorId: orcamentoFornecedor.fornecedor.id,
-        casamentoId: casamentoId
+        fornecedorId: orcamentoFornecedor.fornecedor.id
       }
     }))    
   }, [categorias])

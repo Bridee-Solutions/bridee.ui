@@ -1,16 +1,12 @@
 import Navbar from "../../componentes/Navbar/Navbar";
 import styles from "./Painel.module.css";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 
 import LinkButton from "../../componentes/LinkButton/LinkButton";
 import "../../index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Categoria from "../../componentes/Categoria/Categoria";
-import grupo from "../../assets/painel/grupo.svg";
-import sentados from "../../assets/painel/sentados.svg";
-import mesas from "../../assets/painel/mesas.svg";
 import Contagem from "../../componentes/ContagemRegressiva/ContagemRegressiva";
 import {
   faCalendarAlt,
@@ -24,15 +20,12 @@ import Assessor from "../../componentes/Assessor/Assessor";
 import ArcoFinanceiro from "../../componentes/ArcoFinanceiro/ArcoFinanceiro";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import { request } from "../../config/axios/axios";
-import { CasalContext } from "../../context/CasalContext";
-
 
 function Painel() {
   const inputRef = useRef(null);
   const [imageUrl, setImageUrl] = useState(null);
   const [dashboardInfo, setDashboardInfo] = useState({});
   const [orcamento, setOrcamento] = useState({})
-  const {casamentoId} = useContext(CasalContext);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -48,11 +41,11 @@ function Painel() {
       formData.append("file", file)
       const imageMetadata = {
         nome: `${dashboardInfo.casamentoInfo.casal.nome}&${dashboardInfo.casamentoInfo.casal.nomeParceiro}`,
-        tipo: `Perfil`,
+        tipo: `PERFIL`,
         extensao: `${file.name.split(".")[file.name.split(".").length-1]}`
       }
       formData.append("metadata", JSON.stringify(imageMetadata))
-      request.uploadProfilePicture(casamentoId,formData);
+      request.uploadProfilePicture(formData);
       
     }
   };
@@ -75,10 +68,10 @@ function Painel() {
   }
 
   useEffect(() => {
-    request.getDashboard(casamentoId).then(response => {
+    request.getDashboard().then(response => {
       setDashboardInfo(response.data)
       setOrcamento(response.data.orcamento)
-      const url = `data:image/**;base64,${response.data.casamentoInfo.image}`
+      const url = `${response.data.casamentoInfo.image}`
       setImageUrl(url)
     })
     

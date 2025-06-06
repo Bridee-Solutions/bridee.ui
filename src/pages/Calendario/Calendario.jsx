@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Calendario.module.css";
 import { request } from "../../config/axios/axios";
 
@@ -6,7 +6,6 @@ import bell from "/src/assets/proposal/notification.svg";
 import acceptProposal from "/src/assets/proposal/accept_proposal.svg";
 import confetti from "/src/assets/proposal/confetti.svg";
 
-import Navbar from "../../componentes/Navbar/Navbar";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
 import { ContinuousCalendar } from "../../componentes/ContinuousCalendar/ContinuousCalendar.jsx";
 import Modal from "../../componentes/Modal/Modal";
@@ -15,10 +14,9 @@ import ModalBody from "../../componentes/Modal/ModalBody/ModalBody";
 import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faLocationDot, faX } from "@fortawesome/free-solid-svg-icons";
-import { AssessorContext } from "../../context/AssessorContext.jsx";
-import { CasalContext } from "../../context/CasalContext.jsx";
 import NavbarAssessor from "../../componentes/NavbarAssessor/NavbarAssessor";
+
+
 function Calendario() {
   const [proposal, setProposal] = useState({});
   const [listAcceptedProposals, setListAcceptedProposals] = useState([]);
@@ -26,18 +24,17 @@ function Calendario() {
   const [modalAcceptProposal, setModalAcceptProposal] = useState(false);
   const [modalViewProposal, setModalViewProposal] = useState(false);
   const [year, setYear] = useState(new Date().getFullYear());
-  const { assessorId } = useContext(CasalContext);
 
   useEffect(() => {
     loadProposals();
   }, [year]);
 
   const loadProposals = () => {
-    request.getProposals(assessorId).then((data) => {
+    request.getProposals().then((data) => {
       setListProposals(data.data.content);
     });
 
-    request.getAcceptedProposals(assessorId, year).then((data) => {
+    request.getAcceptedProposals(year).then((data) => {
       setListAcceptedProposals(data.data);
     });
   };
@@ -58,7 +55,7 @@ function Calendario() {
   };
 
   const acceptProposalFunc = () => {
-    request.acceptProposal(proposal.id, assessorId).then(() => {
+    request.acceptProposal(proposal.id).then(() => {
       console.log("aceitamos proposta");
       setModalViewProposal(false);
       setModalAcceptProposal(true);
@@ -67,7 +64,7 @@ function Calendario() {
   };
 
   const denyProposalFunc = () => {
-    request.denyProposal(proposal.id, assessorId).then(() => {
+    request.denyProposal(proposal.id).then(() => {
       setModalViewProposal(false);
       loadProposals();
     });

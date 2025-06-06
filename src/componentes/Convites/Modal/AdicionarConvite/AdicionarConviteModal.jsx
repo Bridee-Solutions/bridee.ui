@@ -5,11 +5,9 @@ import ModalHeader from "../../../Modal/ModalHeader/ModalHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import styles from "./AdicionarConviteModal.module.css"
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AdicionarConvidado from "./AdicionarConvidado";
-import { useParams } from "react-router-dom";
 import { request } from "../../../../config/axios/axios";
-import { CasalContext } from "../../../../context/CasalContext";
 
 const AdicionarConviteModal = (props) => {
 
@@ -17,22 +15,21 @@ const AdicionarConviteModal = (props) => {
     const [convidadoData, setConvidadoData] = useState([])
     const nomeConvite = useRef();
     const telefoneTitular = useRef();
-    const {casamentoId} = useContext(CasalContext)
 
     useEffect(() => {
         createGuest()
     }, [])
 
     const createGuest = () => {
-        return setConvidados([...convidados,<AdicionarConvidado key={convidados.length} setConvidadoData={setConvidadoData} 
-            convidadoData={convidadoData} index={convidados.length}/>])
+        const newGuest = <AdicionarConvidado key={convidados.length} setConvidadoData={setConvidadoData} 
+            convidadoData={convidadoData} index={convidados.length}/>
+        return setConvidados([...convidados, newGuest])
     }
 
     const createConviteRequest = () =>{
         return {
             nome: nomeConvite.current.value,
             telefoneTitular: telefoneTitular.current.value,
-            casamentoId: casamentoId,
             convidados: convidadoData
         }
     }

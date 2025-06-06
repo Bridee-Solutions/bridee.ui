@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect, useContext} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import { toast } from "react-toastify";
 import styles from "./ListaTarefas.module.css";
 import "../../index.css";
@@ -23,7 +23,6 @@ import ModalBody from "../../componentes/Modal/ModalBody/ModalBody";
 import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
 import Baseboard from "../../componentes/LandingPage/BaseBoard/Baseboard";
-import { CasalContext } from '../../context/CasalContext';
 
 function ListaTarefas() {
     const [checkedCount, setCheckedCount] = useState(0);
@@ -43,7 +42,6 @@ function ListaTarefas() {
     const descriptionTaskView = useRef(null);
     const dateTaskView = useRef(null);
     const categoryTaskView = useRef(null);
-    const {casamentoId} = useContext(CasalContext);
     
     useEffect(() => {loadTasks()}, []);
     
@@ -183,7 +181,7 @@ function ListaTarefas() {
       dataLimite: dateTaskSave.current.value,
     };
 
-        request.saveTask(casamentoId, newTask)
+        request.saveTask(newTask)
         .then(() => {
             fecharModalAdd();
             loadTasks();
@@ -210,7 +208,7 @@ function ListaTarefas() {
     };
 
         console.log(updatedTask)
-        request.updateTask(casamentoId, updatedTask)
+        request.updateTask(updatedTask)
         .then(() => {
             loadTasks();
             fecharModalView();
@@ -229,7 +227,7 @@ function ListaTarefas() {
         const isEmpty = Object.keys(filters).length === 0 && filters.constructor === Object;
         
         if (isEmpty){
-            request.getTasks(casamentoId)
+            request.getTasks()
             .then((data) => {
                 const tarefas = data.data;
                 const totalChecked = tarefas.reduce((count, group) => {
@@ -271,7 +269,7 @@ function ListaTarefas() {
                 uri = uri.slice(0, -1);
             }
             console.log(uri)
-            request.getTasks(casamentoId, uri)
+            request.getTasks(uri)
             .then((data) => {
                 const tarefas = data.data;
                 const totalChecked = tarefas.reduce((count, group) => {
@@ -345,7 +343,7 @@ function ListaTarefas() {
     if (task.status == "EM_ANDAMENTO") task.status = "CONCLUIDO";
     else task.status = "EM_ANDAMENTO";
 
-        request.updateTask(casamentoId, task)
+        request.updateTask(task)
         .then(() => {
             loadTasks();
         }).catch(() => {

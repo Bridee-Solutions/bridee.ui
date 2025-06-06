@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { decrypt, encrypt } from "../utils/criptografia";
+import { decrypt } from "../utils/criptografia";
 import { assessorRotas, casalRotas, rotasComuns } from "./Context";
 
 export const CasalContext = createContext()
@@ -8,14 +8,7 @@ export const CasalContext = createContext()
 export const CasalContextProvider = ({children}) => {
     
     const [convites, setConvites] = useState();
-    const [casamentoId, setCasamentoId] = useState(() => {
-        return decrypt(localStorage.getItem("casamentoId") ? 
-            localStorage.getItem("casamentoId") : "");
-    })
-    const [assessorId, setAssessorId] = useState(() => {
-        return decrypt(localStorage.getItem("assessorId") ? 
-            localStorage.getItem("assessorId") : "");
-    })
+   
     const tipoUsuario = decrypt(localStorage.getItem("tipoUsuario") ? localStorage.getItem("tipoUsuario") : "");
     const authenticated = decrypt(localStorage.getItem("isAuthenticated") ? localStorage.getItem("isAuthenticated") : "");
 
@@ -54,8 +47,7 @@ export const CasalContextProvider = ({children}) => {
         }
     },[])
 
-    return <CasalContext.Provider value={{casamentoId: casamentoId, setCasamentoId: setCasamentoId, convites: 
-    convites, setConvites: setConvites, assessorId: assessorId, setAssessorId: setAssessorId}}>
+    return <CasalContext.Provider value={{ convites: convites, setConvites: setConvites}}>
         {children}
     </CasalContext.Provider>
 
