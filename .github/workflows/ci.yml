@@ -46,6 +46,6 @@ jobs:
         REGISTRY: ${{steps.login-ecr.outputs.registry}}
         TAG: ${{steps.generate_tag.outputs.sha}}
       run: |
-        docker build -t $REGISTRY/bridee-ui:$TAG .
-        docker tag $REGISTRY/bridee-ui:$TAG $REGISTRY/bridee-ui:latest
-        docker push --all-tags $REGISTRY/bridee-ui
+        docker build -t $REGISTRY/bridee-ui2:$TAG .
+        docker tag $REGISTRY/bridee-ui2:$TAG $REGISTRY/bridee-ui2:latest
+        docker push --all-tags $REGISTRY/bridee-ui2
