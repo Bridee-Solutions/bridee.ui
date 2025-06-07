@@ -15,6 +15,7 @@ import ModalFooter from "../../componentes/Modal/ModalFooter/ModalFooter";
 import ModalFooterButton from "../../componentes/Modal/ModalFooterButton/ModalFooterButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavbarAssessor from "../../componentes/NavbarAssessor/NavbarAssessor";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 
 function Calendario() {

@@ -81,9 +81,9 @@ function Assessores() {
 
       {showAssessor && selectedCard && (
         <DetalhesPerfil
-          selectedCard={selectedCard} // passando o card selecionado
-          handleBack={handleBack} // passando a função de voltar
-          cardsData={cardsData} // passando para o componente DetalhesPerfil os dados dos cards
+          selectedCard={selectedCard}
+          handleBack={handleBack}
+          cardsData={cardsData}
         />
       )}
       <Baseboard />
