@@ -1,5 +1,5 @@
 import { faUser, faEnvelope, faPhone, faCalendar, faUsers } from "@fortawesome/free-solid-svg-icons";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import styles from "./OrcamentoCard.module.css";
 import InputIcon from "../../componentes/InputIcon/InputIcon";
 import LinkButton from "../../componentes/LinkButton/LinkButton";
@@ -34,13 +34,17 @@ const OrcamentoCard = ({assessorId}) => {
     qtdConvidados.current = value
   }
 
-  const solicitarOrcamento = (assessorId) => {
+  const solicitarOrcamento = () => {
     telefone.current = removeMask(telefone.current)    
     
+    let casalTelefone = telefone.current.replaceAll(" ", "")
+    casalTelefone = casalTelefone.replaceAll("-", "")
+    casalTelefone = casalTelefone.replaceAll("(", "")
+    casalTelefone = casalTelefone.replaceAll(")", "")
     const solicitarOrcamentoRequest = {
       nome: nome.current,
       emailCasal: emailCasal.current,
-      telefone: telefone.current,
+      telefone: casalTelefone,
       data: data.current,
       qtdConvidados: qtdConvidados.current,
       messageCasal: messageCasal.current.value
