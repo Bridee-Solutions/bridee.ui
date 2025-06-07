@@ -52,6 +52,8 @@ const Login = () => {
   const setUserLocalStorage = (data) => {
     localStorage.setItem("tipoUsuario", encrypt(data.tipoUsuario));
     localStorage.setItem("isAuthenticated", encrypt(true))
+    localStorage.setItem("access_token", data.accessToken)
+    localStorage.setItem("refresh_token", data.refreshToken)
   }
 
   const googleSuccessLogin = (response) => {

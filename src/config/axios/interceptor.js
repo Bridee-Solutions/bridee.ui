@@ -10,8 +10,10 @@ export const interceptorsConfiguration = () => {
             return config;
         }
         const token = localStorage.getItem("access_token");
+        const refreshToken = localStorage.getItem("refresh_token")
         if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
+            config.headers["Bridee-Token"] = `Bearer ${token}`;
+            config.headers["refresh-token"] = refreshToken
         }
         return config;
     })

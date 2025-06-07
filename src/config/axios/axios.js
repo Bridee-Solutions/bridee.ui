@@ -3,7 +3,7 @@ import { interceptorsConfiguration } from './interceptor';
 
 // const baseUrl = import.meta.env.VITE_BACKEND_URL;
 export const Api = axios.create({
-    baseURL: "http://bridee-solutions.zapto.org/api",
+    baseURL: "http://3.226.195.212/api",
     withCredentials: true
 });
 
