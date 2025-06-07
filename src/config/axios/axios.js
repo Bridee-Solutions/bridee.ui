@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { interceptorsConfiguration } from './interceptor';
 
-const baseUrl = import.meta.env.VITE_BACKEND_URL;
+// const baseUrl = import.meta.env.VITE_BACKEND_URL;
 export const Api = axios.create({
-    baseURL: baseUrl,
+    baseURL: "http://bridee-solutions.zapto.org/api",
     withCredentials: true
 });
 
