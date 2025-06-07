@@ -91,7 +91,7 @@ export const request = {
         return await Api.get(`/dashboards`)
     },
     vinculateAssessorToWedding: async(assessorId) => {
-        return await Api.put(`/casamentos/assessor/${assessorId}`)
+        return await Api.put(`/casamentos/assessor/${assessorId}/vincular`)
     },
     updatePrecoAssessor: async(assessorId, valor) => {
         return await Api.put(`/assessores/${assessorId}/preco`, {preco: valor})
