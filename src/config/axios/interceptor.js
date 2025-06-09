@@ -1,4 +1,3 @@
-import { encrypt } from "../../utils/criptografia";
 import { Api } from "./axios";
 
 export const interceptorsConfiguration = () => {
@@ -27,7 +26,8 @@ export const interceptorsConfiguration = () => {
                 if(error.response.status == 401 && !config._retry){
                     config._retry = true;
                     return refreshToken().then(response => {
-                        if(response.status == 204){
+                        if(response.status == 200){
+                            localStorage.setItem("access_token", response?.data?.accessToken)
                             return Api(config)
                         }
                     }).catch((error) => {
