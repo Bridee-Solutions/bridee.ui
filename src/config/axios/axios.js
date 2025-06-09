@@ -135,7 +135,11 @@ export const request = {
         return await Api.post(`/convidados/convite/${conviteId}`, convidado)
     },
     updateConvidado: async (convidadoId, convidado) => {
-        return await Api.patch(`/convidados/${convidadoId}`, convidado)
+        return await Api.patch(`/convidados/${convidadoId}`, convidado, {
+            headers: {
+                "Content-Type": "application/merge-patch+json"
+            }
+        })
     },
     saveConvite: async (convite) => {
         return await Api.post(`/convites`, convite);
