@@ -52,7 +52,7 @@ export const request = {
         return await Api.post(`/authentication`, usuario).then(response)
     },
     resendVerificationEmail: async(email) => {
-        return await Api.get(`/usuarios/resend/verification-email/${email}`).then(response)
+        return await Api.post(`/usuarios/resend/verification-email/${email}`).then(response)
     },
     saveAssessor: async(usuario) => {
         return await Api.post(`/assessores`, usuario).then(response)
@@ -135,7 +135,7 @@ export const request = {
         return await Api.post(`/convidados/convite/${conviteId}`, convidado)
     },
     updateConvidado: async (convidadoId, convidado) => {
-        return await Api.put(`/convidados/${convidadoId}`, convidado)
+        return await Api.patch(`/convidados/${convidadoId}`, convidado)
     },
     saveConvite: async (convite) => {
         return await Api.post(`/convites`, convite);
